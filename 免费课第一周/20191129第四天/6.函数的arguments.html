@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function sum(){// 函数定义的参数叫形参
+        //     //console.log(num2);// undefined
+        //     // 在函数体中，有个关键字；是arguments
+        //     // console.log(arguments);// 实参集合；每一项对应一个索引，而且还有length;
+        //     //类似于数组，但又不是一个数组；可以通过索引获取到其中的每一项；
+        //     // console.log(arguments[0])
+        //     // console.log(arguments[1])
+        //     // console.log(arguments[2])
+        //     //console.log(arguments)
+        //     // var total = arguments[0]+ arguments[1]+arguments[2]+arguments[3]+arguments[4]+arguments[5]+arguments[6];
+        //     // console.log(total);
+        //     // var total = 0;// 10
+        //     var total = 0;// 每进一次循环，都会把total重置为0；
+        //     for(var i=0;i<arguments.length;i++){
+        //         total+=arguments[i];// 实现累加
+        //     }
+        //     console.log(total);
+        // }
+        // sum(10,20,30,40,50,60,70);// 函数执行的位置是实参；
+
+
+
+        // function fn(a,b,c){// 形参
+        //     //console.log(a);
+        //     //console.log(b);
+        //     //a=100;
+        //     ///console.log(arguments);
+        //     arguments[0]=100;
+        //     console.log(a);
+        //     // 形参和arguments存在一一映射的关系，当形参发生改变，arguments也会改变；
+        // }
+        // fn(1,2,3,5,5,6,7,0)
+        
+
+        // 1.先过滤出所有不是number的数值，然后再过滤NaN；
+        // function sum(){
+        //     var total=0;
+        //     for(var i=0;i<arguments.length;i++){
+        //         //isNaN 检测如果是false,说明是数字；
+        //         if(typeof arguments[i]==="number"&&!isNaN(arguments[i])){// 检测是number的值
+        //             total+=arguments[i];
+        //         }
+        //     }
+        // }
+        // sum(101,"3",NaN,88,"2px",99,undefined,null);
+        // 2. 
+        function sum(){
+            var total=0;
+            for(var i=0;i<arguments.length;i++){
+                var num = Number(arguments[i]);
+                if(!isNaN(num)){
+                    total +=num;
+                }
+            }
+            //console.log(total);
+        }
+        sum(101,"3",NaN,88,"2px",99,undefined,null);
+
+
+    </script>
+</body>
+</html>

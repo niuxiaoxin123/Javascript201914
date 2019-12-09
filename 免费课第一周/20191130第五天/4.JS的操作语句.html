@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 操作语句：三个判断  三个循环语句；
+    // 1. if  else 
+    if([]==[]){
+        // 如果括号中的条件返回true，那么该条件执行；
+
+    }else{
+
+    }
+    // 只能走其中一个条件；
+    if([]){
+        // 只要遇到一个条件成立的，立即执行，不管下面条件是否有没有都不再执行了
+    }else if(NaN==NaN){
+
+    }else if(Number("3px")){
+
+    }else{
+       // 以上都不成立，执行这个else 
+    }
+
+    // 嵌套
+    if(1){
+        if(NaN){
+            if(1==1){
+
+            }
+        }else{
+
+        }
+    }
+
+    // 2.三元运算符，适用于简单的if else;
+    // 条件？条件成立执行的代码：条件不成立执行的代码
+    // if(1==1){
+    //     if(1==="1"){
+    //         console.log(1)
+    //     }else{
+    //         console.log(2); 
+    //     }
+    // }else{
+    //     console.log(3);
+    // }
+    //1==1?(1==="1"?console.log(1):console.log(2)):console.log(3)
+
+    // switch case 
+    // 进行的是绝对比较
+    // switch(100){
+    //     case "100":
+    //         console.log(88);
+    //         break;
+    //     case Number("100"):
+    //         console.log(99);
+    //         break;
+    //     default:
+    //         console.log(0);
+    // }
+
+
+    // 三个循环
+    // for   for in  while 
+    // for(var i=0;i<10;i++){
+    //     //console.log(2);
+    //     for(var j=0;j<7;j++){
+    //         console.log(1);// 70
+    //     }
+    // }
+    // 函数分为定义和执行
+    // 1.在函数名的后面加();
+    // 2.给元素的事件绑定的方法，触发事件的时候，执行该函数；
+    // for(var i=0;i<3;i++){
+    //     oLis[i].onclick  = function(){
+    //         console.log(2); // 函数当点击的时候，才会执行；
+    //     }
+    // }
+    
+   
+    
+    // 1.for循环四部曲
+    // 1) 初始化变量i;
+    // 2) 条件判断
+    // 3) 执行循环体
+    // 4) i++;
+    // 1-->2-->3-->4-->2-->3-->4--....
+    // 2. ++ --
+    // 3. break continue
+    // 在循环中遇到break,那么不再执行i++;break 中止整个循环
+    // 遇到continue,还会执行i++;中止本轮循环；
+//    for(var i=0;i<10;i++){
+//        continue;
+//    }
+//     console.log(i)
+
+    // for  in :用于循环对象,也可以循环数组；
+    // var obj = [100,3,55,66,88]
+    // for(var key in obj){
+    //     //key : 属性名 key 是一个字符串；
+    //     console.log(key);
+    //     //console.log(obj[key]);
+    // }
+
+
+    // while 
+    var i=0;
+    while(i<5){
+       i++;
+    }
+
+
+
+
+
+
+
+    
+    
+    
+    </script>
+</body>
+</html>

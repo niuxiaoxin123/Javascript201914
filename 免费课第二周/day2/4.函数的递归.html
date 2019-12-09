@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 冒泡排序   插入排序    快速排序；为了提高大家编程思想；
+    // sort排序；
+    // 求1-100之间是3并且是5倍数的和；
+    // var total =0;
+    // for(var i=1;i<=100;i++){
+    //     if(i%3===0 && i%5===0){// 取余
+    //         total+=i;
+    //     }
+    // }
+    // Maximum call stack size exceeded : 栈溢出；
+    // 在函数体内部执行函数它自己本身的这种现象，就是函数的递归；
+    // 递归中的函数一般都有中止的条件 
+    
+    // function fn(){
+    //     //console.log(1);
+    //     fn();// 函数fn会从头开始执行；
+    // }
+    // fn();
+
+    // 用递归的方法求1-100的和
+    function sum(num){
+        if(num===0){
+            return 0;// return：
+        }
+        if(num%3===0&&num%5===0){
+            return num+sum(num-1)
+        }else{
+            return sum(num-1);
+        }
+    }
+    var total = sum(100);
+    console.log(total);
+    
+    // 第一次： sum(100)      100+99+98+97+ 2+1;
+    // 第二次   sum(99)       99+sum(98)
+    // 第三次    sum(98)       98+sum(97)
+
+    // function f(){
+    //     return 100;
+    // }
+    //  var r = f()// 是f的执行结果
+
+    // 1-100之间是3和5倍数的和；用递归的方法；
+    
+
+
+
+
+    
+    
+    </script>
+</body>
+</html>

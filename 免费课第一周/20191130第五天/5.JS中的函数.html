@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //函数分为定义和执行两部分
+        //函数定义；函数是引用数据类型；是一个空间地址类型；
+        // 函数的定义：
+        // 1) 在堆内存中开辟一个空间地址对应的堆内存
+        // 2) 把函数体中的代码当做字符串存储到堆内存中；
+        // 3) 把这个空间地址赋值给函数名；
+
+        // 函数的执行
+        // 1. 形成一个私有的作用域；
+        // 2. 形参的赋值
+        // 3. 变量提升
+        // 4. 代码从上到下执行
+        // 5. 作用域是否销毁；
+
+            // var  t = 100;
+            // 函数体中的代码不能自动解析；
+        //function fn(a=1,b=2){ // 函数定义的小括号就是形参
+            //console.log(a);
+        //}
+        //fn(undefined);// 函数执行，那么就是实参；
+
+        // 2. 形参和实参
+        // 1. 如果只有形参，没有实参，那么形参的默认值就是undefined；
+        // 2. 形参的默认值；如果没有传实参，那么a的默认值是1；如果有值,并且不是undefined，那么会将默认值覆盖；如果给undefined，那么还是默认值；
+
+        // 3.arguments : 实参集合；
+        // function fn(a,b,c){
+        //     // arguments : 实参集合；它是一个类数组，但不是数组
+        //     a=0;
+        //     console.log(arguments[0])// 形参和arguments存在一一映射关系；当a变化时，arguments中的值也发生改变；当arguments中的值改变，a也发生改变；
+        //     // var total = 0;
+        //     // for(var i=0;i<arguments.length;i++){
+        //     //         total+=arguments[i];
+        //     // }
+        // }
+        // fn(1,2,3,39,9,9,7,5,6);
+
+        // 4.return 
+        function fn(){
+            var total =0;
+            for(var i=0;i<arguments.length;i++){
+                total+=arguments[i];
+            }
+            //return total;// 不是吧totalreturn出去，仅仅是把total存储的值返回到函数的外面；那么total这个值就是函数的执行结果，也叫函数的返回值；
+            return;
+            console.log(99);
+            // 1. 函数如果没有return，那么函数默认的返回值是undefined；
+            // 2. 如果return后面没有东西，那么函数的返回值也是undefined；
+            // 3. 函数体中return下面的代码都不再执行了；
+        }
+        //var val= fn(12,90,7,87,39);
+        //console.log(val);
+        //console.log(fn(12,90,7,87,39))
+
+        // 匿名函数
+        // 函数表达式；
+        // var fn = function(){}
+        // let f=()=>{}
+        // f();
+        //typeof fn-->"function"
+
+        // 自执行函数；
+        (function(){})();
+        !function(){}();
+        +function(){}();
+        -function(){}();
+        ~function(){}();
+    
+    </script>
+</body>
+</html>

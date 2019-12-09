@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 基本数据类型和引用数据类型；
+        // 引用数据类型分为对象数据类型和函数数据类型；
+        // 引用数据类型是空间地址类型
+        // 栈内存和堆内存；内存存储东西；
+        var num1=100;// 栈内存
+        console.log(num);
+        var obj = {};// 堆内存
+        // 1. 开辟一个堆内存，这个堆内存对应一个空间地址；
+        // 2. 把对象中的键值对存储到这个空间地址中
+        // 3. 把这个空间地址赋值给这个变量名
+
+        // obj=指针都存储到栈内存中，指针指向堆内存；
+        // var ary =[];
+        // console.log(obj.a);
+
+        if(obj[cur]===cur){
+
+        }
+
+        
+        obj[cur]=cur;
+        //var b =1;
+        var obj = {name:"珠峰",age:10,1:19,a:b};
+        var cur = obj.name
+        var cur = obj["name"];
+        if(obj["name"]){
+        }
+        obj["name"]=1;
+        obj.name=100;
+        obj["class"]=14;
+        obj["age"]=9;
+
+
+        // for in 
+        for(var key in obj){
+            console.log(key);// 属性名带着字符串
+            // 循环第一轮代表"name"
+            console.log(obj[key])// 获取属性名对应的属性值；
+            var cur =obj[key];
+            obj[key]=1;
+        }
+        // in : 用来检测该属性是否存在在obj中，存在返回true，不存在返回false；
+
+
+        var  ary = [10,20,390,3,49];
+        // 数组也是由键值对组成的；键值对的属性名是从0开始的索引；
+        ary[1]
+        for(var i=0;i<ary.length;i++){
+            var  cur = ary[i];
+        }
+
+        // 1.obj 
+        // obj["name"]=100;
+        // // 2.string "helloworld"
+        // //str[2]
+        // // 3. ary=[]
+        // ary[2]=100;
+        // // 4. document.getElementsByTagName("li");
+        // oLis[i]
+
+
+    
+    
+    
+    </script>
+</body>
+</html>

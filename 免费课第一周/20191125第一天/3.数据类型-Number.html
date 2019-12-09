@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 数据类型的Number
+    // 所有的数字都是Number类型的；小数、正数、负数、NaN 都是Number类型的；
+    // typeof : 进行数据类型的检测；
+    // console.log(typeof "1")
+    // console.log(typeof NaN)
+    var num1 = 100;
+    var num2=3;
+    console.log(num1*num2);
+
+    // Number : 方法；把其他数据类型强制转换成number类型的方法
+    console.log(Number("100"))
+    console.log(Number(200));
+    console.log(Number("3px"))// NaN
+    console.log(Number([101,39]))
+    console.log(Number(null))// 0
+    console.log(Number(undefined))// NaN
+    Number(true)// 1
+    Number("")// 0
+    Number(" ")// 0 
+    Number(false) // 0
+    console.log(Number(" "))
+    
+    // NaN : NaN和任何数字运算都是NaN;NaN 不是一个数字，但是是一个number类型的；
+
+    // parseFloat : 字符串从左到右依次提取数字，直到遇到一个非有效数字的值为止，但是能识别小数点
+    console.log(parseFloat("3.88.99px"))// 3.88
+    console.log(parseFloat("px3"))// NaN
+    console.log(parseFloat("px"))// NaN
+    console.log(parseFloat("3px4rem"));
+
+    // parseInt : 相对于parseFloat ;不能识别小数点
+    console.log(parseInt("3.88px"));
+
+    // isNaN  ： 结果一定是一个布尔值；如果是有效数字返回false，不是有效数字返回true；
+    console.log(isNaN(13))// false
+    console.log(isNaN(NaN))// true
+    console.log(isNaN("13px"))// 如果不是一个数字，那么会默认调用Number方法转成数字，然后再判断；
+
+    // toFixed : 保留小数点位数的；结果是一个字符串；由四舍五入的机制；
+    var num= 99;
+    console.log(num.toFixed(2));
+    console.log(999..toFixed(3));
+
+    
+    </script>
+</body>
+</html>

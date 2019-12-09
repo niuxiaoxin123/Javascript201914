@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 数组： 是对象数据类型的；空间地址类型；
+        //var obj = {class:201914};
+        // 1.开辟一个堆内存，这个堆内存对应一个十六进制的空间地址；
+        // 2.把键值对放进空间地址中
+        // 3.把这个空间地址赋值给变量名obj;
+        var ary = [1,27,8,3,4,6,666,88];
+        // 1. 有length :代表数组的成员个数
+        //console.log(ary.length)
+        // 2. 有索引
+        //console.log(ary[1]);
+        //ary.length-=1;
+        //ary.length--;
+        //console.log(ary.length);
+
+        // 1. pop : 是一个方法，函数；
+        //var a = ary.pop();
+        //console.log(ary);
+        //console.log(a);
+
+        // 2. push 
+        //var  t = ary.push(100,200);
+        //console.log(ary);
+        //console.log(t);
+        
+        //ary[ary.length]=100;
+       
+        // 3. shift 
+        //var d =ary.shift();
+        //console.log(d);
+
+        // 4.unshift : 新增数组第一项
+        // var  l = ary.unshift(8899,1010,2);
+        // console.log(ary);
+        // console.log(l);
+        // 5. slice : 数组的截取
+        // function fn(arr,a,b){
+        //     // ary ：要截取的数组
+        //     // a : 开始截取的索引
+        //     // b : 结束的索引
+        //     var  tempAry = [];
+        //     for(var i=0;i<arr.length;i++){
+        //         if(i>=a&&i<6){
+        //             tempAry.push(arr[i]);
+        //         }
+        //     }
+        //     return tempAry;
+        // }
+        // var  newAry = fn(ary,3,6);
+        // console.log(newAry);
+        // var ary = [1,27,8,3,4,6,666,88];
+        // // var r = ary.slice(3,6);
+        // // console.log(r);
+        // var  r = ary.slice(1,-1);
+        // console.log(r);
+        // console.log(ary);
+        
+        // 6.splice  删除
+        //var newAry = ary.splice(3)
+        //console.log(newAry);
+        //console.log(ary);
+        // 替换
+        // var newAry = ary.splice(3,1,999,777)
+        // console.log(newAry);
+        // console.log(ary);
+        // 新增 在索引3的前面新增两项
+        // var newAry = ary.splice(3,0,999,777)
+        // console.log(newAry);
+        // console.log(ary);
+
+        //var ary = [1,27,8,3,4,6,666,88];
+        //console.log(ary.slice(7,3));
+        //console.log(ary.splice(3,-1))
+        //console.log(ary);
+
+        // indexOf ： 检测数组成员在数组中第一次出现的索引位置；
+ 
+        //console.log(ary.indexOf(66));
+        //console.log(ary);
+
+        // lastIndexOf:检测数组成员在数组中最后一次出现的索引位置；
+        //console.log(ary.lastIndexOf(77))
+
+        // sort : 排序
+        // var  a = [23,45,32,666,56,8,10,99];
+        // console.log(a.sort())
+        //    var  newAry = ary.sort(function(a,b){
+        //        return a-b;
+        //     });
+        //    console.log(newAry);
+        //    var newAry =ary.reverse();
+        //    console.log(newAry);
+        //    console.log(ary);
+    
+        //11. concat : 连接；
+        // var ary1=[100,200];
+        // var newAry =ary.concat(ary1,ary1,"78",67);
+        // console.log(newAry);
+        // console.log(ary);
+        // 12.join
+        // console.log(ary.join("+"))
+        
+        // 13. forEach
+        // var val = ary.forEach(function(item,index){
+        //     // 有多少项，函数就执行多少次
+        //     // item : 数组的每一项
+        //     // index ： 代表的是索引
+        //     //console.log(item);
+        //     //console.log(index);
+        //     return 1;
+        // });
+        // console.log(val);// undefined
+        var ary = [1,27,6,8,3,4,6,666,88,6];
+        // 14.map 映射
+        var val = ary.map(function(item,index){
+            // console.log(item);
+            // console.log(index);
+            // return 2;  
+        })
+        console.log(val);
+        
+        
+        
+        
+
+
+
+       
+        
+
+        
+        
+        
+        
+        
+        
+    
+    
+    
+    </script>
+</body>
+</html>

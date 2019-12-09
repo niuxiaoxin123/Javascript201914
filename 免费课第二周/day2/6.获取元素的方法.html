@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <div class="a" name="b"></div>
+        <div class="a" name="b"></div>
+        <div class="a"></div>
+    </div>
+   
+    <script>
+    // JS : 组成三部分
+    // ECMAScript : 定义一些JS的规范；
+    // DOM : document object model: 文档对象模型
+    // BOM : browser object  model  浏览器对象模型
+    // 1. document.getElementById() ：在document文档下，通过id获取元素；
+
+    // box1 ：对象；在JS中标签是叫元素；也叫元素对象；
+    // typeof box1--> "object"
+    //  box1.style
+    //1. 如果id重名，那么会获取到第一个元素；
+    //2. 如果不存在id,那么获取到结果是null；
+    //3. getElementById的上下文必须是document；
+    //console.log(box1);// 元素对象
+    ///var c = box1.getElementById("a")
+
+    // 2.document.getElementsByTagName :通过标签名来获取元素；
+   //var oLis= document.getElementsByTagName("li");
+   //console.log(oLis.pop);// oLis.pop is not a function
+   //console.log(oLis);// 类数组集合不是一个数组，但有length，有索引，不能使用数组上的方法；
+   // [{},{},{},{}]
+   //oLis[0].style.color="red";
+   //var divs = box1.getElementsByTagName("div")
+   //console.log(divs);
+    //    var  box = document.getElementById("box");// {}
+    //    var newDiv = document.getElementsByTagName("div") //[{}]
+    //    box.style.background="red";
+    //    newDiv[0].style.background="blue"
+    //    console.log(box===newDiv[0])// true
+
+    // 3. document.getElementsByClassName:通过class获取元素
+    // var divs = document.getElementsByClassName("a");// 得到一个集合，这个集合中包含了所有class是a的元素对象；
+    //divs[0].onclick = function(){}
+    //     var  box = document.getElementById("box");
+    //    var boxChild= box.getElementsByClassName("a")[0]
+    //     console.log(boxChild);
+
+    //4. document.getElementsByName:通过name行间属性来控制获取的元素
+
+    //var t = document.getElementsByName("b")
+    ///console.log(t);
+
+    // 5.querySelector
+    // 6.querySelectorAll
+    var  tt = document.querySelector("#box")// 获取id名是box的元素或class名获取；
+    var yy = document.querySelectorAll(".a")
+    console.log(tt);
+    console.log(yy);
+    
+    </script>
+</body>
+</html>

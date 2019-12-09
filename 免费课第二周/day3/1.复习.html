@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="tab"></div>
+    <script>
+    // 14个
+    // pop  push  shift unshift  slice  splice  indexOf  lastIndexOf  sort  reverse concat  join  forEach  map
+    // 去重 ： 3种; 1.indexOf  2.对象的属性名不能重复 3.改变原数组
+    // 排序 ： 冒泡排序   插入排序  快速排序
+    // 作业：写一个从前往后比较插入排序;
+    // var ary = [12,3,45,26,67,88,34,89,56];
+    // var newAry=[];
+    // newAry.push(ary[0]);
+    // for(var i=1;i<ary.length;i++){
+    //     var cur = ary[i];
+    //     for(var j=newAry.length-1;j>=0;j--){
+    //         if(cur<newAry[j]){
+    //             if(j===0){
+    //                 newAry.unshift(cur);
+    //                 break;
+    //             }
+    //         }else{
+    //             newAry.splice(j+1,0,cur);
+    //             break;
+    //         }
+    //     }
+    // }
+
+    // 回调函数；
+    // ary.sort(function(a,b){return a-b})
+    // function A(fn){
+    //     fn();
+    // }
+    // function B(){}
+    // A(B)
+    // 函数的递归: 函数体内部调用它自己就是函数的递归；递归都会有终止的条件；
+    // function fn(){
+    //     fn();
+    //     console.log(1);
+    // }
+    // fn();
+
+    // 快速排序
+
+    // DOM ： 
+    // 1.document.getElementById
+    // 2.document.documentElement //获取html的;
+    // 3.document.body            // 获取body;
+    // 4.document.getElementsByTagName
+    // 5.document.getElementsByClassName
+    // 6.document.getElementsByName
+    // 7.document.querySelector
+    // 8.document.querySelectorAll
+    //console.log(document.documentElement);
+    //console.log(document.body);   // 获取body
+    
+    // var  tab = document.getElementById("tab");// {}
+    // console.dir(tab)
+    // tab.onclick = function(){
+
+    // }
+    // var t = document.getElementsByTagName("div")[0];//[{}]
+    // t.onclick= function(){
+
+    // }
+
+    // DOM 的节点类型
+    //              nodeType   nodeName      nodeValue
+    // 元素节点        1         大写标签名      null
+    //文本节点         3          #text          文本内容
+    //注释节点         8          #comment       注释的内容
+     //document       9          #document       null
+
+     // 节点属性
+     // childNodes : 所有的子节点
+     // children : 子元素节点
+     // parentNode : 父节点
+     // nextSibling       nextElementSibling  
+     // previousSibling   previousElementSibling 
+     // firstChild        firstElementChild
+     // lastChild         lastElementChild
+
+
+     // 动态操作DOM
+    // 1.document.createElement : 创建一个元素
+    // 2. appendChild : 向容器的末尾添加一个子元素
+    // 3. removeChild  : 删除子节点
+    // 4. insertBefore : 在什么子节点之前插入某元素  父节点.insertBefore(newChild,oldChild)
+    // 5. replaceChild :替换子节点
+    // 6. cloneNode  true  false 
+    // 7. getAttribute  获取行间属性  setAttribute   removeAttribute
+    // 8. classList     add   remove   replace
+    
+    </script>
+</body>
+</html>  

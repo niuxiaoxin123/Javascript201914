@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        if(5>3){
+            console.log(100)
+        }else{
+            console.log(200)
+        }
+        if(5==5){
+            console.log(300)
+        }
+
+        // 2. 三元运算符
+        // 三元运算符中？和：要成对出现;适合简单的if else;
+        // 条件?条件成立执行的代码：条件不成立的执行的代码；
+        //5>3?console.log(100):console.log(200);
+        //5==5?console.log(300):null;
+
+        // 作业
+        if(3>1){
+            if(3==9){
+                console.log(1);
+            }else{
+                console.log(2); 
+            }
+        }else{
+                console.log();     
+        }
+        
+        //  switch  case 
+        var  num = 100;
+        //100===100 :和原来的值完全一样
+        //100=="100"
+        // 让num 和case后面的值进行绝对比较；如果返回true，那么久执行
+        switch(num){
+            case "100":
+                var  t  =1;
+                break;
+            case 1000:
+                console.log(200);
+                break;// 中止该判断，下面代码不执行
+            case "100px":
+                console.log(100);
+                break;
+            default:// 相当于else；上面条件都不成立，则执行该default中的代码
+                console.log(10000);     
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // typeof : 用于检测数据类型，返回值（结果）是一个字符串；字符串中的内容代表了该值对应的数据类型
+        // 引用数据类型分为对象数据类型和函数数据类型
+        // typeof 检测有局限性；不能区分对象数据类型下的具体的数据类型，但是能检测函数；
+        var num = 100;
+        var str = "name";
+        var t = true;
+        var n = null;
+        var u = undefined;
+        var reg = /\d/;
+        function fn(){}
+        var obj = {name:100};
+        var ary = [100,"ahhsjs"];
+
+        console.log(typeof 1)// "number"
+        console.log(typeof str) //"string"
+        console.log(typeof t)//"boolean"
+        console.log(typeof n)// "object"; null 空对象指针；
+        console.log(typeof u)//"undefined"
+        console.log(typeof obj)//"object"
+        console.log(typeof ary)// "object"
+        console.log(typeof reg)// "object"
+        console.log(typeof fn)// "function"
+
+        // 2.instanceof
+        // 3.constructor
+        // 4.Object.prototype.toString.call();
+    
+    </script>
+</body>
+</html>

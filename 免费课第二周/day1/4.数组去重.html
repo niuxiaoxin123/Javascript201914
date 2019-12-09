@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // pop  push  shift unshift  slice  splice indexOf  lastIndexOf  concat  join  sort  reverse forEach  map
+
+        // ary.pop();
+        // ary.reverse()
+        // ary.indexOf()
+       
+
+
+        // 数组去重：把数组中相同的项去掉； 12种；
+       
+        //console.log(ary);
+        //indexOf : 检测数组成员在数组中第一次出现的索引位置；如果不存在返回-1；
+        // 1. 创建一个空数组newAry
+        // 2. 循环ary,判断该项在newAry 中是否存在，通过indexOf检验如果返回-1，说明不在newAry中，那么就把这一项放到新的空数组中
+        // 3. 最后得到的newAry就是没有重复项的；
+        // var ary = [12,56,8,56,19,8,67,12];
+        // var newAry = [];
+        // var len = ary.length;
+        // for(var i=0;i<len;i++){
+        //     //console.log(ary[i]);
+        //     // if(newAry.indexOf(ary[i])===-1){
+        //     //     // 如果返回-1；说明这一项在newAry不存在；
+        //     //     newAry.push(ary[i]);
+        //     // }
+        //     // 找到ary中索引i对应的那一项，赋值给变量cur;下面就不再查找了
+        //     var cur = ary[i];
+        //     if(newAry.indexOf(cur)===-1){
+        //         newAry.push(cur);
+        //     }
+        // }
+        // console.log(newAry);
+
+
+        // 2. 对象的属性名不能重复；
+        //var obj={};
+        // 添加一个键值对
+        //obj[10]=10;
+        //obj[10]=10;
+        //console.log(obj);// {10:10}
+         
+
+        // 1. 创建一个空对象obj;
+        // 2. 循环数组，将数组的每一项添加到obj中，数组成员既作为属性名，又作为属性值
+        // 3. 再创建一个空数组
+        // 4. 再循环obj,把obj的属性值都放入新的空数组中；
+        // 5. 最后的数组就是去重后的数组；
+        // var ary = [12,56,8,56,19,8,67,12];
+        // var obj = {};
+        // for(var i=0;i<ary.length;i++){
+        //     //obj["ary[i]"]=ary[i];
+        //     //obj.ary[i]=ary[i]
+        //     obj[ary[i]]=ary[i];
+        // }
+        // var newAry=[];
+        // for(var key in obj){
+        //     // key  :都是字符串 通过key获取到对应的属性值；
+        //     newAry.push(obj[key]);
+        // }
+        // console.log(newAry);
+        
+        // var name=100;
+        // var  e = "name";
+        // console.log(e);// "name"
+
+        // var  obj = {};
+        // var m={}
+        // obj["9"]=9;
+        // console.log(obj);
+
+
+        // var  obj={a:1,b:2,c:3};
+        // for(var key in obj){
+        //    console.log(obj[key]) // "a"  "b"  "c"
+        //    //console.log(obj.key)// 获取属性名是key的属性值
+        // }
+        // var name=100;
+        // var str = "name";
+
+
+        // 3.对象中属性名不能重复；改变原有的数组
+        // var ary = [12,56,8,56,19,8,67,12];
+        // var obj = {};
+        // for(var i=0;i<ary.length;i++){
+        //    var cur = ary[i];
+        //    if(obj[cur]===cur){
+        //         // 如果条件成立，说明该项是重复的；
+        //         // ary.splice(i,1);// 数组塌陷；当删除数组中的一项时，该项后面的每一项的索引都要重新计算并发生改变；非常消耗浏览器的性能；
+        //         ary[i]=ary[ary.length-1];// 将数组的最后一项覆盖这一项；
+        //         ary.length--;
+        //         i--;// 对往前移动的这一项，进行校验；
+        //         continue;// 结束本轮循环
+        //    }
+        //    obj[cur]=cur;
+        // }
+        // 循环第一轮： i=0   cur = 12;   obj :{12:12}
+        // 第二轮       i=1   cur = 56   obj :{12:12,56:56}
+        // 第三轮       i=2    cur = 8    obj :{12:12,56:56,8:8}
+        // 第四轮       i=3    cur =56     obj :{12:12,56:56,8:8}
+
+       
+        // var  o = {12:12,56:56,8:8};
+        // o[56];
+
+
+        // var  obj = {a:1,b:2};
+        // // obj["a"]
+        // // obj.a
+
+        // for(var key in obj){
+        //     // key是一个变量；key就是一个字符串 "a"  "b"
+        //     obj["a"]
+        //     obj.key
+        // }
+        
+ 
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">总共花了：</div>
+    <script>
+    var box = document.getElementById("box");
+    // 函数执行一定会有一个返回值，也叫函数的执行结果；
+    function sum(){
+        var total=0;// 如果这个变量是在函数体中定义的，函数外面不能直接访问；
+        // 函数执行时，会形成一个私有的作用域，会保护里面的变量不受外界的干扰；
+        for(var i=0;i<arguments.length;i++){
+            var num = Number(arguments[i]);
+            if(!isNaN(num)){
+                total +=num;
+            }
+        }
+        //return [total,num];
+        console.log(total);
+        //return total;// 把函数体中的值作为函数的执行结果return出去；total不会被return出去；
+        //return;//只有return，那么函数的返回值也是undefined；
+        console.log(2000);
+        
+        // 1. 如果函数中没有return，那么函数会有默认的返回值是undefined；
+        // 2. 函数体中return下面的代码，都不再执行；
+        // 3. 只有return，那么函数的返回值也是undefined；
+        // console.log(total);// 在控制台输出这个total；
+    }
+    // 把sum的执行结果给了变量t;
+    var t = sum(10,"3",NaN,88,"2px",99,undefined,null);
+    console.log(t)
+    box.innerHTML+=t;
+    
+    
+    
+    </script>
+</body>
+</html>

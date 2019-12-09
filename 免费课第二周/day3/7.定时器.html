@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 两种定时器： setTimeout  setInterval
+        // 当浏览器解析到这一行时，会立即记录一个开始的时间，过了1000ms以后，执行里面函数中的代码；定时器不会让程序停止，而是继续执行下面的代码；
+        // 定时器是异步任务，会等到同步的代码执行完毕，才会执行异步的代码；
+        // JS : 单线程；同一时间，只能执行一个任务，只能执行一行代码；
+        // 浏览器有最小的识别时间；谷歌：5~6ms;  火狐 10~12ms  IE:14~15ms
+        // var timer=setTimeout(function(){// 
+        //     console.log(100);
+        // },1000);
+        // console.log(timer);
+        // var timer1=setTimeout(function(){// 
+        //     console.log(100);
+        // },50);
+        // console.log(timer1);
+        // 定时器是有返回值的，代表当前定时器在页面是第几个；
+        //console.log(333);
+        // var curTime = new Date();
+        // for(var i=0;i<100000000;i++){
+        // }
+        // var nextTime= new Date();
+        // console.log(nextTime-curTime);
+
+        // 每隔一段时间就会执行一次；
+        // 返回值： 代表当前定时器在页面中是第几个；
+        // 在页面中只要遇到定时器，返回值就会累加；不区分是setTimeout还是setInterval;
+        // var  timer=setInterval(function(){
+        //     console.log(5); 
+        // },1000);
+        //console.log(timer);
+
+        // 清除定时器的方法
+        // clearTimeout clearInterval
+        //clearInterval(timer);
+        // 作业：每隔一秒产生一个新的验证码，把原来的验证码覆盖掉；产生十次，第十次就是确切中奖验证码；
+        // 定时器传参：
+        setInterval(function(a,b){// 形参
+            console.log(a);
+            console.log(b);
+            console.log(arguments);
+        },1000,1,2);
+
+    
+
+        
+
+
+        
+        
+        
+    
+    
+    
+    
+    </script>
+</body>
+</html>

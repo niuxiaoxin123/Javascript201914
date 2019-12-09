@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 数据类型的比较
+    // == : 相对比较，会默认进行数据类型的转换，然后再比较，结果一定是一个布尔值
+    // === :绝对比较，直接进行比较，不进行数据转换，结果一定是一个布尔值
+
+    // 经常用于条件的判断
+    //console.log(100=="100");// true 会把字符串转成数字，然后进行了比较；
+    //if(100=="100"){}
+    // 数据类型的规律
+    //在JS中，遇到{}会开辟一个新的空间地址；
+    // 对象指的对象数据类型的；
+    //1. 对象==对象 : 比较的是空间地址；空间地址不同，结果就是false；
+    //2. 对象==字符串 : 先把对象转成字符串(会调用自身的toString方法)，然后再和字符串比较；
+    // 3. 对象==数字 ： 先把对象转成字符串，然后再把字符串转成数字，最后和数字进行比较
+    // 4. 对象==布尔： 对象先转字符串，然后字符串转成数字，布尔也转数字，然后进行比较
+    // 5. 字符串==布尔 字符串转数字，布尔也转数字，然后进行比较；
+    // 6. 字符串==数字： 字符串转数字，然后和数字比较
+    // 7. 布尔==数字 ： 布尔转数字，然后比较
+    // 8. null == undefined  true都表示没有 null === undefined  false
+    // 9. NaN == NaN  false;
+    console.log({}=={});// false
+    console.log([1]==[1]);// false
+    console.log({}=="[object Object]")// true
+    console.log(""==" ");//false 
+    console.log({}.toString());// "[object Object]"
+    console.log([]=="");// true
+    console.log({}==NaN)// false
+    console.log({}==true)
+    console.log([]==false)// true
+    console.log(""==false);// true
+    console.log("1"==true);// true
+    console.log("1"==1);
+    console.log(false==0);
+    [].toString()
+    Number([]);
+
+
+    // === : 绝对比较;要求等号左右两边的值完全一样；
+    console.log(1===true);
+    console.log(1==="1");
+
+
+    var  obj = {};
+    console.log(obj.a===undefined)
+
+    //  
+    // ![] : 这是一个布尔值；首先把！后面的值转成布尔值，然后再取反；
+    // !如果放在等号的前面，意思是不等于；
+    // !如果放在值得前面，是取反；
+    console.log([]==false)//true
+    console.log(![]==false)// true
+    console.log([]!==false)// 绝对不等于 true
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 免费课第一周 ： 变量
+        //var ary="1";
+        // 以后用到变量，都是用的变量所存储的值；
+        //ary+"2"
+        //var a=ary;// 等号右边一定是数据类型的一种；
+        //var ary;//ary只是声明，未定义，那么默认存储undefined
+        //console.log(ary);// undefined
+        // var t=0;
+        // var t =1;
+        // console.log(t);
+        
+        //     var total=0;
+        //     for(var i=0;i<100;i++){
+        //         total+=i;// 在total自身基础上+i;累加的过程
+        //     }
+        //    console.log(total);
+
+        // function sum(){// arguments: 实参集合；是一个类数组；
+        //     //arguments.poo()
+        //     var total=0;
+        //     for(var i=0;i<arguments.length;i++){
+        //         var cur = Number(arguments[i]);// 要么是纯数字，要么是NaN；
+        //         if(!isNaN(cur)){
+        //             total+=cur;
+        //         }  
+        //     }
+        //     console.log(total);
+            
+        //     return total;
+        // }
+        // sum(1,2,34,56,7,"3",NaN,null,"3px");
+        // var n="3px";
+        // Number(n);
+        // console.log(n);//"3px"
+        // var obj = {a:1,b:2,c:3};
+
+
+        // 数据类型
+        // 基本数据类型是值类型，引用数据是空间地址类型
+        // 基本数据类型存储到栈内存中,引用数据类型存储到堆内存中；
+        // 栈内存提供代码的运行环境
+        // var  a=b=c=1;
+        // c=100;
+        // var d=e={a:1};
+
+        // Number : Number()
+        // var str="1"
+        // var n = Number(str);//Number这个方法的执行结果
+        // console.log(str);// "1"
+        // console.log(n);
+        // console.log(Number("2"));// 2
+        // isNaN(Number("2px"))
+        // console.log(Number);// 函数
+
+        // function sum(){// arguments: 实参集合；是一个类数组；
+        //     var total=0;
+        //     for(var i=0;i<arguments.length;i++){
+        //         var cur = Number(arguments[i]);// 要么是纯数字，要么是NaN；
+        //         if(!isNaN(cur)){
+        //             total+=cur;
+        //         }  
+        //     }
+        //     console.log(total);
+        //     return total;
+        // }
+        // sum(1,2,34,56,7,"3",NaN,null,"3px");
+        // // console.log(t);
+        // console.log(sum(1,2,34,56,7,"3",NaN,null,"3px"));
+
+        // isNaN : 是数字返回false；
+        // !isNaN(10);
+        // isNaN(null) isNaN 会先调用Number方法将null转成数字；
+
+        // parseInt 
+        // parseInt("2px")// 2
+        // // parseFloat
+        // parseFloat("2.3px")// 2.3
+
+
+        // // toFixed: 返回一个字符串，保留小数点位数
+        // num.toFixed(2);
+
+        // Boolean :true  false 
+        // Boolean :  0 "" NaN null undefined 
+        // Boolean("null")// true 
+        //var obj = {};
+        //Boolean(obj.a)// false
+        //! : 先把！后面的值转成布尔值，然后再取反；
+        //!parseFloat([])
+        // console.log(1==1&&2==22);
+        // if(1==1&&2==22){}
+
+
+        // null  undefined 
+        // 
+        // var  num;
+        // console.log(num);
+
+        // var obj = {m:1};
+        // var g = obj.n
+        // console.log(g);
+        // console.log(obj.n);
+
+        // // 形参 
+        // // 没有return  
+
+        // function fn(){
+        //     return;
+        // }
+
+
+        // 数据类型的检测 
+        // typeof  1. 返回一个字符串  2.不能检测对象数据类型具体数据类型；
+        // instanceOf  
+        // constructor 
+        // Object.prototype.toString.call()
+        // var num ={}
+        // console.log(typeof typeof typeof num);
+        // typeof {}// "object"
+        // typeof []// "object"
+
+        // 数据类型比较
+        //{}=={}:比较的是空间地址； 在JS中遇到{}、[]都会开辟一个新的额空间地址；
+        //{}=="": 把对象转成字符串，然后比较；
+        //{}==false : 对象转字符串，字符串转数字，布尔转数字；
+        //{}==0 : 对象转字符串，字符串转数字，然后比较
+        // []==0
+        // 布尔==字符串 布尔转数字，字符出转数字；然后比较
+        // 布尔==数字  布尔转数字
+        // 字符串==数字  字符串转数字，然后比较；
+        // NaN == NaN false  null==undefined  true 
+        // var obj = {a:1};
+        // var obj1 = {a:1};
+        // obj.a=100;
+
+
+        // 对象
+
+
+        
+        
+        
+
+
+
+    
+
+
+
+        
+        
+        
+
+    
+    
+    
+    
+    </script>
+</body>
+</html>

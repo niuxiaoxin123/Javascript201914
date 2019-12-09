@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 在JS中，代码从上到下执行
+    // 1. 变量 
+        // 1. 变量是由字母、数字、下划线、$组成
+        // 2. 数字不能开头
+        // 3. 不能以关键字作为开头；【在JS中有特殊意义】
+        // 4. 遵循驼峰命名法；
+        // 5. 尽可能语义化；
+    console.log(m);// undefined
+    var  m=0;
+    console.log(m);// 0
+    var  m=1;
+    console.log(m);//1
+
+
+    // ES6 中变量
+    //Cannot access 'day2' before initialization ：// 不能再初始化之前获取day2;
+    //console.log(day2)
+    let day2="开心吗";
+    day2=0;
+    console.log(day2)
+
+    // 常量
+    const student5=666;
+    
+
+
+
+
+    // 2. 数据类型： 浏览器识别的数据
+    var num = 100;
+    var $num=19;
+    var school_class123=14;
+    var str = "n";// n  is  not  defined
+    var total=100;
+    var student="";
+
+    // 基本数据类型和引用数据类型
+    // 基本数据类型： string  boolean  number null  undefined symbol
+    // 引用类型 ： function  对象  数组  正则  Math  Date的实例
+    var num =100;
+
+    // Number : 数字、NaN；都是Number类型的;
+    // Number: 
+    // parseInt
+    parseInt("3.889px")// 3
+    // parseFloat 
+    parseFloat("3.889px")// 3.889
+    // isNaN ： 校验是否是一个非有效数字
+    isNaN(18)// false
+    isNaN(Number("19px"))// true
+    isNaN("19px")// isNaN校验先转number，再判断
+    isNaN(true)// false
+    // toFixed
+    // 保留小数点位数，返回一个字符串
+    console.log(8.9999.toFixed(2))
+
+
+    // String 
+    // 1. 被单引号或双引号或反引号包起来的内容就是字符串
+    var num ="100"
+    var obj = "{name:'zhufeng'}";
+    // 2. 字符串的长度 length
+    console.log(num.length)
+    // 3. 索引【下标】
+    console.log(num[1])
+    // 4.字符串的运算
+    // -  *  / : 先把字符串转成数字，再运算
+    // + : 字符串的拼接
+    console.log("3px"-2)// NaN
+    console.log("3px"+2)// "3px2";
+
+    // Boolean :true 和 false；
+    // Number(true)  1  false==>0
+    // Boolean : 将其他数据类型转成布尔类型值
+    // 五个值 0  NaN null  undefined  ""转布尔值是false，其余都是true;
+    Boolean("3px")//  true 
+    Boolean(3)
+
+    // ! : 取反
+    !"2px"// false  ![]//  false !{}// false  !""// true
+    //!! ==> Boolean()
+    var obj = {name:"zhufeng"}
+    </script>
+</body>
+</html>

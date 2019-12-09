@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 字符串：在JS中被双引号或者是单引号或反引号包起来的内容，都是字符串
+    //var str1 = "hello";
+    //console.log(str1);// "hello"
+    var str1 = "worldtyuioghjdjdkkkd";
+    // console.log(str1);//"world"
+    var str2 = 'zhufeng';
+    var str3 = `5555`;
+
+    //1.字符串由长度。代表了字符串的个数
+    console.log(str1.length);
+    //2.在字符串中每一个字符都有一个对应的下标，这个下标称之为该字符的索引；
+    // str[索引]
+    // console.log(str1[0])
+    console.log(str1[str1.length-1]);
+
+    // 字符串的运算 +  -  * /
+    // 1):先把字符串转成数字，再运算
+    console.log("8"-"6")// 2
+    console.log("8px"-"6")// NaN 
+
+    // 2. *先把字符串转成数字，再运算
+    console.log("8"*"6");
+
+    // 3. /  *先把字符串转成数字，再运算
+
+    // 4.+  : 字符串拼接；将+左右两边的值连在一起；
+    console.log("100px"+"1");
+    console.log("66"+"99");
+    console.log("66"+NaN);
+
+
+
+    
+    
+    
+    </script>
+</body>
+</html>

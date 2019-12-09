@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #code{
+            width:200px;
+            height:50px;
+            text-align: center;
+            line-height:50px;
+            margin:100px auto;
+            border:1px solid red;
+            border-radius:5px;
+            color:red;
+            font-size:30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="code"></div>
+    <script>
+        // 产生一个随机的验证码，验证码包含字母大小写、数字；
+        // Math.round(Math.random()*(n-m)+m) m到n的随机整数；
+        var str="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        // 需要产生一个随机的数字，通过随机的数字作为索引去获取字符中的字符；
+        // 产生一个【0-61】的数字；
+
+        // 验证码： 1.获取元素，给显示的元素绑定点击事件；
+        //         2.产生一个四位的随机验证码；需要产生四个随机的数字
+        //         3.通过随机的数字作为索引去获取字符串中的字符,并且拼接到一起
+       //          4.把产生字符放到oDiv这个元素中； 
+        var oDiv = document.getElementById("code");
+        function code(){// 给该元素绑定点击事件；
+            var i=0;
+            var newStr="";// 用于接收新产生四个字符
+            while(i<4){// 就是为了循环四次，产生四个随机的字符
+                // 产生一个0-61的随机整数
+                var num = Math.round(Math.random()*(61-0)+0);
+                // 在拼接之前，先校验一下，newStr是否存在该字符，如果存在，就需要重新产生一个新的字符；
+                if(newStr.toLowerCase().indexOf(str[num].toLowerCase())===-1){
+                    newStr+=str[num];
+                    i++;
+                } 
+            }
+            oDiv.innerHTML=newStr;
+        }
+        code();// 没有点击的时候，就先让code执行一次；
+        oDiv.onclick = code;// code 就是函数的空间地址
+    
+    
+    
+    </script>
+</body>
+</html>

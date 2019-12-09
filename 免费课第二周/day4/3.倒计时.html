@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #time{
+            width:300px;
+            height:50px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 30px;
+            color:red;
+            border: 1px solid red;
+            border-radius: 5px;
+            margin:100px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="time"></div>
+    <script>
+        // 1.定时器，每隔1000ms让页面中的内容更改一次；
+        // 2.通过setInterval 和innerHTML 更改页面中的内容；
+        // 3.目标时间，倒计时结束的时间；
+        var time=document.getElementById("time");
+        //console.log(new Date("2019/12/06 12:00:00").getTime())
+        //console.log(new Date().getTime())
+        function count(){
+            //1. 每隔一秒计算几次当前时间距离目标时间的毫秒差
+            //2. 通过毫秒差计算这里面有多少个小时，多少个分钟，多少个秒；
+            var diffTime=new Date("2019/12/06 12:35:00")-new Date();
+            if(diffTime<=0){
+                clearInterval(timer);
+                return;// 中止不再向下运行代码；
+            }
+            // 向下取整
+            var hour=Math.floor(diffTime/(60*60*1000));
+            // 计算有多少个分钟
+            var min= Math.floor((diffTime-hour*60*60*1000)/(60*1000));
+            // 计算秒
+            var second= Math.floor((diffTime-hour*60*60*1000-min*60*1000)/1000);
+            time.innerHTML=forMateTime(hour)+":"+forMateTime(min)+":"+forMateTime(second);
+        }
+        // 补0;如果传进来的数字小于10，那么需要在该数字的前面加个0；
+        function forMateTime(t){ 
+            return t<10?"0"+t:t;
+        }
+        count();// 打开页面立即计算出一个最新的时间来;
+        var timer=setInterval(count, 1000);
+
+    
+    
+    
+    </script>
+</body>
+</html>

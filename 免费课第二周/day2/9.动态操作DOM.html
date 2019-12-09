@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box" class="abc">
+        <div id="a">123</div>
+        <div id="b">456</div>
+    </div>
+    <button id="btn">点我一下</button>
+    <input type="text" id="text">
+    <script>
+    // 操作谁就要获取谁
+    var box = document.getElementById("box");
+    var btn = document.getElementById("btn");
+    var b = document.getElementById("b");
+    var text=document.getElementById("text");
+    text.onblur=function(){// 当input框失去焦点时，触发的函数
+        console.log(text.value)
+    }
+    // 1. document.createElement : 传一个标签名的字符串，返回一个当前标签的元素对象
+    //var oDiv = document.createElement("li");
+    //oDiv.innerHTML="这次是真快下课了"
+    //console.log(oDiv);
+    // 2. appendChild
+    // 父节点.appendChild(子节点);
+    //box.appendChild(oDiv);
+    //3. removeChild
+    // 父节点.removeChild(子节点);
+    // btn.onclick=function(){// 点击会执行
+    //     box.removeChild(b);
+    // }
+    //4.insertBefore : 在什么之前插入元素
+    // parent.insertBefore(newChild,oldChild)
+    // btn.onclick=function(){// 点击会执行
+    //     var div= document.createElement("div");
+    //     div.innerHTML="789";
+    //     box.insertBefore(div,b)
+    // }
+    // 5.replaceChild:替换节点
+    // parentNode.replaceChild(newChild,oldChild)
+    // btn.onclick=function(){// 点击会执行
+    //     var div= document.createElement("div");
+    //     div.innerHTML="789";
+    //     box.replaceChild(div,b)
+    // }
+
+    // 6.cloneNode
+    // cloneNode:克隆节点；如果参数是true，是深克隆，把子节点及内容都克隆一份；默认是false；只克隆该元素自己；
+    //  btn.onclick=function(){// 点击会执行
+    //     var  a = box.cloneNode(true);
+    //     box.appendChild(a);
+    // }
+
+    // 7.getAttribute: 获取行间属性
+    //   setAttribute ：设置行间属性
+    //   removeAttribute
+
+    //console.log(box.getAttribute("flag"))
+    //box.setAttribute("a","你很帅")
+    //box.removeAttribute("flag")
+
+    // 8. classList
+    // add : 新增class 
+    // remove : 删除class
+    // replace: 替换class
+    //box.classList.add("abc")
+    //box.classList.remove("abc")
+    box.classList.replace("abc","def")
+
+
+    
+    
+    
+    </script>
+</body>
+</html>

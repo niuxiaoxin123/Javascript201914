@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+      .box{
+         width: 100px;
+         height:100px;
+         background: red;
+      }
+    </style>
+</head>
+<body>
+    <div id="box" class="box"></div>
+    <script>
+        // 获取到id名是box的元素；
+        // 都表示没有；
+        // null
+        // 在文档中，通过id名来获取元素
+        // console.log(document.getElementById("box"))
+        //var oBox = document.getElementById("box");
+        //oBox.style.background="black";
+        //oBox.style.width="200px";
+        // document : 文档
+        // get : 获取
+        // element : 元素
+        // By : 通过
+        // Id : id名
+        // console.log(document.getElementById("box1"))
+        //console.log(typeof true)// "boolean"
+        //typeof null--> "object"
+        // null : 表示空对象指针;表示没有
+
+        // 1. 通过id获取元素，如果没有对应的id,获取的结果默认就是null;
+        // 2. 如果要清理对象的空间地址，赋值为null;
+        // 3. 当正则使用捕获时，捕获不到内容，默认捕获结果是null；
+
+
+        //var  obj = {name:1};
+        //obj = null;
+
+        // undefined 
+        
+        // 1. 当获取对象中属性名对应的属性值时，如果没有对应的属性名，默认获取到undefined；
+        // 2. 变量只声明，没有被赋值，那么默认值就是undefined;
+        // 3. 函数如果只有形参，没有对应的实参，那么形参默认存储的值是undefined；
+        // 4. 函数如果没有return，那么函数默认返回值就是undefined；
+        //var obj = {m:100,n:200};
+        //console.log(obj.c);
+        var noon;
+        console.log(noon);
+        
+    </script>
+</body>
+</html>

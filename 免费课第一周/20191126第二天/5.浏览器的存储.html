@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 当浏览器运行JS代码时，会形成两种虚拟的内存；一个堆内存，一个栈内存；
+        // 当浏览器打开后缀名是.html格式的文件时，会提供代码的执行环境；代码才能一行一行向下解析
+        // 栈内存： 存储基本数据类型的值，提供代码的运行环境；
+        // 堆内存： 存储引用数据类型的值
+        // 基本数据类型和引用数据类型的区别；
+        // 1.基本数据类型是值类型的，引用数据类型是空间地址类型的；
+        // 2.基本数据类型存储到栈内存，引用数据类型存储到堆内存中；
+        //var  num = 100;
+        //var t = true;
+
+        //var obj = {name:"zhufeng",age:10};// aabbcc
+        //console.log(num);
+        //console.log(obj);
+        
+        // 引用数据类型都是存储到了堆内存中；
+        // 创建一个对象时
+        // 1. 首先会在堆内存开辟一个十六进制的空间地址对应的堆内存
+        // 2. 把对象中键值对存储到这个新开辟的空间地址中
+        // 3. 把这个十六进制的空间地址赋值给变量名obj;
+
+        //console.log(obj.name);// 首先会找到obj对应的十六进制的空间地址，然后根据地址去找到对应的堆内存，然后找堆内存中属性名是name对应的属性值；
+
+        // var  o = {}
+
+        // ==
+        // 比较的是空间地址
+        // JS 遇到{}，就会立即开辟一个新的空间地址；
+        //var a = {};
+        //var b = {};
+       //console.log( a==b);
+       var a=b=c=80;
+       c=100;
+       console.log(a);// 80
+       var d=e=f={m:10};// aabbcc   d e f 公用一个堆内存空间地址
+       f={};// f新开辟一个堆内存；
+       f.m=90;
+       console.log(d);// {m:10}
+       console.log(f);//{m:90}
+       
+       
+       
+       
+       
+
+        
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>345</div>
+    <div id="box">
+        <!-- aaa -->
+        天气转冷 
+        <p></p>
+        <div>最后一个</div>
+    </div>
+    <div>123</div>
+    <!-- 你很帅 -->
+    <div></div>
+    <script>
+    // 在DOM中，页面是由节点组成，而且每个节点都有对应的节点关系；
+    // 分为四种节点： 元素节点  文本节点  注释节点  document
+    // 换行和空格都是文本节点
+    // 在节点上有三个特殊的属性 nodeType  nodeName  nodeValue
+    var  box = document.getElementById("box");
+    // console.dir(box);
+    // 节点类型       nodeType     nodeName     nodeValue
+    // 元素节点          1        大写的标签名     null 
+    // 文本节点          3          #text         文本内容  
+    // 注释节点          8          #comment      注释的内容
+    // document         9          #document      null  
+
+    // 节点属性： 节点都是对象数据类型；在JS中表现形式都是对象；
+    // 1. childNodes : 当前元素的子节点；
+    console.log(box.childNodes)
+    // 2. children : 当前元素的子元素节点；
+    console.log(box.children)
+    // 3. parentNode : 代表当前元素的父亲节点；
+    // div --> body--> html --> document--> null;
+    // console.log(box.parentNode.parentNode.parentNode.parentNode)
+    //4. nextSibling : 下一个弟弟节点
+    console.log(box.nextSibling);
+    //5.nextElementSibling: 下一个弟弟元素节点，如果没有，那么会得到null;
+    console.log(box.nextElementSibling);
+    // 6.previousSibling : 上一个哥哥节点
+    console.log(box.previousSibling)
+    // 7.previousElementSibling： 上一个哥哥元素节点；
+    console.log(box.previousElementSibling)
+    // 8. firstChild: 第一个子节点
+    console.log(box.firstChild);
+    // 9. firstElementChild: 第一个子元素节点
+    console.log(box.firstElementChild);
+    // 10. lastChild : 最后一个子节点
+    console.log(box.lastChild)
+    // 11. lastElementChild:最后一个子元素节点
+    console.log(box.lastElementChild)
+    
+    
+    
+    </script>
+</body>
+</html>

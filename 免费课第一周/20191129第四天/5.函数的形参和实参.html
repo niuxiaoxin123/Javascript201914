@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         //函数分为定义和执行
+         var  num1 = [1,2,3,4,5,6];
+         var  num2 = 3.466;
+         function fn(a,b){// 在函数定义的位置参数是形参；
+             // a ： 对应第一个实参的值
+             // b :  对应第二个实参的值；
+             // 如果形参没有对应的实参，那么默认存储值是undefined；
+             //console.log(b);
+             // console.log(a+b);// 任何数字和undefined运算结果都是NaN
+             //a=200;
+             a[0]=100;// 
+         }
+         //fn(462373.9,72782.3)// 在函数执行的位置就是实参；
+         console.log(num1);//  [1,2,3,4,5,6];
+         fn(num1);
+         console.log(num1);// [100,2,3,4,5,6] num1和a是指向了同一块堆内存；
+
+        //  var num1 = a = 100;
+        //  a=200;
+        //  console.log(num1);
+
+
+        var arr  = ary = [1,2];
+        ary[0]=100;
+        console.log(arr);
+        
+         
+         
+    
+    
+    
+    </script>
+</body>
+</html>

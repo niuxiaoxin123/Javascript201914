@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            /* 盒子自带margin和padding值，需要清除 */
+            margin: 0;
+            padding:0;
+        }
+        .tab{
+            width:400px;
+            height:300px;
+            margin: 100px auto;
+        }
+        #list{
+            list-style: none;
+            overflow: hidden;
+        }
+        #list li{
+            float:left;
+            width:80px;
+            height:30px;
+            text-align: center;
+            line-height: 30px;
+            background: lightgreen;
+            margin-right: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #list li.select{
+            background: red;
+        }
+        .tab div{
+            display: none;
+            width:400px;
+            height:300px;
+            border: 1px solid red;
+            line-height: 300px;
+            text-align: center;
+            color:red;
+            font-size: 30px;
+        }
+        .tab .select{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="tab" class="tab">
+        <ul id="list" class="list">
+            <li class="select">电影</li>
+            <li>综艺</li>
+            <li>电视剧</li>
+        </ul>
+        <div class="select">冰雪奇缘2</div>
+        <div>奇葩说</div>
+        <div>甄嬛传</div>
+    </div>
+    <script>
+        // 1. 要操作谁，就要先获取谁；通过点击不同的li，让li对应的div显示；
+        var tab = document.getElementById("tab");
+        var list = document.getElementById("list");
+        var oLis = list.getElementsByTagName("li");// 在list这个元素中获取li元素；
+        var divs = tab.getElementsByTagName("div");
+        for(var i=0;i<oLis.length;i++){
+            oLis[i].index=i;
+            oLis[i].onclick = function(){
+                for(var j=0;j<oLis.length;j++){
+                    oLis[j].className="";
+                    divs[j].className="";
+                }
+                oLis[this.index].className="select";
+                divs[this.index].className="select";
+            }
+        }
+        // 实现选项卡的思路：
+        //1.给每一个li的点击事件绑定一个函数；当点击的时候执行；
+        // 2. 当点击li的时候，清除所有li的class的select;并且让当前点击的li新增class为select；
+        // 3. 清除所有div的class,并且让点击的li对应的那个div显示；
+        //console.log(oLis);
+        for(var i=0;i<oLis.length;i++){
+            oLis[i].index=i;// 
+            // oLis[0].index =0;// 第一轮循环
+            // oLis[1].index=1;
+            // oLis[2].index=2;
+            // 给每一个li元素上新增一个键值对；属性名index;
+            oLis[i].onclick = function(){
+                console.log(i);// 当点击li的时候，外层的for循环已经循环完毕，i变成3；
+                for(var j=0;j<oLis.length;j++){
+                    oLis[j].className="";// 清除所有li的select这个class；
+                    divs[j].className="";
+                }
+                // for(var k =0;k<3;k++){
+                //     divs[k].className="";
+                // }
+                // this ： 关键字；在被点击的那个元素；
+                // console.log(this);
+                oLis[this.index].className="select";// 让点击的li新增class名为select；
+                divs[this.index].className="select";
+            }
+        }
+        
+        // oLis[0].onclick = function(){
+        // }
+        // oLis[1].onclick = function(){
+        // }
+        // oLis[2].onclick = function(){
+        // }
+    
+    
+    </script>
+</body>
+</html>

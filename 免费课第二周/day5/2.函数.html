@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">123</div>
+    <script>
+        var b = [100,200,300];
+        var obj = {a:b,c:1}
+        console.log(obj);// {a:b,c:1}  {a:100,c:1}
+        
+
+        // 1.函数定义和执行
+        // 2.函数的形参和实参
+        // 3.函数的arguments
+        // 4.函数的return
+        // 5.匿名函数
+        // 函数属于引用数据类型的；也就是空间地址类型；
+        function fn(){
+            var num ={a:1};
+            var c = num.a;
+            console.log(100); 
+        }
+        // 1. 开辟一个堆内存，这个堆内存对应一个十六进制的空间地址
+        // 2. 把函数体中的代码当做字符串存储到了堆内存中
+        // 3. 把这个空间地址赋值给函数名；
+    
+        // oLis[i].onclick = function(){
+        //     console.log(100); 
+        // }
+
+        // setTimeout(function(){},100)
+        // function A(b){
+        //     b()
+        // }
+        // A(function (){})
+
+        // var arr= [1,3,4,5];
+        // arr.map(function(item,index){
+        // })
+
+        function fn(m,n){
+            var num ={a:1};
+            var c = num.a;
+            console.log(100); 
+        }
+        fn(100,20);
+        // 1. 形成私有作用域
+        // 2. 形参赋值
+        // 3. 变量提升
+        // 4. 代码从上到下执行
+        // 5. 作用域是否销毁；
+
+        // 过程
+        //var num =100;
+        //num();// num  is not a function 
+
+        // function fn(m,n=1){
+        //     var num ={a:1};
+        //     var c = num.a;
+        //     console.log(100); 
+        // }
+        // fn(100);
+        // 1. 形参和实参是一一对应的;
+        // 2. 如果形参没有对应的实参，那么形参默认值是undefined；
+        // 3. 函数的形参在ES6版本中，可以赋默认值；
+
+
+
+        // arguments : 实参集合
+        // function sum(){
+        //     // arguments  :是一个类数组
+        //     console.log(arguments);
+        //     var total = 0;
+        //     for(var i=0;i<arguments.length;i++){
+        //         var cur = Number(arguments[0]);
+        //         if(!isNaN(cur)){
+        //             total+=cur;
+        //         }
+        //     }
+        //     return total;
+        // }
+        // sum(10,20,303,40);
+
+        // 函数的return;
+
+        function  s(){
+            //var t = 88;// 这个变量是当前作用域下私有的；函数外面是不能访问函数里面的变量；
+            //var r = 1;
+            // if(NaN){
+            //     return t;
+            // }
+            //return t;// return 的并不是t这个变量;return 后面值需要在函数外面接收一下；
+            console.log(1000);// 函数return下面的代码都不再执行了；
+            //fn();
+            //return [t,r];
+            return;
+        }
+        s();
+        var  val = s();// 把函数的返回值【函数的执行结果，函数return出来的内容】给了变量val;
+        console.log(val);// 
+        console.log(s());// 也是代表输出函数的执行结果；
+
+    // 1. return 是把函数体中的值return到函数的外面；
+    // 2. return 下面的代码不再执行；
+    // 3. 如果函数中没有return，那么函数的返回值的默认就是undefined;
+
+    // function fn(A){
+    //     A()
+    // }
+    // fn(function(){})
+    // arr.map(function(item,index){
+
+    // })
+
+    // // 匿名函数
+    // var fn = function(){
+
+    // }
+    // fn();
+    // // 自执行函数；
+    // (function(){
+    //     console.log(100);
+    // })()
+    // +function(){}();
+    // -function(){}();
+    // !function(){}();
+    // ~function(){}();
+
+
+    //typeof fn-->"function"
+
+    // var  fn = function(){};
+    // fn();
+    /// 箭头函数
+    // var fn=(a,b)=>{
+    //     console.log(1000);
+    //     console.log(a);// 1
+    //     console.log(b);// 2   
+    // };
+    // fn(1,2);
+
+
+    // this: 关键字；在特殊的情景下有特殊的含义；
+    var box = document.getElementById("box");// {onclick:null}
+    for(var i=0;i<3;i++){
+        oLis[i].onclick = function(){
+            console.log(this);
+        }
+    }
+    oLis[0].onclick = function(){      
+    }
+    oLis[1].onclick = function(){     
+    }
+    oLis[2].onclick = function(){      
+    }
+
+    // DOM :获取元素
+    // DOM的节点 ： childNodes  children  parentNode  previousSibling nextsibling child
+    // 
+
+
+    
+
+        
+
+
+
+
+
+
+
+
+
+
+    
+    
+    </script>
+</body>
+</html>

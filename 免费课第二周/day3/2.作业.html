@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div class="a"></div> -->
+    <input type="text" id="text">
+    <ul id="list"></ul>
+    <script>
+        //console.log(text);
+        //console.log(list);
+        //console.log(name);
+        //console.log(alert)
+        // 1. 如果是元素的id名，可以直接使用；id的值代表了对应的元素
+        // 2. 如果在window中存在，也不报错；
+        //console.log(window)
+
+       var text = document.getElementById("text");
+       var list = document.getElementById("list");
+       text.onblur=function(){// 针对于input失去焦点的事件
+           var  curLi = document.createElement("li");
+           curLi.innerHTML=text.value;// 获取input的内容
+           var  btn= document.createElement("button");
+           btn.innerHTML="删除";
+           curLi.appendChild(btn);
+           list.appendChild(curLi);
+           text.value="";
+           var oLis = document.getElementsByTagName("li");
+           for(var i=0;i<oLis.length;i++){
+               if(i%2===0){
+                   oLis[i].style.background="red";
+               }else{
+                   oLis[i].style.background="blue";
+               }
+           }
+           btn.onclick = function(){// 事件函数中的this指向被点击的那个元素
+               this.parentNode.parentNode.removeChild(this.parentNode); 
+               var oLis = document.getElementsByTagName("li");
+                for(var i=0;i<oLis.length;i++){
+                    if(i%2===0){
+                        oLis[i].style.background="red";
+                    }else{
+                        oLis[i].style.background="blue";
+                    }
+                }
+           }
+       }
+
+
+        
+        
+        
+        
+    
+    
+    </script>
+</body>
+</html>

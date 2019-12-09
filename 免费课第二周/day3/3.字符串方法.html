@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 被单引号或双引号或反引号包起来的内容就是字符串；
+        //var num ="{name:'zhufeng'}"
+        // 1. 有length
+        // 2. 有索引；
+        var  str = "helloworld";
+        //1 . toUpperCase : 把小写字母转成大写字母；
+        //var newStr=str.toUpperCase();
+        //console.log(newStr);
+        //2. toLowerCase
+        // console.log(str.toLowerCase());
+        //3. charAt: 通过索引获取字符串中对应的字符；
+        // console.log(str.charAt(1)) 
+        // 4. charCodeAt : 获取索引对应的字符unicode编码值；
+        // console.log(str.charCodeAt(2))
+        // 5.substr : 从索引m开始，截取n个 substr(m,n);原字符串不变
+        // console.log(str.substr(1,3))
+        // 6. substring: 从索引m开始，截取到索引n，并且不包含索引n;
+        //  不支持负数索引
+        // console.log(str.substring(2,5))
+        //console.log(str.substring(-5,2))
+        // 7.slice :从索引m开始，截取到索引n,不包含n, 支持负数；
+        // console.log(str.slice(2,-1));
+        var  str = "helloworld";
+        // 8.indexOf ： 检测字符在字符串中第一次出现的索引位置;
+        //  如果不存在，那么返回-1;
+        // console.log(str.indexOf("a"))
+        // 9.lastIndexOf: 检测字符在字符串中最后一次出现的索引位置，不存在返回-1;
+        //console.log(str.lastIndexOf("l"))
+        //console.dir(str)
+        // 10. concat : 字符串拼接
+        //console.log(str.concat("zhufeng"))
+        // 11. replace: 替换
+        // 原有字符串不改变；
+        // 字符串.replace(oldStr,newStr)
+        //    var newStr = str.replace("world","zhufeng")
+        //    console.log(str);
+        //    console.log(newStr);
+        //var  str1="zhufeng"
+        // 12.split : 按照特定的字符将字符分隔成数组的每一项；返回一个数组；
+        //var arr = str1.split("");//["z", "h", "u", "f", "e", "n", "g"]
+        ///console.log(arr);
+
+        var  str = "helloworld";
+        console.log(str.split("h"))// ["helloworld"]
+        //13. trim : 去字符串的左右空格
+        // trimLeft : 去掉字符串左边空格
+        // trimRight: 去掉字符串右边空格
+        //console.log(str.trim())
+
+        
+
+        
+
+
+        
+    
+    
+    
+    </script>
+</body>
+</html>

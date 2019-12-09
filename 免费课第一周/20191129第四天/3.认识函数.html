@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //  代码： 函数  if else    for循环
+    var num =10;
+    // 1.函数定义  function  函数名(){}
+    // function fn(){
+    //     // 函数定义时，这个大括号中的代码时不运行的；
+    //     var a =1;
+    //     console.log(100);
+    // };
+    // console.log(200);
+    // fn();
+    // fn();// 函数每执行一次，都会从函数体中的第一行开始执行；直到执行结束；
+    // 2. JS中为什么要用函数？
+    // 1.求两个数的和；但是每个数保留两位小数；
+    //  "3.878689" "7.87292762"
+    // var num1 = 3.878689;
+    // var num2 = 7.87292762;
+    // // toFixed : 返回值是一个字符串
+    // var total = Number(num1.toFixed(2))+Number(num2.toFixed(2));
+    // console.log(total);
+
+    // var num3 = 4.5677;
+    // var num4 = 6.89767;
+    // var  total1 = Number(num3.toFixed(2))+Number(num4.toFixed(2));
+    // console.log(total1);
+
+    var num1 = 3.878689;
+    var num2 = 7.87292762;
+    function sum(a,b){
+        //console.log(a)// a的值就是num1的值，b的值就是num2的值；
+        //console.log(b)
+        var total = Number(a.toFixed(2))+Number(b.toFixed(2));
+        console.log(total)
+    };
+    sum(num1,num2)// num1和num2给了函数执行的小括号
+    sum(4.5677,6.89767);
+
+    // 函数的封装： 把实现同一个功能的代码放到一个函数中，当想使用这个功能时，直接执行这个函数就可以；减少了代码的冗余；“高内聚、低耦合”
+    
+    
+    
+    
+    </script>
+</body>
+</html>

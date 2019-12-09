@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 数组： 引用数据类型；数组也是一个空间地址类型的；
+    // 数组由数组成员组成，数组成员用逗号隔开；
+    // 如果作为值存在，那么一定是数据类型中的一种
+    // var obj ;
+    // object
+    // ary
+    // 在项目中，对象和数组数据类型很常见；
+    var ary = [100,20,30,7,8,"abc",true,null,undefined,{},[],"中国","name"];
+    // 1.length : 代表数组成员的个数
+    console.log(ary.length);// 13
+    // 2. 索引: 从0开始,依次累加+1；
+    console.log(ary[2]);
+    console.log(ary);
+    // 
+    //ary[1]=0;
+    //console.log(ary);
+    ary.length-=3;// 在自身减去3；
+    console.log(ary.length);
+    </script>
+</body>
+</html>

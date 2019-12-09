@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 1. 变量  var  let  const:常量;
+    var t = 100;
+    t+=100;// 只要用到t，那么t代表t所存储的值；100；
+    var t = true;
+    var  obj = {name:"14期"};//  obj存储了一个空间地址；
+    obj = 100;
+    // 1. = : 赋值；是从右向左赋值
+    // 2. == ： 相对比较；得到一个布尔值的结果；要么是true，要么是false；
+    // 3. === : 绝对比较，不进行任何数据类型的转换；
+
+    // 2. 数据类型
+    // 基本数据类型和引用数据类型
+    // 基本数据类型是操作值得，引用数据类型操作的是空间地址
+    // 栈内存：基本数据类型存储到栈内存中，引用数据类型存储到堆内存中；
+    var num =10;
+    var bar ="abc";
+    var t = true;
+    var obj = {a:100,b:2}
+    var arr = [12,3,45,6];
+    console.log(num);
+
+    // 3.数据类型的比较
+    // 对象==对象： 比较是空间地址
+    // 对象==字符串 ： 对象调用自己的toString，转成字符串，然后和字符串比较
+    // 对象==布尔： 对象先转字符串，然后转数字，布尔也转数字，然后比较
+    // 对象==数字： 对象先转字符串，然后转数字，和数字比较
+    // 布尔==字符串： 布尔转数字，字符串转数字，然后比较
+    // 布尔==数字： 布尔转数字
+    // 字符串==数字  字符串转数字
+    // null == undefined --> true NaN  == NaN --> false
+
+    // 4. 操作语句 ；逻辑语句
+    // 1.三个判断
+        // 1) if  else 
+        if(7){// 如果只有一个值，会默认转布尔
+        
+        }
+        if(null==undefined){
+            //break;
+
+        }else if(1==1){
+
+        }else{
+
+        }
+
+        for(var i=0;i<10;i++){
+            if(i>6){
+                break;
+            }
+        }
+
+        // 三元运算符 用于简单的if else;
+        // switch case : 绝对比较
+
+        var num=100;
+        switch(num){
+            case "100":
+                console.log(2);
+                break;
+            case Number("100"):
+                console.log(100);
+                break;// 不再继续向下执行；
+            default:
+                console.log(8)
+
+        }
+
+
+    // 2.三个循环
+
+    // 1) : for 循环； for循环四部曲
+    for(var i=0;i<100;i++){
+
+    }
+    // break  : 中止整个大循环
+    // continue ：结束本轮循环
+
+
+    // 2) : for in : 用于循环对象
+    // 3) ： while : 不知道循环多少次，用while循环；
+ 
+    
+
+
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            /* 盒子自带margin和padding值，需要清除 */
+            margin: 0;
+            padding:0;
+        }
+        .tab{
+            width:400px;
+            height:300px;
+            margin: 100px auto;
+        }
+        #list{
+            list-style: none;
+            overflow: hidden;
+        }
+        #list li{
+            float:left;
+            width:80px;
+            height:30px;
+            text-align: center;
+            line-height: 30px;
+            background: lightgreen;
+            margin-right: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #list li.select{
+            background: red;
+        }
+        .tab div{
+            display: none;
+            width:400px;
+            height:300px;
+            border: 1px solid red;
+            line-height: 300px;
+            text-align: center;
+            color:red;
+            font-size: 30px;
+        }
+        .tab .select{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="tab" class="tab">
+        <ul id="list" class="list">
+            <li class="select">电影</li>
+            <li>综艺</li>
+            <li>电视剧</li>
+        </ul>
+        <div class="select">冰雪奇缘2</div>
+        <div>奇葩说</div>
+        <div>甄嬛传</div>
+    </div>
+    <script>
+        //由于当点击li时，不知道class在哪个li上；所以要清除所有的li上的class
+        // 效果： 点击哪个li，清除所有li的class名；并且要清除所有div的class，让点击的li新增一个class;再给点击li对应的那个div新增class;
+
+        // 获取所有的元素
+        var tab = document.getElementById("tab");
+        var oLis = document.getElementsByTagName("li");// 通过标签名来获取元素
+        var divs = tab.getElementsByTagName("div");
+        // console.log(oLis);
+        // oLis[0].onclick = function(){}
+        // oLis[1].onclick = function(){}
+        // oLis[2].onclick = function(){}
+        for(var i=0;i<oLis.length;i++){// 循环体执行三次
+            oLis[i].flag=i;//循环的时候 ，给每一个li身上加上一个属性名叫flag,属性值是当前li对应的索引；
+            oLis[i].onclick = function(){
+                // 当循环的时候，函数执行吗？i一直是3;
+                //console.log(i);
+                 for(var j=0;j<oLis.length;j++){
+                     // oLis[0].className="";
+                     oLis[j].className="";
+                     divs[j].className="";
+                 }
+                 // this: 关键字；
+                 //oLis[i].className="select";
+                 //console.log(this);
+                 this.className="select"; 
+                 divs[this.flag].className="select";
+            }
+        }
+        console.log(100);
+        
+        
+
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function fn(){
+        //     var  num =100;// 是私有的，外界是不能访问的；
+        //     console.log(100);   
+        //     console.log(num);
+        //     return num;// 把num的值return出来，不是把变量return出来；
+        // }
+        // console.log(200);
+        // var f = fn();
+        // console.log(num);
+       
+        // 事件的函数：onclick [点击]  onmouseover[鼠标划上]  onmouseout[鼠标划出]
+
+        // div.onclick = function(){
+        //     // 当鼠标点击div时，该函数会默认执行；
+        // }
+        
+        // function bar(){
+        //     var obj = {name:"zhufeng",age:10}
+        //     return obj;// return的是一个空间地址；
+        // }
+        // var o=bar();
+        // o.age=11;
+        // ///console.log(bar);// 堆内存
+        // console.log(o);
+        
+        // 函数的定义 函数的执行  函数的形参实参  arguments  return  匿名函数；
+        var ary = [1,2,3,4]
+        function  fn(a){
+            a[0]=100;
+        }
+        fn(ary);
+        console.log(ary);// [100,2,3,4]
+        
+    </script>
+</body>
+</html>

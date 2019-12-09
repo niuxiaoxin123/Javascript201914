@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 数据类型   条件语句  循环语句   function  数组的方法
+    // 数据类型 ： boolean  布尔值；
+    // 只有两个值： true 和false；true转数字1  false转数字是0；
+    // 
+    var t = true;
+    var f = false;
+    // 1. Boolean : 有且只有五个值转布尔是false ：0  NaN null  undefined "";
+    console.log(Boolean(100))
+    console.log(Boolean("100px"))
+    console.log(Boolean("+"))
+    console.log(Boolean(0))
+    console.log(Boolean(NaN));
+    console.log(Boolean(null));
+    console.log(Boolean(undefined));
+    console.log(Boolean(""));
+    console.log(Boolean(Number("100px")));// 
+    console.log(Boolean("0"))// true;
+
+
+    // ! : 取反; 放在值得前面；首先会把！后面的值通过Boolean转成布尔值；然后再取反；
+    var t = !true;
+    console.log(t)
+    console.log(!"100px")
+    console.log(![]);
+    console.log(!isNaN(0));// true
+    console.log(!isNaN("true"))// false
+    //Number(true)
+    console.log(Number("true"));
+
+    // !!: 取反再取反；
+    console.log(Boolean("0"))
+
+    // 数据类型 null  object  array  
+    // 条件语句
+    // 循环语句
+    </script>
+</body>
+</html>

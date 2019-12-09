@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        ul{
+            width:500px;
+            height:600px;
+            margin: auto;
+        }
+        ul li{
+            width:100%;
+            height:50px;
+            text-align: center;
+            line-height: 50px;
+            border: 1px dashed blue;
+            list-style: none;
+        }
+        /* ul li:nth-child(1){
+            background: red;
+        }
+        ul li:nth-child(2){
+            background:blue;
+        } */
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li id="box">习近平主持召开中央全面深化改革委员会第十一次会议</li>
+            <li id="box">习近平主持召开中央全面深化改革委员会第十一次会议</li>
+            <li id="box">习近平主持召开中央全面深化改革委员会第十一次会议</li>
+            <li id="box">习近平主持召开中央全面深化改革委员会第十一次会议</li>
+            <li id="box">习近平主持召开中央全面深化改革委员会第十一次会议</li>
+            <li id="box">习近平主持召开中央全面深化改革委员会第十一次会议</li>
+            <li id="box">习近平主持召开中央全面深化改革委员会第十一次会议</li>
+            <li id="box">习近平主持召开中央全面深化改革委员会第十一次会议</li>
+        </ul>
+    </div>
+    
+    <script>
+        // 奇数行背景是是红色，偶数行背景蓝色；
+        // document.getElementsByTagName ： 通过标签名来获取元素；
+        // 在document的文档下，获取所有的li元素；
+        var oLis = document.getElementsByTagName("li");// [{style:{background:""}}]
+        //oLis[0].style.background="red";
+        console.log(oLis);
+        
+        //var box = document.getElementById("box")// {style:{background:""}}
+        //box.style.background="red";
+        console.log(box);
+        
+       
+        //console.log(oLis);// 类数组，有length;
+        // 循环
+
+        // 给每一个li绑定一个鼠标划上的事件和鼠标离开的事件；
+        for(var i=0;i<oLis.length;i++){
+           
+            if(i%2===1){
+                oLis[i].style.background="red";
+            }else{
+                oLis[i].style.background="blue";
+            }
+            // 给每一行li新增一个bg属性。这个bg属性存储了当前li的背景颜色；
+            oLis[i].bg=oLis[i].style.background;
+            // 当鼠标划上这个li时，那么该函数执行；
+            oLis[i].onmouseover=function(){
+                this.style.background="yellow";
+            }
+            // 当鼠标离开li时，
+            oLis[i].onmouseout=function(){
+                // 把li原来的颜色保存起来；
+                this.style.background=this.bg;
+            }
+        }
+        // 1. 鼠标划入当前li，li背景变为黄色，划出时恢复之前原来的颜色
+        // 2. 当点击li时，在控制台中输出 “我是第  个li”
+
+        // 隔三行  1行 红  2行 绿  3行 黄
+        
+    
+    
+    </script>
+</body>
+</html>

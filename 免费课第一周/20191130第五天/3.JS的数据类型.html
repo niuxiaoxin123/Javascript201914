@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 1. 数据类型   操作语句    函数    
+    // 基本数据类型和引用数据类型；
+    // 基本数据类型：number string  boolean  null  undefined  symbol
+    // 引用数据类型： 对象数据类型和函数数据类型；
+    // 对象数据类型： 对象 数组  正则 Math Date的实例,arguments,类数组集合...
+    // 函数数据类型： 函数 类；
+    var  num=100;
+    var str = "12233";
+    var t = true;
+    var n =null;
+    var u = undefined;
+    //var  s = new Symbol("a");
+    // 对象有键值对组成，键值对用逗号隔开，键值对由属性名和属性值组成，用冒号隔开；
+    var obj = {name:"zhufeng",age:"str",str:100}
+    var ary = [2,3,4,"yy",99,NaN,null,undefined];
+
+
+    // 数据类型-Number :数字和NaN;
+    // 1.Number:把其他类型的强制转成number类型
+    //Number("2") -->2  Number("2px")-->NaN  Number(true)-->1 Number(null)--> 0 Number(undefined)-->NaN
+    // 2.parseFloat : 提取字符串中的数字；从左右到右依次识别字符串中的数字，然后提取出来，能识别小数点；
+    // parseFloat("1px")-->1  parseFloat("1.23px")-->1.23  parseFloat(null)->NaN parseFloat("")-->NaN
+    // 3.parseInt : 不能识别小数点
+    //parseInt("1.23px")-->1
+    // 4.isNaN : 判断是否是一个有效数字，有效数字返回false
+    // isNaN(1092)-->false  isNaN("2px")-->true;
+    // 5.toFixed : 返回一个字符串，保留小数点位数的，会进行四舍五入；
+    // 1.234.toFixed(2)--> "1.23"
+
+
+    // 数据类型--String
+   //var str = "zhufengpeixuncomhuilongguan";
+   // 1. 有length; 代表字符串中字符的个数
+   //console.log(str.length);
+   // 2. 索引：在字符串中，每一个字符串都有对应的一个下标；下标从0开始，那么这个下标就是索引
+   //console.log(str[3]);
+   // 3. 运算 - * / 先转数字，然后再运算；
+   //console.log("3px"-"2")// NaN
+   //console.log("3"-"2")// 1
+   // + : 字符串的拼接
+  // console.log("123"+789)
+
+  // 数据类型-Boolean
+  // 1. true-->1  false-->0;
+  // tyoeof : 数据类型检测；可以检测number  string  boolean  undefined function ;
+  console.log(typeof true)//"boolean"
+  // Boolean: 将其他数据类型强制转成布尔类型；
+  // 只有五个值：0  NaN  null  undefined  ""转布尔是false，其余都是true；
+  // ! :  先把！后面转成布尔值，然后再取反；
+  // ![]==!{} ![]==true  !""==""  ![]==[] --> true
+
+
+  // null和undefined
+  // 都表示没有
+    // null
+  // 1. 通过id获取元素，如果没有对应id元素，默认结果就是null;
+  // 2. 清空对象
+  // 3. 正则捕获不到内容，返回值是null
+  // var obj  ={};
+  // obj=null;
+
+  // undefined 
+  // 1. 变量只声明，未赋值，默认存储的结果就是undefined
+  // 2. 获取一个对象中属性名的属性值时，属性名不存在，获取undefined
+  // 3. 如果函数中没有return，默认返回值是undefined
+  // 4. 只有形参，形参没有对应的实参，那么形参默认存储的值是undefined；
+
+
+  // 数据类型--对象
+  //var obj = {name:"珠峰",age:1};// 
+  // 对象的定义
+  // 1. 开辟一个堆内存的空间地址
+  // 2. 把对象的键值对存储到这个堆内存中
+  // 3. 把这个十六进制的空间地址赋值给对象名；
+
+  // 堆栈内存
+  // 栈内存： 不仅存储基本数据类型，而且还给代码提供了执行环境；
+  // var num = 1;
+//   var a=b=c=1;
+//   b=3;
+//   console.log(a);
+
+//   var d=e=f=[1,2,3];
+//   f[0]=99;
+//   console.log(d);
+
+// var ary=[100,2,3,4];// aabbcc
+// function fn(ary){// ary的值和外面的ary的值是一样的；
+//     ary[0]=100;
+//     ary=[];// 给当前作用域的ary重新开辟一个新的空间地址，外层的ary不改变；
+//     ary[0]=99;// 
+//     return ary;
+// }
+// var a = fn(ary);//ary 实际存储的是 aabbcc
+// console.log(a);// [99]
+// console.log(ary);//[100,2,3,4]
+
+// var ary=[100,2,3,4];
+// function fn(a){
+//     a[0]=100;
+//     a=[];
+//     a[0]=99;
+//     return a;
+// }
+// var  f = fn(ary)
+// console.log(ary);
+
+
+// var a  =100;
+// function f(a){
+//     console.log(a);
+// }
+// f(1);
+
+// var obj = obj1 = {};
+// obj1=100;
+// console.log(obj);// {}
+
+//增 删 改 查
+var obj  ={name:"zhufeng"}
+// 获取
+var val = obj.name
+var  val= obj["name"];
+// 修改
+obj.name=88;
+obj["name"]=99;
+// 增加
+obj.age=10;
+obj["age"]=10;
+
+// 删除
+delete obj.name;
+delete obj["name"];
+
+// JS数据类型---数组
+
+
+var ary = [10,202,30,"73"];
+// 1. 有length 
+// 2. 有索引
+console.log(ary[0]);
+
+
+var  r = [{},{},{}]
+
+
+
+
+  
+  
+    
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var  str ="https://www.baidu.com/s?wd=手机&name=zhufeng&age=10&class=14";
+    // 获取到一个对象{wd:"手机",name:"zhufeng",age:10,class:14};
+    // 
+    var s = "http:www.baidu.com/?a=1&b=2&c=3"
+    // 封装一个方法；
+    function queryParams(url){
+        var index = url.indexOf("?");// 获取到？的索引；’
+        var lastStr = url.substring(index+1);// 截取到末尾
+        var ary = lastStr.split("&");// ["wd=手机","name=zhufeng","age=10","class=14"]
+        var obj = {};// 创建一个空对象
+        for(var i=0;i<ary.length;i++){
+            // 每一次用=分隔产生的小数组；数组中第一项是属性名，第二项是属性值；
+            var arr=ary[i].split("=");
+            console.log(arr)
+            var key = arr[0];
+            var val = arr[1];
+            obj[key]=val;
+        }
+        return obj;
+    }
+    console.log(queryParams(str));
+    console.log(queryParams(s));
+
+
+ 
+    </script>
+</body>
+</html>

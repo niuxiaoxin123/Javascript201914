@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>12</div>
+    <div id="first">45</div>
+    <!-- 快下课了 -->
+    <!-- 晚上有作业 -->
+    <div id="last"></div>
+    <script>
+        // 获取last 这个元素的上一个哥哥元素节点
+        // 封装一个方法；只要想获取某个元素的上一个哥哥元素节点，只需要将该元素作为实参传递进来就可以
+        var last = document.getElementById("last");
+        function getBro(curEle){// curEle : 形参  last这个元素；
+            var pre = curEle.previousSibling;
+            while(pre){
+                if(pre.nodeType===1){// 如果当前的nodeType是1，那么就说明找到了对应的元素节点；
+                    return pre;
+                }
+                pre=pre.previousSibling;// 获取哥哥节点的哥哥节点
+            }
+        }
+        getBro(last);
+
+
+        var first = document.getElementById("first");
+        getBro(first)
+    
+    
+    </script>
+</body>
+</html>

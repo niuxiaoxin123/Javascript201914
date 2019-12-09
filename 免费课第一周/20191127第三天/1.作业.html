@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+      // 基本数据类型： number  string  null  undefined boolean 
+      // 引用数据类型： 对象  数组  正则   Math  Date的实例  函数
+
+      // 基本数据类型是值类型，引用数据类型是空间地址类型的；基本数据类型存储到栈内存中，引用数据存储到堆内存中；
+      //var m = n =10;
+      //n=11;
+      //console.log(m);
+      //var obj = obj1 = {}
+
+      // typeof  constructor instanceof  Object.prototype.toString.call()
+
+      // 对象的定义：
+
+      //1. 在对象中，属性名不能重名 
+      //2. 在对象中，会首先把属性名是数字的进行存储，并且按照从小到大的顺序存储到堆内存中；
+      //var obj = {name:"zhufeng",5:2,20:100,10:1};
+    // 1. 开辟一个新的十六进制的空间地址对应一块堆内存；
+    // 2. 把对象中的键值对存储到这个堆内存中
+    // 3. 把空间地址赋值给变量名；
+    //   obj.age=10;
+    //   obj["age"]=10;
+    //   obj.name="peixun"
+    //   delete obj.name;
+    //   var val = obj.name;
+    //  console.log(obj);
+    // 报错： Cannot read property 'name' of undefined ： 不能读取undefined的name属性；
+    var  obj = {name:"hello",a:obj.name};
+    console.log(obj);
+    
+    
+      
+
+    </script>
+</body>
+</html>

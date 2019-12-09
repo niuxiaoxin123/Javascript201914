@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 对象是由键值对组成，键值对是由属性名（key、字段）和属性值(value)组成，键值对是用逗号隔开；冒号前面就是属性名，冒号后面的是属性值；
+        //1.对象是没有length;对象的属性名重名，如果重名，后面的会将前面的覆盖；
+        //var name = "a";
+        //var name = "b";
+       var  obj =  {name:"丁振康",age:17,hobby:"wan",1:100};
+       var  obj1 = {name:"a", age:19,hobby:"22"};
+       //console.log(obj.length);
+       //console.log(obj["1"]);
+      
+
+       // 增  删  改  查;
+
+       // 2. 获取属性名对应的属性值
+       // 1）对象名.属性名
+       //var n =  obj.name;
+       //console.log(n)
+       // 2) 对象名["属性名"]
+       //var m  = obj["name"];
+       //console.log(m);  
+
+       // 3.修改键值对的值
+       // 1) 对象.属性名=value;
+       //obj.age=18;
+       //console.log(obj);
+       // 2) 对象["属性名"]=value;
+       // obj["age"]=20;
+
+       // 4. 新增
+       // 如果没有就是新增，有就是修改
+       //obj.hobby={};
+       //obj["hobby"]={}
+       //console.log(obj);
+
+       // 5. 删除
+       // delete 对象名.属性名
+       //delete 对象名["属性名"]
+       //delete obj.age;
+       //obj.age=null;
+       //console.log(obj);   
+       // 存储
+       var num = 100;
+       var obj = {name:"aaa",age:1000};
+       console.log(num);// 100
+       
+
+
+
+    </script>
+</body>
+</html>

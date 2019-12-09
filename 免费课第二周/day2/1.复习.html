@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  数组方法 数组的去重   数组的冒泡；
+        //  14个 
+        //  pop  push  shift  unshift splice  slice  reverse  sort  indexOf  lastIndexOf  concat  join  map  forEach
+        // var  ary =[1,2,234,5,77,1];
+        // ary.splice(1)
+        // ary.splice(2,1);
+        // ary.splice(2,1,7,3,3)
+        // ary.splice(2,0,66,88)
+
+        // ary.slice(2,5)
+        // ary.slice(0)
+        // ary.slice(1,-1)// ary.length-1
+        // ary.reverse();
+        // ary.sort(function(a,b){return a-b});// 从小到大
+        // ary.sort(function(a,b){return b-a});// 从大到小
+        // ary.indexOf(100);// 1. 返回当前成员在数组中第一次出现的索引位置  2.检测是否存在；
+        // ary.lastIndexOf()
+        // ary.concat([1,2,3],2)
+        // ary.join("+");// 按照特定的字符串把数组每一项连接起来
+        // var  val = ary.map(function(item,index){
+        //     // 有多少个数组成员，执行多少次
+        //     // item  :每一项
+        //     // index: 索引 
+        //     return 100;
+        // }); 
+        // ary.forEach(function(item,index){
+        //     return 100;
+        // });
+
+
+        // 2. 数组去重；在原有的数组上去重
+        // var ary = [12,3,4,12,55,66,3,66];
+        // // 利用对象的属性名不能重复
+        // var obj={};
+        // for(var i =0;i<ary.length;i++){
+        //     var cur = ary[i];// 获取到当前项
+        //     if(obj[cur]===cur){
+        //         //ary.splice(i,1) 数组塌陷
+        //         // 不能用cur;
+        //         ary[i]=ary[ary.length-1];// 把数组的最后一项覆盖当前项
+        //         ary.length--;
+        //         i--;
+        //         continue;
+        //     }
+        //     obj[cur]=cur;// 给obj新增键值对；
+        // }
+
+        // var  arr =[1,2,3];
+        // var num = arr[0];// 把数组中索引为0的那项值给了num;
+        // num=100;
+        // console.log(arr);
+
+        // var  num =num1 = 100;
+        // num1=10;
+        // console.log(num);
+
+
+        var ary = [12,33,44,66,77,88,99,110,105];
+        // 冒泡排序
+        for(var i=0;i<ary.length-1;i++){
+            // i=3
+            var flag=true;
+            for(var j=0;j<ary.length-1-i;j++){
+                // 里面整个循环一次，解决一个最大值得问题
+                if(ary[j]>ary[j+1]){
+                    var temp = ary[j];
+                    ary[j]=ary[j+1];
+                    ary[j+1]=temp;
+                    flag=false;
+                }
+                console.log(1);
+            }
+            if(flag){
+                break;
+            }
+        }
+       
+        
+        
+        
+
+
+    
+    
+    
+    </script>
+</body>
+</html>

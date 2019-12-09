@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 冒泡排序  插入排序  快速排序
+        // 数组的冒泡排序
+         var ary = [12,56,78,99,100,110,105];
+         //var ary = [1,3,7,36,99,200,390,780];
+        // 1. 让相邻两项进行比较，如果前面一项比后面一项大，那么让这两项互换位置；如果不满足，什么都不做；
+        // 2.j循环循环完成，会将最大的值放在数组的最后面；
+       for(var i=0;i<ary.length-1;i++){
+           // 外层循环一次，里面循环7次
+           // 当外面循环一次之后，解决了一个最大值，那么再进行两两比较的时候，不需要和最大值比较了；
+           var flag=true;// 每当进一次循环，那么赋值给flag为true；
+            for(var j=0;j<ary.length-1-i;j++){
+                if(ary[j]>ary[j+1]){// 前面一项>后面一项
+                    //  利用第三方变量，将ary[j]存储起来;
+                    var temp=ary[j];
+                    ary[j]=ary[j+1];
+                    ary[j+1]=temp;
+                    flag=false;// 如果存在前面一项比后面一项大，说明数组没有排好顺序，那么再来一次；如果不进来，说明已经排好顺序了，直接break;
+                }
+                //console.log(1);// 49
+            }
+            if(flag){
+                break;
+            }
+        }
+        console.log(ary);
+        
+
+
+    
+    
+    
+    
+    </script>
+</body>
+</html>
