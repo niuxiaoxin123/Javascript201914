@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="3.js"></script>
+    <script>
+        // console.log(num);// undefined
+        // console.log(fn);// 整个函数
+        // var  num =100;
+        // function fn(){
+        //     function f(){
+        //     }
+        // }
+        // 1. 不管条件是否成立，都要进行变量提升；
+        // 1) function只声明，不定义；
+        // 2) 在老版本的浏览器中，fn不仅声明，而且定义；
+        // console.log(num);// undefined
+        // console.log(fn);// undefined
+        // if([]){
+        //     // 只要进到当前if条件中，会立即对fn进行赋值；
+        //     // 支持es6的浏览器，会把这个if的大阔号解析成一个块级作用域；
+        //     fn()
+        //     var num=100;
+        //     function fn(){console.log("a")}
+        // }
+        // console.log(fn);// undefined
+        // for(var i=0;i<2;i++){
+        //     function fn(){}
+        // }
+        // console.log(f);
+        // while(i<1){
+        //     function f(){
+
+        //     }
+        // }
+
+        // 2.等号的右边不进行变量提升，变量提升只发生在等号的左边；
+        // console.log(f1);
+        // var obj = {
+        //     fn:function f1(){
+        //     }
+        // }
+        // console.log(f);// undefined
+        // var f = function fn(){// 当代码执行到这一行时，会开辟堆内存；
+        // }
+        // console.log(f);
+
+        // 3.return下面的代码要进行变量提升；return 后面的代码时不进行变量提升的；
+        // function fn(){
+        //     console.log(a);
+        //     console.log(f);
+        //     var a=1;
+        //     function f(){
+
+        //     }
+        // }
+        // fn();
+        //     function fn(){
+        //         console.log(f);
+        //         return  function f(){
+        //         }
+        //     }
+        //    var g =  fn();
+
+        // var obj = {
+        //     fn:(function(){
+        //         console.log(100);
+        //         // 如果fn的属性值时一个自执行函数，那么当代码以键值对存储的时候（当代码执行到这一行时，自执行函数就会运行），并且把自执行函数的执行结果赋值给属性名fn;
+        //         return function(){
+
+        //         }
+        //     })()
+        // };
+        // console.log(200)
+        // obj.fn();
+        //obj.fn();// 执行函数中返回的小函数执行
+        //console.log(obj.fn);
+
+        // 4. 如果变量名重名，不再进行重复声明，但是要重新赋值；
+        // var num = 1;
+        // console.log(num);// 1
+        // var num = 2;
+        // console.log(2);
+        // fn();// 4
+        // function fn(){
+        //     console.log(1);
+        // }
+        // function fn(){
+        //     console.log(2);   
+        // }
+        // fn();// 4
+        // function fn(){
+        //     console.log(3);
+        // }
+        // fn=100;
+        // function fn(){
+        //     console.log(4);   
+        // }
+        // fn();// 报错
+
+
+        // 5. 自执行函数
+        // 当代码执行到这一行时，先开辟一个空间地址，然后再执行；
+        // var  fn = function(){};
+        // (function(){})();
+
+
+        // 6.1.let 声明的变量不进行变量提升；
+        //   2.let声明的变量在同一个作用域下不允许重名；
+        // 在代码执行之前，浏览器会先过滤当前作用域下的let声明的变量；
+        //console.log(num);
+        // let num=100;
+        // if([]){
+        //     let num =1; 
+        // }
+        // function f(){
+        //     let num =1;// num已经声明过；
+        // }
+        // f()
+        //console.log(num);// 100
+
+        console.log(100);
+        // 在代码运行之前，会对当前作用域下带let进行解析，判断是否有重名的变量；有的话，就直接报错；
+        // let a=1;
+        // let a=2;    
+    // console.log(window); 
+   
+    // 给window新增键值对是发生在变量提升的阶段；
+    //console.log(window);
+    //debugger;// 
+    //var a=100;
+    </script>
+   
+</body>
+</html>

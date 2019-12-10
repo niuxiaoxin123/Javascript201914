@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 过程：
+        // 变量提升：在当前作用域下，代码执行之前，会首先把带var的和function进行提前声明，带var 的只声明，不赋值，但是function不仅声明，而且还要赋值（定义）；那么这种机制就是变量提升的机制；
+        // 在变量提升时，首先对当前作用域下function进行变量提升，然后再对var变量提升；
+        // 声明： 通知了当前作用域有这么一个变量；
+        //console.log(a);// undefined
+       //console.log(b);  b is not defined
+        //console.log(fn);// 
+        // var a=100;
+        // b=99;
+        // function fn(){// 当代码执行到20行时，直接跳过；
+        //     var g=1;// 当函数执行的时候，才会对函数体中的代码发生变量提升；
+        //     function f(){
+
+        //     }
+        // }
+        // console.log(fn);
+        // var  c;
+        // console.log(c);
+        function fn(num){
+            console.log(num);// 100
+            //var num=1;
+            function num(){
+            }
+        }
+        fn(100);
+        // 函数的执行过程： 形参赋值在前，变量提升在后；
+    </script>
+</body>
+</html>

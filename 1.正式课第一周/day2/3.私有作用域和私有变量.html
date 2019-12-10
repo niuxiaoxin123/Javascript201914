@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var a = 100;
+        // function fn(){
+        //     // 私有作用域： 是给函数体中的代码提供代码的运行环境的；
+        //     // 和全局作用域，
+        //     // 1.私有作用域是在全局作用域下形成创建的；在全局作用域中包含私有的作用域；
+        //     // 2.全局作用域不能访问私有作用域下的私有变量，但是私有作用域能够访问全局作用下变量
+        //     // 3.如果私有作用域存在该私有变量，那么就不再向外获取
+        //     var  a=10;
+        //     a=11;
+        //     console.log(a)
+        // }
+        // fn();
+        // console.log(a);
+        
+        // 函数分为定义和执行
+        // 执行：
+        // 1. 首先形成一个私有的作用域
+        // 2. 形参赋值
+        // 3. 变量提升
+        // 4. 代码从上到下运行
+        // 5. 作用域是否销毁；
+
+
+        // 私有变量
+        // var b=2;
+        // function bar(){
+        //     var b=1;// 私有变量1：在函数体中被var过，这就是私有变量；
+        //     console.log(b);//     
+        // }
+        // bar();
+
+
+        // var c=1;
+        // function bar1(){
+        //     function c(){//私有变量2： 在函数体中被function的也是私有变量
+        //     }
+        //     c=10;
+        //     console.log(c);// 10
+        // }
+        // bar1();
+        // console.log(c);
+
+
+        // var d = 1;
+        // function bar2(d){// 私有变量3： 形参也是私有变量；
+        //     console.log(d);// 首先判断这个d是私有的吗，如果不是会继续往外查找
+        // }
+        // bar2(100,200);
+
+
+        // var e = 1;
+        // function bar3(){// 在函数体中，被var,被let，被const 都是私有的；
+        //     let e =100;
+        //     console.log(e);
+        // }
+        // bar3();
+        //var a=1;
+        // function bar(){
+        //     //var a = 100;// 当获取变量所对应的值时，首先会找私有，如果私有没有会向外查找，如果全局也没有，那么就报错；
+        //     console.log(a)// a is  not  defined 
+        // }
+        // bar();
+        // console.log(b);
+
+        // b=2;
+        // console.log(window);
+        // //debugger;// 断点；让代码执行停止到这一行；
+        // function bar(){
+        //     b=100;
+        //     c=200;
+        // }
+        // bar();
+        // var obj = {a:1};
+        // console.log(obj);
+        // obj.b=2;
+        
+
+        
+
+
+
+
+
+
+        
+
+    </script>
+</body>
+</html>

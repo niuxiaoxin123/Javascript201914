@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="3.js"></script>
+    <script>
+        // console.log(a);
+        // 代码的执行；浏览器如何解析代码的，以及解析的代码顺序和特点；
+        // 过程：浏览器在解析这个JS的时候，到底做了什么事；
+
+        // 全局作用域 和 私有作用域
+        // 全局作用域：当浏览器打开页面时，会形成一个供代码执行的运行环境，这个环境叫全局作用域；
+        // 全局作用域一个页面只有一个；
+        // 在浏览器打开页面的同时，也会形成两个虚拟的内存；一个是栈内存，一个堆内存；
+        // 栈内存 ： 1.提供代码运行环境  2. 存储基本数据类型值
+        // 堆内存： 存储引用数据类型值；
+        
+        // var  obj = {a:1}
+        // if(1==true){
+
+        // }
+        // 在全局作用域形成以后，在这个全局作用域会默认提供最大的window对象；
+        // console.log(window);
+        //parseFloat("3.45px")// 3.45 调用window下的方法时，相当于省略了window.
+        //Number("20px")
+        //toFixed(2)
+        //ary.pop()
+        //console.log();
+        
+        
+
+        // 全局变量: 在全局作用域下定义的变量叫全局变量；
+        // 在全局下定义的变量会默认给window新增一个属性名，属性名是变量名，属性值是变量所存储的值；
+        // var  a  = 100;  
+        // function fn(){
+        //     // 在函数私有作用域中定义的变量，不会给window新增键值对；
+        //     //var b=10;
+        //     var a=99;
+        //     console.log(a);  // 100 函数里面可以访问函数外面的变量
+        // }
+        // fn();
+        // console.log(b);//函数执行会形成私有的作用域，会保护里面的私有变量不受外界的干扰；
+        
+        var a = 10;
+        b=1;// 也是给window新增键值对；
+        
+        function bar(){// 在全局作用域下定义的函数，也会给window新增键值对；属性名是函数名，属性值时函数的空间地址；
+            //console.log(b);
+            //var d = 88;
+            //c=100;       // 在函数里面，也会给window新增键值对；
+            function foo(){// 在函数体中函数不会给window新增键值对，函数外面不能调用此函数；
+            }
+            foo();
+        }
+        bar();
+        //foo();
+        //console.log(c);// 
+        //console.log(window);
+
+
+        // let  : let声明的变量不能给window新增键值对；const声明的常量也不能新增键值对；
+        // const e=0;
+        // let  d=1;
+        // console.log(d);
+
+        var  a,b,c=100;// 代码时被var声明过，只是a,b没有被赋值’
+        console.log(b);//undefined
+        var d=e=f = 200;// e，f没有被var;只要d被var过得；但是def都被赋值200；
+        console.log(e);// 200
+        
+        
+    </script>
+</body>
+</html>
