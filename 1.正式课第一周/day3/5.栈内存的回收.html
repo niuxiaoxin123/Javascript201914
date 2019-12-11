@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="first">1234</div>
+    <script>
+        // 作用域就是栈内存
+        // 全局作用域  私有作用域  块级作用域；
+        // 全局作用域： 当打开页面时，会形成一个全局的作用域;这是不销毁的作用域，只有当关闭页面或关闭浏览器时，作用域会销毁；
+        // div.onclick = function(){}
+        // 私有作用域是在全局作用域下形成的；全局作用域包含着所有的私有作用域；
+
+        // 私有作用域
+        // 1. 立即销毁
+        // function fn(){
+        //     var num =100; 
+        // }
+        // fn();// 每执行一次，都会开辟一个新的栈内存；
+        //闭包理解：函数执行的瞬间形成一个闭包，保护里面的变量不受外界的干扰；这就是闭包现象；
+        // console.log(num);
+
+        // 2. 不销毁
+
+        // 1. 返回一个引用的数据类型值
+        // 2. 返回的值需要被外界接受；
+
+        // 栈内存回收，那么栈内存中所有存储的值都会随着回收；
+
+        // 闭包： 在函数执行体中返回一个小函数，这个小函数可以访问小函数外面的变量，这种现象就是闭包；
+        // 闭包保存值得作用；
+        // function sum(){
+        //     var t=100;// t存在sum执行形成的栈内存；
+        //     return function(){
+        //         //console.log(t);// 100 
+        //     }
+        // }
+        // var f = sum();
+        // f=100;
+        // f();
+        //sum();
+        // function sum(){
+        //     return {}
+        // }
+        // var s = sum();
+        // var a = 100;
+        // function fn(){
+        //     var a = 1;
+        //     // 在该函数中，空间地址被DOM元素的事件占用；这个作用域是不销毁的；
+        //     first.onclick = function(){
+        //         console.log(a);
+        //     }
+        // }
+        // fn();
+
+        // var a = 100;
+        // var obj = {
+        //     a:1,
+        //     fn:(function(){
+        //         // 这个作用域也是不销毁的；这个自执行返回的小函数，被obj的fn属性占用；
+        //         // 这个自执行函数的上一级作用域是全局作用域；
+        //         var a = 0;
+        //         return function(){
+        //             console.log(a);// 0
+        //         }
+        //     })()
+        // };
+        // obj.fn();
+
+
+
+        // 3.不立即销毁
+        // fn会等到里面的小函数执行完毕，fn形成的栈内存也会随之销毁；
+        function fn(){
+            var a=100;
+            return function(){
+                console.log(a);
+            }
+        }
+        fn()()
+
+
+
+//     function fn(n) {
+//         // n=7 ->8 -->9
+//         // n=1
+//         // n=3
+//         return function (m) { // m=5
+//             console.log(m+ ++n)
+//         }
+//     }
+//    var f = fn(7);
+//    f(5);//13
+//    f(6);//15
+//    fn(1)(2);//4
+//    fn(3)(4);//8
+
+    var num =1;
+    var obj = {
+        num:10,
+        fn:(function (num) { // num=2
+               var num =2;// 3 --> 4-->5
+               return function (n) {
+                   //console.log(n*(num++));
+                    
+                    
+               }
+        })(num)// 1
+    }
+    var f = obj.fn;
+    f(10);//20  
+    f(20);//60
+    obj.fn(30);//120
+    obj.fn(40);//200
+
+
+    var d=num++;
+    console.log(d);
+
+        
+
+    </script>
+</body>
+</html>

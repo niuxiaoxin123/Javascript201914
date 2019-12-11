@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       //  堆栈内存
+       var  num = 100;
+       var  obj = {}
+
+       // 栈内存： 1.存储基本数据类型和引用数据类型的指针； 2. 给代码提供运行环境；
+       // 每形成一个作用域，就会消耗一块栈内存；
+        // function fn(){
+        //     var a=100;
+        //     a++;
+        // }
+        // // 函数每执行一次，都会形成一个新的栈内存；
+        // fn();
+        // fn();
+        // for(var i=0;i<10000;i++){
+        //     fn();
+        // }
+
+
+        // 堆内存： 存储引用数据类型；
+        // 会首先把属性名是数字按从小到大顺序放进堆内存中
+        var obj= {
+            a:1,
+            fn:(function(){
+                // 把这个函数的执行结果赋值给fn;
+                return 100;
+            })(),
+            f:function(){
+            },
+            30:21,
+            1:100
+        }
+        // var i=0;
+        // for(let key in obj){
+        //     i++;
+        // }
+        // console.log(i);
+
+        // Object.keys: 将对象中所有的属性名放到一个数组中；
+        console.log(Object.keys(obj));
+        // console.log(obj);
+        // var arr=[];
+        // function fn(){
+
+        // }
+        // {}=={}
+
+    </script>
+</body>
+</html>

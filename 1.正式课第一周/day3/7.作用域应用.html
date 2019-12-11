@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            /* 盒子自带margin和padding值，需要清除 */
+            margin: 0;
+            padding:0;
+        }
+        .tab{
+            width:400px;
+            height:300px;
+            margin: 100px auto;
+        }
+        #list{
+            list-style: none;
+            overflow: hidden;
+        }
+        #list li{
+            float:left;
+            width:80px;
+            height:30px;
+            text-align: center;
+            line-height: 30px;
+            background: lightgreen;
+            margin-right: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #list li.select{
+            background: red;
+        }
+        .tab div{
+            display: none;
+            width:400px;
+            height:300px;
+            border: 1px solid red;
+            line-height: 300px;
+            text-align: center;
+            color:red;
+            font-size: 30px;
+        }
+        .tab .select{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="tab" class="tab">
+        <ul id="list" class="list">
+            <li class="select">电影</li>
+            <li>综艺</li>
+            <li>电视剧</li>
+        </ul>
+        <div class="select">冰雪奇缘2</div>
+        <div>奇葩说</div>
+        <div>甄嬛传</div>
+    </div>
+    <script>
+        var tab = document.getElementById("tab");
+        var oLis = document.getElementsByTagName("li");
+        var divs = tab.getElementsByTagName("div");
+        // let 声明变量在for循环中；每一轮循环都会形成一个子作用域，这个子作用域存储了变量i的值；
+        for(let i=0;i<oLis.length;i++){
+            oLis[i].onclick = function(){// 点击的时候执行；
+                for(var j=0;j<oLis.length;j++){
+                    oLis[j].className="";
+                    divs[j].className="";
+                }
+                oLis[i].className="select";
+                divs[i].className="select";
+            }
+        }
+
+
+        // for(var i=0;i<oLis.length;i++){
+        //     (function(a){
+        //         oLis[a].onclick = function(){// 点击的时候执行；
+        //             for(var j=0;j<oLis.length;j++){
+        //                 oLis[j].className="";
+        //                 divs[j].className="";
+        //             }
+        //             oLis[a].className="select";
+        //             divs[a].className="select";
+        //         }
+        //     })(i)
+        // }
+
+
+
+
+        // 2. 利用闭包存储值；
+        // for(var i=0;i<oLis.length;i++){
+        //     oLis[i].onclick = (function(a){// 循环三次，形成三个不销毁的作用域；并且每个作用域存储i的值分别是 0  1   2；
+        //     // 会形成三个不销毁的作用域，消耗栈内存；
+        //         return function(){// 点击的时候执行；
+        //             for(var j=0;j<oLis.length;j++){
+        //                 oLis[j].className="";
+        //                 divs[j].className="";
+        //             }
+        //             oLis[a].className="select";
+        //             divs[a].className="select";
+        //         }
+        //     })(i)
+        // }
+
+        //1. for(var i=0;i<oLis.length;i++){
+        //     // 自定义属性
+        //     oLis[i].flag=i;
+        //     oLis[i].onclick = function(){
+        //          for(var j=0;j<oLis.length;j++){
+        //              oLis[j].className="";
+        //              divs[j].className="";
+        //          }
+        //          this.className="select"; 
+        //          divs[this.flag].className="select";
+        //     }
+        // }
+    </script>
+</body>
+</html>

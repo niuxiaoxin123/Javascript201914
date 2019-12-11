@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // codeReview : 代码审查
+        // 变量提升
+        //  var n=0; function a=aabbcc var c;
+
+        // 1. 代码的执行过程
+        // // 2. 分清代码中变量n到底指的是谁；
+        // var n=0; 
+        // function a(){
+        //     // var n=10 -> 11-->12; function b=eeddff
+        //     // 不销毁
+        //     var n=10; 
+        //     function b(){
+        //         n++; // 
+        //         alert(n); // 11  12
+        //     }
+        //     b();
+        //     return b; 
+        // }
+        // var c=a();// 小函数b;
+        // c(); 
+        // alert(n);// 0
+
+        // var n=10;
+        // function sum(n){
+        //     n++;// 只需要判断当前n是否是私有变量；
+        //     //var n=1; 
+        //     // function n(){
+        //     // }
+        // }
+
+        // var a=9-->0-->1-->0-->1-->2; function fn=aabbcc;var f; var m; var n; var x;
+
+        // var a=9; 
+        // function fn(){ 
+        //     a=0; 	   
+        //     return function(b){
+        //         // b=5
+        //          return b + a++; 
+        //     }    
+        // }
+        // var f=fn()
+        // var m=f(5);alert(m);// 5
+        // var n=fn()(5);alert(n); // 5
+        // var x=f(5);alert(x);// 6
+        // alert(a); 
+
+
+
+
+
+
+    
+    </script>
+</body>
+</html>

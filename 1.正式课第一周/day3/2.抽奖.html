@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      
+        #text{
+            width:200px;
+            height:80px;
+            font-size: 20px;
+            border:1px solid red;
+            text-align: center;
+            line-height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div id="text">6789</div>
+    <button id="start">开始</button>
+    <script>
+        var  text = document.getElementById("text");
+        var  start = document.getElementById("start");
+        function code(){// code 生成随机数，并且放入text元素中
+            //var num = Math.round(Math.random()*(9999-1000)+1000)
+            var str="";
+            for(var i=0;i<4;i++){
+                str+=Math.round(Math.random()*9)
+            }
+            text.innerHTML=str;
+        }
+        var  flag=true;
+        start.onclick = function(){
+            if(flag){
+                timer= setInterval(code,10);
+                start.innerHTML="暂停"; 
+            }else{
+                clearInterval(timer);
+                start.innerHTML="开始";
+            }
+            flag=!flag;
+        }
+
+        // 函数执行一次，就会形成一个新的私有作用域；
+        // var timer;
+        // start.onclick = function(){
+        //     if(start.innerHTML==="开始"){
+        //         timer= setInterval(code,10);
+        //         start.innerHTML="暂停";
+        //     }else{
+        //         clearInterval(timer);
+        //         start.innerHTML="开始";
+        //     }
+        // }
+
+    
+    
+    </script>
+</body>
+</html>

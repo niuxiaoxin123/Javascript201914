@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 正式课第一周 ： git  变量提升  作用域  堆栈内存   this   面向对象；
+        // 免费课：背
+        // 正式课第一周：理解；过程；
+        // 正式课第三周--第五周：练
+
+        // 全局作用域和全局变量
+        // 浏览器打开页面，会形成一个供代码执行的运行环境，一个页面只有一个作用域；
+        // 浏览器： 谷歌  IE  火狐  欧朋 safri; 客户端；能够解析前端代码；
+        // 服务器： Java PHP C  C#  .net 运行在服务器，处理来自客户端的请求
+        // 数据库：  存储数据
+
+
+        // 全局作用域浏览器会提供一个大的对象，window；
+        //console.log(window);
+        // 全局变量: 会给window新增一个键值对；属性名是变量名，属性值变量的存储的值
+        // var num = 10;
+        // //num = m;// m is not  defined
+        // m=1;
+        // var n=100;
+        // var f=0;
+        // function fn(){
+        //     // 变量提升 ：声明了一个私有的变量n;
+        //     // 私有变量： 1.有没有被var 2.有没有被function 3. 是不是形参  4. 有没有被let或const;
+        //     f=1;
+        //     function f(){}
+        //     n=2;
+        //     var n=0;
+        // }
+        // fn();
+
+        // 私有作用域和私有变量
+        // 1. 形成私有作用域；
+        // 2. 形参赋值
+        // 3. 变量提升
+        // 4. 代码从上到下执行
+        // 5. 作用域是否销毁；
+        // var b={a:"hello"};// aabbcc
+        // function fn(b){// b代表就是空间地址
+        //     //  b=aabbcc     
+        //     b.a="world";
+        //     if(1){
+        //         //var b=1;
+        //         function b(){}
+        //     }
+        //     console.log(b);
+        //     //function b(){}
+        // }
+        // fn(b);// b传进的是一个空间地址aabbcc
+        // console.log(b);// {a:"world"}
+        // var a=b={c:1};
+        // b=100;
+        // console.log(a);// {c:1}
+        
+
+        // var b={a:"hello"};// aabbcc 
+        // function fn(b){
+        //     // 私有变量： b=aabbcc {a:"world"}
+        //     //b.a="world";
+        //     // b
+        //     if(1){
+        //         // 条件成立，进到这个块级作用域，立即对函数赋值
+        //         // 如果有形参和这个函数重名，那么这个函数赋值不能影响外面的形参的值；
+        //         function b(){}
+        //     }
+        //     console.log(b);//{}
+        // }
+        // fn(b);
+
+        //console.log(f);// undefined
+
+        
+        // 变量提升
+        // 1. 在当前作用域下，对带var和带function进行提前声明，var是只声明不定义，function不仅声明，而且定义；
+        // console.log(num);
+        // var num =1;
+        // console.log(m);
+        // m=100;
+
+        // 1. 不管条件是否成立，都要进行变量提升
+        // console.log(fn);
+        // if(false){
+        //     var num=1;
+        //     function fn(){}
+        // }
+        // // 2. 变量提升只发生在等号的左边
+        // var obj ={
+        //     n:function fn(){}
+        // }
+        // 3. return 下面的代码要进行变量提升，但是return后面代码不进行变量提升
+
+        // 4. 如果变量重名，不再重复声明，但是要重新赋值；
+        // fn();
+        // function fn(){}
+        // var  fn=19;
+        // // 5. 自执行函数先定义后执行
+        // (function(){})()
+
+        // 6. let const
+        
+
+        // 变量提升时就给window新增键值对；
+        // console.log(window);
+        // if(!("a" in window)){
+        //     var a=1;
+        // }
+        // alert(a);  // undefined
+
+
+        // var a=4;
+        // function b(x,y,a) {	   
+        //     alert(a); 
+        //     arguments[2]=10;        
+        //     alert(a); 
+        // }
+        // a=b(1,2,3);   
+        // alert(a);  
+
+
+        // var foo='hello'; 
+        // (function(foo){
+        //     console.log(foo);
+        //     // 如果||前面的值转布尔是true，直接取前面的值；
+        //     var foo=foo||'world';
+        //     console.log(foo);
+        // })(foo);
+        // console.log(foo);
+    
+    </script>
+</body>
+</html>

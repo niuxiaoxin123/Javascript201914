@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 谷歌浏览器：
+        // 标记法：每隔一段时间对所有的指针进行一次检测，检测该指针是否被占用，如果不被占用，浏览器将其回收； 
+
+        // IE: 计数方式： 浏览器如果该空间地址被引用一次，浏览器会默认给该地址+1；如果不再引用，那么会默认-1；如果该空间地址的计数为0；立即将该地址回收；
+
+        // var obj = {a:1};
+        // obj = null;
+        // var c = obj;
+        // obj =1;
+        // console.log(obj);
+        
+        
+       function  fn(){
+           var obj= {}
+           obj.a=100;
+       }
+       fn();
+
+    //    (function(){})()
+
+    //    let vm = new Vue({
+    //        data(){}
+    //    })
+
+    
+    
+    
+    </script>
+</body>
+</html>
