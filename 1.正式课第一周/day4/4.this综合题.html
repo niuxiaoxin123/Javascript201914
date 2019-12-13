@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  
+   // 变量提升  作用域  私有变量   this；
+    // var num =1 -->2; var obj ; 
+    // var num =1;
+    // var obj = {
+    //     num : 0,
+    //     fn : function () {
+    //         // this--> obj;
+    //          num = 1;
+    //         (function (num) { // num =0;
+    //             ++this.num;// this--> window
+    //             num++;// 形参0
+    //             console.log(num)//  1
+    //         })(this.num)// this -->obj  this.num =0;
+    //     }
+    // }
+    // obj.fn();
+    // console.log(window.num,obj.num);// 2  0
+
+    // var a  =1;
+    // var obj = {a:2}
+    // obj.a++;
+    // a--;
+
+
+    // var  obj = {
+    //     fn:(function(){
+    //         return 100;
+    //     })()
+    // }
+        // var obj ={a:1};
+        // var  a = 1;
+        // obj.a = a;// 
+        // a++;
+        // console.log(obj.a)// 
+
+
+        // var a=b=1;
+        // b++;
+        // console.log(a);
+        
+    
+    // var a = 1;// 3
+    // var obj1 = {
+    //     a: 0,// 2
+    //     fn1: (function (a) {
+    //         // a=1 -->2-->3-->4
+    //         this.a = a;
+    //         a++;
+    //         return function () {
+    //             // this--> obj1
+    //             this.a = a++;
+    //             console.log(a)// 3 4
+    //         }
+    //     })(a)
+    // };
+    // obj1.fn1();
+    // var fn1 = obj1.fn1;
+    // fn1();// this
+    // console.log(a);// 3
+    // console.log(obj1.a);// 2
+
+
+    var num =1;// 2  4
+    var obj = {
+        num : 2,// 4
+        fn : (function () {
+            /// var num; NaN --> 1-->3-->4-->6-->7
+            // this--> window 
+            this.num *= 2;
+            num +=3;
+            var num =1;
+            return function () {
+                    num +=2;
+                    this.num +=2
+                    console.log(++num)   ;// 4  7
+            }
+        })()
+    };
+    var f= obj.fn;
+    f();
+    obj.fn();
+    console.log(window.num,obj.num); // 4   4
+
+
+    var num = 10;
+    var obj = {num: 15};
+    obj.fn = (function (num) {
+        this.num += 10;
+        num *= 2;
+        return function (n) {
+            this.num += n;
+            console.log(n + (--num));
+        }
+    })(obj.num);
+    var fn = obj.fn;
+    fn(10);
+    obj.fn(15);
+    console.log(window.num, obj.num);
+
+
+</script>
+</body>
+</html>

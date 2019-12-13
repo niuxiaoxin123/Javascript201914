@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">点我</div>
+    <div id="box1">点我1</div>
+    <script>
+
+        // 在不同的情景下，this不同的指向情况；
+        // 1. this --> 关键字;在JS中有特殊的含义；
+        // 1. 在全局作用域，this指向window；this 和window是同一块空间地址；
+        //console.log(this);// window 
+        //window.alert()
+        //this.alert();
+        // 2. 给元素的事件绑定的函数中的this，指向了当前被点击的那个元素；
+        // box.onclick = function(){
+        //     // this : 对象； 
+        //     //console.dir(this===box); // 空间地址相同；
+        //     //box.style.color="red";
+        //     //this.style.color="red";
+        //     //this=100;// this 不能放到等号的左边；
+        // }
+        // box1.onclick = function(){
+        //     // this : 对象； 
+        //     console.dir(this); 
+        // }
+
+        // 3.看函数执行前有没有".",如果要是没有，那么函数中的this指向window，如果有"." ,那么点前面是谁，this就指向谁；
+        // function fn(){
+        //     console.log(this);// window 
+        // }
+        // fn()
+        // var fn = function(){
+        //     console.log(this);// window 
+        // }
+        // fn();
+        // var obj = {
+        //     m:1,
+        //     fn:function(){
+        //         console.log(this);// this就指向了obj;
+        //     }
+        // }
+        // var f = obj.fn;
+        // console.log(f==obj.fn);
+        // obj.fn();
+        // f();
+
+
+        // 4. 自执行函数中this 永远指向window；
+        // (function(){
+        //     console.log(this);// window
+        // })();
+        // var obj = {
+        //     fn:(function(){
+        //         console.log(this);
+        //         return function(){
+        //             console.log(this); 
+        //         }
+        //     })()
+        // }
+        // var f = obj.fn;
+        // f();
+
+
+        // 5. 回调函数中的this一般都指向window；
+        // setTimeout(function(){
+        //     console.log(this);
+        // },1000);
+        // var ary=[1,2,3,4]
+        // ary.map(function(){
+        //     console.log(this);
+        // })
+
+        // function A(){
+        //     console.log(this); 
+        // }
+        // function B(a){
+        //    var obj = {a:a}
+        //    obj.a();
+        // }
+        // B(A)
+
+        // 6.构造函数中的this指向实例
+        // 7.call,apply,bind 可以改变this指向；
+
+    
+    
+    </script>
+</body>
+</html>

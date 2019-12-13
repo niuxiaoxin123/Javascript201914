@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 工厂模式 ： 函数的封装
+        // 把实现同一个功能的代码放在一个函数体中，当想实现类似的功能时，直接执行这个函数就可以，减少了代码的冗余；实现了高内聚，低耦合；就是函数的封装；
+        function createStudent(name,age){
+            var obj = {};
+            obj.name= name;
+            obj.age=age;
+            return obj;
+        }
+        var xing = createStudent("邢民华",21);
+        var liu = createStudent("刘宝华",21);
+
+    
+    
+    </script>
+</body>
+</html>

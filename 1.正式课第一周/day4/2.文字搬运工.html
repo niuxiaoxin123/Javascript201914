@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			html{
+				height: 100%;
+				overflow: hidden;
+			}
+			body{
+				margin: 0;
+			
+			}
+			.clear:after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			#content{
+				width: 850px;
+				/*height: 500px;*/
+				padding: 28px;
+				background-color: rgba(115,103,195,0.8);
+				border-radius: 10px;
+				margin: 150px auto;
+				position: relative;
+			}
+			#left,#right{
+				width: 340px;
+				height: 390px;
+				box-sizing: border-box;
+				border: 1px solid #402196;
+				background-color: #eef8fa;
+				border-radius: 4px;
+				font: 14px/32px "微软雅黑";
+				color: #402196;
+				overflow: auto;
+				padding: 12px 23px;
+				resize: none;
+				word-break: break-all;
+			}
+			#left{
+				float: left;
+			}
+			#right{
+				float: right;
+			}
+			#centerBox{
+				width: 100px;
+				text-align: center;
+				color: #fff;
+				position: absolute;
+				left: 50%;
+				top: 167px;
+				margin-left: -50px;
+			}
+			#btn{
+				background-color: #7ee4fd;
+				border-radius: 5px;
+				padding-bottom: 18px;
+			}
+			#btn strong{
+				font-size: 50px;
+				line-height: 47px;
+				display: block;
+			}
+			#text{
+				line-height: 54px;
+				color: #7ee4fd;
+			}
+			::-webkit-scrollbar {
+				  width: 10px;
+				  margin-right: 10px;
+			} 
+			::-webkit-scrollbar-track {
+				  background-color: #cbcde6;
+				  border-radius: 10px;
+			} 
+			::-webkit-scrollbar-thumb {
+				  background-color: #9378dd; 
+				  border-radius: 10px;
+			} 
+			::-webkit-scrollbar-button {
+				  background-color: transparent;
+			} 
+			::-webkit-scrollbar-corner {
+				  background-color: black;
+			} 
+		</style>
+	</head>
+	<body onselectstart="return false">
+		<div id="content" class="clear">
+			<textarea id="left">兴也勃焉、亡也忽焉，岂能不诚惶诚恐创业即难、守业更难，怎敢不竭尽全力       “珠峰”走到今天，我最引以为豪的就是：我们没有招生部门，但每年招收的学生人数倍增；我们没有就业部门，但超过百分之二、三十的学生入职BAT等一流公司。我们在创造一个叫“珠峰模式”的奇迹。珠峰培训能够走到今天，靠的是让学生升华，最终实现自己的成功。2012年，有一位学员在学习结束后找到了一份不错的工作，她跟我说：“我原来没有看书的习惯，现在睡前都习惯看会《JavaScript高级程序设计》了。”我认为这就是”珠峰”的成功：不仅传授了技术，还让她养成了一个积极向上的好习惯。我们有超过80%的同学都是来自于老同学的推荐。为什么老同学会这么热心的推荐他们的亲朋好友来“珠峰”学习？就是因为他们相信：“珠峰”能够改变他们，“珠峰”是一个积极向上、充满正能量的地方！通过某种技术学习，引导人、激励人、提高人、改变人，这是我们的使命。这种使命，不仅仅是对学生的，更是对自己的。这七年来，我自己正是通过对JS的学习，从以前的散慢、迷茫，逐渐定下心来，培养了心性和善于学习、思考的习惯，从而达到了提高自我、改变自我的目标。凡是结缘“珠峰”的人，不管是学生、还是老师，我们都有一个共同的目标，那就是：互相提高、互相升华，通过提高或改变别人从而升华自己。
+					
+			</textarea>
+			<div id="centerBox">
+				<div id="btn">
+					<strong>&rarr;</strong>
+					<span>把文字右移</span>
+				</div>
+				<div id="text">0/0</div>
+			</div>
+			<div id="right"></div>
+		</div>
+		<script>
+			var btn = document.getElementById("btn");
+			var left = document.getElementById("left");
+			var right = document.getElementById("right");
+			var text1 = document.getElementById("text");
+			// 1. 左边不断减少
+			// 2. 右边不断增多
+			// 3. 字数比例在变化
+			var  isGoing=false;
+			var timer;
+			var val= left.value;
+			var len = val.length;
+			btn.onclick = function(){
+				clearInterval(timer);
+				if(isGoing){
+					return;// 中止代码的作用
+				}
+				// 这一行点击的时候执行一次；
+				timer = setInterval(function(){
+					val = left.value;// 每10ms都会获取一次最新的left中的值；
+					right.innerHTML += val[0];
+					left.value=val.substring(1);// 从索引为1的开始截取；
+					text1.innerHTML=right.innerHTML.length+"/"+len;
+					if(right.innerHTML.length===len){
+						clearInterval(timer);
+						isGoing=true;
+					}
+				},10)
+			}
+		</script>
+	</body>
+</html>

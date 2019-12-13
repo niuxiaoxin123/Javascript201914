@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 全局作用域： 1. 页面形成全局作用域 2. 变量提升   3. 代码从上到下运行 ； 不销毁的作用域 
+
+    // 私有作用域 ：1. 形成私有作用域  2. 形参赋值  3. 变量提升  4. 代码从上到下运行  5.作用域是否销毁 
+
+    // 变量： 一定要分清是私有变量还是上一级作用域的变量或者是全局的变量；
+
+    // 私有变量的判断： 1. 被var  let  const  function  2. 形参
+
+    // 块级作用域: 1. 当代码执行到这一行形成 2. 进入块级作用域首先对函数进行赋值  3. 代码从上到下执行；
+
+    // if([]){
+    //     var num =1;
+    //     function fn(){}
+    // }
+
+
+    // console.log(b);// function b(){}
+    // b();
+    // var b = 1;
+    // function b() {
+    //     console.log(b);// 
+    // }
+    // b();
+
+    // function f1() {
+    //     console.log(a); // 函数
+    //     var a = 1;
+    //     return a;
+    //     function a() {
+    //     }
+    // }
+    // f1();
+
+   //var x1 f2=aabbc  f3=bbcc
+    // f2();
+    // f3();
+    // var x1 = x2 = 10;
+    // function f2() {
+    //     console.log(x1);// undefined
+    // }
+    // function f3() {
+    //     console.log(x2);// 报错
+    // }
+
+
+    // console.log(a);// undefined
+    // var a = 13;
+    // function fn() {
+    //     console.log(a);// undefined
+    //     var a = 1;
+    // }
+    // fn();// 
+    // console.log(a);// 13
+
+
+    // console.log(a);
+    // a = 13;   
+    // function fn() {
+    //     console.log(a);
+    //     a = 1;
+    // }
+    // fn();
+    // console.log(a);
+
+
+    // var foo = 1;
+    // function bar() {
+    //     console.log(foo);// undefined
+    //     if (!foo) {
+    //         var foo = 10
+    //     }
+    //     console.log(foo);// 10
+    // }
+    // bar();
+   
+
+    // function f5() {
+    //     f=ff();
+    //     return f;
+    //     function ff() {
+    //         return "f" in window;// false 
+    //     };
+    //     var f;// 私有变量不会给window新增键值对
+    // }
+    // console.log(f5());
+
+    //var  a;
+
+    // var a = b = c = [1, 2, 3, 4];// a,b,c 存储同一个空间地址；
+    // b = 9;// a 和 c 不变；
+    // a[1] = 0;// [1,0,3,4]
+    // console.log(b[0]);// undefined ; 万物皆对象 b.toFixed(2)
+    // a = [1, 2, 3, 4];
+    // c = [1, 2, 3, 4];
+    // a[0] = b;
+    // console.log(c);
+    // console.log(a);
+
+    // var ary = [1, 2, 3, 4];// [0,2,3,4]
+    // function ff(ary) {
+    //     ary[0] = 0;// [0,2,3,4]
+    //     ary = [0];// ary重新赋值一个新的空间地址私有变量ary=[0]
+    //     ary[0] = 100;// [100]
+    //     return ary
+    // }
+    // var s = ff(ary);// ary = 数组的空间地址
+    // console.log(ary);// [0,2,3,4]
+    // console.log(s);//  [100]
+
+    // var a = 10, b = 11, c = 12;// -->3
+    // function test(a) {// a 是私有变量 a=10 -->1  var b=2;
+    //     a = 1;
+    //     var b = 2;
+    //     c = 3;
+    // }
+    // test(10);
+    // console.log(a);
+    // console.log(b);
+    // console.log(c);
+
+    
+    // var aa;
+    // 变量提升时，给window新增的键值对；
+    // if (!("aa" in window)) {
+    //     // 在块级作用域中，var和function不允许重名；
+    //     var aa = 1;
+    //     function aa() {
+    //         console.log(aa)
+    //     }
+    // }
+    // console.log(aa);// 
+
+
+
+
+    // var a = 4;
+    // function b(x, y, b) {
+    //     console.log(a);//4
+    //     arguments[2] = 10;// [1,2,10]
+    //     console.log(a);//4
+    // }
+    // a = b(1, 2, 3);
+    // console.log(a);
+
+    
+    // var fs = "hello";
+    // (function (fs) {
+    //     console.log(fs);// "hello"
+    //     var fs = fs || "world"; 
+    //     console.log(fs); 
+    // })(fs);
+    // console.log(fs);
+
+    // if("a"||"b"){
+
+    // }
+
+    // var  t = NaN||undefined;// 只需要判断||左边是true还是false；如果是true，直接取左边的值，如果是false，直接取右边
+    // console.log(t);
+
+    // var f  = NaN && "b";// 如果&&左边转布尔是true，直后面的值，如果转布尔是false，直接取前面的值；
+    // console.log(f);
+
+
+    // var i =1 ;
+    // function fn(i){ // i 是私有变量 =2； =3
+    //     return function (n){ // 3
+    //         console.log(n+(++i)) 
+    //     }
+    // }
+    // var f = fn(2);
+    // f(3)//6
+    // fn(5)(6)// 12
+    // fn(7)(8)// 16
+    // f(4)// 8
+
+    var i =2 ;// 4  6  8
+    function fn (){
+        i += 2
+        return function (n){
+            console.log(n+(--i))
+        }
+    }
+    var f =fn();
+    f();// NaN
+    f(3)// 5
+    fn()(2);// 3
+    fn()(3);//5
+    f(4)// 7
+    
+
+
+    
+    
+    </script>
+</body>
+</html>

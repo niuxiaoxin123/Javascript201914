@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // git     变量提升  作用域   this  面向对象;
+    // 单例模式
+    // 
+    // var name ="邢民华";
+    // var age = 21;
+    // var sex="男";
+
+    // var name="刘宝华";
+    // var age = 21;
+    // var sex="男";
+
+    // var xing={name:"邢民华",age:21,sex:"男"};
+    // var liu ={name:"刘宝华",age:21,sex:"男"};
+
+    // 在JS中，把描述同一个事物的所有属性放在一个对象中，避免了全局变量干扰；这种模式--> "单例模式"；
+    
+    var timer=1;
+
+    // 封装方法：
+    var xing={
+        bar:function (){  
+        },
+        fn:function(){
+        }
+    };
+
+    var liu = {
+        bar:function(){
+        }
+    }
+    xing.bar();
+    liu.bar();
+
+
+    // 高级单例模式
+    // jquery的源码的外层就是采用了这种高级单例的模式；
+    var utils = (function(){
+        var timer=1;
+        return {
+            bar:function (){  
+                var num =100;
+            },
+            fn:function(){
+                
+            }
+        }
+    })();
+    </script>
+</body>
+</html>
