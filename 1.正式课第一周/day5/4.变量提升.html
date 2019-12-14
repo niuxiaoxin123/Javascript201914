@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 变量提升: 是一个代码执行之前的一个阶段
+        // 在当前作用域下，代码执行之前，当做作用域会把所有带var和function进行提前声明（通知当前作用域有num这个变量） ,带var只声明，不赋值，带function既声明，又赋值；
+        // 1. 如果变量只声明，没有赋值，那么变量存储的值undefined；
+        // 2. function是在变量提升阶段开辟了堆内存，并且把空间地址赋值给了fn;
+        // 3. 在变量提升时，全局变量给window新增了键值对；
+        // console.log(num);// undefined
+        // console.log(m); // 报错
+        // var num = 100;
+        // m=200;
+        // console.log(fn);//函数；
+        // function fn(){ //
+
+        // }
+        // console.log("a" in window);// true
+        // var a=100;// 
+        
+        // 1. 变量提升特殊情况
+        // 1. 不管条件都要进行变量提升,
+        // function 在最新版本浏览器中，只声明，不赋值；
+        // console.log(a);
+        // console.log(fn);
+        
+        // if([]==[]){
+        //     // 只要进入到块级作用域，立即开辟堆内存；对函数赋值
+        //     fn()
+        //     var  a=100;
+        //     function fn(){}
+        // }
+
+        // 2.  变量提升等号的左边
+        // console.log(f);
+        // var  obj = {
+        //     fn:function f(){}
+        // }
+
+        //3. return 下面的要进行变量提升，return后面的不进行变量提升
+        // function sum(){
+        //     console.log(fn);
+            
+        //     return 100;
+        //     function fn(){}
+        // }
+        // sum();
+
+        //4 . 如果变量名重名，不再进行重新声明，但是要重新赋值
+        function fn(){
+            console.log(1);
+        }
+        fn();
+        function fn(){
+            console.log(2);
+        }
+
+        // 5. 自执行函数当执行到这一行，会先开辟堆内存空间，然后再立即形成栈内存，代码执行
+
+        (function(){})()
+
+
+
+
+ 
+    
+    </script>
+</body>
+</html>

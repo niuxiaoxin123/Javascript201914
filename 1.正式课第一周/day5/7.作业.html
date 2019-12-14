@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 全局作用域
+    // console.log(getA); // undefined 
+    // if("a" in window){
+    //     // 对当前块级作用域中函数进行赋值；
+    //     console.log(getA);// 函数
+    //     var a="1";
+    //     function getA(a) { 
+    //         a=a||this.a; 
+    //         console.log(a);// "1"
+    //     }
+    //     getA(a);// "1"
+    // }
+
+    // var a=2; var obj1; var fn1;
+    // var a=2;// 4
+    // var obj1={
+    //     a:1,// 3
+    //     fn1:(function (a) {
+    //         // 这是一个不销毁的作用域，该函数在存储键值对的时候执行一次；
+    //         // a=2  -->3-->4  -->5
+    //         this.a=a;
+    //         a++;
+    //         return function () {
+    //             this.a=a++;
+    //             console.log(a);// 4  5
+    //         }
+    //     })(a)// 2
+    // };
+    // obj1.fn1();
+    // var fn1=obj1.fn1;
+    // fn1();
+
+
+    // var b="b";
+    // var obj2={
+    //     b:"B",// "是B"
+    //     getB:function (b) {
+    //         // this--> obj2
+    //         this.b=b+this.b;
+    //         return this.b
+    //     }
+    // };
+    // console.log(obj2.getB("是"));// "是B"
+
+
+    // var c=3;// 2 --> 3-->4
+    // function getC() {
+    //     this.c++;
+    //     return function (c) {
+    //         c=this.c*2;
+    //         console.log(c);
+    //     }
+    // }
+    // var obj3={
+    //     c:2,// 3
+    //     getC:(function () {
+    //         this.c-=1;
+    //         return this.getC
+    //     })()
+    // };
+    // getC();obj3.getC();
+    // var f3=obj3.getC;f3();
+    // console.log(window.c);
+    // console.log(obj3.c);
+
+
+    // function g1() {
+    //     this.g="gg"
+    // }
+    // var obj4={
+    //     //g:"gg",
+    //     g1:g1,
+    //     gg:function () {
+    //         // 首先找当前作用域中g1的值,没有g1，那么需要向上一级作用域查找，
+    //         g1();// 给window新增键值对
+    //     }
+    // };
+    // obj4.g1();
+    // obj4.gg();
+    // console.log(obj4);// {}
+    // console.log("g" in window);// true 
+
+
+    // f = function () {return true;};
+    // g = function () {return false;};
+    // (function () {
+    //     // g 是 undefined;
+    //     if (g() && [] == ![]) {
+    //         f = function () {
+    //             return false;
+    //         };
+    //         function g() {
+    //             return true;
+    //         };
+    //     }
+    // })();
+    // console.log(f());
+    // console.log(g());
+
+    // var number=2;// -->4-->8
+    // var obj={
+    //     number:4,// 8
+    //     fn1:(function () {
+    //         // var  number; NaN --> 3-->9-->27
+    //         this.number*=2;
+    //         number=number*2;
+    //         var number=3;
+    //         return function () {
+    //             this.number*=2;
+    //             number*=3;
+    //             alert(number);// 9  27
+    //         }
+    //     })()
+    // };
+    // var fn1=obj.fn1;
+    // alert(number);// 4
+    // fn1();
+    // obj.fn1();
+    // alert(window.number);// 8 
+    // alert(obj.number); // 8
+
+    // 函数执行 
+    // 1. 开辟一个私有作用域，初始化作用域链
+    // 2. 形参赋值和arguments赋值
+    // 3. 先对function声明且定义,然后再对var变量进行声明
+    // 4. 要对this赋值
+    // 5. 代码从上到下执行；
+
+    // function fn(){
+    //     console.log(arguments)
+    // }
+
+    
+    
+    </script>
+</body>
+</html>

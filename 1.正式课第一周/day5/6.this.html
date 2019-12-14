@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // var obj = {a:1,100:200};
+    // var  a = 100;
+    // console.log(obj.a);//a放到.后面，就代表a字母    
+
+    // this --> 关键字;
+    // var num = 100;//101
+    // var obj = {
+    //     fn:function (num){
+    //         this.num++;
+    //         num++;
+    //     }
+    // }
+    // obj.fn(1)
+    // console.log(obj.num);
+    // var f = obj.fn;
+    // f();
+
+    // var  a= 1;
+    // console.log(a+=1);
+    
+    // this ： 叫函数的执行主体；谁让这个函数执行的；this就是谁；
+    // 1. 全局下的this指向window；this和window存储的空间地址一样的；
+    // 2. 看函数执行前有没有".",点前面是谁，this就是谁，如果没有点，this指向window；
+    // 3. 给元素的事件绑定的方法，方法中的this指向了当前被绑定的元素；
+    // 4. 自执行函数永远指向window
+    // 5. 回调函数中this一般都指向window;
+    // function fn(){
+    //     console.log(this); // 作用域下的this;
+    // }
+    // fn();
+    // obj.fn = fn;
+    // obj.fn();
+    // var obj = {
+    //     a:{
+    //         f1:function(){
+    //             console.log(this); 
+    //         }
+    //     }
+    // }
+    // obj.a.f1();
+    </script>
+</body>
+</html>

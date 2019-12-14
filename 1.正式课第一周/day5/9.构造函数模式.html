@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 单例模式
+        // 工厂模式
+        // function createStudent(name,age){  
+        //     this.name= name;
+        //     this.age=age;
+        // }
+        // var xing  = new createStudent("邢民华",21);
+        // console.log(xing);//  {name: "邢民华", age: 21}
+
+        // function Fn(){
+        //     this.name= 100;
+        // }
+        // var f=new Fn;
+                
+        // 如果这个函数需要参数，那么这个需要有小括号，如果不需要参数，那么小括号可以省略；
+
+        // new 操作符具体做了什么？
+        // 把new放在函数的前面,能函数执行
+        // 1. 在代码执行之前，函数中会首先创建一个空对象
+        // 2. 让当前函数中的this指向这个空对象
+        // 3. 当代码执行完成之后，会默认返回this；
+
+        // new后面的函数就是构造函数，也叫类；那么通过new函数得到的返回值就叫实例；实例是构造函数new出来的；
+        // 自定义类
+        function Fn(x,y){
+            this.x= x;
+            this.y= y;
+            this.getX = function(){}
+        }
+        var f  = new Fn(100,200);
+        var f1 = new Fn(100,200);
+        console.log(f==f1);// false
+        console.log(f.x==f1.x);// true
+        console.log(f.getX==f1.getX)// false
+     
+        Fn(2,3)
+        console.log(f);// {x:100,y:200}
+        console.log(f instanceof Fn);
+         
+        // 1. JS为了区分构造函数和普通函数，一般将构造函数首字母大写；
+        // 2. 构造函数this指向当前的实例；
+        // 3. 构造函数：形成私有作用域 --> 形参赋值 --> 变量提升-->创建一个空对象，并且让当前作用域this指向这个空对象---> 代码从上到下执行-->返回this--> 作用域是否销毁
+        // 4. instanceof : 是检测当前实例是否属于某个类；如果是返回true，不是返回false；
+        // 5. 内置类 : Number  String  Boolean  Null  Undefined Object Array  RegExp  Date ...
+        // 6. 类一定是个函数，但函数不一定是类；
+        // console.log(Number);
+        // console.log(Array);
+        // console.log(String);
+        // console.log(Object);
+        // console.log(Function);
+        // console.log(Math);
+
+        //console.log(Null);// 浏览器不允许调用Null ,Undefined;
+        
+        // new Date()
+        // console.log(new Number(1)==1)// {1}
+        // var obj = {};
+        // console.log(obj instanceof Object)// true
+        // var arr = [];
+        // console.log(arr instanceof Array)// true
+        // console.log(obj instanceof Array)// false
+
+        // var num = 10;// 是一个Number的实例；
+        // num.toFixed(0,1)
+        // var obj = {};
+        // console.log(obj instanceof Object)
+        // console.log(new Object())
+
+
+        
+        
+        
+        
+        
+        
+
+
+
+
+    
+    
+    
+    </script>
+</body>
+</html>

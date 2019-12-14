@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 函数的执行VOAO过程
+    // 函数的定义：
+    // 1.开辟一个堆内存，对应一个引用的空间地址
+    // 2. 把函数体中的代码当做字符串存储到堆内存中
+    // 3. 把函数体的空间地址赋值给函数名；
+
+    // 函数调用执行，会引发VOAO
+    // 函数的VO
+    // 1. 形成一个上下文的执行环境（栈内存）
+    // 2. 初始化作用域链
+    // 3. 创建变量函数
+    // 4. 初始化arguments对象和参数并赋值
+    // 5. 对该上下文中的函数进行声明并且赋值
+    // 6. 如果函数名已经出现，那么会把第一次初始的变量进行覆盖
+    // 7. 对该上下文的变量进行声明，初始化值是undefined；
+    // 8. 如果变量名重复,直接跳过；
+    // 9. 确定this的指向；
+    // 下面代码执行就是AO；
+
+    // 10.代码从上到下开始执行
+
+
+    // 函数执行AO
+
+    function bar(a) {
+        // console.log(arguments);
+        fn();
+        function fn() {
+            console.log(100);
+        }
+        console.log(fn);
+        function fn() {
+            console.log(200);
+        }
+        var num =100;
+        var num =1;
+    }
+    bar(1,2,3);
+    console.dir(bar);
+
+    function fn(num) {
+        console.log(num);
+        function num() {
+        }
+    }
+    fn(1000)
+
+
+</script>
+</body>
+</html>
