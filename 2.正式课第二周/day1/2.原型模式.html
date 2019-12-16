@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Fn(a,b){
+            this.x=a;
+            this.y=b;
+            // this.getX = function(){// 输出当前this上的x的属性值；
+            //     console.log(this.x);
+            // }
+        }
+        Fn.prototype.getX=function(){
+            console.log(this.x);
+        }
+        // 原型模式： 构造函数解决了对象实例中私有属性的问题，原有模式解决了对象实例中公有属性的问题；如果将实例的私有属性放到了公有属性上，减少了堆内存的开辟；
+        var f = new Fn(100,200);// {x:100,y:200}
+        var f1 = new Fn(100,2);// {x:100,y:2}
+        console.log(f);
+        console.log(f.getX==f1.getX)
+        f.getX();
+        
+        // console.log(f.x==f1.x);// true 
+        // console.log(f.getX==f1.getX)// false
+        // f.getX();// 100
+        // f1.getX();// 100
+
+        var ary = [1,2,3];// Array
+        var ary1 = [4,5,6];
+        //console.log(ary);
+        //ary.pop()
+        //ary1.pop();
+        //console.log(ary.pop===ary1.pop)
+        console.log(ary.__proto__===Array.prototype);
+        console.log(Array.prototype)
+    
+    
+    
+    
+    </script>
+</body>
+</html>

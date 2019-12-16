@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 原型扩展：
+        //Fn.prototype: {constructor:Fn,__proto__:{}}
+        // function Fn(){
+        // }
+        // Fn.prototype.getX=function(){
+        // }
+        // var f1 = new Fn;
+        //1. 给Fn的原型新增键值对；这就是原型扩展；  
+        // 2. 用新的空间地址覆盖Fn原有的空间地址；会导致constructor的丢失；
+        // Fn.prototype={
+        //     constructor:Fn,
+        //     getY:function(){
+        //     }
+        // }
+        //var f = new Fn;
+        //f.getY();
+        //console.log(f1.getY);//
+
+        //var ary = [100,200,300];
+        // 内置类原型扩展方法；
+        // Array.prototype.aa=function(){
+        //     console.log("你很帅");
+        // }
+        // ary.aa();
+        // pop : 1.删除数组的最后一项
+        //       2. 原数组发生改变
+        //       3. 删除的那一项；
+        // Array.prototype.pop=function(){
+        //     // console.log(this);
+        //     var a = this[this.length-1];// 取到数组的最后一项值，并给了变量a;
+        //     this.length--;// 删除数组的最后一项
+        //     return a;// 把删除的那一项返回
+        // }
+        // var a = ary.pop();
+        // console.log(ary);
+        // console.log(a);
+
+        // 
+        // Array.prototype.unique=function(){
+
+        // }
+        // Array.prototype.push=function(){
+
+        // }
+        // ary.unique();
+        // push  shift  unshift  indexOf  lastIndexOf  sort  reverse concat join slice splice 
+
+        // 内置类的原型的空间地址不允许修改；
+        // Array.prototype={
+        //     aa:function(){
+        //     }
+        // }
+        // var ary = [];
+        // console.log(ary);
+
+        // 1.可枚举属性  原型深入   函数的三种角色   call  apply  bind  
+        
+
+
+        
+        
+       
+        
+        
+
+        
+
+
+        
+    
+    
+    
+    </script>
+</body>
+</html>

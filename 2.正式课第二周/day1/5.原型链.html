@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         function Fn(a,b){
+            this.x=a;
+            this.y =b;
+            // this.getX =function(){
+            //     console.log(1);
+            // }
+         }
+         Fn.prototype.getX=function(){
+             console.log(2);
+         }
+         var f = new Fn(100,200);
+         console.log(f);
+         //Fn.prototype.getX();
+         //Fn.getX();
+         
+        // console.log(f.__proto__.getX);
+        // console.log(f.hasOwn)
+        // console.log(Fn.prototype instanceof Object) 
+        // var obj = {num:1}
+        // console.log(typeof  obj.num)// "number"
+        // console.log(Object.prototype)
+        //console.log(f.hasOwnProperty===Object.prototype.hasOwnProperty)
+        //console.log(f.hasOwn)
+        console.log(f.__proto__.__proto__.__proto__)// null 
+
+        // 原型链： 当获取对象属性名对应的属性值时，先找自己的私有属性，如果私有属性不存在，那么会默认通过__proto__向上查找，如果上一级原型也没有，会通过上一级原型中的__proto__继续向上查找，直到找到Object的原型为止，如果也没有，那么返回undefined；这样通过__proto__查找会形成原型链；
+
+
+        var ary = [1,2,3];
+        console.log(ary);// Array.prototype
+        console.log(ary.hasOwnProperty);
+
+        function bar(){}
+        console.dir(bar.hasOwnProperty);
+
+        var num = 1;
+        // var n = new Number(1)
+        console.log(num.hasOwnProperty);
+
+        var  obj  = {};
+        console.log(obj.name);// undefined
+        
+        console.log(obj.hasOwnProperty)
+        
+        
+
+
+        
+
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //单例模式  工厂模式    构造函数模式  
+    // 对象： 万物皆对象
+    // 类： 内置类和自定义类；类一定是函数
+    // 内置类： Number   String  Boolean  Null Undefined  Object Function  Array  RegExp  Date...
+
+    // var ary = [1,2,3]
+    // ary.pop();
+    // console.log(ary.pop)
+    // console.log(Number);
+    
+
+    // function Fn(m,n){
+    //     // var obj = {};
+    //     // this--> obj;
+    //     var num = 100;
+    //     var obj = {a:100,b:200}
+    //     // this--> f1
+    //     // this.name="张三";
+    //     // this.age=10;
+    //     // reuturn this;
+    //     return obj;
+    // }
+    // //Fn();
+    // var f1 = new Fn;// 构造函数/自定义类
+    // console.log(f1);
+
+    function Fn(){
+        var d = 1;
+        // 凡是跟this有关的代码，和实例相关
+        this.a = 100;
+        this.b = 200;
+    }
+    var f1 = new Fn();
+    console.log(f1);// {a:100,b:200}
+    
+    // f1 ：实例；实例都是对象数据类型的；
+    //1. new + 函数，后面的这个函数就是构造函数；构造函数的返回值叫实例；
+    //2. 如果不传参，小括号可以省略的；
+    //3. 执行的区别
+    //4. 如果构造函数中return一个基本数据类型值，不能影响返回this，如果return一个引用的数据类型值，那么会将默认返回的对象实例覆盖掉；
+    //5. instanceof 检测实例是否属于某个类的；如果是返回true，不是返回false；
+    //6. hasOwnProperty : 判断该属性是否是私有属性，如果是返回true，不是返回false；
+    console.log(f1.toString);
+    console.log(f1.hasOwnProperty("toString"))
+
+    
+
+    
+    </script>
+</body>
+</html>

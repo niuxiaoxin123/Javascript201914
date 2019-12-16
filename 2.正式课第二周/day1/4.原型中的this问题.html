@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Fn(a,b){
+            this.x=a;
+            this.y=b;
+            // this.getX = function(){
+            //     console.log(this);// 指向了实例
+            //     console.log(this.x);    
+            // }
+        }
+        Fn.prototype.x=1;
+        Fn.prototype.getX = function(){
+            console.log(this.x);// this --> f这个实例
+        }
+        //1. 构造函数中的this指向实例
+        var f = new Fn(10,20);
+        f.getX();// 看执行的时候，点前面是谁，this就是谁；
+        Fn.prototype.getX();// 1
+        f.__proto__.getX();
+        //f.__proto__.getX();// this --> f.__proto__.
+        //Fn.prototype.getX();// this--> Fn.prototype===f.__proto__ true ;
+        // var f1 = new Fn(100,200)
+        // f1.getX();
+        // this 的总结: 看函数执行前有没有点，点前面是谁，this就指向谁；
+    
+    
+    
+    </script>
+</body>
+</html>

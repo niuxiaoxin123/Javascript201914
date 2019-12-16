@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function Fn(a,b){
+        //     this.x = a;// x,y都是实例f私有属性
+        //     this.y=b;
+        //     // this.getX = function(){
+        //     //     console.log(this.y); 
+        //     // }
+        // }
+        // //console.dir(Fn);
+        // Fn.prototype.getX= function(){
+        //     console.log(this.x);
+        // }
+        // var f = new Fn(100,200);
+        // f.getX();
+        
+        // 给Fn的prototype(原型)新增一个键值对；属性名是getX,属性值时函数；
+        // Fn.prototype.getX=function(){// getX 是f的公有属性
+        //     console.log(this.x);
+        // }
+        // var  f = new Fn(100,200);// {x:100,y:200,__proto__:{getX:function(){}}}
+        // console.log(f);
+        // console.log(f.__proto__.getX==f.getX);//true 
+        // console.log(f.__proto__===Fn.prototype);// true  f.__proto__和父类原型的属性是同一个空间地址；
+
+        // 1.每一个函数数据类型天生自带一个prototype属性,prototype的属性值时一个对象数据类型的；
+        // 2. prototype的属性值天生自带一个constructor属性，constructor属性值指向当前原型所属的类；
+        // 3. 每一个对象数据类型天生自带一个__proto__,其属性值指向当前实例所属类的原型
+        //console.log(Fn.prototype.constructor===Fn) 
+
+    function Fn(x,y) {
+        this.x = x;
+        this.y=y;
+        this.getX = function () {
+            console.log(this.x);
+        }
+    }
+    Fn.prototype.getX=function () {
+        console.log(this.x);
+    }
+    Fn.prototype.getY = function () {
+        console.log(this.y);
+    }
+    var f1 = new Fn(100,200)// {x:100,y:200.getX:function(){}}
+    f1.__proto__.a=300;// 
+    var f2 = new Fn(100,200);
+    console.log(f1.getX == f2.getX);// false
+    console.log(f1.getY == f2.getY);// true
+    console.log(f1.x == f2.x);// true
+    console.log(Fn.prototype.getX === f1.getX);// false
+    console.log(Fn.prototype.getX === f1.__proto__.getX);// 
+    f1.getX()// 100
+    Fn.prototype.getX();//undefined
+    f2.__proto__.getX();// undefined
+    Fn.prototype.getY();// undefined
+    console.log(f1.a);// 300
+    console.log(f1.toString);// function toString(){}
+        
+        
+
+    
+    
+    
+    
+    </script>
+</body>
+</html>
