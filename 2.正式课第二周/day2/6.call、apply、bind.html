@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //"use strict";
+        // call 、apply 、bind;
+        //  在Function的原型上；Function.prototype
+        //  所有的函数可以获取到call;
+        // call 可以改变函数体中的this指向；call是一个函数
+        // var  obj = {};
+        // console.log(obj.call);
+        // obj.__proto__.__proto__
+        // var ary = [1,2,3];
+        // function fn(){
+        //     //console.log(this);// window
+        //     //this=ary;
+        //     console.log(this);// 这个函数体中的this指向了call中的第一个参数；
+        // }
+        // Function.call()
+        // fn.__proto__.call(ary);// 小括号是call 执行的；
+        // call的this--> call点前面的fn;
+        // fn通过__proto__先找到Function原型中的call方法,让call方法执行，call运行时，改变了fn的this指向，fn中的this指向call的第一个参数，并且让fn执行；
+        // fn通过__proto__先找到Function原型中的call方法,让call方法执行，call运行时，改变了call的this的this指向，fn中的this指向call的第一个参数，并且让call中this执行；
+        // function fn1(){
+        //     console.log(100);
+        //     console.log(this);
+        // }
+        // function fn2(){
+        //     console.log(200);
+        // }
+        // //fn.call(1)
+        // fn1.call.call.call.call(fn2);
+        // 1. fn1.call.call.call -->this--> fn2;
+        // 2. fn1.call.call.call()
+
+        // 1.fn2--> this 没有变
+        // 2.fn2();
+
+        // 1.先执行后面的call方法(这个call方法中的this是fn1.call);是改变fn1.call中的this指向fn2;并且让fn1.call运行；
+        // 2. 当fn1.call运行时，改变fn.call中的this的this指向没有发生改变，继续让fn1.call中this执行，也就是让fn2运行；
+
+        // function f(){
+        //     console.log(this);
+        // }
+        // f.call();
+
+        // call的参数
+        // 1. 如果call中没有传参，那么函数的中this指向window;
+        // 2. 如果有一个参数，那么就是指向第一个实参；在非严格模式下，如果传null 或undefined，都指向window；
+        // 3. 如果是严格模式下,如果没传或传入undefined，this都是undefined；如果传null,this就指向null；
+        // 4.从第二个参数开始，都会一一传给fn;
+        // var obj= {}
+        // function fn (a,b){
+        //     //console.log(this);// this --> window 
+        //     //console.log(a,b);
+        //     //console.log(arguments); 
+        // }
+        // fn.call(100,1,2);
+
+        //apply
+        // 1. 改变this指向；传参不同，第二个参数必须是一个数组
+        // 2. 传入数组，但是fn实际接收到的仍然是一个一个接收；
+        // function fn(a,b){
+        //     console.log(a,b);
+        //     console.log(this);   
+        // }
+        // fn.apply(null,[100,200])
+
+
+        // bind:预处理this;
+        // 在bind函数中将fn进行了包装和处理，改变了fn里面的this 指向，并且返回一个改变this之后新函数；
+
+        // bind 在IE8以下不兼容；
+        // function fn(a,b){
+        //     console.log(a,b);
+        //     console.log(this);   
+        // }
+        // var f = fn.bind([1,2]);
+        // f();
+        // var  f =fn.bind([1,2]);
+        // f(100,200);
+        //fn();
+
+
+
+        
+    
+    
+    
+    
+    </script>
+</body>
+</html>

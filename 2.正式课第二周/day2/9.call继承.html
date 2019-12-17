@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function A(){
+        // this--> B的实例
+        this.a = 100;
+    }
+    A.prototype.getA = function(){
+        
+    }
+    function B(){
+        // 在类B中，调用了类A，并且通过call改变了类A中的this指向，使其指向B的实例；这样类B创建的实例就具有类A的私有属性；这种继承就是call继承；
+        A.call(this);// this --> b
+    }
+    var b = new B;
+    console.log(b);// 
+    
+        
+    
+    
+    
+    </script>
+</body>
+</html>

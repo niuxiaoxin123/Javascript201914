@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // {prototype:{constructor:Create}}
+        function Create(a){
+            // 私有属性
+            this.x = 100;
+            this.y = 200;
+        }
+        Create.prototype.getX =function(){
+        }
+        Create.prototype.num =1;
+        //console.dir(Create);
+        // 1. 每一个函数数据类型都天生自带一个prototype属性，属性值时一个对象数据类型的
+        // 2.prototype的属性值天生自带一个constructor属性，constructor属性值指向当前原型所属的类
+        // 3. 每一个对象数据类型天生自带一个__proto__属性，其属性值指向当前实例所属类的原型
+        var c = new Create();// 构造函数就是类；{x:100,y:200}
+        console.log(c.num);// 1
+        console.log(c.a);// undefined
+        var obj = {};// new Object
+
+        // 原型扩展
+        Create.prototype.getX=function(){
+
+        }
+        Create.prototype={
+            // 1.直接更改原来的空间地址
+            // 2.导致constructor丢失
+        }
+
+        // 
+        Array.prototype.unique=function(){
+            // this --> 
+        }
+        ary.unique();
+        ary1.unique();
+        ary2.unique();
+
+        function unique(a){ 
+        }
+        unique(ary)
+        unique(ary1)
+
+        var ary =[1,2,3,4]
+        Array.prototype.pop=function(){
+            console.log(100);
+        }
+        ary.pop();
+        // 不能覆盖内置类原型的空间地址；
+        Array.prototype={}//
+
+    
+    
+    
+    </script>
+</body>
+</html>

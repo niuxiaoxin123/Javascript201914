@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // function C1(name) {
+    //     if (name) {
+    //         this.name = name;
+    //     }
+    // }
+    // function C2(name) {
+    //     this.name = name;
+    // }
+    // function C3(name) {
+    //     this.name = name || 'join';
+    // }
+    // C1.prototype.name = 'Tom';
+    // C2.prototype.name = 'Tom';
+    // C3.prototype.name = 'Tom';
+    // console.log(new C1().name)// "Tom"
+    // console.log(new C2().name)// undefined
+    // console.log(new C3().name)// "join"
+
+    // function fun() {
+    //     this.a = 0;
+    //     this.b = function () {
+    //         alert(this.a);// 0
+    //     }
+    // }
+    // fun.prototype = {
+    //     b: function () {
+    //         this.a = 20;
+    //         alert(this.a);
+    //     },
+    //     c: function () {
+    //         this.a = 30;
+    //         alert(this.a)// 30
+    //     }
+    // }
+    // var my_fun = new fun();
+    // my_fun.b();
+    // my_fun.c();
+
+
+
+
+    // function Fn() {
+    //     this.x = 100;
+    //     this.y = 200;
+    //     this.getX = function () {
+    //         console.log(this.x);
+    //     }
+    //  }
+    //  Fn.prototype.getX = function () {
+    //     console.log(this.x);
+    //  };
+    //  Fn.prototype.getY = function () {
+    //     console.log(this.y);
+    //  };
+    //  var f1 = new Fn;
+    //  var f2 = new Fn;
+    //  console.log(f1.getX === f2.getX);// false
+    //  console.log(f1.getY === f2.getY);// true
+    //  console.log(f1.__proto__.getY === Fn.prototype.getY);// true
+    //  console.log(f1.__proto__.getX === f2.getX);// false
+    //  console.log(f1.getX === Fn.prototype.getX);// false
+    //  console.log(f1.constructor);// Fn
+    //  console.log(Fn.prototype.__proto__.constructor);// Object
+    //  f1.getX();// 100
+    //  f1.__proto__.getX();// undefined
+    //  f2.getY();// 200
+    //  Fn.prototype.getY()// undefined
+
+
+
+    // var name = 'zhufengpeixun';
+    // var Fn =function (name) {
+    //     var name = 'world';
+    //     this.name = 'zhufeng';
+    //     this.sex = function () {
+    //         this.name = 'hello';
+    //     }
+    // }
+    // var f1 = new Fn(name);
+    // var f2 = new Fn('age');
+    // console.log(f1.name);// 'zhufeng'
+    // console.log(f2.age);// undefined
+    // f1.sex();
+    // console.log(f1);// {name:"hello",sex:function(){}}
+    // f1.sex === f2.sex // false
+    // Fn.name == f1.name // false
+    // console.dir(Fn)
+
+
+    // function Fn() {
+    //     var a = 1
+    //     this.a = a
+    // }
+    // Fn.prototype.say = function () {
+    //     this.a = 2
+    // }
+    // Fn.prototype = new Fn;// {a:1,b:function(){}}
+    // var f1 = new Fn;// {a:1}
+    // f1.__proto__.b = function () {
+    //     this.a = 3
+    // };
+    // console.log(f1.a)// 1
+    // console.log(f1.prototype)// undefined
+    // console.log(f1.b)
+    // f1.hasOwnProperty('b')// false
+    // 'b' in f1// true
+    // console.log(f1.constructor == Fn);
+
+    
+    // 1. let不会给window新增键值对
+    // 2. 当全局作用域中存在n，window中也存在n，会先找全局，再找window；
+    // let n=10,// 11  32  53
+    // obj = {
+    //     n:20  // 73
+    // }
+    // window.n=NaN
+    // let fn = obj.fn = (function () {
+    //     n++;
+    //     return function (m) {// m = 10  11   10
+    //         n+=10+(++m);
+    //         this.n+=n;
+    //         console.log(n);// 32  53
+    //     }
+    // })(obj.n)// 20
+    // fn(10);
+    // obj.fn(10);
+    // console.log(n,obj.n);// 53  73
+    
+    </script>
+</body>
+</html>

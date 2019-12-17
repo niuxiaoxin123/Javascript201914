@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 函数的三种角色：
+        // 1. 普通函数  形成私有作用域--> 形参赋值--> 变量提升-->对this进行指向--> 代码从上到下运行--> 作用域是否销毁； 形参实参  ；arguments;return ;
+
+        // 2. 构造函数(类)
+        // 1. 形成私有作用域--> 形参赋值--> 变量提升-->【创建空对象，让this指向这个空对象】 代码从上到下运行-->【把thisreturn出来】--> 作用域是否销毁； 形参实参  ；arguments;return ;
+        // 2. this指向实例
+        // 3. 如果return 一个基本数据类型值，不会影响默认返回的this，如果return引用数据类型值，把默认返回的对象覆盖；
+
+
+        // 3. 对象
+
+        // function fn(){
+        // }
+        // fn();
+        // fn.name=1;
+        // var f = new fn;
+        // console.log(f.name)// f不能找到fn的私有属性
+        // console.dir(fn)
+    
+
+//    var num = 0;// 20
+//    function Fn(num) {
+//        // num  0   -->10   过程；
+//        arguments[0] = 10;
+//        this.num = 20;
+//        return num;// 基本数据类型值，不能覆盖默认返回的实例；
+//    }
+//    Fn.num = 40;// 对象
+//    Fn.prototype.num = 30;// 原型中新增num
+//    Fn.prototype.getNum = function () {
+//        console.log(this.num);
+//    };
+//    var f = new Fn(num);// 0  {num:20}
+//    console.log(f.num);// 20
+//    f.getNum();// 20
+//    Fn.prototype.getNum();// 30
+//    console.log(num);// 0
+//    var n = Fn(num);
+//    console.log(n);// 10
+//    console.log(num);// 20
+
+    // Foo=aabbcc  getName=aabb11
+
+    function Foo() {
+        getName = function () {// 覆盖全局下的getName
+            console.log(1);
+        };
+         return this;// this--> window
+     }
+     // 给Foo这个函数新增私有属性 getName
+     Foo.getName = function () {// 私有
+        console.log(2);
+     };
+     Foo.prototype.getName = function () {// 公有
+        console.log(3);
+     };
+     var getName = function () {
+        console.log(4);
+     };
+     function getName() {
+        console.log(5);
+     }
+     Foo.getName();// 2
+     getName();// 4
+     Foo().getName();// 1
+     getName();// 1
+     new Foo.getName();// 2  先获取Foo.getName的值，然后再整体被new 
+     // 点的优先级比new 高；
+     new Foo().getName();//3 先计算new Foo();然后再运算.   先计算new Foo(),然后再通过Foo的实例获取getName;
+     new new Foo().getName()// 3 先new Foo(),然后通过实例获取getName;最后整体被new；
+    
+    </script>
+</body>
+</html>

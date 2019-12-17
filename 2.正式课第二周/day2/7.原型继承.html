@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function A(){
+            this.getY = function(){
+                console.log(200);
+            }
+        }
+        A.prototype.getX = function(){
+            console.log(100); 
+        }
+        function B(){
+        }
+        B.prototype.getNum = function(){
+            console.log(0);
+        }
+        var b1 = new B;//b1的__proto__占用了B原有的原型的空间地址，原有的空间地址不能被回收；
+        B.prototype=new A;//{getY:f}把A的实例的空间地址给了B的原型；
+        // 类B继承类A的私有属性以及公有属性，这种继承方式就是原型继承；
+        var b = new B;
+        b.getY();
+        b.getX();
+        b.getNum();
+        b1.getNum();
+        console.log(b1.constructor) // function B(){}
+        console.log(b.constructor); // function A(){}
+       
+        // b通过__proto__找到B的prototype，里面没有getX,会继续通过prototype中的__ptoto__找到A的prototype；
+    
+    </script>
+</body>
+</html>

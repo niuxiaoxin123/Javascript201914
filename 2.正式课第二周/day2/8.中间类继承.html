@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sum(){
+           //console.log(arguments);// 类数组，不是一个数组；不是Array的实例；不能使用Array原型上的方法
+           // 直接修改argument的__proto__的空间地址，使其指向Array的原型；arguments继承了Array的原型的方法；
+           arguments.__proto__= Array.prototype;
+           arguments.pop();
+           console.log(arguments);// IE10及以下不兼容；
+        }
+        sum(100,2,3,56,78,45,36);
+
+        // var  obj = {a:1,b:2};
+        // obj.__proto__ = Array.prototype;
+        // console.log(obj.pop())
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    // var obj = {age:1,hh:"欢迎你"}
+    // // Object.create   Object.keys
+    // var o = Object.create(obj);// 返回一个新的对象 o 的__pro
+    // console.log(o);// {__proto__:{age:1,hh:"欢迎你",__proto__:Object.prototype}}
+    
+    // call继承： 继承了私有属性
+    // 使用call继承继承了私有属性，Object.create继承了公有属性，这种继承方式就是寄生组合继承；
+    function A(){
+    }
+    A.prototype.getX = function(){
+        console.log(100);
+    }
+    function B(){
+        A.call(this)// 继承私有属性
+    }
+    B.prototype = Object.create(A.prototype);// 继承公有属性；
+    // 为了防止修改B的原型时，修改了A的原型，所以使用Object.create的方法；
+    B.prototype.getY = function(){
+    }
+    var b = new B;
+    
+
+    </script>
+</body>
+</html>

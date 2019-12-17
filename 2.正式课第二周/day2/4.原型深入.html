@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Function 和 Object
+        // 1. 所有的函数数据类型(普通的函数、类【内置类，自定义类】)都是Function的一个实例;
+        // Function和Object都是Function的一个实例；Object的__proto__指向Function的原型
+        // 所有的函数都有prototype和__proto__属性；
+        function Fn(){
+
+        }
+        var f = new Fn;
+        console.dir(Fn)
+        console.log(Object instanceof Function)// true
+        console.log(Function instanceof Object)
+        //Object.hasOwnProperty
+        //Fn.prototye.call
+
+        var  num =1;
+        console.log(num.hasOwnProperty);// Number.prototype.__proto__
+        // 所有类的原型中的__proto__都指向Object的原型；
+        num.toFixed()
+        parseInt()
+        isNaN()
+        // window 是全局作用域中一个大的对象；window是Object的一个实例；
+        function f(){ 
+        }
+        ary.pop();
+        pop(ary);
+
+    
+    
+    
+    </script>
+</body>
+</html>

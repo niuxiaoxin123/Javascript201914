@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 
+        // var obj = {x:1,y:2,z:3};
+        // for(var key in obj){
+        //     console.log(key);
+        // }
+        // Object.prototype
+        // function Fn(){
+        //     this.a=100;
+        //     this.b=200;
+        // }
+        // Fn.prototype.getX=function(){
+        // }
+        // Fn.prototype.y=function(){
+        // }
+        // var f = new Fn;// {a:100,b:200}
+        // // for in 可以列举出所有的可枚举属性
+        // for(var key in f){
+        //     console.log(key);  
+        // }
+        // 可枚举属性： 1.对象的私有属性 2.给类上面新增扩展的属性
+        // 不可枚举：对象或原型中天生自带的属性属于不可枚举属性；
+        // hasOwnProperty : 如果是私有的，返回true;如果是公有或者不是其属性，都返回false；
+        // Array.prototype.Mypop=function(){
+        // }
+        // var  ary = [1,2,3];// pop 
+        // for(var key in ary){
+        //     if(ary.hasOwnProperty(key)){// 如果是私有返回true；
+        //         console.log(key); 
+        //     }
+        // }
+        // console.log(ary);
+
+        var  obj = {a:1};
+        console.log(obj.hasOwnProperty("b"))
+
+        // 
+
+        
+        function Fn(){
+            this.a=100;
+            this.b=200;
+        }
+        Fn.prototype.getX=function(){
+        }
+        Fn.prototype.y=function(){
+        }
+        Fn.prototype={
+            x:1
+        }
+        var f = new Fn;
+        
+        // 判断该属性是否是公有属性；如果是返回true，不是返回false；
+        // 1. 确保attr是obj的一个属性 in
+        // 2. 确保不是私有属性；
+        // 先有思路，后有代码；
+        function hasPublicProperty(obj,attr){
+            // if(attr in obj){// 是attr是obj的属性
+            //     if(!obj.hasOwnProperty(attr)){// 保证不是私有属性
+            //         return true;
+            //     }else{
+            //         return false
+            //     }
+            // }else{
+            //     return false;
+            // }
+            return attr in obj && !obj.hasOwnProperty(attr)
+        }
+        console.log(hasPublicProperty(f,"x"))
+    
+    
+    
+    </script>
+</body>
+</html>
