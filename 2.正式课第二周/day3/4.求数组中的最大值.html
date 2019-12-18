@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var  ary = [12,3,66,88,68,56,66];
+        // 1. sort 
+        // ary.sort(function(a,b){return a-b});
+        // var max=ary[ary.length-1];
+
+        // 2. 利用两两比较
+        // for(var i=0;i<ary.length-1;i++){
+        //     if(ary[i]>ary[i+1]){// 找到前面一项比后一项大的情况；把最大值放到数组的最后面；
+        //         // var  temp = ary[i];
+        //         // ary[i]=ary[i+1];
+        //         // ary[i+1]=temp;
+        //         // 交换位置
+        //         var a = ary[i]+ary[i+1];
+        //         var b = ary[i]-ary[i+1];
+        //         ary[i]=(a-b)/2;
+        //         ary[i+1]=(a+b)/2;
+        //     }
+        // }
+
+        // 3. apply : 1.改变this指向  2. 解决传参的方式
+        // console.log(Math.max.apply(null,ary));
+
+
+        // 4. 展开运算符（ES6新增的语法）
+        //var ary=[{a:1},100]
+        //console.log(...ary);
+       
+        //console.log(Math.max(...ary));
+
+    
+    
+    </script>
+</body>
+</html>

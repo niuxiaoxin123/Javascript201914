@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="price.css"/>
+</head>
+
+<body onselectstart="return false;">
+<div class="wrap">
+    <div class="box">
+        <ul class="list">
+            <li>
+                <i></i>
+                <em>0</em>
+                <i></i>
+                <span>
+							单价：<strong>12.5元 </strong> 小计：<strong>0元</strong>
+						</span>
+            </li>
+            <li>
+                <i></i>
+                <em>0</em>
+                <i></i>
+                <span>
+							单价：<strong>10.5元 </strong> 小计：<strong>0元</strong>
+						</span>
+            </li>
+            <li>
+                <i></i>
+                <em>0</em>
+                <i></i>
+                <span>
+							单价：<strong>8.5元 </strong> 小计：<strong>0元</strong>
+						</span>
+            </li>
+            <li>
+                <i></i>
+                <em>0</em>
+                <i></i>
+                <span>
+							单价：<strong>8元 </strong> 小计：<strong>0元</strong>
+						</span>
+            </li>
+            <li>
+                <i></i>
+                <em>0</em>
+                <i></i>
+                <span>
+							单价：<strong>14.5元 </strong> 小计：<strong>0元</strong>
+				</span>
+            </li>
+        </ul>
+        <div class="info">
+            <span>商品共合计：<em>0</em>件</span>
+            <span>共花费了：<em>0</em>元</span>
+            <br/>
+            <br/>
+            <span>其中最贵的商品单价是：<em>0</em>元</span>
+        </div>
+    </div>
+</div>
+<script>
+    // 在JS 中标签都是对象的数据类型；元素对象
+    var oLis=document.getElementsByTagName("li");// [{}]
+    var info = document.getElementsByClassName("info")[0];
+    var ems = info.getElementsByTagName("em");
+    for(var i=0;i<oLis.length;i++){
+        addClick(oLis[i]);// 把当前li传给addClick
+    }
+    function addClick(curLi){
+        // 给当前li下的第一个i标签和第二个i标签绑定点击事件
+        // console.dir(curLi);
+        var tags = curLi.getElementsByTagName("i");
+        var em = curLi.getElementsByTagName("em")[0];
+        var strongs = curLi.getElementsByTagName("strong");
+        // 给-绑定点击事件
+        tags[0].onclick =function(){
+            var val= Number(em.innerHTML)-1
+            if(val<=0){// 如果小于0；一直让其是0；
+                em.innerHTML =0;
+            }else{
+                em.innerHTML=val; 
+            }
+            strongs[1].innerHTML = parseFloat(strongs[0].innerHTML)*em.innerHTML+"元";
+            computed();
+        }
+        // 给+绑定点击事件
+        tags[1].onclick = function(){
+            em.innerHTML =Number(em.innerHTML)+1;
+            strongs[1].innerHTML = parseFloat(strongs[0].innerHTML)*em.innerHTML+"元";
+            computed()
+        }
+    }
+
+    function computed(){
+        var  val1 =0;
+        var  val2 = 0;
+        var ary =[0];
+        for(var i=0;i<oLis.length;i++){
+            var em = oLis[i].getElementsByTagName("em")[0];
+            var  strong =oLis[i].getElementsByTagName("strong");
+            val1 += Number(em.innerHTML);
+            val2+= parseFloat(strong[1].innerHTML);
+            if(em.innerHTML>0){
+                ary.push(parseFloat(strong[0].innerHTML));
+            }
+        }
+        ary.sort(function(a,b){return a-b});
+        ems[0].innerHTML = val1;
+        ems[1].innerHTML = val2;
+        ems[2].innerHTML = ary[ary.length-1];
+    }
+</script>
+</body>
+
+</html>

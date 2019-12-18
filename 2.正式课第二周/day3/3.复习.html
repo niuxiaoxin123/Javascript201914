@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 可枚举属性   hasOwnProperty :检测是否是私有属性  in：私有公有都返回true
+    // 可枚举属性:私有属性和原型上新增的属性都是可枚举的；
+    // 原型深入
+    // Function 和 Object的关系； 函数是一个对象的角色；
+    // 只有函数既有prototype，还有__proto__;对象只有__proto__ 
+    // 实例可以调用当前实例所属类原型上的方法；
+    
+    // 语法 ECMAScript
+    function Fn(){
+        this.a = 100;
+    }
+    Fn.prototype.getA = function(){
+    }
+    var f1 = new Fn;
+    var f2 = new Fn;
+    // Fn的__proto__指向Function类的原型；Fn是Function的一个实例；
+    // 所有的原型都是一个对象数据类型{}，它的__proto__指向Object的原型；
+
+    // Function.call();// Function.__proto__.call()
+    // Function.hasOwnProperty();// Function.__proto__.__proto__.hasOwnProperty
+    // Object.call(); // Object.__proto__找到了Function的原型；
+    // Object.hasOwnProperty();// Object.__proto__.__proto__.hasOwnProperty()
+    // Fn.call();// Fn.__proto__.call()
+    // Fn.hasOwnProperty();// Fn.__proto__.__proto__.hasOwnProperty()
+    // Object.prototype.call();// 报错
+    // Function.prototype.hasOwnProperty();// Function.prototype.__proto__.hasOwnProperty()
+
+
+    // 函数三种角色： 函数  构造函数  对象；
+
+    // call、apply、bind: 都是在Function的原型上
+    function fn(a){
+
+    }
+    fn.call(100,2)
+
+    // apply : 第二个参数传数组
+    // bind : 预处理this;
+
+    // 继承 ： 原型继承  (中间类继承)  call 继承  寄生组合继承   class 继承
+
+
+
+
+    
+    
+    
+    </script>
+</body>
+</html>

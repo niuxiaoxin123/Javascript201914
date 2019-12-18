@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="6.utils.js"></script>
+    <script>
+        // 1. 先排序，然后删掉最大值和最小值
+        function average(){
+            // 把arguments转成真正的数组
+            var ary = utils.toArray(arguments);
+            // pop  push  shift unshift  splice  sort  reverse 
+            ary.sort((a,b)=>a-b);// 从小到大排序
+            ary.pop();// 删掉最大值
+            ary.shift();// 删掉最小值
+            // 1. 循环求和
+            // var total = 0;
+            // for(let i=0;i<ary.length;i++){
+            //     total+=ary[i];
+            // }
+            // return Number((total/ary.length).toFixed(2));
+
+            // 2.eval可以将字符串去掉，让里面的表达式运行
+            return Number((eval(ary.join("+"))/ary.length).toFixed(2))
+        }
+        console.log(average(95,97,98,100,70,93,90,98,92));
+    </script>
+</body>
+</html>

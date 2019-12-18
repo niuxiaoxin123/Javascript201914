@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+    // 类数组：arguments   元素集合
+    function sum(){
+        // arguments : 类数组
+  
+        // arguments.__proto__=Array.prototype;
+        // // arguments.prototype = Array.prototype;
+        // arguments.__proto__= [];
+        // arguments.sort();
+        // 1. for循环
+        // var ary = [];
+        // for(var i=0;i<arguments.length;i++){
+        //     ary.push(arguments[i])
+        // }
+        // console.log(ary);
+
+        // 2. slice(0)
+        // ary.slice()
+        // Array.prototype.slice=function(){
+        //     var newAry = [];
+        //     for(var i=0;i<this.length;i++){
+        //         newAry[newAry.length]=this[i];// 一直向数组末尾新增一项
+        //     }
+        //     return newAry;
+        // }
+        // 找到数组原型上的slice,并且改变了slice中的this，让其指向arguments，那么再slice执行时，循环的就是arguments；最后就会返回一个和arguments一样的数组；
+        var ary = Array.prototype.slice.call(arguments,0);
+        return ary;
+    }
+    //console.log(sum(1,24,44,56,77,88,55,66));
+
+
+    // 封装一个类数组转数组的方法；方法的返回值得到一个真正的数组
+    var divs = document.getElementsByTagName("div");// 类数组集合
+    function toArray(likeAry){
+        var  ary = [];
+        // 在IE8及以下是不兼容的；
+        // try  catch 
+        try{
+            // 如果try中的代码报错了，那么就会立即执行catch中代码；不会影响下面的代码执行；一般情况，代码遇到报错就会立即停止；
+            // 如果不报错，那么就不再走catch;
+            ary= Array.prototype.slice.call(likeAry);// 在IE8及以下是不兼容的；
+            //console.log(a); 
+        }catch(e){
+            console.dir(e);// 代表的是try中的代码错误信息
+            for(var i=0;i<likeAry.length;i++){
+                ary.push(likeAry[i]);
+            }
+        }
+        return ary;
+    }
+    // 传入谁，就把谁转成一个真正的数组
+    console.log(toArray(divs));
+    
+    //var newAry = toArray(divs);// 实参
+   // console.log(newAry);
+    
+    
+    
+    </script>
+</body>
+</html>

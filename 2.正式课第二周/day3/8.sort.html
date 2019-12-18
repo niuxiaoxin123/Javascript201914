@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // sort : 
+        // ary.sort(function(a,b){return a-b})// 从小到大
+        // ary.sort(function(a,b){return b-a})// 从大到小
+
+        // var ary =[23,3,56,35,26,88,66];
+        // ary.sort(function(a,b){
+        //     console.log(a,b);// a后面一项  b代表前面一项
+        //     return a-b;
+        // });
+
+        var  arr = [{age:17},{age:18},{age:28},{age:12}];
+        arr.sort(function(a,b){
+            // sort可以按照对象的属性值进行排序；
+            return a.age-b.age;
+        })
+        console.log(arr);
+        
+        
+        
+        
+    </script>
+</body>
+</html>

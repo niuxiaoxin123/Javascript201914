@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #list{
+            width:300px;
+            margin:auto;
+            list-style: none;
+        }
+        #list li{
+            width:100%;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-bottom: 1px dashed red;
+        }
+        #btn{
+            margin-left: 500px;
+        }
+    </style>
+</head>
+<body>
+<ul id="list">
+    <li>88</li>
+    <li>90</li>
+    <li>66</li>
+    <li>76</li>
+    <li>81</li>
+</ul>
+<button id="btn">排序</button>
+<script src="6.utils.js"></script>
+<script>
+    // sort
+    // 1.获取到所有的li,得到一个类数组；需要将类数组转成数组 
+    var oLis = document.getElementsByTagName("li");
+    var ary = utils.toArray(oLis);// [{innerHTML:88},{}]
+    //console.log(ary);
+    var btn = document.getElementById("btn");
+    var list = document.getElementById("list");
+    btn.onclick =function(){
+        // sort执行完以后，仅仅是将全局变量ary中li的顺序进行排序；但是页面DOM并没哟排序；
+        ary.sort(function(a,b){
+            return a.innerHTML-b.innerHTML;
+        });
+        // appendChild: 把每一个li重新放回页面中；
+        for(let i=0;i<ary.length;i++){
+            //debugger;// 让代码停止到这一行;
+            list.appendChild(ary[i])// ary[i] 元素对象
+        }
+    }
+    // DOM 映射： 页面中的元素和JS中元素对象有一一映射的关系，当操作或移动JS的元素对象时，页面的标签元素也会跟着发生改变；这就是DOM映射的机制；
+
+    // DOM回流： 当页面中删除一个元素时，改变盒子大小，移动盒子位置，其他元素的位置都要进行重新计算，那么这样是非常消耗性能的；这种现象就是DOM的回流
+
+    // DOM 重绘：当元素的样式，背景 字体颜色 透明度等不会引起盒子位置变化但是浏览器要重新描绘这个元素，这就是DOM重绘；
+</script>
+</body>
+</html>

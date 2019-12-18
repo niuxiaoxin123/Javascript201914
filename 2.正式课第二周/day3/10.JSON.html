@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // JSON : 是一种数据格式，不是一种数据类型
+        // var  obj ={name:"hello",str:"world"};
+        // 页面都是动态渲染的；是前端通过请求后台的数据库，后面把最新的数据返回，前面接受到后端返给的数据，然后进行字符串拼接，渲染到页面上；
+        // 后端返回给前端数据格式一般都是JSON格式；
+        // 这个是JSON格式的对象
+        // var  obj ={"name":"hello","str":"world"};
+        // console.log(obj.name);
+        // console.log(obj["name"]);
+        
+        // 这个是JSON格式的字符串；
+        //var str = '{"name":"hello","str":"world"}';
+
+        // JSON.stringify : 将JSON格式的对象转成JSON格式的字符串
+        //console.log(JSON.stringify(obj));
+
+        // JSON.parse: 将JSON格式的字符串转成JSON格式的对象
+        //console.log(JSON.parse(str))
+
+
+        // var  obj = {a:1,b:2};
+        // var obj1 = obj;
+        // obj1.a=100;
+        // console.log(obj);
+        var  obj = {a:{c:1},b:2};
+        // var newObj = {}
+        // for(var key in obj){
+        //     newObj[key]=obj[key]
+        // }
+        // obj.a.c=100;
+        // console.log(newObj);
+        // 深克隆 ：两个对象是独立的，互不影响;
+        var newObj = JSON.parse(JSON.stringify(obj));
+        obj.a.c=2;
+        console.log(newObj);
+          
+    </script>
+</body>
+</html>

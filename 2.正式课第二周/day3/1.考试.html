@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+        <div></div>
+        <!--  -->
+        <div id="a"></div>
+    <script>
+    var arr = [12,2,3,45,3,23];
+    // ary.sort(function(a,b){return b-a})
+    // ary.sort((a,b)=>b-a);
+
+    // ary.length--  ary.pop   ary.splice(ary.length-1,1)
+    // slice(n-1,m)  slice(n,m) :从索引n开始截取到索引m,但是不包含m;
+    // appendChild  insertBefore
+    // function getBro(curEle){
+    //     var  pre = curEle.previousSibling;// 
+    //     while(pre){
+    //         if(pre.nodeType===1){// 说明哥哥节点，但是不是元素
+    //             return pre;
+    //         }
+    //         pre=pre.previousSibling;
+    //     }
+    // }
+    // getBro(a)
+
+    // 11. 
+    var newDiv = document.createElement("div");
+    document.body.appendChild(newDiv);
+    var newDiv1 = newDiv.cloneNode();
+    document.body.insertBefore(newDiv1,newDiv);
+
+
+
+    </script>
+
+</body>
+</html>

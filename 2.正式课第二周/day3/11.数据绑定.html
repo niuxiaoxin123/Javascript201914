@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list">
+        
+    </ul>
+    <script>
+        var data=[
+                {
+                    "id": 1,
+                    "title": "HUAWEI全网通版（亮黑色）",
+                    "price": 499,
+                    "time": "2017-03-15",
+                    "hot": 198,
+                    "img": "img/1.jpg"
+                },
+                {
+                    "id": 2,
+                    "title": "HUAWEI（曜石黑）",
+                    "price": 129,
+                    "time": "2017-02-08",
+                    "hot": 25,
+                    "img": "img/2.jpg"
+                },
+                {
+        "id": 3,
+        "title": "华为畅享7（香槟金）",
+        "price": 895,
+        "time": "2017-01-25",
+        "hot": 568,
+        "img": "img/3.jpg"
+    }
+         ]
+         var str = ``;// 反引号
+         for(var i=0;i<data.length;i++){
+             str+=`<li>${data[i].title}</li>`;
+         }
+         
+         list.innerHTML = str;
+
+        
+        
+        
+    </script>
+</body>
+</html>
