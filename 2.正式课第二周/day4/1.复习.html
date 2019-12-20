@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 原型深入 
+        // this : 是个关键字；在特殊的情景下，this有特殊的意义；this不能用等号对其直接修改
+        // 1. 全局下的this指向window
+        // 2. 给元素的事件绑定函数，函数中的this，指向被绑定的元素；
+        // 3. 函数体中的this，看函数执行前有没有点，点前面是谁，this就指向谁，如果没有，指向window
+        // 4. 自执行函数中的this永远指向window
+        // 5. 回调函数中的this一般指向window；
+        // 6. 构造函数中的this指向实例
+        // 7. call、apply、bind可以改变this的指向
+
+        // var num =2;
+        // var obj = {
+        //     num:1,
+        //     fn:function(){
+        //         console.log(this.num);// 1
+        //         (function(n){
+        //             console.log(n);
+        //         })(this.num)//1 自执行函数的实参中的this，指向了自执行函数外层的作用域
+        //     }
+        // };
+        // obj.fn();
+        // function Fn(){
+        //     this.a = 100;
+        // }
+        // var  f1 = new Fn;// {a:100}
+        // new Fn;
+        
+
+        // 函数的三种角色 : 
+        // 1. 普通的函数  2. 构造函数  3.对象
+        // 函数既有prototype又有__proto__,函数的堆内存既存储了函数的私有属性，又存储了函数体中的代码字符串；是在同一个空间地址下的；
+        // function fn(){
+        //     fn.name
+        // }
+        // console.dir(fn)
+        // fn.name
+        // fn()
+
+    
+
+
+
+    
+    </script>
+</body>
+</html>

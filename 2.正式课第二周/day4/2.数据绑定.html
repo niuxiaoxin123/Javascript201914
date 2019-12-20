@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list">
+        <!-- <div id="a"></div> -->
+    </ul>
+    <div>你好我好，大家好</div>
+    <script>
+        //list.getElementsByTagName("div");
+        // var a = document.getElementById("a")
+        // console.dir(a)
+        // a--> HTMLDivElement -> HTMLElement-->Element--->Node-->EventTarget--->Object
+        // 1. list.createElement
+        //document.createElement("li");
+        //console.dir(document);
+        //console.log(HTMLDivElement)
+        // 数据：从数据库
+        // 后台工作：结合数据库 数据的增  删  改  查；
+        // 数据绑定：将后台返回给前端的数据进行展示； 
+        // 1. document.createElement
+        var  ary = ["正在直播：习近平出席庆祝澳门回归祖国20周年大会",
+        "庆祝澳门回归祖国20周年文艺晚会在澳门举行 习近平出席观看","一国两制为啥在澳门成功了？何厚铧道出了这一根本支柱"];
+        // var  list = document.getElementById("list");
+        // for(let i =0;i<ary.length;i++){
+            // 每循环一次，都会引发一次回流；
+        //     var curLi = document.createElement("li");
+        //     curLi.innerHTML = ary[i];// 将数据放入创建的标签中
+        //     list.appendChild(curLi);
+        // }
+
+        // 2. document.createDocumentFragment  文档碎片
+        // 相当于js存储dom的一个容器；
+        // 引发一次回流；
+        // var  list = document.getElementById("list");
+        // var frg = document.createDocumentFragment();
+        // for(let i =0;i<ary.length;i++){
+        //     var curLi = document.createElement("li");
+        //     curLi.innerHTML = ary[i];// 将数据放入创建的标签中
+        //     frg.appendChild(curLi);
+        // }
+        // list.appendChild(frg);
+        //frg=null;
+
+
+        // 3. 字符串拼接
+        // innerHTML : 能识别标签
+
+        // var  list = document.getElementById("list");
+        // var str="";
+        // for(let i=0;i<ary.length;i++){
+        //     str+="<li>"+ary[i]+"<button a='123'>删除</button></li>";
+        // }
+        // list.innerHTML = str;
+
+
+        // 4.模板字符串
+        var  list = document.getElementById("list");
+        var str=``;
+        for(let i=0;i<ary.length;i++){
+            str+=`<li time="abc">${ary[i]}
+                    <button>删除</button>
+            </li>`
+        }
+        list.innerHTML = str;
+
+        // 字符串也会引发DOM的回流；只不过只引发一次；
+        // 在框架项目之前，数据都采用模板字符串的方式进行绑定；
+    </script>
+</body>
+</html>
