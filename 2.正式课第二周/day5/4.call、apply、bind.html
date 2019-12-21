@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // call  apply  bind:都是在Function的原型上；
+        // 所有的函数都可以调用这三个方法；改变函数中的this指向的；
+        // 1. call 
+        function fn(){
+            //this --> 
+            //this=1;
+            console.log(this);  
+        }
+        //fn.call(undefined);//
+        // 1. call让fn这个函数中的this指向call的第一个参数
+        // 2. 如果call没有传参数，那么指向window；
+        // 3. 如果传null和undefined，也指向window;
+        Function.prototype.myCall=function(context){
+            context=context||window;// 如果context没传或是null,undefined,让context存储window;
+            let  args=[];
+            let  result;
+            for(let i=1;i<arguments.length;i++){
+                args.push(arguments[i]);
+            }
+            //console.log(this);// 
+            context.$fn = this;// this-->
+            result = context.$fn(...args);
+            delete context.$fn;
+            return result;
+        }
+        fn.myCall([12,23])
+
+
+        // myBind
+
+        
+        
+    </script>
+</body>
+</html>

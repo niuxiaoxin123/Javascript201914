@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.在ES6中，形参可以被赋默认值；
+        // 2.如果有实参，并且不是undefined，那么实参会将默认值覆盖；
+        // function fn(x,y={}){
+        //     console.log(x,y); 
+        // }
+        // fn("a",null);        
+        
+        // 如果使用函数默认值时，不允许有重名的参数
+        // function fn(x,x,y=1){
+        //     console.log(x);
+        // }
+        // fn(1,2,3)
+
+        // 箭头函数
+        // 1.箭头函数形式
+        // 1. 在()和{}之间换成了=>,去掉了function；
+        // 2. 如果箭头函数中只有一个形参，可以省略小括号
+        // 3. 如果{}只有一条语句可以省略大括号；
+        // 4. 如果箭头后面只有一个值，这个值就是函数的返回值；省略了{}和return；
+        // 5. 如果返回一个对象，并且去掉{}和return，需要在对象的外面加上();
+
+        // 2.箭头函数执行
+        //function f(){}
+        // var fn = function(num){}
+        // fn()
+        // let f  = num =>({num});
+        // var d = f(1)
+        // console.log(d);
+
+        function fn(a){
+            return function(b){
+                return function(c){
+                    return a+b+c;
+                }
+            }
+        }
+        let fn=a=>b=>c=>a+b+c;
+        fn(1)(2)(3)
+
+
+        
+    </script>
+</body>
+</html>

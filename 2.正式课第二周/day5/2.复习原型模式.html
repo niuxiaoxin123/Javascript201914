@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 构造函数
+        // 原型模式
+        function Fn(){
+            this.x=1;
+            this.y=2;
+        }
+        Fn.prototype.getX=function(){
+
+        }
+        var f1 = new Fn;
+        var f2 = new Fn;
+        console.dir(Fn);
+        console.log(f1.getX);
+        f1.__proto__ === Fn.prototype
+        // 1. 每一个函数天生自带一个prototype属性，其属性值是一个对象数据类型
+        // 2.原型中天生一个construtor属性，其属性值指向当前原型所属的类
+        // 3.每一个对象都天生自带一个__proto__，其属性值指向当前实例所属类的原型
+        
+        // 当f1.getX :当获取一个对象属性名对应的属性值时，首先会找对象的私有属性，如果没有，f1会默认通过__proto__向上继续查找,如果上一级也没有，会继续向上查找，然后直到找到Object.prototype为止，如果也没有返回undefined；
+        // f1.x===f2.x;
+        // f1.getX===f2.getX;// true
+
+        // var  ary1=[];
+        // var ary2=[]
+        //  ary1.pop();
+        //  ary2.pop();
+
+        var obj = {};
+        obj.toString
+
+        
+        
+        
+    </script>
+</body>
+</html>

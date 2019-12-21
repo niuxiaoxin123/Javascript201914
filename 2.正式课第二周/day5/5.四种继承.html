@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 原型继承   call继承  中间类继承   寄生组合继承
+        // function A(){
+        //     this.x=10;
+        // }
+        // A.prototype.getX=function(){
+
+        // }
+        // function B(){
+
+        // }
+        // B.prototype=new A;// 让B的原型地址指向A的实例
+        // var b = new B;
+        // b.x
+        // b.getX
+
+        // function A(){
+        //     this.x=10;
+        // }
+        // function B(){
+        //     // this --> B的实例
+        //     A.call(this)
+
+        // }
+        // var b = new B;
+        // call继承只能继承私有属性，不能继承公有
+
+        // function sum(){
+        //     // arguments.pop();// arguments是实参集合；是类数组，是Object构建出来的实例；不能直接调用到Array原型上的方法，arguments.__proto__指向了Object的原型；
+        // 在IE10以下不兼容的；
+        //     arguments.__proto__=Array.prototype;
+        //     arguments.pop();
+        // }
+        // sum(12,3,4,6,7,44,66,88,9);
+
+
+
+        // 寄生组合继承  call  Object.create({a:1});
+        // 继承了私有和公有；
+        //context=Object(context)|| window;
+        //var  num =1;
+        //console.log(Object(num));// new Number(1)
+        // var o = Object.create({a:1})
+        // console.log(o);
+        function A(){
+
+        }
+        function B(){
+            A.call(this)
+        }
+        B.prototype = Object.create(A.prototype);
+        
+        var b = new B;
+        
+
+
+
+        
+        
+    </script>
+</body>
+</html>

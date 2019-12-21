@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 解构赋值： 在ES6中，按照一定的模式，从数组或对象中给变量赋值
+        // 在数组中，解构是一一对应的；如果只有变量，右边没有对应的值，那么默认解构出undefined； 
+        //let  [a,,d]=[100,200,300];
+        //console.log(a);
+       // console.log(b);
+       // console.log(d);
+
+       //let  [a,[b]]=[100,[200]];
+       //console.log(b);
+        // 被解构的值一定是可遍历的；
+    //    let [foo]=1;
+    //    let  [f]=null;
+    //    let [f]=undefined;
+    //    let [f]=false;
+    //    let [f]=true;
+    //    let [f]=NaN;
+
+
+    // 2.解构赋值允许赋默认值
+    //let [a,b="x"]=[1];
+    //console.log(b);
+
+    // 对象的解构赋值
+    // 1.对象是按照对象的属性名进行匹配和解构的，必须保证属性名一致；
+    // 2.如果等号右边没有对应的属性值，解构出undefined；
+    // 3.如果右边严格等于undefined，那么存储默认值；
+    //let {name="a",age}={age:10,name:null};
+    //console.log(name);
+    // function fn(){
+
+    // }
+    // var obj ={fn:fn};// fn就是属性名，就是fn;右边是属性值，fn所代表的值；
+    // // 如果属性名和属性值完全一样时，可以省略一个；
+    // obj.fn()
+    // console.log(obj.fn);
+
+    // var utils = (function(){
+    //     function toArray(){}
+    //     return {toArray}
+    // })();
+
+
+    //let [a,b,c]="hello";
+
+    // 函数的参数解构赋值
+    function fn([x,y]){
+        console.log(x);
+        console.log(y);
+        console.log(arguments);
+        
+    }
+    fn([1,2])
+
+
+
+    
+    
+    
+       
+    
+        
+        
+        
+    </script>
+</body>
+</html>

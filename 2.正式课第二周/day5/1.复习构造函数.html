@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // call： 封装call;
+        // 上课代码跟着敲，注释不用敲；
+        // Fn就是一个构造函数
+        // 1. 如果不传参，小括号可以省略;
+        // 2. new操作符 1.新创空对象  2.让this指向这个空对象  3.return this
+        // 3. instanceof 检测实例是否属于某个类的
+        // 4. 如果return基本数据类型，不会影响默认返回的实例
+        // 5. hasOwnProperty : 判断是否是私有属性 hasPublicProperty
+        // 6. 自定义类
+        function Fn(){
+            // var obj = {};
+            // this--> obj;
+            var num = 1;
+            this.a =100;
+            return 100;
+            // return this;
+        }
+        var  f1 = new Fn();// 实例 {a:100}
+        var  f2 = new Fn();
+        // f1是Fn构造出来的；
+
+        var  obj = {}; // obj是Object的实例；是Object这个类构造出来的
+        var  ary  = []; // Array 的实例
+        var  num=1; // Number
+        var str="233";// String
+        //内置类 ： Number  String  Boolean  Null  Undefined  Array Object Function  RegExp  Date Symbol ...
+
+        // 1字面量方式创建
+        // 2.实例
+        new Object()
+        new Function;
+        
+
+        
+        
+    </script>
+</body>
+</html>
