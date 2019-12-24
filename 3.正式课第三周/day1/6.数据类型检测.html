@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. typeof  2.instanceof  3. constructor  4.Object.prototype.toString.call()
+
+        // typeof 
+        // 1. 返回一个字符串，字符串中包含了对应的数据类型
+        // 2. 不能检测null 
+        // 3.  不能检测对象数据类型
+
+
+        // 2. instanceof  : 是检测实例是否属于某个类的方法；
+        // 1. 只要当前类的原型在当前实例的原型链上，都返回true；
+        // 2. 只要改变了当前实例的原型链，检测结果就不再准确了
+        // 3. 不能检测字面量方式创建的基本数据类型值
+        // var ary = [];
+        // console.log(ary instanceof Array)
+        // var obj = {};
+        // console.log(obj instanceof Array)
+        // console.log(ary instanceof Object)
+        // function fn(){
+        // }
+        // console.log(fn instanceof Object)
+
+        // function fn(){
+        //     arguments.__proto__ = Array.prototype;
+        //    console.log( arguments instanceof Array)
+        // }
+        // fn(1,23,4)
+        var num = new Number(1);
+        console.log(num instanceof Number)
+
+
+        // 3.constructor : 原型中天生自带一个属性名
+        //  1. 不能检测基本数据类型的null 或undefined；
+        //  2. 如果原型扩展以及继承都有可能导致原型链指向发生改变，结果不准确；
+        // var ary =[];
+        // console.log(ary.constructor===Array)// true
+        // console.log(ary.constructor===Object)//false
+        // var obj = {};
+        // console.log(obj.constructor===Array);// false
+        // var num = 1;
+        // console.log(num.constructor===Number);
+        // function A(){}
+        // A.prototype={}
+        // var a = new A;
+        // a.constructor === A
+
+
+        // 4.Object.prototype.toString.call();
+        // Object 原型上的toString方法执行，会默认返回当前方法中的this对应的结果；
+        // toString : 转字符串；
+        //var  num = 1;
+        var arr = [1,2,3]
+        //var obj  = {};
+        //num.toString===obj.toString  // false
+        var obj  = {};
+        console.log(obj.toString());// "[object Object]"
+        //arr.__proto__.__proto__.toString()// 
+        console.log(Object.prototype.toString.call(arr))//"[object Array]"
+        var  num = 1;
+        console.log(Object.prototype.toString.call(num)) 
+        console.log(Object.prototype.toString.call(null));
+        console.log(Object.prototype.toString.call(undefined));
+        console.log(toString.call(num))
+        
+        
+        
+        
+        
+        
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 数组的方法  字符串的方法  Math   DOM的节点  动态操作DOM  Number   数据类型的比较
+
+        // 
+        // 正则：  引用数据类型；
+        // 表单验证；
+        // 
+        // 正则： 用来处理字符串的一个规则；
+        // 字符串的方法：toUpperCase  toLowerCase charAt charCodeAt  slice  substr  substring indexOf lastIndexOf  concat trim split  replace
+        
+        //var str1="a";
+        //var str = "b";
+        //str1.concat(str);
+
+        var str="zhufeng199hh88";
+        // 1. 这个字符串中有数字吗？如果有请找出来
+        var  reg = /\d+/g;//包含一个0-9的数字；
+        //console.log(reg.test(str))
+        //console.dir(reg)
+        // test : 检测 ，匹配；如果检测成功，返回true，没有检测成功返回false；
+
+        // exec: 捕获；返回一个数组；其中第一项就是捕获到的内容，第二项捕获内容开始的索引；第三项是要检测的整个字符串的整体；
+        console.log(reg.exec(str))
+        console.log(reg.exec(str))
+
+
+
+        
+        
+        
+        
+    </script>
+</body>
+</html>

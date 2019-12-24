@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class A{
+            constructor(){
+                this.x =1;
+            }
+            getX=()=>{
+                // 这是一个普通函数
+            }
+            getY(){
+                // 这是一个公有的属性
+            }
+        }
+        
+        let a = new A;
+        // B的prototype中的__proto指向A的原型
+        // class 继承既继承A的私有属性，又能继承其公有属性；
+        class B extends A{
+            constructor(a){
+                super();// super;
+                this.z=a;
+            }
+            getZ(){
+
+            }
+        }
+        let b = new B(1);
+        console.log(b);
+        
+       
+        
+        
+        
+        
+    </script>
+</body>
+</html>

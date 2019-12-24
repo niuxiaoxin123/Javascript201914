@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //var  reg = /\d/;
+        //reg.test("zhufeng1peixun")
+        // 手机号：
+        //var reg = /^1\d{10}$/;
+        //console.log(reg.test("12345678769"));
+
+        // 有效数字
+        //var reg=/^-?(\d|[1-9]\d+)(\.\d+)?$/;
+        //console.log(reg.test("10000.001"));
+        //console.log(0.0)
+
+        // [abc]  身份证号
+        // 130425 1990 03 25 16 17;
+         //var  reg = /(\d{6})([12]\d{3})(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])(\d{3})(\d|X)/;
+        //  console.log(reg.exec("130425199003251617"))
+
+        
+        // 18-65 数字
+        // var reg = /^(1[89]|[2-5]\d|6[0-5])$/;
+        // console.log(reg.test("32"))
+
+        // 汉字 ： unicode编码值 \u4e00-\u9fa5 这是所有汉字的unicode编码范围
+
+        // var  reg = /[\u4e00-\u9fa5]+/;
+        // console.log(reg.test("我和你"));
+
+
+        // 邮箱
+        //67890@qq.com
+        var reg = /^[0-9a-zA-Z_-\u4e00-\u9fa5]+@[0-9a-zA-Z_]+(\.[0-9a-zA-Z_]+)+$/;
+
+
+
+
+        
+
+
+
+
+        
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        // let fn = ()=>{
+        //     console.log(this);
+        // }  
+        // fn();
+        // let obj  ={
+        //     fn:()=>{
+        //         console.log(this); 
+        //     }
+        // }
+        // obj.fn();// window
+        // var f = obj.fn;
+        // f();// window
+
+
+
+        // let obj  ={
+        //     fn:function(){
+        //         console.log(this);// obj
+        //         return f;
+        //     }
+        // }
+        // f = ()=>{// 上一级作用域是全局；全局中的this指向window;
+        //     console.log(this);  
+        // };
+        // console.dir(f);
+        // obj.fn()();  
+
+        //1. 箭头函数中没有this,如果使用this，箭头函数中的this指向上一级作用域中的this；【上一级作用域中this是谁，箭头函数中this就是谁】
+        //2. 箭头函数中没有arguments
+        //3. 箭头函数不能被new,不可以作为构造函数；
+        //4. 箭头函数不能作为generator函数；
+        // let fn = (...arr)=>{
+        //     // console.log(arguments);
+        // }
+        //fn(1,2,3,4,556,7)
+        //console.dir(fn);
+        
+        //new fn;
+            
+        
+    </script>
+</body>
+</html>

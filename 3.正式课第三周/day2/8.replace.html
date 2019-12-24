@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // replace :字符串的替换;原有字符串不发生改变，会得到一个替换之后的返回值；
+        // 1.每次只能替换一个
+        // var str = "trueortrue";
+        // var newStr =  str.replace('true',"false").replace('true',"false");
+        // console.log(newStr);
+        // 2.结合正则
+        // 1) replace(reg,str);用该正则对字符串进行捕获，把捕获到的内容替换成后面的字符串
+        // var str = "trueortrue";
+        // var newStr =  str.replace(/true/g,"false")
+        // console.log(newStr);
+
+        // 3. 正则和回调函数
+        // 1. 正则对字符串进行捕获，并且将回调函数的返回值覆盖捕获到的内容；
+        // 2. 正则捕获几次，回调函数执行几次
+        // 3. 形参分别代表不同的值
+        var str = "123or456";
+        var newStr =  str.replace(/\d+/g,function(a,b,c){
+            console.log(a);// 第一个参数是捕获到的内容
+            console.log(b);// 第二个参数捕获的内容开始的索引位置
+            console.log(c);//  原来的字符串
+            // console.log(100);
+            // return 1;
+        });
+        console.log(newStr);
+
+        
+        
+        
+        
+    </script>
+</body>
+</html>

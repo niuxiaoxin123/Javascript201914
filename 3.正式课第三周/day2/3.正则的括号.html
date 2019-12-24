@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // []
+        //var  reg = /[abc]/; // abc中的任意一个
+        //var  reg = /^[^abc]+$/;
+        //console.log(reg.test("xyz"))
+        // 
+        //var reg1 = /^[1-9_]+$/; // 表示1到9中的任意一个数字
+        //console.log(reg1.test("9_"))
+        // 中括号中不识别多位数；
+        //var  reg = /[18-65]/;
+
+        // 正则的小括号
+        // var  reg = /^a|food$/;// 以a开头或以food结尾都返回true
+        // console.log(reg.test("a"))// true
+        // console.log(reg.test("aood"))// true
+        // console.log(reg.test("aoog"))
+        // console.log(reg.test("erood"))// false
+        // 1.改变正则的优先级
+        var  reg = /^(a|food)$/;// 只有a或food返回true，别的返回false
+        console.log(reg.test("a"))// true
+        console.log(reg.test("afood"))// false
+
+        // 2. 分组引用
+        // \1 : 代指和第一个分组一模一样的内容
+        //var  reg = /^(zhufeng)(peixun)\2\1$/;
+        //console.log(reg.test("zhufeng"))// false
+        //console.log(reg.test("zhufengpeixunzhufeng"))// false
+
+
+        // 3. 用于小正则捕获
+        // 小括号要进行捕获；从左往右依次进行捕获；
+        var  reg =/^-?(\d|[1-9]\d+)(\.(\d+))?$/; 
+        console.log(reg.test("00000"))// false
+        console.log(reg.exec("35.6789"))
+        
+    </script>
+</body>
+</html>

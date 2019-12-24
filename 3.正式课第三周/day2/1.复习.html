@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        // 箭头函数 
+        // 1. 没有this,this zhi向上一级作用域中的this
+        // 2. 没有arguments
+        // 3. 不能作为构造函数，不能被new
+        // 4. 不能作为generator函数；
+        // let  fn=()=>{
+        //     //console.log(arguments)
+        // }
+        // new fn()
+
+        // Set  : 数据结构，成员都是唯一的；数组去重
+        // var ary = [12,3,34,23,12];
+        // var arr  = new Set(ary);
+        // console.log([...arr]);
+        
+        // // add  delete   clear
+
+
+        // // class  
+        // class Fn{
+        //     static a=1;
+        //     constructor(){
+        //         this.a =1;
+        //         this.b=2;
+        //     }
+        //     getX(){
+
+        //     }
+        // }
+        // let f = new Fn;//{a:1,b:2}
+        
+        // class A extends Fn{
+        //     constructor(){
+        //         super();
+        //         this.c=1;
+        //     }
+        //     getY(){
+
+        //     }
+        // }
+
+
+        function Modal(element){ 
+            element=element||document; 
+            this.element=element;
+         }
+        Modal.prototype.show=function(){                                  this.element.style.display='block';
+        }
+        Modal.prototype.hide=function(){ 
+            this.element.style.display='none'; 
+        }
+        Modal.position={ x:100, y:200 };
+        Modal.setPosition=function(x,y){
+            this.position={x:x,y:y}; 
+        };
+        let m = new Modal(document.body);
+
+
+        class Modal{
+            static position={
+                x:100, 
+                y:200 
+            }
+            static setPosition=function(x,y){
+                this.position={x:x,y:y}; 
+            }
+            constructor(element){
+                element=element||document; 
+                this.element=element;
+            }
+            show(){
+                this.element.style.display='block';
+            }
+            hide(){
+                this.element.style.display='none';
+            }
+        }
+        let m = new Modal(document.body);
+
+        // 正则
+        // 处理字符串的规则
+        // 正则的元字符
+        // 
+        // \ : 转义
+        // ^ : 以什么开头
+        // $ : 以什么结尾
+        // . : 除了\n以为的任何字符
+
+        // \n : 匹配一个换行符
+        // 量词 ：
+        // +  *  ?  {n} {n,} {n,m}
+        // \b \B  \d  \D   \w[0-9a-zA-Z_]  \W 
+        //var reg = /^\d/
+
+        // 手机号
+        
+
+
+
+</script>
+
+
+</body>
+</html>

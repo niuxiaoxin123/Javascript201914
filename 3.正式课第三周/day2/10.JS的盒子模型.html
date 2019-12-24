@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width:200px;
+            height:200px;
+            padding:20px;
+            border:10px solid red;
+            margin:30px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">我爱你中国元素元素.style.属性名：只能获取到行内的样式元素.style.属性名：只能获取到行内的样式元素.style.属性名：只能获取到行内的样式元素.style.属性名：只能获取到行内的样式元素.style.属性名：只能获取到行内的样式</div>
+    <script>
+        // margin  border  padding  width 
+        // JS盒子模型 
+        // 1. 获取盒子的宽度
+        // 元素.style.属性名：只能获取到行内的样式
+        // box : 元素对象
+        var  box = document.getElementById("box");
+        // console.dir(box.style.width)// ""
+        // 2. getComputedStyle
+        // getComputedStyle是window下一个方法；把对应的元素传给这个方法
+        // 获取浏览器计算的样式
+        // 如果是复合属性名，把-去掉，换成驼峰命名；
+        // console.log(getComputedStyle(box).width)// "200px"
+        // console.log(getComputedStyle(box).fontSize);
+        // 该方法在IE8及以下是不兼容的；
+        
+        
+        /// IE8及以下，用这个方法获取元素css中设置的样式；
+        // console.log(box.currentStyle.width)
+        // css
+
+        // 盒子模型：13个属性
+        // 1.clientWidth： 内容宽度+左右padding
+        // 2.clientHeight:内容的高度+上下padding
+        // console.log(box.clientWidth) // 540
+
+       // 3.clientLeft :左边框的宽度
+       // 4.clientTop ：上边框的高度
+
+        //console.log(box.clientLeft);
+        //console.log(box.clientTop)
+
+        //5.offsetWidth: 盒子总宽度；clientWidth+左右border
+        //6.offsetHeight:盒子的高度  
+        // console.log(box.offsetWidth);// 560
+
+        // 有溢出的情况
+        // 7.scrollWidth ：内容实际宽度+一个左padding
+        // 8.scrollHeight: 内容实际高度+一个上padding
+
+        // 如果没有溢出；scrollHeight和clientHeight相等；
+        // console.log(box.scrollHeight)
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // function Fn(){
+
+    // };
+    
+    //let fn=()=>{};// 不能作为构造函数；
+    // class  : class 类名  {}
+    // var a = 1;
+    // var obj = {
+    //     a,
+    //     fn(){// 这不是一个箭头函数；
+    //         console.log(100);
+            
+    //     }
+    // }
+    // obj.fn();
+    // console.log(obj);
+
+    class Bar{ // 这既不是一个函数的{}，也不是对象的{}；
+        constructor(x,y){
+            // 这个的代码就相当于函数体中的代码；
+            // 这里面可以新增私有属性
+            //this.x=x;
+           // this.y=y;
+            var a = 1;
+        }
+        // 在原型上新增方法；
+        getX(){// 这不是箭头函数
+            console.log("X");
+        }
+        getY(){
+            console.log("Y");
+        }
+        static x=1// static可以给类新增私有属性
+        y=2// 在给实例新增私有属性
+    }
+    console.log(typeof Bar)
+    //Bar.prototype.x=100;
+    console.dir(Bar);
+    let a =  new Bar(100,200);
+    console.log(a);
+    // {x:1,arguments:null,caller:null,prototype:{}}
+    // Bar
+    
+    // console.log(a);
+    //var b = Bar();
+    //console.log(b);
+
+
+//     function Fn(){
+          // var num=1;
+//        // this.x=num;
+//     }
+//     Fn.prototype.getX=function(){
+
+//     }
+//     Fn.x=1;// 
+//     let f = new Fn;
+//     console.log(f.x) 
+    
+    
+        
+        
+    </script>
+</body>
+</html>

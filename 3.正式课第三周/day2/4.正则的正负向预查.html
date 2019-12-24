@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 正向预查 ?=
+        // 匹配：test   捕获: exec
+        // zhufeng后面必须跟着peixun
+        //var  reg = /zhufeng(?=peixun)/;// 这个正则能够匹配后面跟着peixun的珠峰字符串
+        //console.log(reg.test("zhufengpeixun67890"))
+
+        // 负向预查 ?!
+        // 如果zhufeng后面跟着不是js的，能够匹配成功，返回true，否则返回false；
+        var  reg  =/zhufeng(?!js)/;
+        console.log(reg.test("zhufengjs123"))
+
+
+
+        
+    </script>
+</body>
+</html>

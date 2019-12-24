@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // test: 在RegExp这个内置类的原型上
+        // test : 匹配; 匹配成功返回true，匹配不成功返回false；
+        //var reg = /^\d$/;
+        //reg.test("zhufeng234")
+
+        // exec: 捕获;
+        // 1. 返回一个数组，数组第一项是字符串满足大正则的内容
+        // 2. 如果正则捕获不到内容，返回值是null;
+        // var reg = /\d+/;// ["2009", index: 7, input: "zhufeng2009", groups: undefined]
+        // console.log(reg.exec("zhufeng2009"));
+
+        // var reg = /\d+/;// ["2009", index: 7, input: "zhufeng2009peixun2019", groups: undefined]
+        // console.log(reg.exec("zhufeng2009peixun2019"));
+        
+        // 1.懒惰性：正则找到符合正则的值以后，就不再向后捕获了；
+        // 取消正则的懒惰性；用正则的修饰符g
+        // g：原理： 每捕获一次，当前正则的lastIndex就会被修改成下一轮开始捕获的索引位置；
+        // reg.lastIndex: 是下一轮捕获开始的索引位置；
+        var reg = /\d+/g;// 
+        console.log(reg.lastIndex);// 0 
+        console.log(reg.exec("zhufeng2009peixun2019"));
+        console.log(reg.lastIndex);// 11
+        console.log(reg.exec("zhufeng2009peixun2019"));
+        console.log(reg.lastIndex);// 21
+        console.log(reg.exec("zhufeng2009peixun2019"));
+        console.log(reg.lastIndex);
+        // 贪婪性
+        //?放在量词的后面，是取消捕获的贪婪性的；
+        // 一个一个字符进行捕获；
+        // var reg = /\d+?/g;// 
+        // console.log(reg.exec("zhufeng2009peixun2019"));
+        // console.log(reg.exec("zhufeng2009peixun2019"));
+
+        // 小括号：也要进行一次捕获，从左往右依次进行捕获；
+        // ?: 取消捕获；但是要匹配；
+        var  reg =/^-?(\d|[1-9]\d+)(\.(?:\d+))?$/; 
+        console.log(reg.exec("35.6789"));
+    </script>
+</body>
+</html>

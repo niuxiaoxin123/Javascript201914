@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 正则由元字符和修饰符组成
+        // 元字符：在正则中有特殊的含义的一些字符； 
+       // var reg = /^.$/
+        //var str="_";
+        //console.log(reg.test(str))
+
+        // 1. \ : 转义字符
+        // 2. ^ : 以什么开头
+        // 3. $ : 以什么什么结尾；
+        // 4. . : 除了\n 以外的任何字符
+        // 5. \n: 换行符
+        
+        // 量词元字符
+        // + ： 1到多个
+        // * :  0到多个
+        // ? :  0个或1个；
+        // {n}: 出现n次
+        // {n,m}: 出现n到m次
+        // {n,}  : 出现n到多次
+
+
+
+        // 
+        // x|y : 表示x会y中的任意一个
+        // [xyz] : 表示xyz中的任意一个
+        // [^xyz]: 除了xyz中的任何一个 ^ : 除了
+        // [a-zA-Z]
+        var reg=/[abc]/;
+        console.log(reg.test("ayy"))
+
+        var reg = /[a-z]/;// a到z的任意一个
+
+
+        // \b : 匹配一个单词的边界
+        // \B : 匹配非单词边界
+        // \d : 0-9的任意一个数字
+        // \D : 不是0-9任意一个字符
+       //  \w : 匹配包含下划线的任意字符[0-9a-zA-Z_]
+        // \W : [^0-9a-zA-Z_]
+
+        var str ="how  are you";
+
+
+
+
+        
+        
+        
+        
+        
+    </script>
+</body>
+</html>
