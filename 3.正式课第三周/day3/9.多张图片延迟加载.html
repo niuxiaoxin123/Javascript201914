@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            #box{
+                width:300px;
+                height:200px;
+                margin:800px auto;
+            }
+            #box img{
+                width:100%;
+                height:100%;
+            }
+        
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="img/default.jpg" address="img/1.jpg" alt="">
+        <img src="img/default.jpg" address="img/2.jpg" alt="">
+        <img src="img/default.jpg" address="img/3.jpg" alt="">
+        <img src="img/default.jpg" address="img/4.jpg" alt="">
+    </div>
+    <script src="6.utils.js"></script>
+    <script>
+        var box = document.getElementById("box");
+        var imgs = box.getElementsByTagName("img");
+        // var ary = ["1.jpg","2.jpg"]
+        function delay(){
+            // 当滚动条拉动时，循环每一张图片，判断是否应该显示加载出来；
+            for(var i=0;i<imgs.length;i++){
+                // imgs[i].address=ary[i];
+                checkImg(imgs[i]);
+            }
+        }
+        window.onscroll=delay;
+        var winH = utils.win("clientHeight");
+        // checkImg: 检测该图片是否应该加载出来；
+        function checkImg(curImg){
+            // 如果该图片已经加载成功，不需要再次校验；
+            if(curImg.flag){
+                return;// return中止代码向下运行；
+            }
+            var  curH = curImg.offsetHeight;// 当前盒子的总高度
+            var  curT = utils.offset(curImg).t;// 当前盒子上偏移量
+            var  winT = utils.win("scrollTop");// 获取页面的滚动条卷起的高度
+            if(winH+winT>=curH+curT){
+                // 在把真实路径给元素之前，先进行一次校验，校验该路径是否正确；
+                var trueAddress  = curImg.getAttribute("address");
+                var newImg = document.createElement("img");// 只是存在于JS中的一个元素对象；
+                newImg.src = trueAddress;
+                newImg.onload=function(){
+                    // onload 事件：当图片加载成功之后，会执行该函数，如果路径不成功，该函数不执行；
+                    //console.log(1);
+                    curImg.src=trueAddress;
+                    curImg.flag = true;
+                    newImg=null;
+                }
+                // curImg.src=trueAddress;
+            }
+        }
+        // var newImg = document.createElement("img");// 只是存在于JS中的一个元素对象；
+        // newImg.src = "img/100.jpg";
+        // newImg.onload=function(){
+        //     console.log(1);
+        // }
+    </script>
+</body>
+</html>

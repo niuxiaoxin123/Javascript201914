@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // function Fn(n,m) {
+    //     n=n||0;// 前面转布尔是false，取后面的值
+    //     m=m||0;
+    //     this.x = n;
+    //     this.y = m;
+    //     this.getX = function () {
+    //         console.log(this.x);
+    //     }
+    //     return n+m;
+    // }
+    // Fn.prototype.sum=function(){
+    //     console.log(this.x+this.y);
+    // }
+    // Fn.prototype={
+    //     getX:function(){
+    //         this.x+=1;
+    //         console.log(this.x);
+    //     },
+    //     getY:function(){
+    //         this.y-=1;
+    //         console.log(this.y);
+    //     }
+    // };
+    // let f1 = new Fn(10,20);// {x:10,y:20,getX:function}
+    // let f2 = new Fn;// {x:0,y:0,getX:function}
+    // console.log(f1.getX === f2.getX);// false
+    // console.log(f1.getY === f2.getY);// true
+    // console.log(f1.__proto__.getY === Fn.prototype.getY);// true
+    // console.log(Fn.prototype.getX === f2.getX);// false
+    // console.log(f1.constructor);//Object类 
+    // f1.getX();//10
+    // Fn.prototype.getX();// NaN
+    // f2.getY();// -1
+    // Fn.prototype.getY();// NaN 
+    // //f1.sum();// 报错
+
+    // var name = '珠峰培训';// 全局变量：给window新增键值对 全局下的this指向window
+    // function A(){
+    //     // this--> B
+    //     console.log(1,this.name);// 1,"B"
+    // }
+    // function B(){
+    //     console.log(2,this.name);
+    // }
+    // A.call(B,10);
+    // A.call.call.call(B);// 2,"珠峰培训"
+    // Function.prototype.call(B);//在call内置的方法中，会校验call的this是否是一个函数，不是则不会运行；
+    // Function.prototype.call.call.call(B);// 2,"珠峰培训"
+
+
+    // var name = "WINDOW";
+    // function fn(){
+    //     console.log(this.name);
+    // }
+    // var obj = {
+    //     name:"OBJ",
+    //     fn:()=>{
+    //         console.log(this.name);
+    //     }
+    // };
+    // fn();// "WINDOW"
+    // obj.fn();// "WINDOW"
+    // fn.call(obj);// "OBJ"
+    // window.onload=function(){
+    //     //页面加载完成，事件就会触发
+    //     fn();// "WINDOW"
+    //     obj.fn();// "WINDOW"
+    // };
+    // fn.bind(obj);// 预处理this，不执行
+
+
+    // var print=function(){alert(1);}
+    // function Fn() {
+    //     print=function(){alert(2);}
+    //     return this;
+    // }
+    // function print(){alert(3);}
+    // Fn.prototype.print=function(){alert(4);}
+    // Fn.print=function(){alert(5);}
+
+    // print();// 1
+    // Fn.print(); // 5
+    // Fn().print();// 2
+    // new Fn.print();// 5
+    // new Fn().print(); // 4
+
+    // let const  解构赋值 块级作用域  Set  箭头函数   class定义类 promise  
+
+    // Array.prototype.unique=function(){
+    //     var obj ={};
+    //     for(var i=0;i<this.length;i++){
+    //         var cur = this[i];
+    //         if(obj[cur]===cur){
+    //             this[i]=this[this.length-1];// 把最后一项替换到当前项
+    //             this.length--;
+    //             i--;
+    //             continue;
+    //         }
+    //         obj[cur]=cur;
+    //     }
+    //     return this;// 数组
+    // }
+    //var  ary = [1,2,3,4,55,6]
+    //var cur = ary[3];
+    //ary[3]=100;   
+    //cur=100;     
+
+    
+    Function.prototype.changeThis=function changeThis(){ 
+        // this --> fn;
+        // arguments[0].fn = this;// 把函数fn给arguments[0]新增键值对
+        // arguments[0].fn(arguments[1],arguments[2]);
+        // delete arguments[0].fn;
+        // return arguments[0];
+        // return this.call(arguments[0],arguments[1],arguments[2])
+    };
+    let obj = {name:'Alibaba'};
+    function fn(x,y){
+        this.total=x+y; 
+        return this; 
+    }
+    let res = fn.changeThis(obj,100,200);
+    console.log(res);//{name:'Alibaba',total:300}
+
+    // sort  假设法  Math.max(...ary)  Math.max.apply(null,ary) 
+
+    function toArray(){
+        // let ary = [...arguments];
+        // return ary;
+        var ary=[];
+        try{
+            ary= Array.prototype.slice.call(arguments)
+        }catch(e){
+            for(var i=0;i<arguments.length;i++){
+                ary.push(arguments[i])
+            }
+        }
+        return ary;
+    }
+     
+
+        
+        
+    </script>
+</body>
+</html>

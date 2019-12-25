@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width:300px;
+            height:200px;
+            margin:1000px auto;
+        }
+        #box img{
+            width:100%;
+            height:100%;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="img/default.jpg" alt="">
+    </div>
+    <script src="6.utils.js"></script>
+    <script>
+        var box = document.getElementById("box");
+        var curImg = box.getElementsByTagName("img")[0];
+        // 当盒子的底边框和浏览器的底边框重合时，就是图片加载出来的临界条件
+        var curH = utils.win("clientHeight");// 可视窗口的高度
+        var boxH = box.offsetHeight;// 盒子的总高度
+        var boxT = utils.offset(box).t;
+        window.onscroll= function(){
+            var curT = utils.win("scrollTop");
+            // 如果滚动条卷起的高度+可视窗口的高度大于盒子的总高度+盒子上偏移量，那么条件成立；这就是盒子显示真正图片的临界点；
+            if(curH+curT>boxH+boxT){
+                curImg.src="img/3.jpg";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width:100px;
+            height:100px;
+            padding:20px;
+            background: red;
+            margin:800px auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        // 13个属性
+        // client系列 clientWidth clientHeight  clientLeft  clientTop
+        // offset系列 offsetWidth offsetHeight  offsetParent  offsetLeft  offsetTop
+        // scroll系列  scrollWidth  scrollHeight  scrollLeft  scrollTop
+
+        // 11个属性只能读；不能设置修改
+        //box.clientWidth=200;
+        //console.log(box.clientWidth)
+
+        // scrollLeft : 横向滚动条卷起的宽度
+        // scrollTop: 纵向滚动条卷起的高度；
+
+        // document.documentElement.scrollTop : 整个页面滚动条纵向卷起的高度；
+        // console.log(document.documentElement.scrollTop)
+        // var  winT = document.documentElement.scrollTop||document.body.scrollTop;
+        // 1. 如果传递过来一个参数，那么是获取当前页面滚动条卷起的高度或宽度
+        // 2. 如果传递进来两个参数，那么是设置页面的滚动条卷起的宽度或高度
+        // 封装
+        function win(attr,val){ 
+            if(typeof val==="undefined"){
+                // 获取属性名对应的属性值
+                return document.documentElement[attr]||document.body[attr];
+            }
+            document.documentElement[attr]=val;
+            document.body[attr]=val;
+        }
+        win("scrollTop")
+        win("scrollLeft")
+        win("scrollTop",300);
+
+        // var n="m";
+        // var obj = {n:1,m:2};
+        // console.log(obj.n)// 1
+        // console.log(obj[n]);// 2
+        
+
+
+    </script>
+</body>
+</html>

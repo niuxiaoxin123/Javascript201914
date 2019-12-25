@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //    function B(){
+
+    //    } 
+    //    console.log(B.name);// 对象
+
+    // function A(){
+
+    // }
+    // A.call()
+    // function B(){
+
+    // }
+    // A.call.call.call(B);// B执行，并且B中的this一定指向window
+    // 最后一个call执行时， 把A.call.call中的this改成了函数B;并且让A.call.call执行;
+    // 当A.call.call执行时，把函数B的this改成window，并且让B执行;
+
+    function B(){
+        console.log(this);
+    }
+    var  f = B.bind(100);
+    B();
+    f();
+        
+        
+        
+    </script>
+</body>
+</html>

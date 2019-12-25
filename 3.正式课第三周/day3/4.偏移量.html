@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    
+        #outer{
+            width:300px;
+            height:300px;
+            background: red;
+            margin:200px auto;
+            position: relative;
+            border:10px  solid black;
+            /* // padding:10px; */
+        }
+        #inner{
+            position: relative;
+            width:200px;
+            height:200px;
+            background: blue;
+            margin: auto;
+        }
+        #center{
+            width:100px;
+            height:100px;
+            background: yellow;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <div id="inner">
+            <div id="center"></div>
+        </div>
+    </div>
+    <script>
+        //offsetParent : 父级参照物
+        //offsetLeft :左偏移量
+        //offsetTop :上偏移量
+        // 偏移量： 当前盒子的外边框，到父级参照物的内边框的距离；
+        // 如果给当前元素加上position属性，那么该元素将成为该元素下所有子孙元素的父级参照物；
+        var outer = document.getElementById("outer");
+        var inner = document.getElementById("inner");
+        var center = document.getElementById("center");
+        // parentNode : 父节点
+        //console.log(outer.offsetParent);// body
+        //console.log(inner.offsetParent);// body
+        //console.log(center.offsetParent);//body
+
+        //console.log(outer.offsetLeft)
+        //console.log(inner.offsetLeft)
+
+        // 封装一个方法；传入该元素，就可以获取该元素距离body的距离；
+        // 先分析
+        // 根据分析提炼出汉语的思路
+        // 根据汉语思路转成代码；
+        function offset(curEle){// 获取到当前元素距离body左内边框的距离；
+            // 获取到当前盒子的左偏移量，然后继续获取当前盒子父级参照物的左偏移量，以及父级参照物的左边框的宽度，用while继续向上获取，将这些值进行累加；直到找到body为止；
+            var  l = curEle.offsetLeft;// 当前盒子左偏移
+            var t = curEle.offsetTop;
+            var parent = curEle.offsetParent;// 当前盒子的父级参照物
+            while(parent){
+                // 当父级参照物是body时，不再进此循环
+                // l累加父级的border宽度以及父级的左偏移量
+                l+=parent.clientLeft+parent.offsetLeft;
+                t+=parent.clientTop+parent.offsetTop;
+                // 为了获取父级参照物的父级参照物
+                parent=parent.offsetParent;
+            }
+            return {l:l,t:t}
+        }
+        console.log(offset(center).l)
+        
+        
+        
+    </script>
+</body>
+</html>

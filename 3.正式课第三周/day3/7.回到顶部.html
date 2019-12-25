@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #goBack{
+            display: none;
+            width:100px;
+            height:100px;
+            background: chartreuse;
+            text-align: center;
+            line-height: 100px;
+            font-size: 25px;
+            position: fixed;
+            bottom:10px;
+            right:10px;
+            color:red;
+            border-radius: 20px;
+            cursor:pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div><img src="1.png" alt=""></div>
+    <div><img src="1.png" alt=""></div>
+    <div><img src="1.png" alt=""></div>
+    <div id="goBack">回到顶部</div>
+    <script src="6.utils.js"></script>
+    <script>
+        // 操作谁，获取谁
+        var box = document.getElementById("goBack");
+        box.onclick= function(){
+            // 每隔100ms，让当前的scrollTop-100；
+            // 获取一下点击时，滚动条卷起的高度
+            var curT = utils.win("scrollTop");
+            var timer = setInterval(function(){
+                curT-=10;
+                if(curT<=0){
+                    clearInterval(timer);
+                }
+                utils.win("scrollTop",curT);
+            },10)
+        }
+       //  当页面高度卷起一屏的高度时，让这个goBack显示出来
+       //  document.documentElement.clientHeight: 可视窗口的高度
+       //  document.documentElement.clientWidth :可视窗口的宽度
+       //  console.log(document.documentElement.clientHeight);
+       //  当拉动滚动条时，要时时检测滚动条卷起的高度是否大于一屏的高度
+       var curH = utils.win("clientHeight");
+       window.onscroll=function(){
+           var curT = utils.win("scrollTop");
+           if(curT>=curH){
+               box.style.display="block";
+           }else{
+                box.style.display="none";
+           }
+       }
+       // 试错；
+       // 当页面图片，结构，JS都解析完成以后，执行该函数
+    //    window.onload=function(){
+    //        console.log(1000)
+    //    }
+    //    console.log(12);
+       
+        
+        
+    </script>
+</body>
+</html>
