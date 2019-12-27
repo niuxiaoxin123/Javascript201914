@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width:100px;
+            height:100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <button id="btn">点击</button>
+    <script src="jquery-1.11.3.js"></script>
+    <script>
+        // hide :隐藏  show  显示   toggle: 如果隐藏就显示，如果显示就隐藏；
+        // $("#btn").click(function(){
+        //     $(".box").toggle();
+        // });
+        // slideDoWn  slideUp slideToggle
+        // $("#btn").click(function(){
+        //     $(".box").slideToggle();
+        // });
+        // fadeIn  fadeOut  fadeToggle
+        // $("#btn").click(function(){
+        //     $(".box").fadeToggle(1000);// 通过不断改变透明度，让盒子显示隐藏；
+        // });
+
+        $("#btn").click(function(){
+            $(".box").animate({
+                width:300,
+                height:200
+            },function(){
+                // 当动画运动完成之后，执行该函数
+                    //console.log(100);
+                $(".box").css("background","blue")
+                    
+            });
+        });
+        
+    </script>
+</body>
+</html>

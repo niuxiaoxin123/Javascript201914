@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        
+        <div></div>
+        
+    </div>
+    <span>123</span>
+    
+    <script src="jquery-1.11.3.js"></script>
+    <script>
+        // 可以直接追加字符串
+        // $(".box").append("<span>How are you?</span>")
+        // var a = document.createElement("a");
+        // $(a).addClass("cv")
+        // $(".box").append(a);
+        //$(".box").prepend($("span"))
+        //$("span").prependTo(".box")
+
+        // appendTo
+        // prepend
+        // prependTo
+
+        // after : 追加到容器的后面
+        // before
+        // empty : 清空DOM元素
+        $(".box").empty();
+        $("span").remove();
+    </script>
+</body>
+</html>

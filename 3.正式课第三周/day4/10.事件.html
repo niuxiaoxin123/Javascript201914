@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <img src="1.jpg" alt="">
+    <video src="1.uu.mp4"></video> -->
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <script src="jquery-1.11.3.js"></script>
+    <script>
+        // 掘金 、CSDN、思否、W3C、简书、博客
+        // ready : 
+        // 相同点：当DOM元素准备就绪会触发的一个函数；DOM结构，图片，音视频解析完成以后，才会触发的回调函数；
+        // 不同点： ready在同一个页面中，可以有多个回调函数，并且按照顺序依次执行；
+        // $(document).ready(function(){
+    
+        // });
+        // $(document).ready(function(){
+             
+        // });
+        // window.onload=function(){
+        // } 
+        // 浏览器： DOM 树--> CSS 树--> render树--> painting;
+        // box.onclick = function(){
+
+        // }
+        // 绑定点击事件 
+        // $(".box").click(function(){
+        //     //console.log(this);
+        //     $(this).addClass()
+        // })
+        function fn(){}
+        $(".box").on("click",fn)
+        $(".box").on("mouseover",function(){console.log(1);});
+        $(".box").off("click")
+        box.onclick = function(){}
+        box.onclick=null;
+    </script>
+</body>
+</html>

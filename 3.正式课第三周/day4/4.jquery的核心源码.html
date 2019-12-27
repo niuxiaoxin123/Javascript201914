@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        (function (global, factory) {
+
+            factory(global);// factory 是实参的回调函数
+
+        }(typeof window !== "undefined" ? window : this, function (window, noGlobal) {
+            // 在这个作用域准备了数组和对象的常用方法；
+            var deletedIds = [];
+            var slice = deletedIds.slice;
+            var concat = deletedIds.concat;
+            var push = deletedIds.push;
+            var indexOf = deletedIds.indexOf;
+            var class2type = {};
+            var toString = class2type.toString;
+            var hasOwn = class2type.hasOwnProperty;
+            var support = {};
+            var  jQuery = function( selector, context ) {
+               
+                // jQuery执行时，会返回一个init的实例；
+                return new jQuery.fn.init( selector, context );
+            };
+
+            jQuery.fn = jQuery.prototype = {
+                // 这是jquery原型上的方法；jQuery实例能用；
+                    jquery: version,
+                    constructor: jQuery,
+                    toArray: function() {
+                        return slice.call( this );
+                    },
+            }
+           // 是往原型上扩展方法的；
+            jQuery.extend = jQuery.fn.extend = function() {}
+            // 扩展传一个对象，那么jquery的实例以后就可以调用新扩展的方法了；
+            jQuery.extend({
+                toArray:function(){
+
+                },
+                slice:function(){
+
+                }
+            })
+            // 返回的init实例，就是通过传入选择器，获取到的对应的元素
+            // 在jQuery的fn属性上，新增init;
+            init = jQuery.fn.init = function( selector, context ) {
+                
+            }
+            // 
+            init.prototype = jQuery.fn;// 把jQuery的prototype给了init的原型
+            // 把jQuery这个方法给了全局下的$
+            window.jQuery = window.$ = jQuery;
+        })
+
+        // $.addClass// jQuery 的实例，可以调用jquery原型上的方法；
+        // console.log(module);
+        // $("#box").prev();
+        // $.ajax
+        // $("#box").ajax()
+        // jquery的私有属性和jquery这个类原型的方法；
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

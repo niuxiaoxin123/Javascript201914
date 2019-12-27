@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="list" style="position: absolute;">
+        <li  class="a">1</li>
+        <li>2</li>
+        <li>
+            <span></span>
+        </li>
+        <li>4</li>
+    </ul>
+    <p>Hello</p><p>Hello Again</p><p class="selected">And Again</p>
+    <script src="jquery-1.11.3.js"></script>
+    <script>
+       // [1,23].slice(1,2).splice(1).pop().push(88)
+       // 必须保证jquery的实例去调用Juery原型上的方法；
+       // var val =  $(".list li").eq(2).addClass("a").html();
+       // console.log(val);
+       //$(".list li").first()
+       // hasClass : 判断是否有某个类名，有返回true，没有返回false
+       // console.log($(".list li").eq(2).hasClass("a"))
+       // filter
+        //console.log($("p").filter(".selected, :first"));
+
+        // has : 拥有对应的后代元素；
+        // find: 匹配后代元素 
+       //console.log($(".list").find("a")) 
+       // next : 下一个弟弟元素节点；jquery 的实例
+        // nextAll: 所有的弟弟元素节点
+        $(".a").nextAll().css("color","red")
+       console.log( $("span").offsetParent())
+       console.log( $("span").parent())
+       console.log( $("span").parents())
+
+       // prev():上一个哥哥元素节点
+       // prevAll : 所有的哥哥元素节点
+       // siblings ： 所有兄弟元素节点；
+       
+
+        
+        
+    </script>
+</body>
+</html>

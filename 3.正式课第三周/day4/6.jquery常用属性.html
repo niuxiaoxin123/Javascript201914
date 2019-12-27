@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="a" trueImg="1.jpg">中国</div>
+    <input type="text">
+    <script src="jquery-1.11.3.js"></script>
+    <script>
+        // 如果只有一个参数，获取行间属性
+        console.log($(".a").attr("trueImg"))
+        // 如果有两个参数，就是设置行间属性
+        $(".a").attr("b",100)
+
+        // prop：经常用于表单元素，设置input的属性；
+        // 如果一个参数就是获取是否选中
+        // 两个参数就是设置是否选中；
+        $("input").prop("checked")
+
+        // addClass : 新增class类名；
+        // removeClass : 删除class 
+
+        // html : 可以识别标签的；
+        // text 
+        // val: 获取或设置文本框的方法；
+        console.log($(".a").html())
+        $(".a").text("马上下课")
+        $("input").val("请输入查询密码");
+        $("input").val();
+    </script>
+</body>
+</html>

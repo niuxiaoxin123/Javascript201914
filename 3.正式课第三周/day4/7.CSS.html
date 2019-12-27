@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .box{
+        width:100px;
+        height:100px;
+        background: red;
+        padding:10px;
+        border:10px solid blue;
+        margin:1000px auto;
+        position: relative;
+    }
+    .box div{
+        position: absolute;
+        left:30px;
+    }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div>134</div>
+    </div>
+    <script src="jquery-1.11.3.js"></script>
+    <script>
+    // CSS : 可以获取元素的样式，也可以设置元素的样式
+    // 兼容版的方法；
+    // 实例.css(属性名)
+    //var val = $(".box").css("width");
+    //var val = $(".box").css("color");
+    //console.log(val);
+    //$(".box").css("width","200px");
+    
+    // offset : 获取当前元素距离body的上左偏移量
+    // var t = $(".box").offset().left
+    // console.log(t);
+    // 
+    var left = $(".box div").position().left
+    console.log(left);
+    
+    // width : 内容的实际宽度
+    // console.log($(".box").width())
+    // innerWidth :clientWidth
+    // outerWidth: offsetWidth
+    
+    </script>
+</body>
+</html>
