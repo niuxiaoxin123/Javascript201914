@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div  id="box" style="width:100px;"></div>
+    <script>
+        // box-sizing:border-box
+        // 在JS中经常操作页面元素的样式
+        // 1. 元素.style.属性 ： 只能获取行内样式
+        // 2. getComputedStyle : getComputedStyle(box).width
+        // 3. currentStyle
+        // jquery  : css
+        // win 
+        // function win(attr,val){
+        //     return document.documentElement[attr]||document.body[attr]
+        // }
+        // var  box = document.getElementById("box");
+        // function getCss(curEle,attr){
+        //     // 在IE9用getComputedStyle 在IE9以下，用currentStyle
+        //     // try{
+        //     //     return getComputedStyle(curEle)[attr]
+        //     // }catch(e){
+        //     //     return curEle.currentStyle[attr]
+        //     // } 
+        //     // if("previousElementSibling" in curEle){
+        //     // }
+        //     if("getComputedStyle" in window){
+        //         return getComputedStyle(curEle)[attr];
+        //     }else{
+        //         return curEle.currentStyle[attr];
+        //     }
+        // }
+        // console.log(getCss(box,"width"));
+
+        // 封装CSS
+        // function getCSS(curEle,attr){}// 
+        // function css(curEle,attr,val){}
+        // function css(curEle,obj){}//设置多个样式
+        // css(box,{width:"100px",height:"200px"});
+
+        
+        
+        
+    </script>
+</body>
+</html>

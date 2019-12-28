@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 正则： 表单验证 
+        // 正则由元字符和修饰符组成
+        // ^ $ . \   +  ?  *  {n}  {n,} {n,m} \d \D \w \W  \b \B  \s  \S 
+        // let reg = /\d/;
+        let reg  = /^-?(\d|[1-9]\d+)(\.\d+)?$/;
+        //test : 返回布尔值
+        //exec ：返回数组
+        //reg.test("-10.878px")
+       // var arr =  reg.exec("-10.878");
+       // console.log(arr);
+       // 捕获： 懒惰性   贪婪性   小括号分组捕获
+       // replace  : 替换
+       let  str = 'zhufengzhufeng';
+    //    var a = str.replace("zhufeng","zhufengpeixun").replace("zhufeng","zhufengpeixun");
+    //    console.log(a);// 
+    // var a = str.replace(/zhufeng/g,"zhufengpeixun");
+    // var a = str.replace(/zhufeng/g,function(a,b,c){
+    //     // 1. 匹配几次，函数执行几次
+    //     // 2. 第一参数是捕获的内容，第二个是捕获内容开始的索引 第三个原字符串
+    //     // 3. 回调函数的返回值会覆盖捕获到的内容
+    //     // return  "zhufengpeixun"
+    //     // console.log(b);
+    //     // if(b===0){
+    //     //     return "zhufengpeixun"
+    //     // }
+    //     // return "zhufeng2019";   
+    // })
+    // console.log(a);
+    
+
+       
+       
+        
+        
+        
+    </script>
+</body>
+</html>

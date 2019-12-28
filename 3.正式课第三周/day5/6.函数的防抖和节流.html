@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box" style="width:100px;height:100px;background: red;text-align: center;line-height: 100px;">0</div>
+    <script>
+        let box = document.getElementById("box");
+        let num =1;
+        function add(a,b,c){
+            //console.log(this);
+            box.innerHTML =num++;
+        }
+        // 在n秒内就触发一次；
+        // 事件不会一直触发，当停下以后1s之后再触发这个函数；
+        function debounce(fn,wait){
+            let timer;
+            return function(){
+                // 每次进到这个函数中，需要把上次定制的定时器任务给清除掉
+                if(timer){
+                    clearTimeout(timer);
+                }
+                timer=setTimeout(()=>{
+                    fn.apply(this)// 通过apply修改了fn执行时里面的this指向，让它指向绑定那个元素
+                },wait);
+            }
+        }
+        box.onmousemove=debounce(add,1000);
+    
+    </script>
+</body>
+</html>

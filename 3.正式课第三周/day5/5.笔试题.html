@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span id="span_4"></span>
+            </li>
+        </ul>
+    </div>
+    <script>
+        // var str ="345";
+        // var str1 ="2389002723457839";// str在str1中第一次出现的索引位置
+        // function index(a,b){
+        //     for(var i=0;i<b.length-a.length+1;i++){
+        //         var str="";
+        //         // 为了拼接一个连起来的字符；
+        //         if(b[i]===a[0]){
+        //             for(var j=0;j<a.length;j++){
+        //                 str+=b[i+j]
+        //             }
+        //             if(str===a){
+        //                 return i;
+        //             }
+        //         }
+        //         // i=0; str ="238";
+        //         // i=1  str="389"
+        //     }
+        //     return -1;
+        // }
+        // index(str,str1)
+        // console.log(str1.indexOf(str))
+
+        // let  span = document.getElementById("span_4");
+        // function getIndex(curEle){
+        //     if(curEle===document.body){
+        //         return "body";
+        //     }
+        //     // 通过父元素找到所有的兄弟元素；通过转成数组，indexOf校验当前是第几个元素；
+        //     let arr = [...curEle.parentNode.children];//[{},{},{}]
+        //     let index = arr.indexOf(curEle);
+        //     let tag = curEle.nodeName.toLowerCase();// 把自己的标签名找到转小写；
+        //     // console.dir(curEle)
+        //     return getIndex(curEle.parentNode)+">"+tag+"["+index+"]";
+        // }
+        // console.log(getIndex(span));
+
+        // 1.系统学习JS  2.提高自己的编程思想 写代码能力；
+        // var  arr = [{a:1,b:2},{a:2,b:1},{a:21,b:1},{a:1,b:2},{b:2,a:1}];
+        // var obj = {};
+        // for(var i=0;i<arr.length;i++){
+        //     var cur =arr[i];
+        //     if(obj[cur.a+","+cur.b]){
+        //         // 如果这个条件成立，说明此项是重复项
+        //         arr.splice(i,1);
+        //         i--;
+        //         continue;
+        //     }
+        //     obj[cur.a+","+cur.b]=true;
+        // }
+        
+        // var ary = [10,2,34,56,78,45,7,3];
+        // // sort
+        // ary.sort(function(a,b){
+        //     // return a-b;// 如果a-b大于0，就交换位置
+        //     // 如果小于0，就不换位置
+        //     return (a-b)*(Math.random()*2-1)
+        // });
+        // console.log(ary);
+        
+        var  obj = {
+            a:[{b:1,c:{d:2}}],
+            e:{f:1,h:[{i:1}]},
+            x:{y:2}
+        }
+        var ary = [];
+        function pushAry(obj){
+            if(obj instanceof Array){
+                // 如果是数组，需要循环数组，每数组的每一项进行类似的递归；
+                for(let i=0;i<obj.length;i++){
+                    pushAry(obj[i])
+                }
+            }else{
+                for(let key in obj){
+                    ary.push(key);
+                    pushAry(obj[key]);
+                }
+            }
+        }
+        pushAry(obj)
+        console.log(ary);
+        
+
+
+        
+        
+    </script>
+</body>
+</html>
