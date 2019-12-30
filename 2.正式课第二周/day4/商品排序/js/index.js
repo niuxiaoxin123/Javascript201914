@@ -20,7 +20,7 @@
     // 以上三步是ajax任务的准备；请求并没有发出去
     // 4.发送请求
     xhr.send();
-    //console.log(data);
+   console.log(data);
     
    // 3. 绑定数据，放到页面上
    function bindHtml(){

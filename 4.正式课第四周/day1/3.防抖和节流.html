@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div id="box" style="width:100px;height:100px;background: red;text-align: center;line-height: 100px;">0</div>
+    <script>
+        // 1. 什么是防抖和节流？
+        // 2. 你的项目中哪个地方用到了防抖和节流？
+        // 防抖
+        let box = document.getElementById("box");
+        let num =1;
+        function add(){
+            box.innerHTML = num++;
+        }
+        // 非立即执行的防抖
+        // function debounce(fn,time){
+        //     // 这个作用域不销毁
+        //     // 1. 保护和存储
+        //     let  timer;
+        //     return function(){
+        //         clearTimeout(timer);
+        //         timer =  setTimeout(()=>{
+        //             fn.call(this)
+        //         },time);
+        //     }
+        // }
+        // onmousemove绑定的真正的函数是debounce返回值；
+        //box.onmousemove = debounce(add,1000);
+        //box.onclick = function(){}
+
+        // 立即执行；如果n秒内不再触发事件，函数才会执行；
+        // 防止恶意频繁点击；n秒内只让触发一次；
+        // function debounce(fn,time){
+        //     let timer;
+        //     return function(){
+        //         clearTimeout(timer);
+        //         let now = !timer;
+        //         timer=setTimeout(()=>{
+        //             timer=null;
+        //         },time)
+        //         if(now){
+        //             fn.call(this)
+        //         };
+        //     }
+        // }
+        // box.onclick = debounce(add,2000);
+
+
+        // function debouce(fn,time,immediate){
+        //     let timer;
+        //     return function(){
+        //         if(immediate){
+        //             clearTimeout(timer);
+        //             let now = !timer;
+        //             timer=setTimeout(()=>{
+        //                 timer=null;
+        //             },time)
+        //             if(now){
+        //                 fn.call(this)
+        //             };
+        //         }else{
+        //             clearTimeout(timer);
+        //             timer =  setTimeout(()=>{
+        //                 fn.call(this)
+        //             },time);
+        //         }
+        //     }
+        // }
+        // onmousemove ： 当鼠标在元素上滑动，就会一直触发onmousemove事件
+        // onmousemove onscroll  onresize 
+        // box.onmousemove = debounce(add,2000,false);
+
+        // 
+        // 时间戳；
+        // function throttle(fn,time){
+        //     let previous =0;
+        //     return function(){
+        //         let now = Date.now();
+        //         if(now-previous>=time){
+        //             fn.call(this);
+        //             previous=now;
+        //         }
+        //     }
+        // }
+        // box.onmousemove = throttle(add,2000);
+
+        // 定时器版
+        // function throttle(fn,time){
+        //     let timer;
+        //     return function(){
+        //         if(!timer){
+        //             // 如果不赋值为null，这个条件不成立；
+        //             timer=setTimeout(()=>{
+        //                 timer=null;
+        //                 fn.call(this);
+        //             },time);
+        //         }
+        //     }
+        // }
+        // box.onmousemove = throttle(add,2000);
+
+        function throttle(fn,time,type){
+            if(type===1){
+                var  previous =0;
+            }else{
+                var  timer;
+            }
+            return function(){
+                if(type===1){
+                    let now = Date.now();
+                    if(now-previous>=time){
+                        fn.call(this);
+                        previous=now;
+                    }
+                }else if(type===2){
+                    if(!timer){
+                        timer=setTimeout(()=>{
+                            timer=null;
+                            fn.call(this);
+                        },time);
+                    }
+                }
+            }
+        }
+        box.onmousemove = throttle(add,2000,2);
+    </script>
+</body>
+</html>

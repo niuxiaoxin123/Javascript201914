@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>需求:promise执行买菜做饭过程</h2>   <br>
+    1.买菜  <br>
+    2.洗菜  <br>
+    3.做饭  <br>
+    4.吃饭  <br>
+</body>
+    <script>
+        let p = new Promise(function(resolve,reject){
+            setTimeout(function(){
+                if(Math.random()>0.5){
+                    resolve(100);
+                }else{
+                    reject();
+                }
+            },1000)
+        }) 
+        // then : 在Promise的原型上
+        // p.then 也会默认返回一个promise实例，而且默认是成功的;如果在then的回调函数中也返回一个promise实例，那么这个promise实例就会影响下一个then中的回调函数；
+        p.then(function(a){
+            console.log(a);
+            return new Promise(function(resolve,reject){
+                resolve();
+            });
+        },function(){
+            console.log("不买"); 
+        }).then(function(){
+            // 第二个then的方法受第一个then返回值影响；
+            console.log("成功")
+        },function(){
+            console.log("失败")
+        })
+    </script>
+</html>

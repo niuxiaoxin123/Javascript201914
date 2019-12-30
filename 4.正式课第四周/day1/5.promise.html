@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <select name="" id="">
+        <option value="2017年1月">2017年1月</option>
+    </select>
+    <script>
+        // 查询某年某月的学生名单；
+        // 回调地狱；
+        // Promise 是ES6中新增的一个类，专门用来解决异步回调地狱的问题，将异步代码同步显示出来；
+        // $.ajax({
+        //     url:"time/ww",
+        //     success:function(data){
+        //         $.ajax({
+        //             当第一个请求成功以后再发第二个
+        //             success:function(){
+        //                 $.ajax({
+        //                 })
+        //             }
+        //         })
+        //     }
+        // })
+        // axios  fetch 
+        // promise  三个状态 ： Pending     fulfilled  rejected
+        // 改变状态有两种可能  pending-->fulfilled  pending--> rejected
+        let p = new Promise(function(resolve,reject){
+            //setTimeout(()=>{
+                resolve();  // 调用resolve代表执then中的第一个回调，resolve代表的是成功态
+                // 调用reject ,就代表执行then的的第二个回调；，失败态
+                reject();
+            //},1000)
+        }).then(function(){
+            console.log(1);
+        },function(){
+            console.log(2);
+        }).then(function(){
+
+        },function(){
+
+        })
+    //   setTimeout(function(){
+    //     console.log(p);
+    //   },2000)
+
+    // 买菜  30min
+    // 洗菜  10min
+    // 炒菜  5min
+    // 吃饭  20min
+        
+        
+        
+        
+    </script>
+</body>
+</html>

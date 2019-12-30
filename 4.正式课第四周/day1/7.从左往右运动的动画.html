@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width:100px;
+            height:100px;
+            background: red;
+            border-radius:50%;
+            position: absolute;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="box" style="left:0"></div>
+    <script>
+        // 动画 ：  CSS3  
+        // JS实现动画：1.定时器  2.设置盒子的位置或样式
+        let box = document.getElementById("box");
+        // 利用定时器不断更改盒子的left值
+        let maxLeft = document.documentElement.clientWidth-box.offsetWidth;
+        box.onclick = function(){
+            let timer=setInterval(() => {
+                // 获取到此时此刻盒子的left值，让其+=10；
+               let curLeft =  parseFloat(this.style.left);
+               curLeft+=10;
+               // 1335  1330
+               if(curLeft>=maxLeft){
+                    clearInterval(timer);
+                    curLeft=maxLeft;// 直接将最大值赋值给curLeft
+               }
+               this.style.left=curLeft+"px";
+            }, 10);
+        }
+
+    </script>
+</body>
+</html>
