@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #box{
+        width:100px;
+        height:100px;
+        background: red;
+        position: absolute;
+    }
+    button{
+        width:80px;
+        height:30px;
+        line-height: 30px;
+        text-align: center;
+        position: absolute;
+        top:200px;
+    }
+    #left{
+       left:100px;
+    }
+    #right{
+        left:300px;
+    }
+
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <button id="left">向左走</button>
+    <button id="right">向右走</button>
+    <script src="jquery-1.11.3.js"></script>
+    <script>
+        let winW = document.documentElement.clientWidth-$("#box").outerWidth();
+        $("#right").click(function(){
+            // easein : 加速
+            // easeout :减速
+            // easeInOut
+            // linear
+            $("#box").stop().animate({left:winW},3000,"linear")
+        });
+        $("#left").click(function(){
+            // easein : 加速
+            // easeout :减速
+            // easeInOut
+            // linear
+            $("#box").stop().animate({left:0},3000,"linear")
+        });
+
+
+        // let  box = document.getElementById("box");
+        // let  left = document.getElementById("left");
+        // let  right = document.getElementById("right");
+        // 最大边界
+        // let maxL = document.documentElement.clientWidth-box.offsetWidth;
+        // let timer;
+        // right.onclick = function(){
+        //     clearInterval(timer)
+        //     timer=setInterval(() => {
+        //         let curL = parseFloat(getComputedStyle(box).left);
+        //         curL +=10;
+        //         if(curL>maxL){
+        //             clearInterval(timer)
+        //             curL = maxL;
+        //         }
+        //         box.style.left = curL+"px";// 设置行内样式
+        //     }, 10);
+        // }
+        // left.onclick = function(){
+        //     clearInterval(timer)
+        //     timer=setInterval(() => {
+        //         let curL = parseFloat(getComputedStyle(box).left);
+        //         curL -=10;
+        //         if(curL<0){
+        //             clearInterval(timer)
+        //             curL = 0;
+        //         }
+        //         box.style.left = curL+"px";// 设置行内样式
+        //     }, 10);
+        // }
+        
+    </script>
+</body>
+</html>

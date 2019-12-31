@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #box{
+                width:100px;
+                height:100px;
+                background: red;
+                position: absolute;
+            }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        let time = 3000;
+        let box = document.getElementById("box");
+        let maxL = document.documentElement.clientWidth-box.offsetWidth;
+        // 计算出此时此刻当前盒子的位置
+        function linear(t,b,c,d){
+            // t : 运动过的时间
+            // b ： 开始的位置
+            // c : 要运动的总距离
+            // d : 需要的总时间；
+            // 此时此刻的位置
+            return c/d*t+b;
+        }
+
+        box.onclick = function(){
+            let t =0;// 动画运动的时间
+            let timer = setInterval(() => {
+                t+=20
+                let curL = linear(t,0,maxL,time)
+                if(t>=time){
+                    clearInterval(timer);
+                    curL= maxL;
+                }
+                box.style.left = curL+"px";
+            }, 20);
+        }
+        // box.onclick = function(){
+        //     let timer = setInterval(() => {
+        //         let curL = parseFloat(getComputedStyle(box).left);
+        //         // 先计算出每1ms走的距离，然后乘以10，得到每10ms走的距离；
+        //         curL+=maxL/3000*20;
+        //         if(curL>=maxL){
+        //             clearInterval(timer);
+        //             curL=maxL;
+        //         }
+        //         box.style.left =curL+"px";
+        //     }, 20);
+        // }
+        
+        
+    </script>
+</body>
+</html>

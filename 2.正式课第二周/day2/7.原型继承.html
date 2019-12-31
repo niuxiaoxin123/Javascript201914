@@ -16,6 +16,7 @@
         A.prototype.getX = function(){
             console.log(100); 
         }
+
         function B(){
         }
         B.prototype.getNum = function(){
@@ -27,12 +28,15 @@
         var b = new B;
         b.getY();
         b.getX();
-        b.getNum();
+       // b.getNum();
         b1.getNum();
         console.log(b1.constructor) // function B(){}
         console.log(b.constructor); // function A(){}
        
         // b通过__proto__找到B的prototype，里面没有getX,会继续通过prototype中的__ptoto__找到A的prototype；
+
+      
+        
     
     </script>
 </body>

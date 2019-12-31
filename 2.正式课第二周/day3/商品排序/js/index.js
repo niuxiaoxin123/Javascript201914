@@ -46,7 +46,6 @@ for(var i=0;i<navs.length;i++){
         this.flag*=-1;
         // 通过控制每一个a标签的flag控制是升序还是降序；
         sortList.call(this);
-
         // 点击时，触发新增箭头的函数；
         addArrow.call(this);
         removeArrow.call(this)

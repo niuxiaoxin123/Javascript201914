@@ -77,8 +77,7 @@ delay();
 var  container = document.getElementsByClassName("container")[0];
 // 当滚动条滚动时，不断校验每一张图片；
 window.onscroll = function(){
-    console.log(100);
-    
+    // console.log(100);
     // 时时刻刻获取最新的container的高度
     var containerH = container.offsetHeight;
     var curT = utils.win("scrollTop");

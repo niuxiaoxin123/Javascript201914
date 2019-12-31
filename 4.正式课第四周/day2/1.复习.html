@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 防抖和节流
+        // 防抖： 立即执行和非立即执行；执行一次；经常用于搜索框；
+        // 节流： 时间戳 和定时器版； 控制每隔一段时间执行一次；稀释执行的频率； window.onscroll
+
+        // 定时器
+        // 同步和异步
+        // JS是单线程 ，浏览器时多线程
+        // 线程是进程一个基本单位；是一个轻量级的进程；每一个进程都有自己独立的资源和空间（上下文）,切换进程开销比较大；线程可以共享资源；切换线程开销比较小;
+        // 事件循环机制：
+        // 在执行栈中，依次从上到下解析代码，遇到同步任务会立即执行，同步任务没有执行完成，不能向下执行，遇到异步任务，会把这个任务放到等待任务队列中，继续执行执行栈中同步任务，当执行栈中的同步任务执行完，执行栈清空，然后去等待任务队列中寻找到达执行等待队列，寻找到等待任务把其拿到执行栈中去执行；
+        // ajax : false;
+        // 
+        // setTimeout(()=>{
+
+        // },1000)
+
+        // promise : pending  fulfilled  rejected
+        // 回调地狱，把异步以同步显示出来；
+        // let  p = new Promise(function(resolve,reject){
+        //      resolve(100);
+        //     // reject();
+        // });
+        // p.then(function(a){
+            
+        // },function(){
+        //     return new Promise(function(resolve,reject){
+        //         reject();
+        //     })
+        // }).then(function(){
+        //     console.log(1);
+        // },function(){
+        //     console.log(2);
+        // })
+        // console.log(p);
+        // axios.get("book.json").then(function(data){
+        //    console.log(data);// 请求回来的数据
+        // })
+
+        // 等待任务又分为宏任务和微任务，当执行栈主任务队列执行完，要执行等待任务，在执行等待任务时，会先执行微任务，后执行宏任务；
+        setTimeout(function(){
+            console.log(500); 
+        },0)
+        console.log(100);
+        // promise 的回调函数是同步的，then对应的函数是异步的；
+        let p = new Promise(function(resolve,reject){
+           setTimeout(function(){
+                console.log(300);
+                resolve();
+           },10)
+            console.log(200);
+        });
+        p.then(function(){
+            console.log(400);
+        })
+        console.log(600);
+
+        // ES6新特性？
+        
+
+        
+
+
+
+        
+        
+    </script>
+</body>
+</html>

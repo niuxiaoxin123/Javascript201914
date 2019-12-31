@@ -15,9 +15,11 @@
             //     console.log(this.x);
             // }
         }
+      
         Fn.prototype.getX=function(){
             console.log(this.x);
         }
+        console.dir(Fn)
         // 原型模式： 构造函数解决了对象实例中私有属性的问题，原有模式解决了对象实例中公有属性的问题；如果将实例的私有属性放到了公有属性上，减少了堆内存的开辟；
         var f = new Fn(100,200);// {x:100,y:200}
         var f1 = new Fn(100,2);// {x:100,y:2}
@@ -39,6 +41,8 @@
         console.log(ary.__proto__===Array.prototype);
         console.log(Array.prototype)
     
+        
+     
     
     
     

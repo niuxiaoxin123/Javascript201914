@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #box{
+                width:100px;
+                height:100px;
+                background: red;
+                position: absolute;
+                left:100px;
+            }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script src="utils.js"></script>
+    <script src="animate.js"></script>
+    <script>
+        // // 当点击盒子的时候，让盒子横向运动500px;纵向运动300px;
+        //、、、、width:200px；height:200px;
+        // function linear(t,b,c,d){
+        //     return c/d*t+b;
+        // }
+        // let target={
+        //     left:500,
+        //     top:300,
+        //     width:200,
+        //     height:200
+        // }
+       let  box=document.getElementById("box");
+        // let curStart = getComputedStyle(box);
+        // let begin={
+        //     left:parseFloat(curStart.left),
+        //     top:parseFloat(curStart.top),
+        //     width:parseFloat(curStart.width),
+        //     height:parseFloat(curStart.height)
+        // };
+        // console.log(begin);
+        
+        // let duration=3000;
+        // let change = {};// 改变的属性
+        // // 计算出变化的值；
+        // for(let key in target){
+        //     change[key]=target[key]-begin[key];
+        // }
+ 
+        // box.onclick=function(){
+        //     let t =0;
+        //     let timer = setInterval(() => {
+        //         t+=20;
+        //         for(let key in change){
+        //             let cur = linear(t,begin[key],change[key],duration)
+        //             box.style[key]=cur+"px";
+        //         }
+        //         if(t>=duration){
+        //             clearInterval(timer);
+        //         }
+        //     }, 20);
+        // }
+        // params:
+        // curEle : 要运动的元素
+        // target : 目标位置
+        // duration : 总时间
+        // function linear(t,b,c,d){
+        //     return c/d*t+b;
+        // }
+        // function animate(curEle,target,duration,callBack){
+        //     let begin={};
+        //     let change={};
+        //     for(let key in target){
+        //         // 计算初始位置和变化的距离
+        //         begin[key]=parseFloat(getComputedStyle(curEle)[key])
+        //         change[key]=target[key]-begin[key]
+        //     }
+        //     let t=0;
+        //     let timer = setInterval(() => {
+        //         t+=20;
+        //         for(let key in change){
+        //             let cur = linear(t,begin[key],change[key],duration)
+        //             curEle.style[key]=cur+"px";
+        //         }
+        //         if(t>=duration){
+        //             clearInterval(timer);
+        //             callBack()
+        //         }
+        //     }, 20);
+        // }
+        // animate(box,{left:200,top:300,width:300,height:50},3000,function(){
+        //     // 当动画运动结束，执行这个回调
+        //     box.style.opacity=0.2
+        // })
+        //$.aimate({})
+        
+        zfAnimate(box,{width:300,top:400,left:200,height:200},3000)
+    
+    </script>
+</body>
+</html>
