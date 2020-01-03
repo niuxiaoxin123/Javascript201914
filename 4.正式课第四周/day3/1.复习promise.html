@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+    //    function getJSON(url){
+    //         let p = new Promise(function(resolve,reject){
+    //             let xhr = new XMLHttpRequest;
+    //             xhr.open("get",url,true);
+    //             xhr.responseType="json";
+    //             xhr.onreadystatechange= function(){
+    //                 if(xhr.readyState===4&&/^2\d{2}$/.test(xhr.status)){
+    //                     resolve(JSON.parse(xhr.responseText))
+    //                 }
+    //             }
+    //             xhr.send();
+    //         });
+    //         return p;
+    //    }
+        
+    //    getJSON("data.json").then(function(data){// 受上面异步请求的时间控制；当异步请求成功以后，执行这个回调
+    //         return getJSON("1.txt")
+    //     },function(){
+
+    //     }).then(function(){
+    //         // 这个then受第一个then中返回的新的promise实例的影响；
+    //     })
+    //     axios("/data.json").then(function(data){
+    //         console.log(data);
+    //     })
+
+    // 一般来说，不要在then中定义第二个reject函数；一般使用catch；
+    let p = new Promise(function(resolve,reject){
+        resolve();
+    })
+    p.then(function(){
+        console.log(1); 
+        console.log(a);
+        //throw new Error() : 如果在then中抛出异常，则会执行下面的catch
+        // 如果then中的代码有异常，也会抛出错误
+        // 只要then链中有一个异常，就会执行最后的catch;只要在then中有失败的回调，就不再执行最后的catch了；
+    }).then(function(){
+
+    }).then(function(){
+
+    }).catch(function(){
+        console.log(2);
+        
+    })
+
+    </script>
+</body>
+</html>

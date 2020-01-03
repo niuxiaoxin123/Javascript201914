@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <video src="1.mp4"></video>
+    <script>
+        // 买菜  3s
+        // 洗菜  2s
+        // 做菜  5s
+        
+
+        // 在JS中当等到异步的操作成功以后，会执行的函数；
+        setTimeout(function(){
+            console.log("买菜");
+            setTimeout(function(){
+                console.log("洗菜");
+                setTimeout(function(){
+                    console.log("做菜");
+                },2000);
+            },2000);
+        },3000)
+
+        let p = new Promise(function(resolve,reject){
+            setTimeout(function(){
+                console.log("买菜");
+                resolve();
+            },3000)
+        }).then(function(){
+            return new Promise(function(resolve,reject){
+                setTimeout(function(){
+                    console.log("洗菜");
+                    resolve()
+                },2000)
+            })
+        }).then(function(){
+            return new Promise(function(resolve,reject){
+                setTimeout(function(){
+                    console.log("做菜");
+                    resolve()
+                },2000)
+            })
+        })
+        
+
+
+        // promise
+        // let p = new Promise(function(resolve,reject){
+        //     resolve()
+        // });
+        // p.then(function(){
+        //     // 如果这里面return一个promise的实例，下一个then中的回调受这个实例的影响；
+        //     return new Promise(function(resolve,reject){
+        //         setTimeout(function(){
+        //             console.log(1);
+        //             resolve();
+        //         },2000)
+        //     })
+        //     // setTimeout(function(){
+        //     //     console.log(1);
+        //     // },2000)
+        // },function(){
+
+        // }).then(function(){
+        //     console.log(2);
+        // })
+        // then  catch  {}
+
+        // catch   : 捕获错误；
+        // finally : 不管成功或失败，最后都会执行
+        // Promise.all : 
+        // Promise.race :
+        // Promise.resolve
+        // Promise.reject
+
+        // 渐隐渐现轮播图；
+        // 轮播图：step
+        // 事件：是浏览器的一种行为，也可以是用户行为
+        // 发生在HTML元素上的事情；
+        // onclick  onmouseover onmouseout onmouseenter onmouseleave  onmomusemove  ondblclick  
+        // onkeydown onkeyup  onkeypress 
+        // onfocus onblur  onchange  oninput  
+        // ontouchstart  ontouchend  ontouchmove 
+        // onload onscroll
+        // window.onload=function(){
+            
+        // } 
+        // $(document).ready()
+        
+        
+        
+        
+    </script>
+</body>
+</html>

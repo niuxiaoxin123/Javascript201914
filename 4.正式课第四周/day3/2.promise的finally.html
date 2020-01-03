@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // try{
+        //     console.log(2);
+            
+        // }catch(e){
+        //     console.log(100);
+            
+        // }
+        // console.log(200);
+            
+     
+
+        // promise 的finally 是不管成功还是失败，都会执行的回调
+
+        let p = new Promise(function(resolve,reject){
+            resolve();
+        })
+        p.then(function(){
+            console.log(1); 
+            console.log(a);
+        }).catch(function(){
+            console.log(55);
+        }).finally(function(){
+            // 这是会等到promise实例状态改变以后会触发的回调，是一个异步的；
+            console.log(1000);
+        })
+        console.log(999);
+        
+        
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parent">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <script>
+        // 事件委托：主要利用事件的冒泡传播机制，给最外层的盒子绑定事件，根据事件源的不同，进行判断，处理不一样的需求；
+        // 三个div将onmouseover这个事件委托给这三个盒子的父元素 
+        let parent  = document.getElementById("parent");
+        parent.onmouseover=function(e){
+            if(e.target.innerHTML==="1"){
+                console.log("红色");
+            }else if(e.target.innerHTML==="2"){
+                console.log("绿色"); 
+            }else if(e.target.innerHTML==="3"){
+                console.log("黄色");
+            }
+        }
+        
+    </script>
+</body>
+</html>

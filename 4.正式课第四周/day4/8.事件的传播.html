@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #outer{
+            width:300px;
+            height:300px;
+            background:red;
+            margin: 100px auto;;
+        }
+        #inner{
+            width:200px;
+            height:200px;
+            background:green;
+            margin: auto;
+        }
+        #center{
+            width:100px;
+            height:100px;
+            background:yellow;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <div id="inner">
+            <div id="center"></div>
+        </div>
+    </div>
+    <script>
+        let outer=document.getElementById("outer");
+        let inner=document.getElementById("inner");
+        let center=document.getElementById("center");
+        // center.onclick  = null;
+        // 事件有冒泡传播的机制：当触发子元素的事件时，会依次触发当前元素祖先元素上对应的事件；
+        // true: 捕获阶段执行，从外向里
+        // 当找到事件源，目标阶段，先绑定谁，谁先执行；
+        // false : 冒泡阶段执行，从里向外的；
+        function fn1(e){
+            console.log("center","冒泡");
+        }
+        function fn2(e){
+            console.log("inner","冒泡");
+        }
+        function fn3(e){
+            console.log("outer","冒泡");
+        }
+        function fn4(){
+            console.log("center","捕获");
+        }
+        function fn5(){
+            console.log("inner","捕获");
+        }
+        function fn6(){
+            console.log("outer","捕获");
+        }
+        center.addEventListener("click",fn4,true)
+        center.addEventListener("click",fn1,false);
+        inner.addEventListener("click",fn2,false)
+        inner.addEventListener("click",fn5,true)
+        outer.addEventListener("click",fn3,false);
+        outer.addEventListener("click",fn6,true);
+        // center.onclick = function(e){
+        //     //console.log(e.target);
+        //     console.log("center");
+        // }
+        // inner.onclick = function(e){
+        //     //console.log(e.target);
+        //     console.log("inner");
+        // }
+        // outer.onclick = function(e){
+        //     //console.log(e.target);
+        //     console.log("outer");
+        // }
+        // 捕获阶段-->目标阶段-->冒泡阶段
+
+
+    </script>
+</body>
+</html>

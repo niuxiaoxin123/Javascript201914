@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width:100px;
+            height:100px;
+            background:red;
+            position: absolute;
+            left:100px;
+            top:100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        // 按上下左右键，改变盒子的位置；每一步移动10px;
+        let box = document.getElementById("box");
+        window.onkeyup=function(e){
+            //keyCode : 就是事件对象中的一个属性名；
+            let a = getComputedStyle(box);
+            if(e.keyCode===37){
+                box.style.left=parseFloat(a.left)-10+"px"
+            }else if(e.keyCode===38){
+                box.style.top=parseFloat(a.top)-10+"px"
+            }else if(e.keyCode===39){
+                box.style.left=parseFloat(a.left)+10+"px"
+            }else if(e.keyCode===40){
+                box.style.top=parseFloat(a.top)+10+"px"
+            }
+        }
+
+    
+    </script>
+</body>
+</html>

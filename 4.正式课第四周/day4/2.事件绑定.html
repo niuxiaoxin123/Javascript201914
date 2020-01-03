@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        123
+    </div>
+    <script>
+       var box = document.getElementById("box");
+       function fn1(){
+           console.log(1);
+       }
+       function fn2(){
+           console.log(2);
+       }
+       box.onclick = fn1;
+       box.onclick =null;
+       //box.onclick = fn2;
+    //    function fn(){}
+    //    box.onclick = fn;
+    //    $("#box").click(function(){});
+    //    $("#box").on("click",fn)
+    // addEventListener
+    // addEventListener(事件行为(去掉on),事件回调函数，布尔)
+    // 第三个参数是布尔值：false代表冒泡阶段执行 true：捕获阶段执行
+
+    // 只能给同一个元素的同一个事件行为绑定同一个方法，如果都相同，就会覆盖；
+    // 可以给同一个元素的同一个事件行为绑定多个不同的方法
+    //box.addEventListener("click",fn1,true);
+    //box.removeEventListener("click",fn1,false);
+    //box.addEventListener("mouseover",fn1,false)
+    //box.addEventListener("click",fn2,false); 
+    //console.dir(box)
+    //removeEventListener: 移除事件;需要和添加的时候参数保持严格一致；
+    //let obj={a:1};
+    //obj.addEventListener()
+    //console.log("addEventListener" in window)
+
+    // 在IE8及以下不兼容的；
+    // attachEvent("on"+事件，fn)
+    console.log(box.addEventListener);
+    box.attachEvent("onclick",fn1)
+    box.attachEvent("onclick",fn2)
+    </script>
+</body>
+</html>

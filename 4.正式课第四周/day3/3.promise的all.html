@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Promise.all : 用于多个实例，返回一个新promise实例
+        // 只有当p1,p2,p3的状态全部是filfulled，那么新实例才是成功的
+        // 只要一个被rejected,就是失败
+        let p1 = new Promise(function(resolve,reject){
+            setTimeout(function(){
+                reject(100);
+            },3000)
+        }) 
+        let p2= new Promise(function(resolve,reject){
+            setTimeout(function(){
+                reject(200);
+            },2000)
+        }) 
+        let p3= new Promise(function(resolve,reject){
+            setTimeout(function(){
+                resolve(300);
+            },4000)
+        });
+        let p = Promise.all([p1,p2,p3])
+        p.then(function(data){
+            // 会将所有成功的数据组装一个新数组，传递给这个回调函数
+            console.log(data);
+            
+        }).catch(function(data){
+            // 只要遇到一个失败，就将失败的这个值传递给这个回调
+            console.log(data);
+        })
+        
+        
+    </script>
+</body>
+</html>

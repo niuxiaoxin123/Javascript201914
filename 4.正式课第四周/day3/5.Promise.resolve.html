@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Promise.resolve: 将一个对象转成一个promise的实例；返回值可以调用then方法
+        Promise.resolve("foo").then(function(){
+
+        })
+        new Promise(function(resolve,reject){
+            resolve("foo")
+        });
+
+        let p  = Promise.resolve();
+        p.then(function(){
+
+        })
+
+        let  a = {
+            then:function(){
+
+            }
+        }
+
+        // Promise   
+        // then  
+        // Promise 同步异步；
+        
+        
+        
+    </script>
+</body>
+</html>
