@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 免费课 
+        // 系统的学习前端知识 ==> 提升自己的编程思想；
+        // let arr = [1,2,3,[4,5,6,[7,8,9,"6"]]];
+        // 数组的扁平化
+        // [1,2,3,4,5,6,7,8,9]
+        // 数组的方法
+        // console.log(arr.join(",").split(",").map(function(item){
+        //     return Number(item)
+        // }))
+        // let  a = [];
+        // function flat(ary){
+        //     for(let i=0;i<ary.length;i++){
+        //         let cur = ary[i];
+        //         if(cur  instanceof Array){
+        //             flat(cur);
+        //         }else{
+        //             a.push(cur)
+        //         }
+        //     }
+        // }
+        // flat(arr);
+        // console.log(a);
+
+        function win(attr,val){
+            // 1. typeof   2.undefined
+            // if(val===undefined){
+            // }
+        }
+
+
+        // 免费课第一周
+        // 数据类型  操作语句【判断条件】   循环   function
+        // 数据类型： 基本数据类型和引用数据类型
+        // Number : 有效数字、NaN; NaN和自己都不相等，不是一个数字，但是是Number类型的
+        // 1. Number : 将其他数据类型的值转成数字，并且返回一个数字；
+        // 2. parseFloat : 提取字符串的数字，从左到右依次查找，直到遇到一个非有效数字停止；能识别小数点
+        // 3.parseInt : 不能识别小数点
+        // 4.isNaN :判断当前数字是否是有效数字，是返回false；不是返回true；
+        // 5. toFixed : 保留小数点位数；返回一个字符串
+
+        //let str ="1.23px"
+        //Number(str);
+        //console.log(str);
+        //console.log(parseFloat(""))
+        //let num1 = 12.8903;
+        //Number(num1.toFixed(2))+100
+
+        // String : 
+        // 单引号或双引号包起来的内容；
+        // 1. 索引
+        // 2. length
+        // 3. 运算 - * / :先转数字再运算 + ： 字符串拼接；
+        // let obj ={a:"a"};
+        // let a  = null + 10 + [] + undefined+ "zhufeng" ;
+        // console.log(a);// "10undefinedzhufeng"
+        // 字符串的方法： charAt charCodeAt  substr(m,n) substring(m,n) slice replace(old) split  toUpperCase toLowerCase  indexOf  lastIndexOf  trim concat    includes 
+
+        // 布尔: true  false
+        // Boolean : 将其他数据类型转布尔； 0 NaN  null undefined "";
+        // ! : 先把后面的值转成布尔值，再取反
+        // ![]==[] // true  
+        // let obj  ={}
+        // if(!Number("3px")){
+        //     // 如果只有一个值
+        // }
+
+        
+        // null和undefined : 
+        // 1. 获取对象中属性名对应的属性值，如果属性名不存在，获取到undefined
+        // 2. 函数形参没有对应的实参
+        // 3. 函数中如果没有return，那么函数返回值就是undefined
+        // 4. 变量只声明，没有赋值，那么存储的值undefined；
+
+        // cannot read property "innerHTML" of undefined
+
+
+        // 对象  
+
+        //let  obj = {a:1,b:2,1:null,k:{},h:[],y:'hello'}
+        // 增删改查
+        // obj.c=100;
+        //obj['c']=100;
+        //delete obj.a;
+        //delete obj['a'];
+        //obj.b=null;
+        // obj.c = 100;
+        // obj.a = 12;
+        // obj['a']=12;
+
+        //var f = obj.b;
+        //var r = obj['b']
+    //     var w = "b";
+    //     var wc = obj.w;
+    //     var d = obj[w];
+    //     //console.log(obj.hasOwnProperty)
+    //     var arr = [];
+    //    // console.log(arr.hasOwnProperty)// 
+    //     Object.prototype.num  =function(){
+
+    //     }
+        // for in : 
+        // for(let key in obj){
+        //     // key 是属性名,是个字符串
+        //     // 先循环数字
+        //     console.log(key);// 
+        // }
+
+        // in : 判断属性名是否在对象中存在；在返回true，不在返回false;
+
+        // hasOwnProperty  toString
+        // for in : 1.私有的 2.原型上扩展的可以枚举
+        // obj.toString();//"[object Object]"
+
+        // let arr = [1,2,3]
+        // arr.pop();
+
+        // function win(attr,val){
+        //     return document.documentElement[attr]
+        // }
+        // win("scrollTop");
+
+        //var t = obj.c
+        //var arr = [12,3,4,5,6,7,88,{}]
+        // {} == {} 100==100
+        // 没有length for in 
+
+
+        // 数组 
+        // 
+        
+        // 索引  length 
+        // pop  push  shift  unshift  slice splice  indexOf lastIndexOf  concat sort reverse  join  
+        // map  forEach  every  find  reduce filter
+        // filter : 过滤；
+        // 如果回调函数返回true，就把这一项放到新数组中返回；不改变原数组;
+        // 
+        // let newArr =arr.filter(function(item,index){
+        //     return item>50;
+        // })
+        // console.log(newArr);
+        // console.log(arr);
+
+        // find:从左到右循环，直到找到满足条件的那一项，把这项返回；如果没有找到,那么返回undefined；
+    
+        // let bol = arr.find(function(item,index){
+        //     console.log(item);
+        //     return item>300;
+        // })
+        // console.log(bol);
+        
+        // find ： 找true    every : 找false
+        // every :找到第一个返回false的值;就不再向后继续查找；返回一个布尔值；如果所有的成员的回调都返回true，这个结果就是true
+        // let a = arr.every(function(item,index){
+        //     console.log(item);
+        //     return  item;
+        // })  
+        // // console.log(a);
+        // 全选 
+
+        // reduce :收敛；一般用于求和；
+        // let arr = [12,3,40,100,88,66];
+        // let total = arr.reduce(function(prev,next){
+        //     // 12  3
+        //     console.log(prev,next);
+        //     return prev+next;
+        //     // prev : 代表上一次回调函数的返回值；
+        // },0)
+        // console.log(total);
+
+        // let arr = [{price:5,count:3,name:"苹果"},{price:3,count:2,name:"橘子"},{price:2,count:5,name:"香蕉"}]
+        // let t = arr.reduce(function(prev,next){
+        //     return prev+next.price*next.count;
+        // },0);
+        // console.log(t);
+        
+
+
+
+        
+
+        
+
+
+        
+        
+
+
+
+
+        
+       
+        
+
+    
+    
+    
+    </script>
+</body>
+</html>

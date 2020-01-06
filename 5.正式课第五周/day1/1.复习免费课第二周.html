@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 免费课第一周： 数据类型  操作语句    function 
+        // 三个判断 三个循环
+        // flag
+        // function win(attr,val){
+            
+        // }
+        // let obj = {a:0}
+        // if(obj.b){
+        //     // 如果只有一个值，会默认转布尔
+        // }
+        // if(obj.b == null){
+        //     console.log(2);
+        // }
+        //if(obj.a)onsole.log(100);console.log(2000);
+        //let fn = ()=>{var num=100;console.log(100);}
+        //fn();
+
+        //嵌套
+        // if(1){
+        //     if(2){
+        //     }
+        // }
+        // if(1=="1"&&3){
+
+        // }
+        // if(true||false){
+
+        // }
+
+        // for
+        for(let i=0;i<6;i++){
+            // 1. 循环的四部曲
+            // 2. continue
+            // 3. break;
+        }
+        // for in  : 循环对象
+        // for(let key in obj){
+        //     // key : 是属性名，并且是个字符串
+        //     // 可枚举属性，先循环数字；
+        //     // obj[key]
+        // }
+
+        // while : 不知道循环次数，使用到while；
+        // 阻塞主线程时，会用到while；
+        // var timer = setTimeout(function(){
+        //     timer=null;
+        // },3000);
+        // 必须等1000ms,才继续向下执行；
+        // let curTime = Date.now();
+        // while(timer){
+
+        // }
+        // console.log(3000);
+
+
+        //实现一个LazyMan，可以按照以下方式调用:
+        //LazyMan("Hank")
+        //输出：Hi! This is Hank!
+         
+        //LazyMan("Hank").sleep(10).eat("dinner")
+       // Hi! This is Hank!
+        //等待10秒..
+       // Wake up after 10
+        //Eat dinner~
+
+        //LazyMan("Hank").eat("dinner").eat("supper")
+        //Hi This is Hank!
+        //Eat dinner~
+        //Eat supper~
+         
+        //LazyMan("Hank").sleepFirst(5).eat("supper")
+        //等待5秒
+        //Wake up after 5
+        //Hi This is Hank!
+        //Eat supper
+
+        // ES6中：for of;可以循环数组，和Set但是不可以循环对象
+        // Set 
+        let ary = [100,200,300,400];
+        //let obj = {a:1,b:2};
+        // for(let key of ary.keys()){
+        //     console.log(key);// 是数组的索引
+        // }
+        // for(let key of ary){
+        //     console.log(key);// 数组成员
+        // }
+        // for(let key of ary.values()){
+        //     console.log(key);// 数组成员
+        // }
+        for(let key of ary.entries()){
+            console.log(key);// 数组成员
+            //[0,100]
+            //[1,200]
+            //[2,300]
+            //[3,400]
+        }
+        let a = new Set(ary);
+        //console.log(a);
+        // Array.from : 将类数组转数组；
+        console.log(Array.from(a)) 
+        for(let key of  a){
+            console.log(key);  
+        }
+
+
+        
+
+
+
+        
+    
+    
+    </script>
+</body>
+</html>

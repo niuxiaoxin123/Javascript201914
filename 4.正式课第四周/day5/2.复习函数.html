@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       
+        // 对象   函数 
+        var  num  =1;
+        /// 函数也是引用数据类型，空间地址
+        function fn(a,b){
+            //console.log(a);
+            //var num = 1;  
+            // 形参也是私有变量
+            // 形参没有对应的实参，默认存储undefined；
+            // return 
+            var t = a+b;// 这是私有的；
+            return t;
+        }
+        // 函数分为定义和执行
+        // 执行 ；5步；
+        //var total = fn(23,56);
+        div.innerHTML = fn(23,56);
+        //console.log(t);
+        // 形参和实参
+        // arguments : 实参集合  __proto__  Object.prototype
+        // 形参和arguments存在一一映射关系；
+        // return 函数的执行结果；可以将函数体内部的值返回给函数外面； 终止代码运行；
+        // 匿名函数 
+        (function(a){
+            
+        })(100);
+        let  fn = function(){
+
+        }
+        fn();
+        let fn = (num,num1)=>{
+
+        }
+        // 1. 没有this，
+        // 2. 没有arguments
+        // 3. 不能作为构造函数
+        // 4. 不能generator函数；
+    </script>
+</body>
+</html>

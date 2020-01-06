@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="text">
+    <div id="box">
+        <div id="box1">1</div>
+        <div id="box2">2</div>
+        <div id="box3">3</div>
+    </div>
+    <script>
+        // 事件 ：鼠标 onmouseover onmouseout  onmouseenter onmouseleave onmousedown  onmousemove  obmouseup 
+        // ontouchstart   ontouchmove ontouchend ontouchchange
+        // onfocus  onblur  oninput  onchange onkeydown onkeyup onkeypress
+        // text.onblur = function(){
+        //     console.log(1);
+        // }
+        // text.onchange = function(){
+        //     console.log("内容改变");
+        // }
+
+        // 事件对象
+        //box.onclick = function(e){
+            // 
+            // clientX  clientY;
+            // pageX     pageY;
+            // offsetX  offsetY ; 
+            // target :事件源
+            // type : 事件类型
+            // cancelBububle = true;
+            // e.stopPropagation()
+            // returnValue =false ;
+            // e.preventDefault();
+            // 将事件触发的信息传给了这个函数的参数；
+        //}
+
+        // 事件的传播机制： 捕获===>目标===>冒泡
+        // 
+        // DOM0级事件绑定：都是冒泡阶段的绑定
+        // DOM2级事件可以控制阶段
+        // box.addEventListener("click",fn,false)
+        // attachEvent
+        // 1. this问题  2.重复问题 3. 顺序问题；
+        // box.onclick=function(){
+        //    console.log(100);
+        // }   
+        // box1.onclick=function(){
+        //     console.log(200);
+        // }
+        // 事件委托：利用事件冒泡传播的机制；
+    
+    </script>
+</body>
+</html>

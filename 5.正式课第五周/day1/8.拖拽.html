@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{  
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width:300px;
+            height:300px;
+            position: absolute;
+            /* left:50%;
+            top:50%;
+            margin-left:-150px;
+            margin-top: -150px; */
+            /* left:0;
+            top:0;
+            right:0;
+            bottom:0;
+            margin:auto; */
+            background: chartreuse;
+        }
+        #box h3{
+            height:30px;
+            line-height: 30px;
+            text-align: center;
+            color:white;
+            background:lightskyblue;
+            cursor: move;
+        }
+    
+    
+    </style>
+</head>
+<body>
+    <div id="box">
+        <h3 id="title">珠峰培训welcome you!</h3>
+    </div>
+    <script>
+    let box = document.getElementById("box");
+    let title = document.getElementById("title");
+    let left = (document.documentElement.clientWidth-box.offsetWidth)/2;
+    let t = (document.documentElement.clientHeight-box.offsetHeight)/2;
+    box.style.left = left+"px";
+    box.style.top = t+"px";
+    // 当鼠标按下，再拖拽，盒子跟着移动；
+    // 鼠标相对于title的位置不变，鼠标横向移动多少，盒子就移动多少；鼠标纵向移动多少，盒子纵向移动多少；
+    // 需要记录鼠标按下时的鼠标的位置，以及盒子的鼠标按下时，初始的位置；
+    title.onmousedown = function(e){
+        // this--> title
+        // 把鼠标和盒子的初始位置放在元素上；
+        this.curL = e.clientX;
+        this.curT = e.clientY;
+        this.titleL = parseFloat(box.style.left);
+        this.titleT = parseFloat(box.style.top);
+        title.onmousemove  = move;
+        title.onmouseup = up;
+    }
+    // 鼠标移动
+    function move(e){
+        console.log(this.titleL);
+        // 设置box的最新的位置；  this--> title
+        // 计算出鼠标移动的距离+ 盒子初始的位置；
+        box.style.left = e.clientX-this.curL+this.titleL+"px";
+        box.style.top = e.clientY -this.curT+this.titleT+"px";
+    }
+    // 鼠标抬起的方法；
+    function up(){
+        // 鼠标抬起清空onmousemove和onomouseup事件的方法；
+        title.onmousemove = null;
+        title.onmouseup = null;
+    }
+
+    
+
+    
+    
+    
+    </script>
+</body>
+</html>

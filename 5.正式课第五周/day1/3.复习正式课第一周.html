@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       // 正式课第一周
+       // 代码的执行过程
+       // git  变量提升  作用域  this指向   面向对象
+       // git pull 
+
+       //  变量提升： 
+    //    console.log(num);
+    //    var num;
+    //    console.log(num);
+    //    function fn(){}
+
+       // 几种特诉情况的变量提升
+       // 1.条件语句中，只声明不赋值
+       // 2. 等号右边不进行变量提升
+       // 3. return 后面不提升，下面的要进行提升
+       // 4. 变量重名，不再重复声明，但是重新赋值
+       // 5. 自执行函数不变量提升
+        //    console.log(fn);
+        //    if(true){
+        //        function fn(){
+        //        }
+        //    }
+
+
+        // 作用域
+        // 全局作用域  私有作用域  块级作用域；
+        // 1. 全局作用域是不销毁的
+        // 2. 全局作用域下有window对象
+
+
+        // 私有作用域： 函数执行
+        //  闭包  ：保存和保护；
+        // 上一级作用域：看函数在哪定义的，上一级作用域；
+        // 作用域链
+
+        // function fn(){
+        //     var a  = 1;
+        //     return a;
+        // }
+
+        // if(true){
+        //     var num = 1;
+        //     let m = 1;
+        // }
+
+        // var num = 1; let i=0;// 会保存值；
+        // 块级作用域： if  for
+
+
+        // 全局变量和私有变量
+        // var num =1;
+        // n=100;
+        // function fn(a){
+        //     // 是否是私有的，不是私有的就是共有的；
+        //     // 1. 形参
+        //     // 2. 有没有被var或function
+        //     a=1;
+        // }
+
+        // this : 
+        // 1. 在不同的情景下，this指向不同空间；
+        // 2. 全局下的this指向window
+        // 3. 给元素事件绑定函数，函数中的this指向当前被绑定的元素
+        // 4. 自执行函数中的this指向window
+        // 5. 函数执行前有没有点，点前面是谁，this就是谁，没有指向window
+        // 6. 回调函数中的this一般指向window
+        // 7. 构造函数中的this指向实例
+        // 8. 箭头函数中没有this，指向上一级作用域中的this；
+        // 9. call apply bind  可以改变this指向；
+
+        //box.onclick = function(){}
+        // function fn(){
+
+        // }
+        // 重写bind;
+        // 1. 想重写方法，先了解之前是干什么的； this,参数；
+        // Function.prototype.myBind= function(){
+        //     // this --> fn;
+        //     var that = this;
+        //     var arg = arguments;
+        //     var arr = [].slice.call(arguments,1);
+        //     return function(){
+        //         that.apply(arg[0],arr);
+        //     }
+        // }
+        // var f =  fn.myBind([1,2,4],"hello","world");
+        // f();
+
+        // 面向对象
+        // 单例模式
+        // 工厂模式  offset
+        // 构造函数模式 : new 创建实例，私有属性
+        // 原型模式 ： prototype; 
+
+        // 对象 ==> 类 ==> 实例
+        // 
+        function Fn(){
+            this.a = 100;
+            this.b = 200;
+        }
+        Fn.prototype.a = function(){
+        }
+        var f =  new  Fn();
+        f.__proto__.a;
+        // 原型链 :先找私有的，然后再找公有，如果上一级没有，继续向上查找；
+        console.log(f.c)
+
+        // Number  String Boolean Null Undefined Object Array  RegExp...
+        // 原型的扩展
+        Fn.prototype.getX = function(){
+
+        }
+        Fn.prototype = {
+            //constructor 丢失
+        }
+
+        Array.prototype.getX = function(){
+
+        }
+        Array.prototype={
+
+        }
+        // 原型Function和Object的关系；
+        obj.hasOwnproperty();
+        Object.hasOwnproperty();
+        // Object.__proto__===>Function.prototype.__proto__===>Object.prototype 
+        
+    
+    
+    
+    </script>
+</body>
+</html>

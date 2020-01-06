@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width:300px;
+            height:300px;
+            background: lightskyblue;
+            margin:100px auto;
+            position: relative;
+        }
+        #box div{
+            width:30px;
+            height:30px;
+            background:red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        let box = document.getElementById("box");
+        let mark;
+        // 当鼠标划到box上，只需要不断设置小盒子的left和top值，需要根据鼠标移动的位置发生变化
+
+        // onmouseenter onmouseleave :不存在冒泡
+        box.onmouseenter=function(){// 鼠标划上执行一次；
+            //动态创建div,并放入box元素中；
+            mark= document.createElement("div");
+            box.appendChild(mark);  
+        }
+        box.onmousemove=function(e){//鼠标在盒子上滑动，就会触发；
+            // 当数标滑到mark时，这时事件源就是mark;事件源不一定是直接绑定的元素；
+            
+            mark.style.left = e.clientX-box.offsetLeft+15+"px"
+            mark.style.top = e.clientY-box.offsetTop+15+"px"
+            //console.log(e.offsetX);
+        }
+        box.onmouseleave=function(){
+            // 当鼠标离开，删除小盒子div;
+            // 当鼠标划上小盒子时，会立即触发大盒子的onmouseout 
+            box.removeChild(mark);
+        }
+    </script>
+</body>
+</html>
