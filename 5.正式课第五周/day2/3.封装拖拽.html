@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box,#box1{
+            width:100px;
+            height:100px;
+            background: red;
+            position: absolute;
+            left:0;
+            top:0;
+        }
+        #box1{
+            top:200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div>
+           <div>1</div> 
+           <div>2</div>
+           <div>3</div>
+        </div>
+    </div>
+    <div id="box1"></div>
+    <script>
+       
+       function Drag(str){
+           // this--> Drag的实例；可以获取到当前Drag原型上的方法
+           let ele = document.getElementById(str.slice(1));
+           this.ele = ele;// 把元素放到了实例this的自定义属性上；
+           this.ele.onmousedown  = this.down.bind(this);
+       }
+       Drag.prototype.down =function(e){
+            // 记录位置  绑定onmousemove 和onmouseup;
+            // console.log(e);
+            console.log(this);// Drag的实例；需要将该函数中的this指向Drag的实例；方便后期使用；
+            this.x = e.clientX;
+            this.y = e.clientY;
+            this.startL = parseFloat(getComputedStyle(this.ele).left);
+            this.startT = parseFloat(getComputedStyle(this.ele).top);
+            document.onmousemove = this.move.bind(this);
+            document.onmouseup = this.up;
+       }
+       Drag.prototype.move =function(e){
+           // 用鼠标变化的距离+ 盒子初始的位置=盒子最新的位置；
+            this.ele.style.left =  e.clientX-this.x+this.startL+"px";
+            this.ele.style.top = e.clientY-this.y+this.startT+"px";
+       }
+       Drag.prototype.up =function(){
+           // 清除document的事件上的方法；
+           document.onmousemove = null;
+           document.onmouseup = null;
+       }
+       new Drag("#box");
+
+        //  封装选项卡；
+
+        function Xuan(){
+            
+        }
+        new Xuan("#box");
+
+       //new Drag("#box1")
+    //    let  obj = {
+    //        fn:function(){
+    //            console.log(this);
+    //        }
+    //    }
+    //    obj.fn();
+    //    box.onclick = obj.fn;
+    </script>
+</body>
+</html>

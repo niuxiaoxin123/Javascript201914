@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        // 发布订阅是一种编程思想；
+        // 先进行订阅，订阅时把事件存储到一个事件池中，然后到了条件成立时，遍历事件池中的方法，把订阅的方法都执行；
+        // 观察者模式  自定义事件模式；
+        //box.addEventListener("click",fn,false)
+        //box.removeEventListener("click",fn,false)
+        //box.onclick = fn;
+        //box.onclick = null
+        // setTimeout(function(){},1000)
+        // 
+        let box = document.getElementById("box");
+        // 订阅
+        function on(curEle,type,fn){
+            if(!curEle[type]){// 第一次进来，给其一个默认值是[];也只有第一次执行时，会执行；
+            // 给元素新增一个键值对；属性名是type的值；属性值[];
+                curEle[type]=[];
+            }
+            let arr = curEle[type];// 事件池；放在了元素的一个属性上；
+            // find : 找true；如果找到满足条件，会立即停止循环
+            // 为了防止重复添加fn;所以先判断；如果不存在，加进去；
+            let isHas = arr.find(function(item){return item===fn});
+            if(!isHas){//  如果找不到，返回undefined；说明不存在这个fn，需要将fn放入事件池中
+                arr.push(fn);
+            }
+        }
+
+        // 发布
+        function emit(curEle,type){
+            let arr = curEle[type];// 获取到事件池中的方法
+            for(let i=0;i<arr.length;i++){// 循环事件池，让其中的方法循环执行；
+                // 检测是函数，才继续执行；
+                if(typeof arr[i] ==="funcion"){
+                    arr[i]();
+                }
+            }
+        }
+        // 取消订阅
+        function off(curEle,type,fn){
+            let arr = curEle[type];
+            // 通过filter，过滤出去fn;
+            for (let i=0;i<arr.length;i++){
+                if(fn===arr[i]){
+                    // arr.splice(i,1);
+                    // i--;
+                    arr[i]=null;// 不会产生数组的塌陷；
+                }
+            }
+            // curEle[type]=arr.filter(function(item){
+            //     return item!==fn;
+            // })
+        }
+        // $on  $emit 
+        on(box,"boiling",fn1);
+        on(box,"boiling",fn2);
+        on(box,"boiling",fn3);
+        off(box,"boiling",fn2);
+        // box :{boiling:[fn1,fn2],working:[fn3]}
+
+        function fn1(){
+            console.log("泡面")
+        }
+        function fn2(){
+            console.log("泡咖啡")
+        }
+        function fn3(){
+            console.log("泡脚");
+        }
+        setTimeout(()=>{
+            emit(box,"boiling")
+        },3000)
+    </script>
+</body>
+</html>
