@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width:300px;
+            height:300px;
+            background: red;
+            /* transform:translate(100px,100px)  */
+            /* transform:scale(0.5) */
+            /* transform: rotate(45deg); */
+            transform-origin: left  top;
+            transform: skew(30deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">123eeeeeeeeeeeeeeeeeeeeeee</div>
+    <script>
+        
+        // transform :
+        // translate : 平移  translate(X,Y);X正是右平移，Y为正向下平移；
+        // scale(2):参数是缩放的倍数；  默认按照盒子的中心点缩放
+        // rotate(角度) ： 默认以盒子的中心点旋转，如果角度大于0；是顺时针旋转，小于0就是逆时针旋转；
+        // transform-origin : 改变旋转中心点；
+        // skew : 默认以中心点变形 角度如果是正，是逆时针的变形，为负时，是顺时针变形；
+    </script>
+</body>
+</html>

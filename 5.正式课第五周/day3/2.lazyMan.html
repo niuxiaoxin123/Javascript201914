@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //实现一个LazyMan，可以按照以下方式调用:
+        //LazyMan("Hank")
+        //输出：Hi! This is Hank!
+
+        //LazyMan("Hank").sleep(10).eat("dinner")
+        // Hi! This is Hank!
+        // 等待10秒..
+        // Wake up after 10
+        // Eat dinner~
+
+        //LazyMan("Hank").eat("dinner").eat("supper")
+        //Hi This is Hank!
+        //Eat dinner~
+        //Eat supper~
+
+        //LazyMan("Hank").sleepFirst(5).eat("supper")
+        //等待5秒
+        //Wake up after 5
+        //Hi This is Hank!
+        //Eat supper  
+
+        function LazyMan(a){
+            function Man(){
+                setTimeout(function(){
+                    console.log(`Hi! This is ${a}`)
+                },0)
+            }
+            Man.prototype.sleep=function(min){
+                // setTimeout(function(){
+                //     console.log(` Wake up after ${min}`);
+                // },min*1000);
+                setTimeout(function(){
+                    let now = Date.now();
+                    while(Date.now()-now<min*1000){};
+                    console.log(` Wake up after ${min}`);
+                },0)
+                return this;
+            }
+            Man.prototype.eat=function(food){
+                setTimeout(function(){
+                    console.log(`Eat ${food}~`); 
+                },0)
+                return this;
+            }
+            Man.prototype.sleepFirst=function(time){
+                let now = Date.now();
+                while(Date.now()-now<time*1000){}
+                console.log(`Wake up after ${time}`);
+                return this;
+            }
+            // LazyMan需要返回一个Man的实例，需要调用Man原型上的方法；
+            return new Man();
+        }
+        LazyMan("Hank").sleep(3).eat("dinner")
+
+
+
+
+        
+        
+        
+    </script>
+</body>
+</html>

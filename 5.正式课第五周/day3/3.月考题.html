@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <span class="box"></span>
+    </div>
+    <div class="box"></div>
+    <script>
+        // 浏览器内核： 引擎
+        // 谷歌 ： webkit   火狐   ：Gecko   IE ：Trident  欧朋：opera   
+        // forEach  map  find   every  reduce  filter   some
+        let  arr = [12,3,45,89,778,100]
+        // some : 找到返回true的第一项，找到立即停止；不再向下循环；如果没有符合条件的，返回false；
+        // 找true   every  :false；
+        // let s = arr.some(function(item,index){
+        //     console.log(item);
+        //     return item>999;
+        // });
+        // console.log(s);
+
+        // function fn(){
+        //     return function(){
+
+        //     }
+        // }
+        
+
+        // var x = 4;// 3  2  1
+        // function func() {
+        //     return function(y) {
+        //         console.log(y + (--x));
+        //     }
+        // }
+        // var f = func(5);
+        // f(6);// 9 
+        // func(7)(8);// 10
+        // f(9); // 10
+        // console.log(x); // 1
+
+
+        // var x=5,//11 10
+        // y=6;
+        // function func(){
+        //     x+=y;
+        //     func=function(y){
+        //         console.log(y + (--x));
+        //     };
+        //     console.log(x, y);
+        // }
+        // func(4);
+        // func(3);// 13
+        // console.log(x, y);// 10  6
+
+        // let obj = {
+        //     0: 3,
+        //     1: 4,
+        //     length:0,
+        //     push: Array.prototype.push
+        // }
+        // // push进去的内容会讲默认的覆盖；原有的对象中的键值对没有作用
+        // // 重名
+        // obj.push(10);
+        // obj.push(20);
+        // console.log(obj);
+        //let arr = [];// [0:100]
+       // arr.push(100)
+
+        // var x = 3,// 12   13  234
+        // obj = {x: 5};// 95
+        // obj.fn = (function () {
+        //             //  this->window
+        //             this.x *= ++x;
+        //             return function (y) {
+        //                 this.x *= (++x)+y;
+        //                 console.log(x);// 13 234
+        //             }
+        //         })();
+        // var fn = obj.fn;
+        // obj.fn(6);
+        // fn(4);
+        // console.log(obj.x, x);
+
+        // let a={}, b={n:'1'}, c={m:'2'};  
+        // a[b]='珠峰';
+        // a[c]='培训';  
+        // console.log(a);
+
+
+        
+        // var name = '珠峰培训';
+        // function A(x,y){
+        //     var res=x+y;
+        //     console.log(this);
+        //     console.log(res,this.name);//
+        // }
+        // function B(x,y){
+        //     var res=x-y;
+        //     console.log(res,this.name);
+        // }
+        //B.call(A,40,30);// 10 'A'
+        //B.call.call.call(A,20,10)// NaN undefined
+        // B.call.call(20,10) 20 成为了A中的this，10成了A的实参；
+        //Function.prototype.call(A,60,50);
+        //Function.prototype.call.call.call(A,80,70);// NaN undefined
+        
+        
+        // function A(){
+        //     alert(1);
+        // }
+        // function Fn() {
+        //     A=function(){
+        //         alert(2);
+        //     };
+        //     return this;
+        // }
+        // Fn.A=A;// Func私有属性新增A；
+        // Fn.prototype={
+        //     A:()=>{
+        //         alert(3);
+        //     }
+        // };
+        // A();// 1
+        // Fn.A();// 1
+        // Fn().A();// 2
+        // new Fn.A();// 1
+        // new Fn().A();// 3
+        // new new Fn().A();// 报错
+
+
+        
+        // var name = "WINDOW",
+        //     obj = {
+        //         name:"OBJ",
+        //         fn:(()=>{
+        //             console.log(this.name);// :"WINDOW"
+        //             return function(){
+        //                 console.log(this.name);
+        //             }
+        //         })()
+        //     },
+        //     fn=()=>{
+        //         console.log(this.name);// "WINDOW"
+        //     };
+        // fn();
+        // obj.fn();// "OBJ"
+        // fn.call(obj);// "WINDOW"
+
+
+        // function A1(name) {
+        //     this.name = name;
+        // }
+        // function A2(name) {
+        //     this.name = name || 'Jerry';
+        // }
+        // function A3(name) {
+        //     name && this.name = name;
+        // }
+        // A1.prototype.name = 'Tom';
+        // A2.prototype.name = 'Tom';
+        // A3.prototype.name = 'Tom';
+        // alert((new A1().name) + (new A2().name) + (new A3().name));
+        
+        // function _new(fn,...arg){
+        //     let obj ={};
+        //     obj.__proto__=fn.prototype;
+        //     fn.call(obj,...arg);
+        //     return obj;
+        // }
+
+
+        // function getAry(attr,value){
+        //     let arr = [];
+        //     let  eles = document.getElementsByTagName("*");
+        //     for(let i=0;i<eles.length;i++){
+        //         let val = eles[i].getAttribute(attr);
+        //         if(val === value){
+        //             arr.push(eles[i]);
+        //         }
+        //     }
+        //     return arr;
+        // }
+        // console.log(getAry("class","box"))
+
+
+        // ~function(){
+        //     function change(a,...args){
+        //         // this --> func
+        //         a.$fn = this;
+        //         let result =  a.$fn(...args);
+        //         a.name="Alibaba";
+        //         delete a.$fn;
+        //         return result;
+        //     };
+        //     Function.prototype.change=change;
+        // }();
+        // let obj = {name:'zhufeng'};
+        // function func(x,y){
+        //     this.total=x+y;
+        //     return this;
+        // }
+        // let res = func.change(obj,100,200);
+
+ 
+        // let url="http://www.zhufengpeixun.cn/?lx=1&from=wx#video";
+        // console.log(url.queryURLParams("from")); //=>"wx"
+        // console.log(url.queryURLParams("_HASH")); //=>"video"
+        // String.prototype.queryURLParams=function(str){
+        //     let index = this.indexOf("?");
+        //     let i = this.indexOf("#");
+        //     let hash = this.slice(i+1);
+        //     if(str==="_HASH"){
+        //         return hash;
+        //     }
+        //     let newStr = this.slice(index+1,i);
+        //     let arr = newStr.split("&");// ["lx=1","from=wx"];
+        //     let obj = {};
+        //     for(let i=0;i<arr.length;i++){
+        //         let attr= arr[i].split("=")[0];
+        //         obj[attr]=arr[i].split("=")[1];
+        //     }
+        //     return obj[str];
+        // }
+        // class A{
+        //     constructor(){
+        //         this.a = 1;
+        //     }
+        //     static a=1;
+        // }
+        // console.dir(A);
+    </script>
+</body>
+</html>
