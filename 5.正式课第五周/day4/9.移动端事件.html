@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <script src="fastclick.js"></script>
+    <script>
+        // 移动端也有onclick事件，点击事件，但是移动端的onclick事件有300ms的延迟;在移动端中点击完盒子以后，会等待300ms,判断是否有下一次点击；如果有说明是双击事件；如果没有，就会触发onclick点击；
+        // 能够解除移动端的延迟；
+        window.addEventListener("load",function(){
+            FastClick.attach(document.body);
+        });
+        // zepto.js : 就是移动版的jquery；
+        $("#box").tap(function(){
+
+        });
+        // fastClick插件  zepto.js tap 都可以防止事件的延迟；
+        // 移动端：touch事件 触摸事件
+    </script>
+</body>
+</html>

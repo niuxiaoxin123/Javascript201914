@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .list{
+            width:800px;
+            height:200px;
+            list-style:none;
+            display: flex;
+            background: yellowgreen;
+            /* flex-direction: row; */
+            /* flex-wrap: wrap-reverse; */
+            justify-content: space-between;
+            /* flex-wrap:nowrap; */
+            /* align-items:baseline; */
+    
+        }
+        .list li{
+            width:100px;
+            background: red;
+            text-align: center;
+            /* flex:0;  */
+        }
+        .list li:nth-child(1){
+            height:100px;
+            line-height:100px;
+            /* flex-shrink:0; */
+            /* flex-basis:300px; */
+            /* flex-grow:1; */
+        }
+        .list li:nth-child(2){
+            /* order:2; */
+            /* flex-grow:2; */
+            height:50px;
+            line-height:50px;
+        }
+        .list li:nth-child(3){
+            /* order:1; */
+            /* flex-grow:1; */
+            height:150px;
+            line-height:150px;
+            align-self: flex-end;
+        }
+        .list li:nth-child(4){
+            /* flex-grow:1; */
+            height:120px;
+            line-height:120px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        // flex : 弹性布局； 
+        // display :flex ；加到了父元素上，那么子元素就是一个一个flex成员
+    
+        // flex-direction : row  row-reverse colmun  决定子元素的排列方向
+        // flex-wrap: nowrap : 默认是不换行  wrap : 换行 
+        // justify-content属性定义了子元素在主轴上的对齐方式。
+        // justify-content: flex-start | flex-end | center | space-between | space-around;
+        // align-items : align-items属性定义项目在交叉轴上如何对齐。
+        // flex-start | flex-end | center | baseline | stretch;
+        // 
+
+
+        /// 是设置在item,是每一个子元素上；
+        // order : 数字；默认是0；有了这个按照从小到大的顺序排列；
+        // flex-grow : 按比例分配剩余空间
+        // flex-shrink :默认都是1；都将等比例缩小；
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+       function reset(){
+            // window的resize： 当可视窗口发生改变时，触发的回调；
+            let winW = document.documentElement.clientWidth;
+            document.documentElement.style.fontSize=winW*100/750+"px";
+        }
+        window.addEventListener("resize",reset);
+        // 屏幕的比例=rem的比例；
+        reset();
+        </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* html{
+            font-size: 100px;
+        } */
+        div{
+            float:left;
+            width:2.5rem;
+            height:2.5rem;
+            background: red;
+        }
+        /* ul{
+            width:2rem;
+        } */
+    </style>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script>
+        // rem布局： 让每一个盒子根据当前屏幕的宽度计算出一个最新的宽度来，来适应整体的布局；
+        // 375 
+        // 各个手机屏幕大小不同
+        // 设计稿： UI 
+        // 市场运营===> 产品 ==> UI(设计稿) ==> 前端
+        // 移动端的设计稿，一般分为两种宽度 大多数的设计稿宽度是750px;
+        // 每一个盒子宽度占据整个设计稿的宽度的比例是不变的；
+        // 不同的手机得到的可视窗口的宽度都不一样：document.documentElemen.clientWidth
+        // 1rem相当于一个HTML的font-size 的属性值；rem是一个相对的单位；如果屏幕的代大小发生改变，计算出当前屏幕下最新的html对应的font-size值；
+
+        // 750px          250px        2.5rem;       100px
+        // 375px          125px        2.5rem;       50px
+  
+        // 750px                                     100px 
+        // document.documentElement.clientWidth       ?
+        // 750/document.documentElement.clientWidth =100/?
+        // ? = winW *100/750
+
+        //document.documentElement.style.fontSize=winW*100/750+"px";
+        // 为了得到当前最新的html对应的font-size;
+    </script>
+</body>
+</html>
