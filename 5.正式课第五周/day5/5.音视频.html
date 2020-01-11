@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <audio src="img/myDream.m4a" controls id="music"></audio>
+    <button id="btn1">播放</button>
+    <button id="btn2">暂停</button>
+    <script>
+        // 语义化  超文本标记语言：还可以显示图片 视频  音频；
+        // audio video
+        // controls : 控制是否显示
+        // play : 最新的谷歌浏览器为了节省性能，禁掉了音频的自动播放功能；
+        // pause ： 暂停
+        // paused : 属性名；当音乐播放状态时，该值是false状态，如果是暂停状态，那么其属性值是true;
+        // duration: 当前音频的总时长；是秒;
+        // currentTime:当前音乐播放过得时间；可以时时刻刻获取到当前音乐的播放时间；
+        // canplay : 当音频资源加载完毕，会立即触发这个canplay的事件；
+        window.onload=function(){
+            console.log(music.duration);// 
+        }
+        music.addEventListener("canplay",function(){
+            console.log(music.duration);
+        });
+        btn1.onclick = function(){
+            music.play();
+            console.log(music.paused);
+            console.dir(music);
+        }
+        btn2.onclick =function(){
+            music.pause();
+            console.log(music.paused);
+        }
+    </script>
+</body>
+</html>

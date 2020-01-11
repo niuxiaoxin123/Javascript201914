@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动端点透问题</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin: 0px;
+            padding:0px;
+        }
+        #div1{ /*红色半透明遮盖层A*/
+            width: 300px;
+            height: 300px;
+            background-color: rgba(255,0,0,0.25);        
+        }
+        #div2{ /*黄色内容层B*/
+            width: 240px;
+            height: 240px;
+            background-color: yellow;
+            position: absolute;
+            left: 30px;
+            top: 30px;
+            z-index: -1;
+        }
+        #console{ /*绿色状态输出框*/
+            border: 1px solid green;
+            position: absolute;
+            top: 300px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2">
+       <a href="http://www.baidu.com">www.baidu.com</a>
+    </div>
+    <div id="console"></div>
+    <script>
+    
+    var div1 = document.getElementById("div1");
+        var div2 = document.getElementById('div2');
+        var con = document.getElementById('console');
+        function handle(e){
+            var tar = e.target,
+　　　　　　　　　 eve = e.type;
+            e.preventDefault();// 阻止事件的默认行为；不会再让自己的onclick被触发了；
+            var ele = document.createElement("p");
+            ele.innerHTML = "target:"+ tar.id + " event:" + eve ;
+            con.appendChild(ele);
+            if(tar.id === "div1"){ 
+                div1.style.display = "none";
+            }
+            console.log(100);
+            
+        }
+        div1.onclick = handle;
+        div1.addEventListener("touchend",handle);
+        // div1.addEventListener("touchstart",handle);
+        div2.addEventListener('click',handle);
+        // touchstart早于touchend,早于click;
+
+        // 移动端的点透： 原因是移动端的onclick的有延迟；由于touch事件早于onclick事件，所以在触发touch事件时将外层元素隐藏，那么当touch事件触发完毕，再去触发onclick时，这时点击的元素就是里面的元素；所以出现了点透的现象；
+
+        //1. e.preventDefault :阻止事件的默认行为
+        //2. 采用统一的touch事件
+    </script>
+</body>
+</html>

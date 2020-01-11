@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width:100px;
+            height:100px;
+            background: red;
+            margin:auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        // querySelector经常应用于移动端，兼容性比较好；
+        let box = document.querySelector(".box");
+        //onclick会有延迟
+        // box.onclick = function(){
+        //     console.log(888);
+        // }
+        // box.ondblclick = function(){
+        //     console.log(999);
+        // }
+        // touch 事件： 只应用于移动端
+        // ontouchstart 是触摸开始执行的方法；
+        // box.ontouchstart=function(){
+        //     console.log(100);
+        // }
+        // touchstart: 触摸开始
+        // touchmove : 触摸移动
+        // touchend : 触摸结束
+        box.addEventListener("touchstart",function(e){
+            // 事件对象： mouseEvent  keyboardEvent   touchEvent;
+            // 移动端的事件信息存放在事件对象的touches的值中；
+            console.log(100);
+            //console.log(e);
+            //e.touches[0].clientX  
+            // clientX  clientY 
+            // pageX  pageY
+            // target 
+            // type 
+            // 
+        });
+        box.addEventListener("touchmove",function(e){
+            console.log(200);
+        });
+        box.addEventListener("touchend",function(e){
+            console.log(300);
+            console.log(e);
+            // 事件信息在changedTouches 这个属性上;
+        });
+        // onclick是最后执行的；在ontouchend之后；一旦在元素上滑动，会触发ontouchmove事件，那么onclick就不再执行了；
+        // FastClick 的原理： 把给元素绑定的点击事件，改造了给body绑定touch事件；元素事件触发时，会冒泡到body,触发body的touch事件，由于touch事件 不存在延迟，所以，就不再有300ms的延迟了；
+        // touchstart ==> touchend ==> onclick 
+    </script>
+</body>
+</html>

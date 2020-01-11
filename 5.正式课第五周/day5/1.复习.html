@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+         (function(){
+            //  html的字体的大小，就是整个页面1rem;这是相对的单位
+            // px 
+            // rem : 是相对于html的font-size属性；
+            // em : 相对于自己的字体大小;如果自己不存在，会直到父元素的fontSize;
+            function computedFontSize(){
+                let winW = document.documentElement.clientWidth;
+                document.documentElement.style.fontSize=winW*100/750+"px";
+            }
+            computedFontSize();
+            // 当可视窗口发生改变
+            window.addEventListener("resize",computedFontSize)
+         })();
+    </script>
+    <style>
+    
+        @media screen and (min-width: 1000px){
+            .box{
+                /* // min-width:最小的宽度是1000px;大于1000有效 */
+            }
+        }
+        .box{
+            /* display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: flex-start; */
+            width:100px;
+            font-size: 18px;
+            height:1em;
+        }
+        .box .child{
+            width:1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="child"></div>
+    </div>
+    <script>
+        // 移动端的布局 ： 
+        // 百分比布局  100%; 相对于父元素；
+        // 媒体查询 
+        // flex布局
+
+        // 父元素上： 
+        // rem 布局;
+        // 事件： onclick  有300ms延迟 
+        // fastClick   zepto.js
+        window.addEventListener("load",function(){
+            // 当音频视频，图片加载完成以后执行的函数
+            FastClick.attach(document.body)
+        });
+
+    
+    
+    
+    </script>
+</body>
+</html>
