@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="留言板/jquery-3.1.1.min.js"></script>
+    <script>
+        // 跨域： 是由于浏览器自身的同源策略导致的；浏览器只能访问同域下的数据或内容；
+        // 同域： 要求协议相同 域名相同  端口号相同；如果其中一个不相同，就会跨域;
+
+        // http://www.baidu.com:443/example/src/1.html
+        // http://www.baidu.com:888
+        // 只能访问该端口下的项目或者是数据；
+        // 浏览器: 同源策略；同源策略阻止一个域的脚本去请求另一个域的脚本进行交互；
+
+        // 前端都是通过ajax来获取数据的；
+        // ajax 不能访问不同源下的数据或内容
+        // $.ajax({
+        //     // url是相对路径；相对于html文件
+        //     // url:"http://127.0.0.1:5501/6.正式课第六周/day4/3.txt",// 
+        //     url:"http://matchweb.sports.qq.com/kbs/calendar?columnId=100000",
+        //     type:"get",
+        //     success:function(val){
+        //         console.log(val);
+                
+        //     }
+        // })
+
+        // script   : script 有个src属性，这个src属性是非同源的；可以支持跨域请求
+        function fn(data){
+            console.log(data);
+        }
+
+        // JSONP 跨域原理： 利用了script的src属性是非同源策略的，就可以获取到非同源的数据，然后当数据请求成功，再调用callback的回调函数；会把数据传递给这个回调函数的第一个参数；
+
+        // JSONP : 需要后端配合
+        // JSONP: 只能发送get请求，不能发送post请求；
+        // cros  window.name  webSocket document.domai  ngix
+    </script>
+    <script src="http://matchweb.sports.qq.com/kbs/calendar?columnId=100000&callback=fn"></script>
+</body>
+</html>

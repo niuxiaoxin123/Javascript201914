@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 定时器 
+        setTimeout(function(){},1000)
+        // ajax  : 同步异步；ajax可以设置这个任务的同步或异步的这种机制；
+        // 事件绑定
+        // box.onclick = function(){}
+        // window.onload=function(){}
+        // promise的then
+
+        // ajax ： 是客户端向服务器请求数据一个任务；这个任务可以规定成同步，也可以设置成异步；
+        // 同步： 如果客户端没有请求完数据，下面的代码都不会执行；
+        // 异步
+        // 买菜 --->  洗菜 ---> 炒菜；
+        // 解决异步回调地狱的一种方案；
+        // $.ajax({
+        //     url:"data.json",
+        //     success:function(){
+        //         $.ajax({
+        //             success:function(){
+        //                 $.ajax({
+
+        //                 })
+        //             }
+        //         })
+        //     }
+        // })
+        // 同步的展示出来各个任务；
+        let  p = new Promise(function(resolve,reject){
+            console.log(300);
+            //resolve();// resolve可以将当前promise的状态变成成功态；
+            //reject();// reject和报错；
+            //console.log(a);
+            // 
+        });// pending 
+        // then 受上一个promise状态的影响；p状态一直pending；then的第一个函数只有当p状态变成了成功态，就会执行
+        p.then(function(){
+            console.log(100);
+            //return new Promise()
+        },function(){
+            console.log(200);
+        })
+        console.log(400);
+    </script>
+</body>
+</html>

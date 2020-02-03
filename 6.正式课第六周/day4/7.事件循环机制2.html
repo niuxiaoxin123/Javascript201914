@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // async function async1() {
+        //     console.log('async1 start');// 2
+        //     await async2();// await 后面的是同步
+        //     console.log('async1 end'); // 微1  6
+        // }
+        // async function async2() {
+        //     console.log('async2'); // 3
+        // }
+        // console.log('script start');// 1
+        // setTimeout(() => {
+        //     console.log('setTimeout'); // 8
+        // }, 0);
+        // async1();
+        // new Promise(resolve => {
+        //     console.log('promise1');// 4
+        //     resolve();
+        // }).then(() => {
+        //     console.log('promise2');// 微2  7
+        // });
+        // console.log('script end'); // 5
+
+        // 微任务 : await  promise的then 
+        // 宏任务： 定时器  ajax  
+        // 事件循环机制： JS代码执行分为主任务队列和对待任务队列；在执行主栈的代码遇到同步的代码会立即执行，遇到异步的代码会先放到等待队列中，放入时区分是宏任务还是微任务，按照不同的任务放到等待队列不同的池子中；当主栈执行完成时，那么要先去等待队列的微任务中去遍历，按照放入时间先后依次执行，把微任务放到主栈中去执行，微任务执行完毕，再去执行宏任务。
+
+        // 什么是事件循环；
+
+            console.log('1');
+            setTimeout(function () {
+                console.log('2');
+                new Promise(function (resolve) {
+                    console.log('4');
+                    resolve();
+                }).then(function () {
+                    console.log('5');
+                });
+            });
+            new Promise(function (resolve) {
+                console.log('7');
+                resolve();
+            }).then(function () {
+                console.log('8');
+            });
+            setTimeout(function () {
+                console.log('9');
+                new Promise(function (resolve) {
+                    console.log('11');
+                    resolve();
+                }).then(function () {
+                    console.log('12');
+                });
+            });
+    </script>
+</body>
+</html>

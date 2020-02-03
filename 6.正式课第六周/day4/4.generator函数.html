@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // generator函数：状态机
+        // 1.function 和函数名之间有一个*;
+        // 2.函数体内部使用了yield表达式，来定义函数体内部的状态；
+        // generator 函数是分段执行的，yield是暂停的标记，next是恢复执行；
+
+        function* fn(){
+            console.log(100);
+            yield "hello";
+            console.log(200);
+            yield "world";
+            console.log(300);
+            return 600;
+        }
+        let f = fn();// fn的返回值是一个指向指针的对象
+        let f1=f.next();// 让当前的状态切换到下一个指针
+        console.log(f1);// {value: "hello", done: false}
+        let f2 = f.next();
+        console.log(f2);
+        let f3 = f.next();
+        console.log(f3);
+        let f4 =f.next()
+        console.log(f4);  
+    
+    </script>
+</body>
+</html>

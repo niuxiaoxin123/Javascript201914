@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ajax: xmlHttpRequest;
+        // fetch 不是ajax的进一步封装；
+        // fetch是window对象上一个方法；方法返回一个promise的对象
+
+        // fetch 
+        // 1. fetch将不同类型的借口放在不同的fetch不同的对象上
+        // 2. 返回一个promise的实例，避免了层层的回调；
+        // fetch至少需要两个then;
+        // 
+        // 缺点：
+        // fetch 不能接受跨域的cookie；
+        // fetch 不能发送cookie;
+        let data  ={user:"a"};
+        fetch("data.txt",{method:"post",body:JSON.stringify(data)}).then(function(res){
+            return res.json();
+        }).then(function(data){
+            console.log(data);
+        });
+    </script>
+</body>
+</html>

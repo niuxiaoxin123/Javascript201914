@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // http协议 ： 超文本传输协议；不仅可以传输文本，还可以传输图片，音视频等内容；
+    // http就是浏览器和服务器之间的快递小哥；帮助浏览器和服务器传输东西的；
+    // http : 超文本传输协议；端口80
+    // https : 是一种更加安全的传输加密协议；端口443
+    // http是无状态的；cookie；
+    
+    $.ajax({
+        url:"./data.json",// 相对路径
+        data:{name:""},
+        type:"get",
+        success:function(){
+
+        }
+    })
+
+    // http请求请求阶段
+    // 1.建立TCP连接，三次握手
+    // 2.客户端向服务端http请求
+    // 3.先发送请求头，然后再发送请求体，最后发送发送一段空白，告诉服务器请求完毕；
+
+    // http的服务器处理阶段
+    // 1.当服务器接收到前端的http请求响应，服务器根据请求的url,找到对应端口
+    // 2. 找到端口，根据请求的url,找到对应文件，然后把这个url下的数据处理；
+    // 3. 先发送一个响应头给客户端，然后再把请求的数据以响应体方式传给客户端；
+
+    // http最终响应客户端阶段
+    // 1. 先接受到一个响应头，根据响应头信息，按照响应头信息接受不同的数据
+    // 2. 客户端接受html,css,js等，会按照特定的格式进行解析加载
+    // 3.  如果是HTML，会形成DOM树，css树，render树；最后渲染
+
+
+    // https://www.cnblogs.com/yuanzhiguo/p/8119470.html
+    // 三次握手：
+    // 1. 客户端先发送SYN数据包给服务器
+    // 2. 服务器接受到SYN包，把这个包进行处理，成为SYN/ACK包
+    // 3. 客户端再次发送收到的确认信息
+
+
+    // 四次挥手：
+    // 1. 客户端数据已经传输完毕，告诉服务器传输完毕FIN包
+    // 2. 服务器收到会给客户端发送ACK包，告诉客户端可以关闭；
+    // 3. 当服务器数据处理传输完毕，会给客户端发送FIN包，服务器已经传输完毕
+    // 4. 客户端在发送ACK包，确认接收完毕，服务器把数据传输通道关闭；
+
+    
+    
+    
+    </script>
+</body>
+</html>

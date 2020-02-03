@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 函数定义
+        // 函数的执行
+        // 1. 形成私有作用域
+        // 2. 形参赋值
+        // 3. 变量提升
+        // 4. 代码从上到下执行
+        // 5. 作用域是否销毁
+        function win(attr,val){
+            if(typeof val==="undefined"){
+                return document.documentElement[attr];
+            }
+            document.documentElement[attr]=val;
+            document.body[attr]=val;
+        }
+        win("scrollTop",300);
+        win("scrollTop")
+
+        function fn(a,b){
+            // arguments:只能应用在函数体中；这是一个类数组；不能使用pop; 有length 有索引；
+            //a=99;
+            //console.log(arguments);
+            // arguments.__proto__ = Array.prototype;
+            // let arr = [...arguments];
+            //console.log(arr);
+            var  h = 1;
+            //return;// 仅仅是把h存储的值return外面；
+        }
+        //console.log(h);
+        
+        fn(100,3,90,2,39,89,33);
+        // 1. 函数的形参实参,如果没有实参，那么形参默认存储的值就是undefined；
+        // 2. arguments : 实参集合【任意数求和】,非严格模式下，arguments和形参存在一一映射的关系；改变其中一个，另一个也会随着发生变化
+        // 3. return :1. 把函数体中内容返回到函数体的外面 2.中止return下面的代码运行
+        
+        // function f(num){
+        //     if(num<0){
+        //         // 在递归中中止函数代码向下执行的；
+        //         return;
+        //     }
+        //     f()
+        // }
+        // f(100);
+
+        //匿名函数:没有名字的函数 自执行函数
+        // (function(){})();
+        // var rr = function(){ // 把自己的空间地址给了变量rr;
+        // }
+
+        // 箭头函数
+        // let rr = m=>100;// 100 代表的是函数的执行结果
+        // // rr(1,2);
+        // let y =()=>{
+        //     console.log(this);// 上一级作用域中的this；
+        // }
+
+        // 1.箭头函数中没有this
+        // 2.箭头函数没有arguments【剩余运算符】
+        // 3.箭头函数不能被new
+        // 4.不能作为generator函数；
+        // ES6之前函数有三种角色，既可以作为函数，类，对象
+        // ES6把函数分成了箭头函数，和class定义类；
+        // console.dir(rr)
+        // class Fn{
+        // }
+        // let  obj = {
+        //     fn:function(){
+        //         // this--> obj
+        //         return ()=>{
+        //             // 上一级作用域的this；
+        //             console.log(this); 
+        //         }
+        //     }
+        // }
+        // obj.fn()();
+        var a =1;
+        let obj= {
+            fn(){
+                console.log(this);
+            },
+            a:a
+        }
+        obj.fn();
+
+        // 在全局作用域形成以后，在当前作用域下，会给其提供一个window的大对象
+        //Number()//在当前栈内存中找Number，再去window这个大对象上去查找；
+        //alert();
+        //Number1();
+        //addEventListener();
+    </script>
+</body>
+</html>

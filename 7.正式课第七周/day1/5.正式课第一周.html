@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     // git  明白代码的解析过程(堆栈内存、变量提升、作用域)  this   面向对象
+     // 浏览器形成堆栈内存，为代码执行提供必要的条件；
+     // 全局作用域：全局变量
+     //console.log(a);
+     //var a =100;// 全局变量
+     //b=199;// window也新增键值对
+    //  function fn(){
+    //      var a = 100;// 私有变量
+    //      //b=99;
+    //      return a;
+    //  }
+    //  fn();
+
+    // 1.
+    console.log(fn);
+    if(true){
+        function fn(){
+        }
+    }
+    // 2.
+    div.onclick = function(){
+    }
+    // 3. return 下面代码不执行，但是要进行变量提升
+
+    // 4. 如果重复，不再重复声明，但是要重新定义
+
+    // 5. 匿名函数不进行变量提升
+
+    //(function(){})();
+
+    // 作用域：函数执行会形成私有作用域
+    //函数的VO:函数体中代码执行执行做的；
+    // 1. 形成一个上下文的执行环境（栈内存）
+    // 2. 初始化作用域链
+    // 3. 创建变量函数
+    // 4. 初始化arguments对象和参数并赋值
+    // 5. 对该上下文中的函数进行声明并且赋值
+    // 6. 如果函数名已经出现，那么会把第一次初始的变量进行覆盖
+    // 7. 对该上下文的变量进行声明，初始化值是undefined；
+    // 8. 如果变量名重复,直接跳过；
+    // 9. 确定this的指向；
+
+    // function fn(){
+    //     console.log(this);
+    //     console.log(arguments);
+    //     return function(){
+
+    //     }
+    // }
+
+    // 堆栈内存回收
+    // 堆内存的回收：标记清除  计数清除
+    //var obj = {a:1};
+    //只要栈内存销毁了，那么里面的堆内存也会随着回收；
+    function fn(){
+        var o = {a:1};
+    }
+    fn();
+    // 栈内存的回收
+
+    // 不销毁
+    function fn(){
+        return function(){
+
+        }
+    }
+    var f = fn();
+    let  obj  ={
+        fn:(function(){
+            return function(){
+            }
+        })()
+    }
+    let obj ={}
+    function fn(){
+        obj.a = function(){
+        }
+    }
+    // 只要函数体中的空间地址被外界引用，那么该作用域就不销毁了；
+
+    function fn(){
+        return function(){
+        }
+    }
+    fn()();
+
+    for(let i=0;i<3;i++){
+
+    }
+    // this--> 关键字；在不同的情景下，代表不同的东西
+    console.log(this);
+    // this --> 执行主体；谁让这个函数执行的；
+    function fn(){
+        // 在代码执行之前把当前作用域下的this给赋值；
+    }
+    fn.call(100);
+
+    
+    // 面向对象：类的继承  封装 多态；
+    Array.prototype.pop=function(){};// 重写方法；
+    // 单例模式-->工厂模式-->构造函数模式--原型模式
+    // 类   实例    
+    function  Fn(){
+        // this--> 实例
+        var a = 100;
+        this.v = 55;
+        return {}
+    }
+    Fn();
+    var f = new Fn();// f是Fn的一个实例，f就可以调用Fn原型上的方法；
+    // typeof  instanceOf  constructor  toString.call(); 
+
+
+    let arr1 = [12,3];
+    let arr2 = [45,56,7];
+    // 原型模式
+    // 
+    function fn(){
+         
+    }
+    // 所有的函数都是Function 的一个实例；   Function  Object;
+    // 继承 ： 原型继承  call继承  中间类继承  寄生组合继承   class 继承
+    function A(){
+
+    }
+    function B(){
+        A.call(this);
+        // arguments.__proto__=Array.prototype;
+    }
+    //A.prototype = new B;
+    B.prototype = Object.create(A.prototype);
+
+    class A{
+
+    }
+    class B extends A{
+        constructor(){
+            super();
+        }
+    }
+
+    // 函数的三种角色：对象 函数 类；
+    // 原型链
+
+    let  obj = {};
+    obj.call();
+    fn.hasOwnProperty();
+    Function.hasOwnProperty();
+    console.log(obj.call);// undefined
+    
+    </script>
+</body>
+</html>

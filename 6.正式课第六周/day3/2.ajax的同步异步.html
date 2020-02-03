@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let  xhr  = new XMLHttpRequest;
+        xhr.open("get","1.复习.html",false);// true :异步 false 同步;
+        xhr.onreadystatechange=function(){
+            console.log(xhr.readyState);
+        }
+        xhr.send();// 发送请求
+        console.log(100);
+
+        // 同步： 4 100；
+        // 异步：100 2  3  4；
+        // 同步异步的应用场景
+        // 1. 异步：
+        // 打开首页有十几个请求；如果该请求跟其他请求的数据没有关系，那么一般用异步；
+        // 2. 同步： 如果一个请求回来的数据会作为下一个请求的参数，这时第一个请求完成以后再发第二个请求，那么第一个请求应该用同步；
+
+        // JS本身是一个单线程；但是浏览器是多线程；浏览器可以同时发送处理多个请求；
+        //能用异步就别用同步；
+        $.ajax({
+            url:"data.txt",
+            async:true,
+            success:function(data){
+                $.ajax({
+                    url:"data.txt",
+                    data:a.a,
+                    success:function(data){
+                        $.ajax({
+
+                        })
+                    }   
+                })
+            }
+        })
+        $.ajax();// 1s
+        $.ajax();// 2s
+        $.ajax();// 3s
+        // 最终就需要3秒；  
+        // promise       
+        
+        
+    
+    
+    </script>
+</body>
+</html>

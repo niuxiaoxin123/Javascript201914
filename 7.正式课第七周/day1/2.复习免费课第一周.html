@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div id="a"></div>
+        <div id="b"></div>
+    </div>
+    <script>
+        // 把之前的上课案例和作业留的案例，都敲一遍；
+        // 免费课第一周： 变量   数据类型   函数   
+        // 变量
+        //  变量的组成：
+        // 1.数字 、字母、下划线、$组成；
+        // 2.不能以数字开头
+        // 3.尽量采用驼峰命名法
+        // 4.不能以关键字作为变量名
+        var fn = 100;
+        //var n;// undefined
+
+
+        // 数据类型：基本数据类型和引用数据类型
+        // 基本数据类型和引用数据类型：
+        //1.基本数据类型存储到栈内存中,引用数据类型存储到堆内存中
+        //2.栈内存是提供代码的运行环境的
+        //console.log(fn)//100
+        // obj 实际上就存储了一个引用数据类型的指针；是一个十六进制的字符串
+        //var obj = {a:1,b:2};
+        // 当浏览器发现该值是一个引用数据类型的指针时，并不是直接将指针这个字符串输出，而是根据这个指针找到对应的那块堆内存，然后把里面东西组装给输出出来。
+
+        // var  a=b=100;
+        // b=200;
+        // var c=d={h:100};
+        // d.h=300;
+
+        // Number : 数字 NaN 都是Number类型的；
+        // 1.Number :将其他数据类型的强制转换成Number；如果里面不是字符串，会先转成字符串，再转数字
+        // 每一个数据类型原型上都有一个toString
+        //Number([1,2])// []==>""==>0
+        //Number({}) 
+        //Number(null) 
+        //Number("1px")// NaN   
+
+        // 2. isNaN :会把后面的值先强制转数字，再校验
+        isNaN(false)// false
+        isNaN("3px")// true
+        
+
+        // 3. parseFloat
+        parseFloat("3.7px")
+
+        // 4. parseInt
+
+        // 5.toFixed:保留小数点位数,会得到一个字符串
+        // var num = 100.3456;
+        // num.toFixed(2)
+
+        // 字符串 :用双引号单引号或反引号包起来的内容都是字符串
+        // 1. ""  ''  ``
+        // 2. 索引
+        // 3. length
+        // 字符串方法：toUpperCase toLowerCase charAt  charCodeAt  substr  subsring slice  replace(old,new) split indexOf  lastIndexOf  concat  trim trimLeft  trimRight
+        //let str1 = "234";
+        //let str = "346543223456";
+
+        // Boolean : true  false 
+        // Boolean : 只有0 ""  NaN   null  undefined 转布尔是false
+        // var obj = {}
+        // Boolean("3px")// true
+        // Boolean(obj.a)
+
+        // ! : 
+
+        // Null  :
+
+        // undefined :
+
+        // cannot read "style" property of undefined
+
+        //let  a = document.getElementById("a");
+        //console.log(a.previousElementSibling)
+
+
+        // 对象
+        // 字段 ： 是属性名
+        // var obj = {a:100}
+        // 关于前后端联调
+        // $.ajax({
+        //     url:"",
+        //     data:{
+        //         // 这里面的键值对是根据接口文档里面来的
+        //         username:""
+        //     },// 前端传递给后端的数据
+        //     success:function(data){// data:后端返回给前端的数据
+        //         //{code:1,data:[]}
+        //     }
+        // })
+        // 增删改查
+        // 对象中的属性名不能重复
+        // 数组的去重
+        // var arr = [12,23,34,24,34,23,25,66]
+        // var obj = {a:1};
+        // var b="a";
+        // obj.a =200;
+        // obj[b]=100;
+        // console.log(obj);// {a:100} 
+        // obj.a=100;
+        //delete obj.a;
+        // obj.a = 100;
+        // var  n = obj.a;// 获取
+        // if(obj.a){
+
+        // }
+        // function fn(){
+
+        // }
+        // fn(obj.a)
+        // 
+        // obj = {a:1,2:4,5:2,1:8}
+        // for(let key in obj){
+        //     //key  :属性名  字符串
+        //     obj[key]
+        // }
+
+        // 数组 
+        // pop push  shift unshift  slice  splice  indexOf lastIndexOf  sort(function(a,b){return a-b}) reverse join  concat  map forEach 
+
+        
+        // let  arr = [1,23,4,6,67,8]
+        // let a = arr.map(function(a,b){
+        //     return 100
+        // });
+        // console.log(a);
+        // console.log(arr);
+
+        let  arr = [1,23,4,6,67,8];
+        // 找到符合条件的第一项值;如果没有是undefined
+        let a = arr.find(function(item,index){
+            return item>300;
+        });
+        console.log(a);
+        // filter : 找到符合条件的那几项；没有返回[]
+
+        let b = arr.filter(function(item,index){
+            return item>1000;
+        });
+        console.log(b);
+
+        // every : 必须保证每一项都返回true，整体返回true;
+        // 只要返回false，就不再向下循环；找false
+        let c = arr.every(function(item,index){
+            console.log(item);
+            return item>10;
+        });
+        console.log(c);
+        // some ：只要有满足条件就返回true，如果都不满足，那么返回false;只要找到符合条件的那一项，不再循环；找true；
+        let d = arr.some(function(item,index){
+            //console.log(item);
+            return item>10;
+        });
+        console.log(d);
+        // includes : 校验数组是否含有这一项
+        // reduce : 收敛
+        let sum = arr.reduce(function(prev,next){
+            // prev : 代表上一次回调函数的返回值
+            return prev+next;
+        },0);
+        console.log(sum);
+    </script>
+</body>
+</html>

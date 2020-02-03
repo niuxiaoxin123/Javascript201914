@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let xhr = new XMLHttpRequest;
+        console.log(xhr.readyState);
+        //2.请求方式，请求路径，同步异步；
+        xhr.open("post","11.复习.html",false);
+        //3.监听readystate发生改变的方法；
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState===4&&/^2\d{2}/.test(xhr.status)){ 
+            }
+        }
+        //4.发送请求
+        xhr.send({username:"aaa"});
+
+        // 前端： 请求头请求体
+        // 后端： 响应头响应体
+
+        // 笔试题和面试题
+        // 1. get : 一般用于获取数据(获取订单、获取所有用户)
+        //   1)： get请求传参通过地址栏传参，把数据拼接到url问号的后面
+        //   2)： 各个浏览器对地址栏url大小由要求，不可以无限传参；IEurl控制4Kb
+        //   3):  直接将数据暴露在地址栏上，安全性较低
+        //   4)： get请求会走缓存，如果不想走缓存，在url的后面拼接一个随机的时间戳；
+        // 2. post ：一般用于向服务器发送数据（登录，注册，提交订单...）
+        //   1) : post传递数据是放到请求体中，传递给服务器
+        //   2) ：数据大小没有要求
+        //   3) : 存放在请求体中，安全系数高
+        //   4) : post请求不走缓存
+
+        // delete : 删除操作
+        // head 
+        // put 
+
+
+        $.ajax({
+            url:"data.json",
+            type:"get",// 如果不传参数，默认会走get请求
+            data:{username:11,password:22},
+            async:false,// 如果不写，默认是异步
+            //cache:false,// 默认会走缓存，如果是false，是不走缓存的
+            success:function(data){
+                // data: JSON格式的对象；
+            },
+            error:function(){
+                // 如果请求失败，会执行这个函数
+            }
+        })
+
+        function ajax(){  
+        }
+        ajax({
+            url:"data.json",
+            type:"post",// 如果不传参数，默认会走get请求
+            data:{username:11,password:22},
+            async:false,// 如果不写，默认是异步
+            cache:false,// 默认会走缓存，如果是false，是不走缓存的
+            success:function(data){
+                // data: JSON格式的对象；
+            },
+            error:function(){
+                // 如果请求失败，会执行这个函数
+            }
+        });
+    
+    
+    
+    </script>
+</body>
+</html>

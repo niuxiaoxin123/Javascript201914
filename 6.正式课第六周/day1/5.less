@@ -1,0 +1,55 @@
+// // less中定义的变量还存在变量提升的特点；
+// @w:100px;
+// // 变量定义公共的图片路径
+// // images
+// @URL:"../images/";
+// // 如果私有作用域存在，就不再向上查找了；
+// .box{
+//     @w:300px;
+//     width:@w;
+//     .box1{
+//         height:@w;
+//         background:url("@{URL}1.jpg");
+//     }
+//     .box2{
+//         background:url("@{URL}2.jpg");
+//     }
+// }
+
+// 函数的封装
+// 如果在类名后面加上小括号，那么就不再进行编译了；
+// .public() ；函数
+// .public : 类
+// .public(@a){
+//     width:@a;
+//     height:100px;
+// }
+// .box{
+//     .public(@a:200px);
+// }
+
+.public{
+    width:300px;
+    height:500px;
+}
+
+//&   : 连接符；
+// .box{
+//     // width:100px;
+//     // &:hover{
+//     //     background:red;
+//     // }
+//     // &-box1{
+//     //     width:99px;
+//     // }
+//     //.public; 冗余的代码比较多；
+//     &:extend(.public);
+// }
+// mix ： 可以有判断条件；
+// .layout(@a) when(@a<100){
+//     background: red;
+// }
+// .box{
+//     .layout(990)
+// }
+

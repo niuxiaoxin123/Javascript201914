@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // generator *=>async   yield => await
+        // async函数： 有内置的执行器；
+        // async : 函数中有异步的操作;async函数默认返回一个promise实例
+        // await : 等待紧跟在后面的表达式需要等待的结果；
+        // await 下面代码是异步的；并且是一个微任务；await后面跟着代码是同步的；
+
+        // 异步任务分为宏任务和微任务；当主任务队列执行完成，需要执行异步任务，异步任务先找到里面的微任务，按顺序执行，微任务执行完成，再去执行宏任务；
+        // setTimeout(()=>{
+        //     console.log(300);
+        // },0)
+        // function fn1(){
+        //     console.log(100);
+        //     return 100;
+        // }
+        // async function fn(){
+        //    let s =  await fn1();
+        //    console.log(s);
+        //    console.log(200);
+        // }
+        // let result = fn();
+        // console.log(result);
+
+        function fn1(){
+            // 当函数中返回一个promise实例时
+            return new Promise(function(resolve,reject){
+                resolve("放假了");
+            })  
+        }
+
+        function fn2(){
+            return new Promise(function(resolve,reject){
+                resolve();
+            })
+        }
+        async function fn(){
+           let s =  await fn1();
+           // 1.如果fn1中返回一个promise实例，那么await 下面的代码都是fn1中返回的promise实例then的成功回调中的代码；
+           // 2.await函数的返回值s就是上一个promise实例中resolve传递的实参；
+           console.log(s);
+           console.log(200);
+           let a = await fn2();
+           console.log(666);
+        }
+        fn();
+
+        // 异步的请求 
+        function getData(url){
+            return axios.get(url);
+        }
+        async function fn(){
+            // 将异步的代码变成同步；
+            let data= await getData("/list");
+            for(let i =0;i<data.length;i++){
+
+            }
+        }
+
+
+
+        
+    
+    
+    </script>
+</body>
+</html>

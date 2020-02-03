@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // $ === jQuery
+    // ajax都可以传递什么参数
+    $.ajax({
+        url:"data.txt",
+        type:"get",
+        async:false,// async : 同步异步，如果不写，默认是异步；
+        cache:false,// 默认走缓存，true是走缓存，false是不走缓存；
+        data:{},
+        dataType:"json",// 请求来的数据格式
+        success:function(data){
+            // 当请求成功执行的回调函数;并且数据传递给这个回调函数的实参；
+            // 默认是json格式的对象
+        },
+        error:function(){
+            // 请求失败执行的回调函数
+        },
+        beforeSend:function(xhr){
+            // 在发送请求之前，执行回调；一般用于设置请求头；
+            // xhr: 就是ajax的实例
+            xhr.setRequestHeader();
+        },
+        context:document.body,
+        complete:function(){
+            // 不管成功还是失败，都要调用这个方法；
+        },
+        timeout:1000,// 设置请求的超时时间；
+        username:"",
+        password:"",// 请求认证的用户名和密码
+        xhr:function(){
+
+        }
+    })
+
+    
+    
+    
+    </script>
+</body>
+</html>

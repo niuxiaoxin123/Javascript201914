@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="node_modules/axios/dist/axios.js"></script>
+    <script>
+        // axios : 是一款基于promise的HTTP库；用来前后端数据交互的；
+        // 后期的项目大多数都要用到axios;
+        // axios.get: get请求，当请求成功以后，会执行then中的第一个回调函数；失败走catch;
+        // axios.get("./data.txt?a=111&b=222").then(function(res){
+        //     // res : 请求成功的数据；这个res是被包装的数据；数据放到了res的data的属性名上
+        //     console.log(res.data);
+        // }).catch(function(){
+
+        // })
+        // axios.get("./data.txt",{params:{a:111,b:222}}).then(function(res){
+        //     // res : 请求成功的数据；这个res是被包装的数据；数据放到了res的data的属性名上
+        //     console.log(res.data);
+        // }).catch(function(){
+
+        // })
+        // /// post : 直接传入对象作为参数
+        // axios.post("./data.txt",{a:1,b:2}).then(function(val){
+        //     // {data:{}}
+        //     // 最后把数据都会放到val的data属性上
+        // })
+
+        // // axios.all  支持并发请求
+        // function getUserAccount() {
+        //     return axios.get('/user/12345');
+        // }
+
+        // function getUserPermissions() {
+        //      return axios.get('/user/12345/permissions');
+        // }
+
+        // axios.all([getUserAccount(), getUserPermissions()])
+        // .then(axios.spread(function (acct, perms) {
+        //     // 只有当两个请求都执行完成，才执行这个回调；
+        //     // 两个请求现在都执行完成
+        // }));
+        // API配置；
+        //baseURL: 'https://some-domain.com/api/'
+        //工作中的请求会进行一次二次封装；
+        // function request(url){
+        //     axios.baseUrl="";
+        //     return axios(url);
+        // }
+        // axios.defaults.baseURL = 'https://api.example.com';
+        // axios({
+        //     url:"/data.txt",// url:https://some-domain.com/api/data.txt
+        //     method:"get",
+        //     data:{}
+        // }).then(function(val){
+
+        // });
+        // axios({
+        //     url:"a.json"
+        // })
+
+        // axios.interceptors.request.use(function(){
+        //     // 
+        // },function(){
+
+        // })
+
+
+        axios.interceptors.response.use(function(response){
+            // 响应数据成功，对成功做些什么
+            // console.log(response);
+            //response.data=[{c:1}]
+            return response.data;
+        },function(){
+
+        });
+        axios.get("data.txt").then(function(val){
+            console.log(val);
+        })
+        // 看文档的能力；
+        // 掘金、思否，csDN、w3c ，博客
+
+        
+    </script>
+</body>
+</html>

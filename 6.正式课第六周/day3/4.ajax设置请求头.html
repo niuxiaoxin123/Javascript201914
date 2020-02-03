@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 有些请求需要通过请求头传递给后端一些数据或指责一些请求信息；请求头比请求体要早到达服务器，服务器可以根据请求头的信息，进行相应的处理；
+        // 一般情况下，会将请求的cookie放在请求头中，传递给服务器；
+        let  xhr  = new XMLHttpRequest;
+        xhr.open("get","1.复习.html",false);
+        xhr.onreadystatechange=function(){
+            console.log(xhr.readyState);
+        }
+        // 当真正的工作中，cookie是后端生成的；
+        xhr.setRequestHeader("Cookie","headertest");
+        // 在发送请求之前设置这些请求头的信息
+        xhr.send();   
+    </script>
+</body>
+</html>

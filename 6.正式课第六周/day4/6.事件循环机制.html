@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn1(){console.log(666);}
+        setTimeout(function(){
+            console.log(800);
+        },0)
+        console.log(900);
+        async function fn(){
+            console.log(999);
+            await fn1();
+            console.log(888); 
+        }
+        let  p = new Promise(function(resolve,reject){
+            console.log(200);
+            resolve();
+            console.log(300);
+        })
+        p.then(function(){
+            console.log(100);// 异步的
+        });
+        fn();
+        // 900  200  300 999  666  888 100 800
+        // 微任务执行的顺序要看谁先放进任务队列中，谁先执行；
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+
+        function ajax(options){
+            // 准备一个默认的对象
+            let default_op={
+                type:"get",
+                async:true,
+                cache:true,
+                success:null,
+                data:null
+            }
+            // 循环options，给default中属性名重新赋值；
+            for(let key in options){
+                default_op[key]=options[key];
+            }
+            if(default_op.type.toLowerCase()==="get"){
+                // 为了解决传参；get请求需要将data的值拼到url的后面；
+                let str=`?`;
+                for(let key in default_op.data){
+                    str+=`${key}=${default_op.data[key]}&`
+                }
+                str=str.slice(0,str.length-1);
+                default_op.url+=str;
+                if(!default_op.cache){
+                    // 如果不走缓存，在后面添加时间戳；
+                    default_op.url+= `&time=${Date.now()}`;
+                }
+            }
+            let xhr = new XMLHttpRequest;
+            // 取到default_op中的值；给open方法传入参数；
+            xhr.open(default_op.type,default_op.url,default_op.async);
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState===4&&/^2\d{2}/.test(xhr.status)){
+                    // 把请求回来的数据转成JSON格式的对象，传给success的回调；
+                    let val = JSON.parse(xhr.responseText);
+                    default_op.success(val);
+                }else if(xhr.readyState===4){
+                    // 如果请求不成功，执行失败的回调；
+                    default_op.error();
+                }
+            }
+            // 发送请求；
+            if(default_op.type==="get"){
+                default_op.data=null;
+            }
+            xhr.send(default_op.data);
+        }
+        ajax({
+            url:"data.txt",
+            type:"get",
+            data:{username:"a",password:"b"},
+            cache:false,
+            success:function(data){
+                console.log(data);
+            }
+        })
+    
+    
+    
+    </script>
+</body>
+</html>

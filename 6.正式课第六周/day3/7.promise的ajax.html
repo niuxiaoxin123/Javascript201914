@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  promise : 解决异步回调地狱的一种方案；
+        // 第二个请求需要等到第一个请求成功以后才能执行，这种无限嵌套的请求就是回调地狱；
+        // 将异步的回调同步的展示出来；
+        // $.ajax({
+        //     url:"/login",
+        //     type:"post",
+        //     success:function(data){
+        //         // data:{statusCode:0}// 这是后端返回的数据
+        //         if(data.statusCode===0){
+        //             $.ajax({
+        //                 url:"/order",
+        //                 type:"get",
+        //                 success:function(){
+        //                 }
+        //             });
+        //         }
+        //     }
+        // });
+       
+        // if(pathname==="/login/list"){
+        //     // 登录
+        // }
+        // if(pathname==="/order"){
+        //     // 请求订单
+        // }
+
+        let getJSON=function(str){
+            // promise  和  ajax实例
+            let promise = new Promise(function(resolve,reject){
+                let xhr = new XMLHttpRequest();
+                xhr.open("get",str,false);
+                xhr.onreadystatechange=function(){
+                    if(xhr.readyState===4&&/^2\d{2}/.test(xhr.status)){
+                        let val = JSON.parse(xhr.responseText);
+                        resolve(val)
+                    }else if(xhr.readyState===4){
+                        reject()
+                    }
+                }
+                xhr.send();
+            })
+            return promise;
+            // 返回一个promise的实例；
+        }
+        getJSON("data.txt").then(function(data){
+            console.log(data); 
+        })
+        // getJSON("/userList").then(function(data){
+        //     // 把promise请求回来的数据，传递给then的回调函数中的参数
+        //     return getJSON("/order")
+        // }).then(function(data){
+        //     return getJSON("/list")
+        // }).then(function(data){
+
+        // }).catch(function(){
+        //     // 如果有任意一个请求失败，触发catch对应的回调；
+        // })
+    
+    
+    
+    </script>
+</body>
+</html>
