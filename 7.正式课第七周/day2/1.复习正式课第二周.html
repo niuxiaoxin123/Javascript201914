@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Function  Object 
+        // 原型链:先找自己的私有属性，然后通过__proto__向上继续查找，直到找到Object.prototype,如果也没有，那么获取结果就是undefined；
+        // Object.prototype.__proto__---> null
+        //let obj = {};
+        //var  t = obj.toString; 
+
+
+        // call、apply、bind;都在Function的原型上；所以所有的函数才可以调用这个三个方法；
+        //Object.call();
+        function fn(a,b){
+            //执行机制 函数中的this是浏览器指定的；
+            //var a = this;
+            console.log(this);
+        }
+        //fn.call(100,200);// call执行改变了fn中的this，指向第一个参数，并且让fn执行；
+        // apply : 
+        //fn.apply(100,[1,2,3,4,5]);
+
+        // bind : 预处理this；但是在IE678下不兼容；
+        // var f = fn.bind(100,2,3,4,5);
+        // f();
+
+        Function.prototype.myBind=function(){
+            // this-->fn 
+            // 解决this，参数问题
+            let that = this;
+            let cur = arguments[0];
+            let ary = [].slice.call(arguments,1);
+            return function(){
+                for(var i=0;i<arguments.length;i++){
+                    ary.push(arguments[i]);
+                }
+                that.apply(cur,ary);
+            }
+        }
+        var f = fn.myBind(100,90,90393,494,6)
+        f();
+        function bar(){
+            var a= [];
+            let b = a.concat(arguments)
+            console.log(b); 
+        }
+        bar(1,23,4)
+        //call :
+        fn.call(100);//
+
+        // 面试能力：前端进入公司是什么样的状态；
+
+        // 数据绑定
+        // DOM CSS==>render==>painting
+        // DOM 映射 DOM回流  DOM重绘
+
+        // JSON ： parse  stringify 
+        // 
+        // $.ajax({
+        //     url:"/login",
+        //     data:{
+        //         username:"aa",
+        //         password:"bb"
+        //     }
+        // })
+        // 深克隆和浅克隆；
+        // 浅克隆： 改变其中一个，另一个也会发生改变；
+        var b ={c:1,d:{f:1}};
+        var a = {};
+        for(let key in b){
+            a[key]=b[key];
+        }
+        var y = JSON.parse(JSON.stringify(b))
+        b.d.f=1000;
+        console.log(a);
+        console.log(y);
+        
+        
+
+
+    
+    
+    </script>
+</body>
+</html>

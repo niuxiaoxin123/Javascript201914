@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //ES6新增的特性有哪些？
+        // let const   Set  Map  块级作用域   解构赋值  箭头函数  class   promise  async await;
+        //let  const
+        // let a=10;
+        // if(100){
+        //     let a=100;
+        // }
+        // function fn(){
+        //     let a = 1;
+        // }
+        // for(let i=0;i<10;i++){
+        // }
+        // 解构赋值
+        // let [a,b]=[100,200];
+        // let {name,age}={name:"zhufeng",age:10};
+
+
+        // // 理论知识  项目  工作经验   项目场景
+        // let fn=(a,b)=>({a:1});
+        // fn :
+
+
+        // class 
+
+        // class A{
+        //     static b=100;
+        //     constructor(a){
+        //         this.a = a;
+        //     }
+        //     getX(){
+
+        //     }
+        // }
+        // new A(100);
+
+        // class B extends A{
+        //     constructor(){
+        //         super();
+        //     }
+        // }
+
+        // // 
+        // setTimeout(function(){
+        //     console.log("买菜");
+        // },1000)
+        // setTimeout(function(){
+        //     console.log("洗菜");
+        // },2000)
+        // setTimeout(function(){
+        //     console.log("炒菜");
+        // },3000)
+
+        // $.ajax({
+
+        // })
+        // $.ajax({
+
+        // })
+        // new Promise(function(resolve,reject){
+        //     setTimeout(()=>{
+        //         resolve();
+        //     },1000)
+        //     //reject();
+        //     // throw new Error;
+        //     console.log(a);
+        // }).then(function(){
+        //     console.log(1);
+        // }).then(function(){
+        //     console.log(3);
+        // }).catch(function(){
+        //     // 捕获错误
+        // })
+
+       // Promise.resolve 
+       // Promise.race
+       // Promise.all()
+       // Promise.finally(); 
+
+       // axios  fetch;
+    //    function fn1(){
+    //         return new Promise(function(resolve,reject){
+    //             $.ajax({
+    //                 async:true,
+    //                 success:function(data){
+    //                     resolve()
+    //                 }
+    //             })
+    //         })
+    //    };
+    //    function f(){
+    //         return new Promise(function(resolve,reject){
+    //             $.ajax({
+    //                 async:true,
+    //                 success:function(data){
+    //                     resolve()
+    //                 }
+    //             })
+    //         })
+    //    }
+    //    async function fn(){
+    //        var a = await  fn1();// fn1中的代码是同步的；
+    //        var b = await  f();
+    //        // await 下面的代码时异步的；
+    //        // 如果await后面的函数返回一个Promise的实例，那么会把await下面的代码当做then中第一个回调函数中的的代码；
+    //        console.log(100);
+    //    }
+    //    fn();
+    //    console.log(200);
+
+       // 事件循环机制： 定时器  ajax   事件   promise 
+       setTimeout(()=>{
+            console.log(100);
+       },0)
+       new Promise(function(resolve,reject){
+            console.log(400);// 这是同步的；
+            resolve();
+       }).then(function(){
+           // then中的回调也是异步的
+           console.log(200); 
+       })
+       function f(){
+           console.log(666);// 
+       }
+       async function fn(){
+           await f();
+           // await 下面是异步的；
+           console.log(888);
+       }
+       fn();
+       console.log(300);
+       // 事件循环：
+       // 主线程执行完以后，该执行等待队列中的任务，等待队列中又分为微任务和红任务，先执行微任务队列中的事件，然后再执行宏任务队列中的事件；
+       //promise  async await 都是微任务；
+       // 定时器、ajax宏任务；
+       
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 正则： 元字符和修饰符
+        // 处理字符串
+        var reg = /\d/;
+        let a = /[123]/;
+        var  reg = /^-?(\d|[1-9]\d+)((\.\d+)?)$/;
+        //new RegExp()
+        // test
+        // exec
+        // replace(//g,function(){})
+
+        // JS 盒子模型
+        // JS元素时对象数据类型
+        // client
+        // clientWidth  clientHeight  clientTop  clientLeft 
+        // offset
+        // offsetWidth  offsetHeight  offsetParent offsetLeft offsetTop
+        // scroll
+        // scrollWidth  scrollHeight  scrollLeft  scrollTop
+
+
+        // 元素.style.width
+        // getComputedStyle 
+        // currentStyle 
+
+        // 封装
+        // toArray   offset   win
+
+        // 延迟加载: 性能优化
+
+        // jquery 
+
+        // 重构： 把原有的项目进行改版，换成最新的技术栈；这就是重构项目；
+
+        // 你的项目哪些地方有性能优化？
+        // onscroll onmousemove 
+        window.oncroll=function(){
+
+        }
+        // 防抖节流： 性能优化；
+        function debounce(func, wait) {
+            let timeout;
+            return function () {
+                let context = this;
+                let args = arguments;
+                if (timeout) clearTimeout(timeout);
+                timeout = setTimeout(() => {
+                    func.apply(context, args)
+                }, wait);
+            }
+        }
+        function fn(){
+            console.log(this);// this--> 元素
+            console.log(100); 
+        }
+        div.onmousemove = debounce(fn,1000);
+
+    </script>
+</body>
+</html>
