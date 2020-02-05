@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{
+            height:100%;
+        }
+        iframe{
+            border:none;
+            width:100%;
+            height:95%;
+        }
+    </style>
+</head>
+<body>
+    <!-- <iframe src="./3.child.html" ></iframe> -->
+    <a href="https://www.baidu.com" target="iframeA">百度</a>
+    <a href="https://www.taobao.com"  target="iframeA">淘宝</a>
+    <a href="https://www.jd.com"  target="iframeA">京东</a>
+    <iframe src="https://www.baidu.com" name="iframeA"></iframe>
+    <script>
+        // iframe : 是一个标签；可以在父页面嵌套子页面
+        // iframe : src的地址就是嵌套子页面的地址
+    </script>
+</body>
+</html>

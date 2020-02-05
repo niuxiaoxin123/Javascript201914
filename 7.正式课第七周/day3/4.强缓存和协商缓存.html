@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 缓存 ： 304；
+        // 性能优化
+        // 强缓存和协商缓存
+
+        // 缓存： 
+        // 节省带宽
+        // 减少服务器负担
+        // 加速客户端加载页面；
+        // 用户体验比较好
+
+        // 缺点： 导致更新不及时；
+        // cahe-control:max-age=315360000,public 这属于强缓存;每次打开页面会判断缓存过期，没有过期，会读取缓存
+
+        // 缓存：本地磁盘或者浏览器缓存
+        // 强缓存
+        // 针对是静态资源；比如html ,css,js,图片；
+        // cache-control: max-age=xxxx，public : 浏览器和代理服务器都可以缓存该资源
+
+        // 
+        // 协商缓存
+        // 每一个文件都有一个etag last-modified
+        // 发请求-->(强缓存)==>看资源是否过期-->过期-->请求服务器-->服务器对比资源是否真的过期-->没过期-->返回304状态码-->客户端用缓存的老资源
+
+        // 如果走缓存，那么现实状态码304，如果没走缓存，那么就是200；
+    
+    </script>
+</body>
+</html>

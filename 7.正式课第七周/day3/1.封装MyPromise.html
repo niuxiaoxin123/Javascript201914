@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 重写Promise；写一个类似于Promise这个类的方法
+        class MyPromise{
+            constructor(excutor){// 当new MyPromise，constructor执行的；
+                // this --> Promise的实例；
+                // pending  fulfilled  rejected
+                this.state="pending";
+                // 用来存储成功的回调函数和失败的回调函数的；
+                this.fulfilledEvent = [];
+                this.rejectedEvent = [];
+                // 1.resolve,改变了状态
+                let resolve=(result)=>{
+                    // 执行resolve,那么实例的状态变成了成功态；this-->Promise实例
+                    // 如果不是pending状态，就不再向下执行；
+                    if(this.state!=="pending")return;
+                    this.state="fulfilled";
+                    clearTimeout(this.timer);
+                    this.timer=setTimeout(()=>{
+                        this.fulfilledEvent.forEach(item=>{
+                            if(typeof item=="function"){
+                                item(result);
+                            }
+                        })
+                    })
+                };
+                let reject=(result)=>{
+                    if(this.state!=="pending")return;
+                    this.state="rejected";
+                    clearTimeout(this.timer);
+                    this.timer=setTimeout(()=>{
+                        this.rejectedEvent.forEach(item=>{
+                            if(typeof item=="function"){
+                                item(result);
+                            }
+                        })
+                    })
+                }
+                try{
+                    excutor(resolve,reject);
+                }catch(e){
+                    // e: 错误信息
+                    reject(e);
+                }
+            }
+            // 是订阅；是在往成功的事件池和失败的事件池放入成功的回调函数和失败的回调函数
+            then(resolveFn,rejectedFn){
+                // 当then不传回调时，给两个形参赋默认值
+                if(resolveFn===undefined){
+                    resolveFn=()=>{}
+                }
+                if(rejectedFn===undefined){
+                    rejectedFn=()=>{}
+                }
+                // this
+                return new MyPromise((resolve,reject)=>{  // then 返回的这个实例是p2;
+                    // 往事件池中放入方法；
+                    // resolve ：这个是函数，函数中的this--> p2;
+                    // this--> then返回的promise实例
+                    // this.fulfilledEvent.push(resolveFn);
+                    this.fulfilledEvent.push((result)=>{
+                        try{
+                           let x = resolveFn(result);
+                           // resolve : 让成功的事件池中的方法运行，里面执行时，this-->P2的事件池中的方法执行
+                           x instanceof MyPromise? x.then(resolve,reject):resolve();
+                        }catch(e){
+                            reject(e);
+                        }
+                    });
+                    this.rejectedEvent.push((result)=>{
+                        try{
+                           let x = rejectedFn(result);
+                           // resolve : 让成功的事件池中的方法运行，里面执行时，this-->P2的事件池中的方法执行
+                           x instanceof MyPromise? x.then(resolve,reject):resolve();
+                        }catch(e){
+                            reject(e);
+                        }
+                    });
+                })
+            }
+        }
+        let p1 = new MyPromise(function(resolve,reject){
+            // resolve(100)
+            // resolve(200);
+            // reject();
+            // console.log(a);
+            // console.log(resolve);
+            resolve();
+        })
+        p1.then(function(a){
+            // fn1
+            // 成功的回调函数
+            console.log(a);
+            return new Promise(function(resolve,reject){//:x===p3
+                resolve();// 这个resolve 执行，能让p3的事件池中的方法执行，p3的事件池中有个resolve;所以就会这个p3事件中的resolve执行，p3中的resolve执行，这个this指向p2,那么就能让p2事件池中的方法运行；
+            })
+        },function(){
+            // fn2
+            // 失败的回调
+            console.log(88);
+        }).then(function(){
+            // fn3
+            // 如果上一个then中的回调返回一个promise实例，那么这个函数会被resolve包裹一下，再放进这个实例的事件池中
+        },function(){
+
+        })
+        //console.log(p1);
+
+        // p1  p2  p3
+        // 第一个then：把方法放到p1的事件池中；
+        // 第二个then：把方法放到p2的事件池中；
+
+        // 
+        
+
+        let  p = new Promise(function(resolve,reject){// resolve : 形参
+            // 如果代码异常，会走失败；不会在控制台抛出异常
+            //console.log(a);
+            resolve();
+        })
+        let c  = p.then(function(){
+            // 
+        }).then(function(){
+            // 上一个中的回调如果不返回promise实例，那么这个then受上一个then默认返回的promise的状态影响，如果回调中返回了promise实例，那么这个then就受返回的promise实例的影响
+        },function(){
+
+        });
+        console.log(c);
+        
+    
+    
+    
+    </script>
+</body>
+</html>

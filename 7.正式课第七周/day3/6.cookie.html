@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="jquery.min.js"></script>
+    <script src="jquery.cookie.js"></script>
+    <script>
+        // localStorage 本地存储 
+        // setItem  removeItem  clear
+        // 1.记住用户名和密码(自动登录);
+        // 2.如果没有登录，加入购物车，把商品信息先存放到本地，当登录以后，把商品信息再发送服务器，存储到当前用户的购物车里
+        // 3. 可以页面之间信息的共享；
+
+        // 1. 本地存储受浏览器限制；
+        // 2. 受源(域)的限制，比如都是在谷歌下，京东下存储的数据，百度不能获取
+
+        // localStorage  sessionStorage 
+
+        // cookie : 解决登录问题；
+        // 当大家在登录页登录成功以后，
+        // http 是无状态的，并不知道该用户当前有没有登录过；如果登录成功以后，如果半个小时没有操作该页面，那么如果再次请求时，一般需要重新登录；因为刚才那次登录已经过期了；
+
+        // cookie :
+        // 1.大小限制：一般浏览器cookie最多存储8Kb ,localStorage允许存储5MB;
+        // 2.cookie兼容所有的浏览器，但是localStorage是H5新增的，不兼容低版本的IE；
+        // 3.稳定性： cookie有过期时间(清除浏览器缓存或者历史信息，安全卫士清理电脑垃圾，都有可能删除cookie)
+        // 4.浏览器开启无痕模式或隐私模式，此时没办法设置cookie；但是localStorage是可以的
+        // 5. cookie有过期时间，localStorage是永久存储
+        // 6. cookie经常和服务器的session有关，cookie信息会经常传给服务器，服务器也返回cookie；经常穿梭于客户端和服务器之间；
+
+        // session : 服务器存储；
+        // 服务器和前端都可以设置cookie;
+         // 登录过期
+         // 当输入用户名和密码以后，点击登录，发送请求；服务器验证该用户名密码如果正确，那么服务器会生成一个session文件，这个session文件会生成一个session-id;服务器会返回一个成功的状态，并且在前端会种一个cookie,并且设置个cookie的过期时间，这个cookie中就包含了一些登录的信息以及session-id;当客户端再次发请求，客户端会默认携带着当前页面的cookie信息，发送给服务器了；
+        // $.cookie("username","zhufengpeixun",{
+        //     expires:new Date(new Date().getTime()+30*24*60*60*1000)
+        // })
+        //$.removeCookie("username")
+        document.cookie="a=b";
+    </script>
+</body>
+</html>

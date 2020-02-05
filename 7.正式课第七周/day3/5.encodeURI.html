@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // url :http://www.zhufengpeixun.cn/manage/
+        // http://127.0.0.1:5501/7.正式课第七周/day3/2.iframe.html?a=100#a;
+        // 请求地址中如果出现非有效的Unicode编码内容，浏览器会默认进行encodeURI 编码;
+        // encodeURI: 编码   decodeURI ：解码;针对整个url来进行编码；
+        // encodeURL 是不会编译/;
+        // encodeURIComponent会编译/
+        // encodeURIComponent/decodeURIComponent ：是针对部分url进行编码
+
+        // 客户端有一种中文的编码方式； 
+        // escape  / unescape ;用于客户端页面之间的处理；比如从列表页跳转详情页，可以吧传递中文信息进行编码，然后在详情页进行解码；
+        let str = "http://www.zhufengpeixun.cn/manage?from="+encodeURIComponent("http://127.0.0.1:5501/7.正式课第七周/day3/2.iframe.html?a=100#a");
+        console.log(str);
+        
+      let newStr = encodeURI("http://www.zhufengpeixun.cn/manage?from=http://127.0.0.1:5501/7.正式课第七周/day3/2.iframe.html?a=100#a");
+      console.log(newStr);
+      
+    //    let a = decodeURI(newStr);
+    //    console.log(a);
+       
+        
+
+    
+    
+    </script>
+</body>
+</html>
