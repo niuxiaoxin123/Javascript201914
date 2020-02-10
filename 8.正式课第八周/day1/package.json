@@ -1,0 +1,20 @@
+{
+  "name": "day1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "set NODE_EVN=dev&&node a.js",
+    "dev": "node b.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "a": "^2.1.2",
+    "axios": "^0.19.2"
+  },
+  "devDependencies": {
+    "less": "^3.11.0"
+  }
+}

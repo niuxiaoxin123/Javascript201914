@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 模块管理规范
+        // AMD :requre.js
+        // CMD : sea.js
+        // Common.js :node.js
+
+        // 什么模块： 一个JS文件就是一个模块;这些模块化思想，规定了js中我们的模块如何创建，如何导导入，以及如何导出
+
+        // Node中的模块管理
+        // 1. 在Node环境下，我们创建一个js,相当于创建了一个新的模块，模块中的方法都是这个模块私有的方法，不同的模块中同名方法不会有任何冲突
+
+        // 2.Node给其提供一个导出模块中的方法的语法：module.exports = {};
+
+
+        // 3. require是Node中天生提供的用来导入模块的方法;require导入的模块是同步,a中的代码从前到后需要解析一遍，并且没有导入完成，不能做后面的事
+
+        // 1.内置模块(核心模块)  2. 第三方模块(axios.jquery.vue) 3. 自定义模块(自己创建的js)
+
+        // 1): 可以省略后缀名.js
+        // 2) : 如果是调用自己的自定义模块，则需要加上相对路径 /(根目录) ./(当前目录) ../ (上级目录)
+        // 3) :不加地址，先找第三方模块，然后再找核心模块，如果还没有，就报错；
+
+        
+        // 创建三个模块 
+        //a: a模块中有一个sum求和的方法
+        //b: b模块中有一个求平均数的方法，去掉最大值和最小值
+        //c: c中调用b的求平均数，
+        ave(100,2030,3030);
+    </script>
+</body>
+</html>
