@@ -10,11 +10,6 @@
 // 一个js文件就是一个模块；当Node解析时，会把这个文件中的代码包裹到一个自执行函数中，并且给这个自执行函数传递了五个参数
 (function(module,require,exports,__dirname,__filename){
 
-
-
-
-
-
 })()
 
 
