@@ -41,7 +41,7 @@ app.use(function(req,res,next){
         res.status(500);// 服务器的未知错误
         res.send(err);
     })
-})
+});
 
 // 构建express 路由;
 app.use("/user",require("./routes/user"));
