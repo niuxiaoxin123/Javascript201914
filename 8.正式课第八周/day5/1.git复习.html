@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // git  pull
+        // git 是一个团队分布式管理代码的工作
+        // 使用git命令的前提是是一个git仓库，才有工作区、暂存区、历史区
+        // git init ： 让本地文件夹初始化成为一个git仓库（多一个.git的隐藏文件）
+        // git status ： 查看当前文件的状态；查看当前文件有没有发生更改，或者在哪个区；红色[工作区]  绿色【暂存区】
+        
+        // git add ./ -A/ 文件名： 把工作区的文件复制一份到暂存区；
+        // git rm --cached 文件名：把暂存区的代码删除；
+
+
+        // 历史区：
+        // git  commit -m"注释"： 把暂存区的代码提交到历史区；
+        // 文件不能直接从工作区提交到历史区，必须从暂存区向历史区提交
+        // git 每次向历史区提交一次，就会默认一个id;就是每次提交的版本；根据提交的版本可以切换到对应的版本号上；
+        // git log : 查看历史提交版本号；
+        // git reset --hard + 版本号
+
+        // git : 一个本地仓库可以关联多个远程仓库
+        // 远程仓库： gitHub  gitLab
+        // git  remote -v : 查看本地仓库和远程的关联情况
+        // git remote add 仓库名 + 远程仓库地址
+        // git push 仓库名 master
+        // git pull  仓库名 master;
+        // git clone  + 仓库地址
+
+        
+        
+    </script>
+</body>
+</html>
