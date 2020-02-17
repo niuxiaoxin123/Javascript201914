@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- {{msg}}
+        {{a}} -->
+        <div id="c">
+            {{a}}
+        </div>
+        <input type="text" v-model="b" yy="b">
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        //let a=100;
+        // 指令 ： 以v-开头，放在行间属性上，有着特殊意义的一些词；就是指令；
+        // v-model :应用于表单元素;把data中数据放到input框中；
+        // 双向数据绑定：数据能影响视图  视图影响数据;
+        let vm = new Vue({
+            el:"#app",
+            data:function(){
+                // data的属性值可以是函数，如果是函数一定要返回一个对象
+                // 40%  60%
+                // this --> 当前Vue的实例；
+                // console.log(this);
+                return {
+                    msg:"今天是17号",
+                    a:100,
+                    b:100
+                };
+            }
+        })
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 跨域： 同源和非同源；
+        // 项目工作场景：官网：8000   管理系统:9000 
+        // 同源和非同源 ： 
+        // 所有的请求的url都是这个样子
+        // http://127.0.0.1:8080/app/index.html
+        // 协议   域名      端口号
+        // 因为axios.
+        //axios.get("/user/list").then();
+        //axios.post("/customer/add".then())
+
+        // ajax 不能进行非同源的请求
+        // script的src是非同源的，可以从一个项目访问另一个项目，当数据成功返回之后，会默认调用跨域地址后面的callback 回调函数
+        // 只能发送get请求；
+        // function fn(data){
+        //     // data就接收到了后端的数据
+        // }
+        // // 
+        // // jquery
+        // $.ajax({
+        //     url:"user/login",
+        //     dataType:"jsonp",
+        //     success:function(data){
+
+        //     }
+        // })
+        function jsonp(options){
+            return new Promise(function(resolve,reject){
+                window[options.cb]=function(data){
+                    resolve(data);
+                    document.body.removeChild(script);
+                }
+                let script = document.createElement("script");
+                let str = `${options.url}?`;
+                for(let key in options.params){
+                    str+=key+"="+options.params[key]+"&"
+                }
+                str +="cb="+options.cb;
+                script.src=str;
+                document.body.appendChild(script);
+            })
+        }
+        jsonp({url:"/login",params:{user:11223},cb:"fn"}).then(function(data){
+            // data就是成功获取的数据
+
+        })
+        
+        
+    </script>
+    <script src="http://www.baidu.com?callback=fn"></script>
+</body>
+</html> 

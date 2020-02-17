@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="a">
+        {{msg}}
+        {{person}}
+        {{obj.name}}
+        {{arr}}
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        // filter   some  find  every   reduce forEach  map 
+        // Vue : Vue是一个类 
+        // 视图： 浏览器打开页面；
+        // 数据影响视图；当vue中的data数据发生改变，视图也会发生改变；
+        // 数据是响应式：reactive
+        let vm = new Vue({
+            // 这个对象中的属性名是固定的
+            el:"#a",// el : 代表Vue的语法的范围
+            data:{
+                // data中的数据最后都会放到vm这个实例上
+                msg:"hello",
+                person:"12345",
+                obj:{name:"邢民华",age:18},
+                arr:[88,77,66]
+            }
+        });
+        // vm.msg="world";
+        // console.log(vm);
+        //vm.arr[0]=100;// 数据已经更新，但是视图没有更新
+        //1. data中的数据如果数组中某一项发生改变，不能引起视图的更新；如果是对象的属性名对应的属性值更新，会引发视图的更新；
+        //2. 数组内置的方法，能够引发原数组发生变化，可以引发视图的更新
+        // pop push  shift  unshift splice sort  reverse
+        // vm.obj.name="刘宝华";
+        vm.arr=vm.arr.filter(item=>item>70);
+
+        // 数据会影响视图，如果想更改视图，只需要更改对应的数据，视图会自动更新；
+        // 采用了MVVM的原理；
+        // 在框架中，框架没有直接操作真正的DOM,而是操作了虚拟的DOM，更改数据以后，就会更改虚拟的DOM,然后进行DOM-diff的对比，只需要把发生变化的那个地方进行替换，大大地提高了页面的性能；
+        //{type:"div",children:[{},{}]}
+        
+       
+        
+        
+    </script>
+</body>
+</html>
