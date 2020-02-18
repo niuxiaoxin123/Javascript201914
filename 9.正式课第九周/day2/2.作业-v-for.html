@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+       <li v-for="(a,index) in  fruits">
+
+           {{index+1}}.{{a.name}}
+           <ul>
+               <!--a 只在当前子集可以使用-->
+               <li v-for="(b,index) in a.color">
+                   <!--index如果在这个循环中不存在，会向上一级循环查找；-->
+                   {{index+1}}.{{b}}
+               </li>
+           </ul>
+       </li>
+    </ul>
+</div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            fruits:[{name:"苹果",color:["green","red"]},{name:"香蕉",color:["yellow","green"]},{name:"西瓜",color:["red","white"]}]
+        }
+    })
+
+
+
+</script>
+</body>
+</html>

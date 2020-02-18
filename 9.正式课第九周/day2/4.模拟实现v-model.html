@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" id="box">
+    </div>
+    <script>
+        let box = document.getElementById("box");
+        // 数据影响视图
+        let  obj = {};// 用来存储数据的一个对象；
+        Object.defineProperty(obj,"val",{
+            get:function(){
+                // 这是一个函数，不是一个箭头函数
+                return box.value;
+            },
+            set(newVal){
+                //console.log(newVal);// 这个是obj的val的最新的值；
+                box.value = newVal;
+            }
+        });
+        let c = obj.val;
+        // 视图影响数据==> DOM事件
+        box.addEventListener("input",function(){
+            // 触发这个事件的目的是更改obj的val的属性值
+            obj.val = this.value;
+        })
+    </script>
+</body>
+</html>

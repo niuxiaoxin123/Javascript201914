@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+        <input type="text" v-model="msg">
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                // 这个属性会被观察者监听，当发生变化后，会更新视图；
+                msg:"hello"
+            }
+        });
+         vm.msg="world";//数据=>视图 当data中的数据发生改变，视图也会发生更新；
+         //视图=>数据 输入改变input框中的值，会让data中的数据同时发生改变
+         // MVVM原理：
+         // M : model(数据)    V:View(视图)    VM(视图数据)
+         // 实际上，model和视图不能直接通信，需要通过vm进行数据传递，vm中有一个观察者，当model中数据发生改变以后，会通知视图进行对应的视图更新，当视图发生改变，vm也能监听到视图的变化，通过元素的DOM事件进行监听视图是否发生改变，如果改变，通知数据进行更改；
+         // MVC : model  view controller
+    </script>
+</body>
+</html>

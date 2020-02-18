@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+       <div @click.capture="fn1" style="width:100px;height:100px;background: red;">
+            grandparent
+            <div @click.self="fn2">
+                parent
+                <div @click.once="fn3">
+                    child
+                </div>
+            </div>
+        </div>
+        <input type="text" @keyup.left="fn">
+        <div @click="fn1">123456</div>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        // 原生JS中e.stopPropagation() 
+        // 事件修饰符
+        // .stop: 阻止事件的冒泡传播；
+        // .prevent: 阻止事件的默认行为
+        // .capture: 控制事件在捕获阶段执行
+        // .once : 只执行一次
+        // .passive: 修饰onscroll事件，不会等到onscroll执行完，就会立即执行下一次，提高代码的性能；
+        // .self:只有点击自己的时候才会执行 
+
+        // 键盘修饰符：
+        // .enter  .tab  .delete  .esc  .space  .up .down  .left .right
+        let vm = new Vue({
+            el:"#app",
+            data:{  
+                msg:"该吃饭了"
+            },
+            methods:{
+                fn1(){
+                    console.log("outer");
+                },
+                fn2(){
+                    console.log("inner");
+                },
+                fn3(){
+                    console.log("center");
+                },
+                fn(){
+                    console.log("快下课了");
+                }
+            }
+        });
+        // 1. button  div:点击按钮隐藏，再点击显示
+        // 2. input 框，输入内容，回车
+
+    </script>
+</body>
+</html>

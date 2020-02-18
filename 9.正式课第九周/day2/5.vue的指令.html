@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div v-text="x"></div>
+        <div v-html="x"></div>
+        <div v-show="1" r-yy="1">中国加油</div>
+        <div v-if="1===1">武汉加油</div>
+        <div v-else-if="3===3">天气真好</div>
+        <div v-else>北京加油</div>
+        <input type="text" v-model="a">
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        // 指令： v-开头，放在元素的行间属性，有着特殊意义的一些词；
+        // v-model:一般用于表单元素；将data中数据放在input框中，当input值发生改变，数据也会跟着发生改变；
+        // {{}}: 小胡子语法可以将data中数据放入元素中
+        // v-text: 可以将data中的文本放入元素中
+        // v-html:可以识别标签
+        // v-show :通过设置布尔值来控制元素是否显示，如果是true，则显示，false，则隐藏；如果不是一个布尔值，那么会默认转布尔；通过设置元素的display属性来控制是否显示；
+        // 以指令放在行间的属性值，当编译时，首先会去查找在vue的data中是否有这个属性，如果没有，就报错；
+        // v-if： 控制元素的显示隐藏；如果不是布尔，会默认转成布尔；如果是false，直接删除了原有的元素；
+        // v-else-if
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                a:1,
+                x:"<span>好好学习</span>"
+            }
+        })
+    
+    
+    </script>
+</body>
+</html>

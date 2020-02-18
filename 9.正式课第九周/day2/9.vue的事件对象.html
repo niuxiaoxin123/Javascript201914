@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="fn($event,100,200)">提交</button>
+        <input type="text" @keyup="fn">
+        {{msg}}
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+
+        let vm = new Vue({
+            el:"#app",
+            data:{  
+                msg:"该吃饭了"
+            },
+            methods:{
+                // 绑定事件时，可以有小括号，也可以没有
+                // 1.在绑定事件时，如果没有小括号，那么第一个参数就是事件对象 
+                // 2. 如果有小括号，但是没有传参，那么e默认是undefined；
+                // 3. 如果需要事件对象，并且需要传参，那么需要在绑定时使用$event进行占位；
+                fn(e,a){// e: 事件对象
+                    console.log(e,a);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

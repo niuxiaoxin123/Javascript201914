@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <div id="app">
+        {{val}}
+        <input type="text" v-model="val">
+        <div>
+            <!-- {{a + val}} -->
+            <!-- {{a}} -->
+            {{val>10?66:88}}
+        </div>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        let a = document.getElementById("app");
+        let vm = new Vue({
+            el:"#app",
+            data:function(){
+                //console.log(123);
+                return {
+                    // 这个数据都会放到Vue的实例上
+                    // 1.小胡子语法支持表达式
+                    // 2. null 和undefined不能被解析；
+                    // 3. 支持三元运算符
+                    val:100,
+                    arr:[1,23,4],
+                    a:0
+                }
+            }
+        });
+        //vm.val=200;
+        // 能够修改原数组的方法去执行，那么会引发视图的更新的；
+        // debugger
+        // VUE的DOM渲染是异步的；
+        // debugger
+        // 在Vue中，想更新视图，一定要去更新数据；
+        console.log(a.innerHTML);
+        //  Error compiling template : 模板编译错误
+        
+    
+    </script>
+</body>
+</html>

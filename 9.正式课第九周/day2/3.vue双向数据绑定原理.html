@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+        <div>
+            {{arr}}
+        </div>
+        <input type="text" v-model="msg" yy="1">
+        <!-- <div v-for="a in arr"></div> -->
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+     
+        let vm = new Vue({
+            el:"#app",
+            data:{
+               // ueObserver 数据监听器，把一个普通的 JavaScript 对象传给Vue的data属性，VUE将遍历data中所有的属性，并使用Object.defineProperty()方法把这些属性全部转成set、get方法
+                msg:"hello",
+                arr:[1,2,3,4]
+            }
+        });
+        vm.msg=9;
+        // 当进行complie解析指令时，给每一个元素进行指令解析，并绑定一个更新函数；当数据发生变化之后，是observe通过Object.defineProperty进行监听到，通知对应的更新函数执行，视图就会更新；
+
+        let  obj = {name:88,age:99};
+        Object.defineProperty(obj,"name",{
+            get(){
+                // 当获取obj对应name属性对应的属性值时，会默认执行这个get方法
+                console.log(100);
+                // get方法的return返回值就是该属性名对应的属性值
+                //return 1;
+            },
+            set(b){
+                // 当设置obj的name属性值时，会默认执行set方法；
+                // 这个形参就接收到了设置属性名的属性值；
+                console.log(b);
+            }
+        });
+        var a = obj.name;
+        console.log(a);
+        console.log(obj);
+        
+        //obj.name=300;
+        obj.age=100;
+
+        // VUE的双向数据绑定原理：
+        // 当执行 new Vue() 时，Vue 就进入了初始化阶段，一方面Vue 会遍历 data 选项中的属性，并用 Object.defineProperty 将它们转为 getter/setter，实现数据变化监听功能；另一方面，Vue 的指令编译器Compile 对元素节点的指令进行解析，初始化视图，并订阅Watcher 来更新视图， 此时Wather 会将自己添加到消息订阅器中(Dep),初始化完毕。当数据发生变化时，Observer 中的 setter 方法被触发，setter 会立即调用Dep.notify()，Dep 开始遍历所有的订阅者，并调用订阅者的 update 方法，订阅者收到通知后对视图进行相应的更新。
+    </script>
+</body>
+</html>
