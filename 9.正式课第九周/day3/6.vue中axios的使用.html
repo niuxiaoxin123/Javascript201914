@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .x{
+            font-size: 40px;
+        }
+        .y{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div v-for="a in products">{{a}}</div>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/axios/dist/axios.js"></script>
+    <script>
+        // 用请求回来数据渲染视图；
+        new Vue({
+            el:"#app",
+            data:{
+                products:[]
+            },
+            created(){// 这是一个钩子函数；当初始化vue时，会默认调用的一个回调函数
+                // 一般情况下；请求数据都是在created中执行获取数据
+                console.log(100);
+                // 当new Vue时，没有渲染真实的DOM之前，会执行这个钩子函数created;请求到数据立即对data中的数据赋值，那么当编译DOM结构时，采用最新的数据编译；减少DOM的渲染；
+                //钩子函数中的this都指向vue的实例；
+                this.getData();
+            },
+            methods:{
+                getData(){
+                    axios.get("./carts.json").then(data=>{
+                        // data.data就是咱们获取的数据
+                        // console.log(data.data); 
+                        this.products=data.data;
+                    });
+                }
+            },
+            filters:{ 
+                
+            }
+        });
+     
+        
+    
+    </script>
+</body>
+</html>

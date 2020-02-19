@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+       <input type="text" @keyup.enter="add" v-model="val">
+       <ul>
+           <li v-for="(a,index) in arr">
+               {{a}}
+               <button @click="remove(index)">删除</button>
+            </li>
+       </ul>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        // 通过这个案例，在VUE中，如果想更新视图，都要联系到更改数据；通过数据驱动视图的更新；
+        new Vue({
+            el:"#app",
+            data:{
+                val:"",//v-model:双向数据绑定
+                arr:[1,2,3,4]
+            },
+            methods:{
+                add(){
+                    this.arr.push(this.val);
+                    this.val="";
+                },
+                remove(id){
+                    // 1
+                    // 进行遍历，过滤值相同
+                    // 返回true都留下，返回false的都删除
+                    this.arr=this.arr.filter((item,index)=>id!==index);
+                }
+            }
+        });
+     
+        
+    
+    </script>
+</body>
+</html>

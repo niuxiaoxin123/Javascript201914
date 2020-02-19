@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div @click.stop="fn($event)"></div>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        // 通过这个案例，在VUE中，如果想更新视图，都要联系到更改数据；通过数据驱动视图的更新；
+
+        // vue的双向数据绑定，MVVM原理
+        // m : model  v：view   vm:view-model
+        // m和v之间不能直接通信，需要通过vm进行通信；Object.defineProperty  发布订阅；
+        // v ： v-model  v-text  v-html v-if v-else-if  v-else  v-show v-on  v-for 
+        // el
+        // data
+        // methods 
+
+        //  事件 v-on:click ==> @click
+        //  事件对象：
+        //  事件修饰符：
+        // .stop  .prevent  .capture .self  .once  .passive
+        // .enter(.13)  .space .esc .tab .left  .right .down .up  
+        new Vue({
+            el:"#app",
+            data:{
+               
+            },
+            methods:{
+                fn(e){
+
+                }
+            }
+            
+        });
+     
+        
+    
+    </script>
+</body>
+</html>

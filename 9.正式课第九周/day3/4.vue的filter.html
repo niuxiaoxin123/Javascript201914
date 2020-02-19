@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!--  这个toFixed的参数会传给filters中方法第二个参数； -->
+        {{a | toFixed(2)}}
+        {{b | toFixed(3)}}
+        {{8 | addZero}}
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                a:10.5679,
+                b:1.23456,
+                c:8
+            },
+            methods:{
+                
+            },
+            filters:{// 过滤器
+                toFixed(val,a){// 形参；
+                //  val:形参的值就是管道符前面的值a:toFixed传递的
+                    return val.toFixed(a);// 这个函数返回什么，那么页面展示什么
+                },
+                addZero(num){
+                    // 当进行解析编译时，就会执行这个方法，方法的返回最终会放到页面上
+                    return num<10?"0"+num:num;
+                }
+            }
+            
+        });
+     
+        
+    
+    </script>
+</body>
+</html>

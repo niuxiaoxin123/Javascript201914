@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .x{
+            font-size: 40px;
+        }
+        .y{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- v-bind:可以省略 -->
+        <!-- <img :src="imgSrc" alt=""> -->
+        <!-- <div :a="imgSrc"></div> -->
+        <div v-bind:class="{x:flag}">中国</div>
+        <!-- 如果是数组的话，是去获取data中的属性名对应的属性值就是class的名字 -->
+        <div v-bind:class="[a,b]">北京</div>
+        <ul>
+            <li v-for="(a,index) in arr" :class="{y:index%2}">{{a}}</li>
+        </ul>
+        <div v-bind:style="{fontSize:num+'px'}">加油</div>
+        <div :style="[z]">666888</div>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        // v-bind
+        // 1.将普通的属性转成动态的属性，可以去获取data中的数据；
+        // 2. v-bind:class :属性是可以是对象，里面的属性名是class的名字，属性值时true，该样式有效，false该样式无效
+        // 3. v-bind:style
+        new Vue({
+            el:"#app",
+            data:{
+                imgSrc:"./1.png",
+                flag:true,
+                a:"x",
+                b:"y",
+                arr:[1,2,3,4,5],
+                num:60,
+                z:{color:"red"}
+            },
+            methods:{
+                
+            },
+            filters:{
+                
+            }
+        });
+     
+        
+    
+    </script>
+</body>
+</html>

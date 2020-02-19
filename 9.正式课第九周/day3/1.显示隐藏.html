@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="fn">{{flag?"隐藏":"显示"}}</button>
+        <div  v-show="flag" style="width:100px;height:100px;background: red;"></div>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        // 在使用指令时，会先找数据类型中的值，如果数据类型中没有，那么就去找data或methods中的属性名；
+        new Vue({
+            el:"#app",
+            data:{
+                // true:0,
+                // 123:false
+                flag:true
+            },
+            methods:{
+                fn(){
+                    // if(this.flag){
+                    //     this.flag=false;
+                    // }else{
+                    //     this.flag=true;
+                    // }
+                    // 从右向左运行的；
+                    // this ==> vue的实例
+                    this.flag=!this.flag;
+                } 
+            }
+        });
+        // 在Vue中报错警告，不会影响下面的代码继续执行；
+        console.log(100);
+        
+    
+    </script>
+</body>
+</html>

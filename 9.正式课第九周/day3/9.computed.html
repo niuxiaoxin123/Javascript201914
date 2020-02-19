@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="checkbox" v-model="val"> 全选<br>
+        <ul>
+            <li v-for="a in arr">
+                <input type="checkbox" v-model="a.isSelected">{{a.name}}
+            </li>
+        </ul>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        let  vm = new Vue({
+            el:"#app",
+            data:{
+                arr:[{isSelected:false,name:"手机"},{isSelected:true,name:"电脑"}]
+                
+            },
+            computed:{// 计算属性
+                // computed中属性不能喝data重名，也不能和methods重名
+                // 计算属性：当一个属性依赖多个属性改变时，一般采用computed方法；当依赖的属性发生改变时，会立即执行get方法，并且重新计算当前最新的val值，最后重新渲染视图；
+                // computed :会默认走缓存，节省性能；
+                val:{
+                    get(){
+                        //
+                        // 当获取使用val时，会默认把get的返回值给了val;
+                        // this --> Vue的实例
+                        // console.log(100);
+                        // 当arr对象中的isSelected发生改变时，会默认触发一次get方法；当依赖的属性发生改变时，会执行get方法
+                        // console.log(100);
+                        return this.arr.every(item=>item.isSelected);
+                    },
+                    set(a){
+                        // 当设置更改val的值时，会默认执行computed的这个set方法
+                        //console.log(a);// 代表的是当前val最新的值；
+                        this.arr.forEach(item => {
+                            item.isSelected=a;
+                        });
+                    }
+                },
+                sum(){
+                    // 如果computed中的属性是函数，默认就是get;
+                    return 100
+                }
+            }
+        })
+    </script>
+</body>
+</html>
