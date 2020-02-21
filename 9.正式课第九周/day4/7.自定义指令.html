@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        
+        <div  v-drag style="width:100px;height:100px;background: red;position: absolute;"></div>
+        <div v-drag></div>
+      
+      
+    </div>
+
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        // 自定义指令： 自己来定义指令；
+        // 全局指令
+        // 局部指令
+        // Vue除了核心的内置指令，vue还可以自定义指令
+        // 全局指令
+        // Vue.directive("drag",{
+        //     inserted:function(ele){
+
+        //     }
+        // });
+        let vm = new Vue({
+            el:"#app",
+            directives:{
+                // 定义局部指令
+                drag(ele){// ele: 代表加上v-drag的元素 drag 用了几次，输出几次；
+                    ele.onmousedown=function(e){
+                        // this --> 
+                        // 点击时，记录鼠标距离盒子边框的位置
+                        this.l = e.clientX-this.offsetLeft;
+                        this.t = e.clientY-this.offsetTop;
+                        document.onmousemove=function(e){
+                            ele.style.left=e.clientX-ele.l+"px";
+                            ele.style.top=e.clientY-ele.t+"px";
+                        }
+                        document.onmouseup=function(){
+                            document.onmousemove=null;
+                            document.onmouseup=null;
+                        }
+                    }
+                }
+            }
+        });
+        // let vm1 = new Vue({
+        //     el:"#app1"
+        // });
+    </script>
+</body>
+</html>

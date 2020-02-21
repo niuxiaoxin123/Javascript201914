@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+            <div v-for="a in arr">{{a}}</div>
+            <div>{{a}}</div>
+            {{s}}
+            <!-- <input type="radio" v-model="sex" value="男">男
+            <input type="radio" v-model="sex" value="女">女 -->
+            <!-- <input type="checkbox" v-model="hobby" value="1">游泳
+            <input type="checkbox" v-model="hobby" value="2">跑步
+            <input type="checkbox" v-model="hobby" value="3">爬山
+            <img :src="" alt=""> -->
+    </div>
+   <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        // VUE的第一周： MVVM原理（数据和视图） 虚拟的DOM(就是一个JS的对象) DOM-diff(虚拟的DOM和真实的DOM对比，替换发生更改的那部分)
+        // VUE的指令
+        // v-model  v-for  v-bind=>:  v-on => @  v-if  v-else-if  v-else  v-show v-html v-text
+        // VUE的属性： el  data  methods  filters  created computed
+        // data  methods  computed 里面定义的属性不能重名；
+        // jquery 
+        // 官网
+        // 语法糖：简写
+        let  vm=new Vue({
+            el:"#app",
+            data:{
+                arr:[1,2,3,4],
+                //a:100,
+                sex:"男",
+                hobby:[]
+            },
+            methods:{
+                fn(){
+
+                }
+            },
+            filters:{
+                toFixed(){
+                    // 这个方法的返回值会替换掉原来的值
+                }
+            },
+            created(){
+                //编译模板之前执行的；compile
+            },
+            computed:{
+                // 计算属性：当这个属性是依赖其他属性变化而变化时，最好采用computed的计算属性，因为computed计算的属性会走缓存
+                // s:{
+                //     get(){
+                //         // 获取s的值会默认执行get方法
+                //     },
+                //     set(val){
+                //         // 设置会默认执行set
+                //     }
+                // }
+                s(){
+                    //如果直接是函数，那么这个方法就是get方法
+                }
+            }
+        });
+        vm.s=1;
+        //arr[3]=6;
+        //vm.arr.splice(3,1,8)
+    
+    
+    </script>
+</body>
+</html>

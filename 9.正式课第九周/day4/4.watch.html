@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- <input type="text" v-model="a"> -->
+        {{a}}
+        <button @click="fn"></button>
+       
+    </div>
+    <script src="node_modules/axios/dist/axios.js"></script>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        // computed : 有缓存 当这个属性依赖多个属性计算而来；当依赖的属性发生改变以后，会触发get方法；重新计算该结果；
+        // data中的属性不能喝methods中的重名，也不能和computed中重名，
+        // watch : 监听；监听的是data的属性
+        new Vue({
+            el:"#app",
+            data:{
+               arr:[],
+               a:100
+            },
+            computed:{
+                
+            },
+            methods:{
+                fn(){
+                    this.a = 1;
+                }
+            },
+            watch:{
+                a(newVal,oldVal){// 监听现有的属性，当属性发生改变以后，会做的一些事情；
+                    //console.log(10);
+                    // newVal : 最新的值
+                    // oldVal : 上一次的值
+                    console.log(newVal,oldVal); 
+                }
+            }
+        });
+     
+        
+    
+    </script>
+</body>
+</html>

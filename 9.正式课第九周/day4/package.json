@@ -1,0 +1,19 @@
+{
+  "name": "day4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "axios": "^0.19.2",
+    "bootstrap": "^3.3.7"
+  }
+}

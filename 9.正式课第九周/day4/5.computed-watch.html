@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+ 
+        姓：<input type="text" v-model="firstName">
+        名：<input type="text" v-model="lastName">
+        姓名: <input type="text" v-model="fullName">
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        // 如果用computed和watch都可以实现，能用computed就不要用watch；原因是computed有缓存；
+        // computed 和 watch的区别
+        // 1. computed 会默认走缓存，减少性能的开销
+        // 2. computed不支持异步
+        // 3. 当一个属性依赖多个属性变化而变化时，这个属性适合用computed;多对一
+
+        //1.watch ：不走缓存，性能开销大
+        //2.watch支持异步
+        //3. 当这个属性发生改变会影响其他属性时，这个属性用watch,一对多
+        new Vue({
+            el:"#app",
+            data:{
+                firstName:"",
+                lastName:"", 
+                fullName:""
+            },
+            computed:{
+                // fullName(){// 得到结果；监听的每一个依赖的属性,当依赖属性的发生改变，就会执行该函数
+                //     console.log(100);
+                //     return this.firstName+this.lastName
+                // }
+            },
+            methods:{     
+            },
+            watch:{
+                firstName(newVal){
+                    // 这个属性中的this指向vue的实例
+                    setTimeout(()=>{
+                        // 箭头函数：this指向上一级作用域
+                        this.fullName=newVal+this.lastName;
+                    },1000)
+
+                },
+                lastName(newVal){
+                    // 每改变一次值，都会触发一次
+                    setTimeout(()=>{
+                        console.log(100)
+                        this.fullName=this.firstName+newVal;
+                    },1000)   
+                }
+            }
+        });
+     
+        
+    
+    </script>
+</body>
+</html>

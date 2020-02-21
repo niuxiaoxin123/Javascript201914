@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+    <div id="app">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                    <a class="navbar-brand" href="#">
+                        TodoList
+                    </a>
+                    </div>
+                </div>
+            </nav>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="background: pink;">
+                                <h2 class="text-danger">亲~^_^,您有1件事已完成</h2>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="panel-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item" v-for="item in task">
+                                        <input type="checkbox" v-model="item.isSelected">
+                                        <span>{{item.title}}</span>
+                                        <button class="btn btn-xs pull-right btn-danger">&bigotimes;</button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="panel-footer">
+                                <ul class="nav nav-pills">
+                                    <li role="presentation" class="active"><a href="#">全部任务</a></li>
+                                    <li role="presentation"><a href="#">已完成</a></li>
+                                    <li role="presentation"><a href="#">未完成</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="8.todo.js"></script>
+</body>
+</html>

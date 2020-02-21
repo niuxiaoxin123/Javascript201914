@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        姓：<input type="text" v-model="person.firstName">
+        名：<input type="text" v-model="person.lastName">
+        姓名: <input type="text" v-model="person.fullName">
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+
+        new Vue({
+            el:"#app",
+            data:{
+                person:{
+                    firstName:"贾",
+                    lastName:"", 
+                    fullName:""
+                }
+            },
+            computed:{
+            },
+            methods:{     
+            },
+            watch:{
+                // 如果监听了对象，当这个对象中的属性名对应的键值对发生改变以后，并不会触发监听的这个对象的函数；因为这个引用数据类型的地址没发生改变；
+                // 把person改成对象的写法，handler相当于函数，deep:true是对这个person对象中的每一个属性进行监听，当其中一个属性发生改变，也会触发handler这个函数；
+
+                // 监听其中一个属性时，可以写成'对象.属性名'
+                'person.firstName':{
+                    handler(newVal,oldVal){
+                        // 这个是函数;两个参数分别是person这个对象改变之前和之后的值；
+                        console.log(newVal,oldVal);
+                        console.log(1);
+                    },
+                    immediate:true,//可以让函数立即执行；
+                    deep:true
+                }
+            }
+        });
+    
+    </script>
+</body>
+</html>

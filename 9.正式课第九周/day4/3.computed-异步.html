@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{a}}
+        <li v-for="b in arr">{{b}}</li>
+    </div>
+    <script src="node_modules/axios/dist/axios.js"></script>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+               arr:[]
+            },
+            computed:{
+                a(){
+                    // computed中不支持异步；
+                    // 如果a的依赖数据是通过异步被更新的，那么a不能监听到最新发生的变化
+                    let b;
+                    axios.get("carts.json").then((data)=>{
+                        b=data.data;
+                    });
+                    // this.arr=[1,2,34,4]
+                    // let b = 10;
+                    // setTimeout(function(){
+                    //     console.log(200);
+                    //     b=88;
+                    // },2000);
+                    // return b;
+                    return b;
+                }
+            }  
+        });
+     
+        
+    
+    </script>
+</body>
+</html>
