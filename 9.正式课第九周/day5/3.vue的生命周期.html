@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            {{msg}}
+        </div>
+        <ul>
+            <li v-for="a in arr"></li>
+        </ul>
+        <button @click="fn">点我一下</button>
+    </div>
+    <script src="node_modules/axios/dist/axios.js"></script>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+       // 生命周期： Vue是一个构造函数，当执行执行这个函数时，相当于初始化vue实例；在创建实例过程中，需要设置数据监听，编译模板，将实例挂载到DOM上，数据更新能够让DOM也更新，在这个初始化，又会不同阶段默认调用一些函数执行，这些函数就是生命周期的钩子函数；
+
+       // 生命周期钩子函数，让够让咱们在初始化实例时，添加自己的代码；
+       //生命周期的钩子函数中的this，会默认指向vue的实例
+       // beforeCreate   created 
+       // beforeMount    mounted
+       // beforeUpdate   updated
+       // beforeDestroy  destroyed
+    //    function Vue(options){
+    //         let a = document.querySelector(options.el);
+    //         for(let key in options.data){
+    //             Object.defineProperty(options.data,key,{
+    //                 get(){
+
+    //                 },
+    //                 set(){
+
+    //                 }
+    //             })
+    //         }
+    //    }
+    //     new Vue({el:"#app",data:{}})
+
+
+        let vm = new Vue({
+            data:{
+                msg:"hello",
+                arr:[1,2,3,4]
+            },
+            // 1. 在这个钩子函数执行之前初始化事件以及生命周期
+            beforeCreate(){
+                // 1. 在这个钩子函数中，不能获取data中的数据
+                // console.log(this.msg);
+                // 2. 这个函数不能操作DOM；
+                // console.log(document.getElementsByTagName("li"))
+            },
+            // 给Vue的实例注入数据，进行数据监听
+            created(){
+                // 在created发送请求
+                // 1. 可以获取到data中的数据
+                // 2. 不能操作DOM的
+                //console.log(this.msg);
+                // console.log(document.getElementsByTagName("li"))
+                axios.get("./carts.json").then(data=>{
+                    // 异步的；
+                    this.arr=data.data;
+                })
+            },
+            methods:{
+                getData(){
+
+                },
+                fn(){
+                    this.msg="world"
+                }
+            },
+            // 执行之前，判断是否有el,template;编译
+            beforeMount(){
+                // console.log(document.getElementsByTagName("li"))
+            },
+            // 挂载完毕
+            mounted(){
+                // debugger
+                // 挂载： 把VUE实例生成的虚拟的DOM转成真实的DOM，放在了页面中，这就是挂载；
+                // 编译出的DOM把原有的DOM替换完毕；
+                // 可以获取最终的DOM元素
+                // let d = {type:"div",a:"1",chidlren:[{type:"span",children:[]}]}
+                 console.log(document.getElementsByTagName("li"));
+                //console.log("mounted","初始化");
+            },
+            // 当数据更新时，会调用beforeUpdate 和updated钩子函数；上面四个不再运行
+            beforeUpdate(){
+                console.log("beforeUpdate","更新之前");
+                console.log(this.msg)
+                // 更新数据之前执行
+            },
+            updated(){
+                console.log("beforeUpdate","更新之后");
+                // 数据更新，虚拟的DOM更新，然后更新真实的DOM；最后触发这个函数
+            },
+            // 销毁之前
+            beforeDestroy(){
+                // 销毁之前
+                // 清除定时器
+                console.log("beforeDestroy");
+                
+            },
+            // 销毁之后
+            destroyed(){
+                console.log("destroyed");
+                // 销毁子组件，销毁观察者，事件监听者
+                // 元素的事件还在，但是更改数据不会再让视图进行更新了；
+            }
+        }).$mount("#app");
+        // vm.$destroy();
+        // console.log(vm);
+        // 在项目中，你遇到过什么问题，怎么解决的？
+        // 准备
+        
+        
+      
+    
+    </script>
+</body>
+</html>

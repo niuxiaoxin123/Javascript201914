@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- ref重名后面的元素会把前面的覆盖掉 -->
+        <div ref="a"></div>
+        <span ref="a"></span>
+        {{msg.a}}
+        <button @click="fn"></button>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        let  vm = new Vue({
+            el:"#app",
+            data:{
+                msg:{
+                   a
+                }
+            },
+            methods:{
+                fn(){
+                    // this.refs.a
+                    // 如果更改对象中的属性名对象的属性值，视图会进行更新的
+                     this.msg.a=200;
+                    // $set : 给data中的对象新增键值对的，这样可以监听到新增的数据
+                    //vm.$set(vm.msg,"a",200)
+                }
+            }
+        });
+        console.log(vm);
+        // $el: 获取到vue实例挂在的元素对象
+        // $options : 当前实例的一些参数
+        // $refs : 可以用来获取DOM元素；
+        // $set : 向data中的对象新增键值对
+        // $delete: 删除属性
+        // $destroy : 销毁实例
+        // $mount: 挂载
+        // $on : 订阅
+        // $emit : 发布
+        // $off ：移除
+        // $nextTick : 用于DOM的异步更新；
+        
+    
+    
+    </script>
+</body>
+</html>

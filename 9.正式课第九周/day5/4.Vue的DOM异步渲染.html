@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="a in arr">{{a}}</li>
+        </ul>
+        {{sum}}
+    </div>
+    <script src="node_modules/axios/dist/axios.js"></script>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            data:{
+                 arr:[1,2,3]
+            },
+            created(){
+                // 此时并没有编译模板
+                // 如果在created改变数据，那么编译进行一次；如果在mounted中改数据，会再次编译模板；
+                console.log(100);
+            },
+            beforeMount(){ 
+                console.log(200);
+                //this.arr=[1,2,3,4];// 开始编译模板编译原有数据编译3个li,存在内存中，当数据更新时，立即将内存中的模板编译成4li;最后挂载到真实的DOM上；不会引发beforeUpdate函数的调用
+            },
+            computed:{
+                sum(){
+                    // 在挂载的过程中,执行的这个函数
+                    console.log(1);
+                    return 100;
+                }
+            },
+            // 编译模板
+            // 在mounted之前改数据，不会调用beforeUpdate这个函数；
+            // DOM 已经挂载完毕
+            mounted(){
+                console.log(300);
+                this.arr=[1,2,3,4];
+                // 开始编译模板编译原有数据编译3个li,存在内存中，并且直接挂载到了真实DOM中，当数据更新时，立即将内存中的模板编译成4li;再次把最新挂载到真实的DOM上；会引发beforeUpdate函数的调用
+
+                // VUE中DOM的更新是异步的；
+                
+                // 如何在mounted中操作最新的DOM呢？
+                // $nextTick需要传入一个回调函数，会当真实的DOM再次更新完成，会立即调用这个回调函数；
+                this.$nextTick(()=>{
+                    let oLis = document.getElementsByTagName("li")
+                    console.log(oLis.length);
+                });
+            },
+            beforeUpdate(){
+                console.log("beforeUpdate");
+            }
+        }).$mount("#app");
+      
+        
+      
+    
+    </script>
+</body>
+</html>
