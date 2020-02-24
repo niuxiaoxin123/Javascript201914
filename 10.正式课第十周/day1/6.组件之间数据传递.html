@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="msg">
+        <!-- <div :c="msg"></div> -->
+        <child :a="msg"></child>
+        <child :b="book"></child>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        // child 是Vm这个vue实例的子组件；判断组件在哪个实例中注册，就是谁的子组件；
+        // 数组传递
+        // 1. 把父组件的数据以动态属性的方式放在当前子组件的行间属性上
+        // 2. 在子组件中用props接收到这个属性 （数组、对象）
+        // 3. 在子组件取值使用动态的属性名取值
+        let  child = {
+            data(){
+                return {
+                    // msg:"abc"
+                }
+            },
+            props:["a","b"],// props:和行间属性名的属性名保持一致
+            template:"<div>{{a}}{{b}}</div>"// 取值和props保持一致
+        };
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                msg:"hello",
+                book:"vue.js"
+            },
+            methods:{
+            },
+            components:{
+                child
+            }
+        });
+      
+        
+    </script>
+</body>
+</html>

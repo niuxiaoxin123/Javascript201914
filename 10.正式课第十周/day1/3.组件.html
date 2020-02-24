@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+       
+    <div id="app">
+        <!-- <ZFPX></ZFPX> -->
+        <hand-some></hand-some>
+        <ul></ul>
+    </div>
+    <div id="app1">
+        <!-- <zfpx></zfpx> -->
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        // 组件化思想
+        // 单页面应用：框架一般适用于开发大型的单页面应用；整个项目只有一个页面，其他页面都是通过路由方式进行切换的；
+        // 组件：把相同功能的代码封装成一个组件，当想再次适用这个结构时，直接调用这个组件就可以，体现了代码的复用性。
+
+        // 如何创建组件： 1. 全局组件   2. 局部组件
+        // 在Vue的属性上一个component函数，执行可以创建一个组件,接收两个参数，第一个是组件的名字，第二个是组件的信息对象
+        // 注册一个全局组件，在页面中组件名和闭合标签的方式使用该组件:接收两个参数，第一个是组件名，第二个就是组件的信息；
+        // VUE中的每一个组件都是一个小实例；
+        // 全局组件可以在任何的Vm实例中使用，每一个组件都相当于一个VUE的实例，当调用这个组件时，就会生成Vue的生命周期;每当使用一次，就会执行一遍生命周期钩子函数；
+
+        // 1. 组件的名字的首字母可以大写
+        // 2. 页面中的组件的名字不支持驼峰,如果是驼峰，需要加-；
+        // 3. 不能使用内置的标签名作为组件名称
+        Vue.component("handsome",{
+            data:function(){
+                return {a:"今天有雨"}
+            },
+            created(){
+                console.log(1);
+            },
+            methods:{
+            },
+            template:"<div>{{a}}</div>"
+        });
+        let vm = new Vue({
+            el:"#app",
+            data:{
+               
+            },
+            methods:{
+               
+            }
+        });
+        let vm1 = new Vue({
+            el:"#app1",
+            data:{
+               
+            },
+            methods:{
+               
+            }
+        });
+       
+    </script>
+</body>
+</html>

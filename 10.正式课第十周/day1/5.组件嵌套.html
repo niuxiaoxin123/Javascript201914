@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <parent> 
+        </parent>
+        
+    </div>
+    <div id="app1">
+        <parent></parent>
+    </div>
+    <template id="parent">
+        <div>
+            <child></child>
+            父组件1000
+        </div>
+    </template> 
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        // 1.创建组件
+        // 2. 注册组件
+        // 3. 使用组件： 用闭合标签的方式写在app结构中
+        let  child = {
+            data(){
+                return {}
+            },
+            beforeMount(){
+                console.log("child");
+            },
+            methods:{
+
+            },
+            template:"<div>子组件100</div>"
+        };
+        // 组件嵌套： 组件和组件之间可以嵌套，但是子组件需要在父组件的components的属性中进行注册，才能在父组件中使用，在html结构中不能嵌套；
+        // 每一个组件都有自己独立的生命周期
+        // 先解析父组件，然后再解析子组件；
+        // 在mounted的钩子函数中，child先执行；挂载到parent组件上，最后parent一次性挂载到真实的DOM上；
+        let parent  ={
+            data(){
+                return {}
+            },
+            beforeMount(){
+                console.log("parent");
+            },
+            components:{
+                child
+            },
+            template:"#parent"
+        }
+        Vue.component("parent",{
+            template:"<div>111</div>"
+        })
+        let vm = new Vue({
+            el:"#app",
+            data:{
+            },
+            methods:{
+            },
+            components:{
+                parent
+            }
+        });
+        let vm1 = new Vue({
+            el:"#app1",
+            data:{
+            },
+            methods:{
+            }
+        });
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <div>{{a}}</div>
+    <script>
+    
+        // 数据驱动视图： 虚拟DOM（内存中）<===>真实DOM 
+        // MVVM原理：双向数据绑定原理
+        // v-model  v-for   v-bind v-on  v-if  v-else v-else-if  v-show  v-html  v-text 
+
+        // el : 最外层的元素
+        // data: 数据
+        // methods : 方法
+        // computed:计算属性
+        new Vue({
+            el:"#app",
+            data:{
+                a:100,
+                obj:{
+                    name:100
+                }
+            },
+            methods:{
+                fn(){
+
+                }
+            },
+            computed:{// 计算属性  
+                // 1. 多对一
+                // 2. 走缓存
+                // 3. 不支持异步
+                val:{
+                    get(){
+                        
+                    },
+                    set(){
+
+                    }
+                }
+            },
+            watch:{
+                // 监听data中本来就有的属性；当这个属性变化之后，执行不同的操作，一对多关系
+                obj:{
+                   handler:function(){
+
+                   },
+                   deep:true
+                }
+            },
+            filters:{},
+            directives:{// v-focus
+                focus(el){
+                    //el : 带有v-focus的元素
+                }
+            }
+        });
+        // beforeCreate     created[可以获取数据及方法]
+        // beforeMount      mounted[可以获取到真实的DOM]
+        // beforeUpdate     updated[数据更新执行]
+        // beforeDestroy    destroyed[销毁vue实例，不再具有双向数据绑定的特点]
+        
+        // VUE的属性 $el  $options  $on  $emit  $off  $set  $mount
+        // DOM 渲染是异步的；
+    </script>
+</body>
+</html>

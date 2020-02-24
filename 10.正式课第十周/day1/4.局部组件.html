@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <son></son>
+    </div>
+    <div id="app1">
+        <span>111</span>
+        <son></son>
+    </div>
+    <template id="son">
+        <div @click='fn'>{{msg}}</div>
+    </template>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        // 1.创建组件
+        // 2.局部注册组件
+        // 在组件定义中，data必须返回一个函数，并且函数返回一个对象，不能直接写对象
+        
+        let  son = {
+            data(){
+                return {
+                    msg:"hello"
+                }
+            },
+            methods:{
+                fn(){
+                    console.log(this);// this 就指向了当前组件的实例
+                    console.log("好好学习");
+                }
+            },
+            template:"#son"
+        }
+        // template: 模板  components : 组件
+        // 局部组件：只能在注册的vue实例中使用该组件，不能跨组件使用；但是可以另一个vue实例中再注册一次；
+        let vm = new Vue({
+            el:"#app",
+            data:{
+            },
+            methods:{
+            },
+            components:{// 注册局部组件
+                // 这个属性名和页面使用组件时名字一样；
+                //child:son
+                son
+            }
+        });
+        let vm1 = new Vue({
+            el:"#app1",
+            data:{
+            },
+            methods:{
+            },
+            components:{// 注册局部组件
+                son:son
+            }
+        });
+    </script>
+</body>
+</html>
