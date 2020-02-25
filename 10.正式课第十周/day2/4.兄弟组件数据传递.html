@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <bro1></bro1>
+        <bro2></bro2>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        // 兄弟之间的组件数据传递：eventBus;
+        // $on : 订阅
+        // $emit : 发布；轮询对应的事件池，让其中的方法执行
+        let eventBus = new Vue;// 这就是一个容器;联系了兄弟之间的纽带
+        let bro1 = {
+            data(){
+                return {
+                    color:"红色"
+                }
+            },
+            created(){
+                eventBus.$on("changeGreen",this.changeGreen)
+            },
+            methods:{
+                fn1(){
+                    eventBus.$emit('changeRed');
+                },
+                changeGreen(){
+                    this.color="绿色"
+                }
+            },
+            template:"<div>{{color}}<button @click='fn1'>变红</button></div>"
+        };
+        let bro2 = {
+            data(){
+                return {
+                    color:"绿色"
+                }
+            },
+            created(){
+                eventBus.$on("changeRed",this.changeRed)
+            },
+            methods:{
+                changeRed(){
+                    this.color="红色";
+                },
+                fn2(){
+                    eventBus.$emit('changeGreen');
+                }
+            },
+            template:"<div>{{color}}<button @click='fn2'>变绿</button></div>"
+        };
+
+        let vm = new Vue({
+            el:"#app",
+            data:{
+            },
+            components:{
+                bro1,
+                bro2
+            }
+        })
+    </script>
+</body>
+</html>

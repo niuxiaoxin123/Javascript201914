@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+      父亲： {{money}}
+      <!-- $event接收的是$emit的第二个参数 -->
+       <!-- <son :m="money" @update:m="money=$event"></son> -->
+       <son :m.sync="money" :v.sync="val"></son>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        // 语法糖
+        let son = {
+            data(){
+                return {}
+            },
+            props:["m","v"],
+            methods:{
+                add(){
+                    this.$emit("update:m",2000);
+                    this.$emit("update:v",8899);
+                }
+            },
+            template:"<div>儿子：{{m}}<button @click='add'>多要点</button>{{v}}</div>"
+        }
+        new Vue({
+            el:"#app",
+            data:{
+                money:888,
+                val:1000
+            },
+            methods:{
+            },
+            components:{
+                son
+            }
+        });
+      
+    </script>
+</body>
+</html>

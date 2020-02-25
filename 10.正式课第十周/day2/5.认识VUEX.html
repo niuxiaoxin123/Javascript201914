@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{count}}
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        // VUEX: 
+        // state: 数据
+        // view : 视图；将state数据展示到视图上；
+        // actions :  动态,更改或者是触发视图的动作
+        // 数据传递：把各个组件共享的状态抽离出来，并且每个组件都可以使用它，并且还可以更改它；既然是公共状态，当其中组件把这个公共状态更改以后，凡是依赖这个公共状态的组件都要更新；
+        let  num =100;
+        // 1. VUEX的数据存储是响应式的；vue组件中使用了vuex的数据时，当vuex中的数据更新时，那么使用数据的组件也会得到高效的更新
+
+        // 2. 不能直接修改store中的状态；需要commit一个mutation，这样方便我们追踪每一个数据的变化；
+
+        // Vuex : 适用中大型单页面应用
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                count:0
+            },
+            methods:{
+                addCount(){
+                    this.count++;
+                }
+            },
+            components:{
+              
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <first></first>
+        <second></second>
+        <!-- <div>{{this.$store.state.count}}</div> -->
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/vuex/dist/vuex.min.js"></script>
+    <script>
+        // 如果这个数据是好几个组件共享的，这个数据放到VUEX的state上；如果这个数据只有当前这一个组件使用，那么放到对应的组件的data中
+
+        // 在vuex中更改公有的数据，必须通过commit一个mutation；
+        // 当共享的数据发生改变以后，那么依赖这个数据的组件都会高效的更新；
+        let store= new Vuex.Store({
+            state:{
+                count:1001,// count : 这就是公共的数据
+                shop:[{name:"奔驰"},{name:"奥迪"}]
+            },
+            mutations:{
+                increment(state,a){// 参数接收到当前state
+                    state.count+=a;
+                },
+                min(){
+                    // mutation 这个对象中的函数的第一个参数的实参都是state；
+                }
+            }
+        });
+        let first = {
+            data(){
+                return { 
+                }
+            },
+            methods:{
+                addCount(val){
+                    // 提交的是mutation里面的函数名；用于修改store中的数据
+                    this.$store.commit("increment",val);
+                }
+            },
+            // computed:{
+            //     shop(){
+            //         return this.$store.state.shop
+            //     }
+            // },
+            // VUEx.mapState:将vuex的store中的state数据，映射到当前实例的计算属性上；
+            //computed:Vuex.mapState(["shop","count"]),
+            computed:{
+               tt(){
+
+               },
+               ...Vuex.mapState(["shop","count"])
+            },
+            template:"<div>{{count}}<button @click='addCount(2)'>++</button><li v-for='a in shop'>{{a.name}}</li></div>"
+        };
+        let second = {
+            data(){
+                return {}
+            },
+            template:"<div>{{this.$store.state.count}}</div>"
+        }
+        let vm = new Vue({
+            el:"#app",
+            data:{
+
+            },
+            components:{
+                first,
+                second
+            },
+            store // 当前vue的实例就会新增一个$store的属性，属性值时一个对象；同时也会给当前的子组件新增一个$store属性
+        });
+        console.log(vm);
+        
+    
+    
+    
+    </script>
+</body>
+</html>

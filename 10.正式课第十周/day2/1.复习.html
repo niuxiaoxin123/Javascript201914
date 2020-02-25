@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <!-- <hand></hand>
+        <hand></hand> -->
+        <son :m="a"></son>
+    </div>
+    <template id="a">
+        <div>
+            {{m}}
+        </div>
+    </template>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        //  // 全局组件 ： 
+        //  Vue.component("hand",{
+        //     data(){
+        //         // 必须是函数
+        //         return  {msg:100}
+        //     },
+        //     methods:{
+
+        //     },
+        //     template:"<div>{{msg}}</div>"// template属性会替换掉页面中的整体<hand></hand>
+        // });
+        let son={
+            data(){
+                return {
+
+                }
+            },
+            props:["m"],
+            template:"<div>{{m}}</div>"
+        }
+
+        // template : 1.只有一个根元素  2. 会默认替换掉外层元素
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                a:100
+            },
+            components:{
+                son
+            }
+        });
+       // VUE的单项数据流 父组件 子组件
+       // 父组件beforeUpdate  => 子beforeUpdate==>子updated==>父updated
+       // 每一个组件都有自己独立的生命周期
+    </script>
+</body>
+</html>

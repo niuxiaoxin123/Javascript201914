@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+      父亲： {{money}}
+      <!-- // 自定义事件 -->
+       <son :m="money" @changemoney="fn" :b="fn"></son>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        //组件的数据传递 
+        // 父传子   子传父   兄弟组件之间的传递
+        let son = {
+            data(){
+                return {}
+            },
+            props:["m","b"],// props接收到的属性也会放在组件实例上一份 
+            methods:{
+                add(){
+                    // this==> 组件的实例  
+                    // 子组件不能直接修改父组件的数据
+                    // $emit : 用来发布自定义事件
+                    // 自定义的名称必须小写
+                    this.$emit("changemoney",1080);
+                    // this.b();
+                }
+            },
+            template:"<div>儿子：{{m}}<button @click='add'>多要点</button></div>"
+        }
+
+        new Vue({
+            el:"#app",
+            data:{
+                money:888
+            },
+            methods:{
+                fn(val){
+                    this.money=val;
+                }
+            },
+            components:{
+                son
+            }
+        });
+      
+    </script>
+</body>
+</html>

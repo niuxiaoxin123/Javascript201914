@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <first></first>
+        <second></second>
+        <!-- <div>{{this.$store.state.count}}</div> -->
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/vuex/dist/vuex.min.js"></script>
+    <script>
+        let state= {
+                count:1001,// count : 这就是公共的数据
+                shop:[{name:"奔驰"},{name:"奥迪"}]
+            }
+        let getters={
+            str(state){// state 就是store中的state
+                return  state.count%2===0?"偶数":"奇数"
+            },
+            a(){
+                
+            }
+        }
+        let store= new Vuex.Store({
+            state,
+            getters,
+            mutations:{
+                increment(state,a){// vuex更改store中状态的唯一方法就是commit;
+                    // state： 状态    payload: 载荷  
+                    //state.count+=a;//在mutation的方法中，都是同步事务，不支持异步；
+                    setTimeout(()=>{
+                        state.count+=a;
+                    },2000)
+                },
+                min(){
+                    
+                }
+            }
+        });
+        let first = {
+            data(){
+                return { 
+                }
+            },
+            methods:{
+                // addCount(val){
+                //     this.$store.commit("increment",val);
+                // }
+                //...Vuex.mapMutations(["increment"])
+                ...Vuex.mapMutations({
+                    add:"increment"// 将this.add()映射成'this.$store.commit("increment")
+                })
+            },
+            computed:{
+               tt(){
+
+               },
+               ...Vuex.mapState(["shop","count"]),
+               ...Vuex.mapGetters(["str"])
+            },
+            template:"<div>{{count}}<button @click='add(1)'>++</button><li v-for='a in shop'>{{a.name}}</li>{{str}}</div>"
+        };
+        let second = {
+            data(){
+                return {}
+            },
+            template:"<div>{{this.$store.state.count}}</div>"
+        }
+        let vm = new Vue({
+            el:"#app",
+            data:{
+
+            },
+            components:{
+                first,
+                second
+            },
+            store 
+        });
+        
+    </script>
+</body>
+</html>
