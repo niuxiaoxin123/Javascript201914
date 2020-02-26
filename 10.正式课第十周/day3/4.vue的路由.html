@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- to ： 跳转的路由  tag:指定router-link渲染标签 -->
+        <router-link to="/allhome" tag="button">首页</router-link>
+        <router-link to="/allperson"  tag="button">个人中心</router-link>
+        <!-- 用于显示路由对应组件的地方 -->
+        <!-- 根据路由显示对应的组件 -->
+        <router-view></router-view>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/vue-router/dist/vue-router.js"></script>
+    <script>
+        // 路由：一个路径对应一个组件
+        // CRM 
+        // 1.创建组件    
+        // 2.配置路由映射表
+        // 3.注册路由映射表
+        // 4. 把路由挂载到根实例上； 
+        let home = {
+            data(){
+                return {
+                    con:'首页'
+                }
+            },
+            template:"<div>{{con}}</div>"
+        }
+        let person={
+            data(){
+                return {
+                    con:'个人中心页'
+                } 
+            },
+            template:"<div>{{con}}</div>"
+        }
+        // 配置路由映射表： 是路由和组件的配对情况
+        let routes =[{path:"/allhome",component:home},{path:"/allperson",component:person}];
+        // 注册映射表
+        let router = new VueRouter({
+            routes:routes
+        })
+        // 将路由挂载到根实例上
+        let vm = new Vue({
+            el:"#app",
+            data:{
+
+            },
+            router
+        })
+    </script>
+</body>
+</html>

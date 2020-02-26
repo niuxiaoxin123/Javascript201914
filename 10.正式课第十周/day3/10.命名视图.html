@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 将to改成动态属性 ：to={name:组件的name名称} -->
+        <router-link :to="{name:'first'}">首页</router-link>
+        <!-- 没有name属性，会显示属性为default的组件 -->
+        
+        <router-view></router-view>
+        <router-view name="b"></router-view>
+        <router-view name="c"></router-view>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/vue-router/dist/vue-router.js"></script>
+    <script>
+        // 通过名字取匹配路由
+        let home={
+            template:"<div>首页</div>"
+        }
+        let foo = {
+            template:"<div>foo</div>"
+        }
+        let bar={
+            template:"<div>bar</div>"
+        }
+        let routes  =[
+            {path:"/home",components:{
+                default:home,// home对应没有name属性的router-view
+                // 这个对象属性名和router-view的name属性值对应
+                b:foo,
+                c:bar
+            },name:"first"}
+        ];
+        let router = new VueRouter({
+            routes
+        })
+        let vm = new Vue({
+            el:"#app",
+            data:{
+
+            },
+            router
+        })
+    </script>
+</body>
+</html>

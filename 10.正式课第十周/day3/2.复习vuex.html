@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <first></first>
+        <second></second>
+    </div>
+    <script src="node_modules/vuex/dist/vuex.min.js"></script>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        let store = new Vuex.Store({
+            state:{
+                count:0
+            },
+            getters:{// vuex的计算属性，也可以走缓存；基于vuex中的state计算而来；使用这个方法；
+                str(state){
+                    return state.count%2===0?"偶数":"奇数";
+                }
+            },
+            // 更改当前store中的数据，写在mutations里面；提交一个mutations;
+            mutations:{
+                // 不支持异步
+                add_count(state,payload){// state: 默认接收一个state
+                    state.count+=payload;
+                }
+            },
+            actions:{
+                // 支持异步
+                // 在项目中，经常从后端获取数据赋值更改store中的state的值，但是如果这个请求是异步的，大家需要在actions中发送请求，异步地更改state；
+                add({commit},val){// 提交一个mutations
+                    // commit===$store.commit
+                    setTimeout(()=>{
+                        commit("add_count",val)
+                    },1000)
+                    // axios.get("/list.json").then(data=>{
+                    //     commit("add_count",data.data)
+                    // })
+                }
+            }
+        });
+        let first={
+            data(){
+                return {}
+            },
+            methods:{
+                // add(val){
+                //     this.$store.commit("add_count",val);
+                // }
+                ...Vuex.mapMutations(["add_count"]),
+                addState(val){
+                    this.$store.dispatch("add",val);
+                }
+                // commit==>mutations  dipatch===> actions  在actions中是提交的mutations
+                // ...Vuex.mapActions(["add"])
+            },
+            computed:{
+                ...Vuex.mapGetters(["str"])
+            },
+            template:"<div>{{$store.state.count}}<button @click='addState(3)'>新增</button>{{str}}</div>"
+        }
+        let second={
+            data(){
+                return {}
+            },
+            template:"<div>{{$store.state.count}}</div>"
+        }
+        let vm = new Vue({
+            el:"#app",
+            data:{
+
+            },
+            components:{
+                first,
+                second
+            },
+            store// 给当前vue实例新增一个$store的属性，并且给当前实例每一个子孙组件也新增一个$store属性
+        })
+    
+    
+    
+    </script>
+</body>
+</html>

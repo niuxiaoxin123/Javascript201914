@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- to属性和路由映射表的path的属性值一样 -->
+        <router-link to="/home" tag="button">首页</router-link>
+        <router-link to="/list"tag="button">列表页</router-link>
+        <!-- 展示路由对应的组件，当组件切换时，组件的DOM元素删除； -->
+        <router-view></router-view>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/vue-router/dist/vue-router.js"></script>
+    <script>
+        // vue-router一定要放vue.js的后面
+        // 当切换组件时，组件会销毁；
+        // 当每一个被路由渲染出来的组件上有一个$router属性，在这个属性的原型上有一些操作路由的方法
+        // 1.push ： 直接跳转到当前路径对应的路由上 push(路径)
+        // 2.back : 回退到上一次的路由上
+        // 3.go(number):可以往前可以往后回退后前进几个
+        let home={
+            data(){
+                return {
+                }
+            },
+            created(){
+                // 显示组件时，需要再次创建组件实例；调用钩子函数；
+                console.log("组件创建");
+            },
+            methods:{
+                goList(){
+                    console.log(this);
+                    this.$router.push("/list")
+                }
+            },
+            beforeDestroy(){
+                console.log("销毁");
+            },
+            template:"<div>首页内容<button @click='goList'>去列表页</button></div>"
+        };
+        let list={
+            data(){
+                return {
+                }
+            },
+            methods:{
+                goback(){
+                    this.$router.go(-1);
+                }
+            },
+            template:"<div>列表页内容<button @click='goback'>返回</button></div>"
+        }
+        // 路由映射表
+        let routes = [{path:"/home",component:home},{path:"/list",component:list}];
+        // 注册路由映射表
+        let router = new VueRouter({
+            routes
+        });
+        // 挂载到根实例上
+        let vm  = new Vue({
+            el:"#app",
+            router
+        });
+        
+   </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <first></first>
+        <second></second>
+    </div>
+    <script src="node_modules/vuex/dist/vuex.min.js"></script>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        // modues:
+        let  moudesA={
+            state:{
+                a:100
+            },
+            getters:{
+                str1(){
+                    return 99;
+                }
+            },
+        }
+        let  moudesB={
+            state:{
+                num:88
+            }
+        }
+        let store = new Vuex.Store({
+            state:{
+                count:0
+            },
+            getters:{
+                str(state){
+                    return state.count%2===0?"偶数":"奇数";
+                }
+            },
+            mutations:{
+                add_count(state,payload){// state: 默认接收一个state
+                    state.count+=payload;
+                }
+            },
+            actions:{
+               
+                add({commit},val){// 提交一个mutations
+                    setTimeout(()=>{
+                        commit("add_count",val)
+                    },1000)
+                   
+                }
+            },
+            modules:{
+                // 这个modules会把各自模块的state,getters,mutations,actions最终都会注入到该Store中
+                first:moudesA,
+                second:moudesB
+            }
+        });
+        let first={
+            data(){
+                return {}
+            },
+            methods:{
+                ...Vuex.mapMutations(["add_count"]),
+                addState(val){
+                    this.$store.dispatch("add",val);
+                }
+            },
+            computed:{
+                ...Vuex.mapGetters(["str"])
+            },
+            template:"<div>{{$store.state.count}}<button @click='addState(3)'>新增</button>{{str}}{{$store.state.first.a}}</div>"
+        }
+        let second={
+            data(){
+                return {}
+            },
+            template:"<div>{{$store.state.count}}</div>"
+        }
+        let vm = new Vue({
+            el:"#app",
+            data:{
+
+            },
+            components:{
+                first,
+                second
+            },
+            store
+        })
+    </script>
+</body>
+</html>

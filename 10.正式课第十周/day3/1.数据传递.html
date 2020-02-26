@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="node_modules/vuex/dist/vuex.min.js"></script>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        // 组件 ： 组件就是抽离的公共的部分；这个公共部分可以有自己独立html,css,js；
+        // 实现复用；可复用   可维护
+        // 数据传递： vue中数据传递有哪些方式？
+        // Vue是单项数据流，当父组件的数据发生更改，如果子组件也使用了父组件的数据，那么子组件也会随着更新；如果改变子组件这个数据，那么父组件不能更改；
+        //1. 父传子（props） 2. 子传父（自定义事件） 3.兄弟组件（eventBus）  4. Vuex(store)[state,getters,mutations,actions,modules]
+        let vm = new Vue({
+            el:"#app",
+            data:{
+
+            }
+        })
+    
+    
+    
+    </script>
+</body>
+</html>

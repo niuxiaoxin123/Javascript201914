@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <router-link :to="{name:'first'}">首页</router-link>
+        <router-link :to="{name:'second'}">列表页</router-link>
+        <router-view></router-view>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/vue-router/dist/vue-router.js"></script>
+    <script>
+        // 通过名字取匹配路由
+        // 1.:id 路由动态传参
+        // 2. query传参
+        // 3. params传参
+        let home={
+            methods:{
+                goList(){
+                    // push("/list")
+                    // push({path:"",query:{}})
+                    //this.$router.push({path:"/list",query:{id:100}})
+                    this.$router.push({name:"second",params:{id:500}})
+                }
+            },
+            template:"<div>首页<button @click='goList'>去列表</button></div>"
+        }
+        let list={
+            created(){
+                //let id = this.$route.query.id;
+                console.log(this.$route.params.id);
+            },
+            template:"<div>列表页</div>"
+        }
+        let routes  =[
+            {path:"/home",component:home,name:"first"},
+            {path:"/list",component:list,name:"second"}
+
+        ];
+        let router = new VueRouter({
+            routes
+        })
+        let vm = new Vue({
+            el:"#app",
+            data:{
+
+            },
+            router
+        })
+    
+    </script>
+</body>
+</html>

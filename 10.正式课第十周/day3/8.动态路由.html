@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <router-link to="/home/1">第一本</router-link>
+        <router-link to="/home/2">第二本</router-link>
+        <router-link to="/home/3">第三本</router-link>
+        <router-view></router-view>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/vue-router/dist/vue-router.js"></script>
+    <script>
+        // $router:push go  back  forward
+        // $route: 
+
+        // 路由的动态传参：
+        // 路由传参有哪些方式；
+     
+        let home={
+            // created(){
+            //     // 
+            //     console.log(this.$route);
+            // },
+            // watch:{
+            //     '$route'(to,from){
+            //        console.log(to);// to: 要到达的组件的$route
+            //        console.log(from);// from :上一个$route
+            //     }
+            // },
+            // 路由守卫
+            // 在路由更新之前会默认调用该钩子函数
+            beforeRouteUpdate(to,from,next){
+                console.log(to);// 即将进入的目标路由的对象信息
+                console.log(from);// 即将离开路由的对象信息
+                console.log(next);// 函数
+                // 1. next 函数
+                // next(): 会立即进入到目标路由
+                // next(false):中断当前的导航；不再去访问下一个路由
+                // if(to.params.id==3){
+                //     next({path:"/home/1"});
+                //     return;
+                // }
+                // 权限校验
+                next();
+            },
+            template:"<div>这是我喜欢的第{{$route.params.id}}本书</div>"
+        }
+        
+        // 动态路由：路由传参；路径后面是一个:变量；这就是动态路由，也可以叫路由动态传参；会把id以属性方式放到$route的params属性上，属性值就是路由实际的路径值 
+
+        // 1.代码量少
+        // 2. 由于动态路由渲染的是同一个home组件，所以home组件不再销毁，当然也不再创建，复用了之前的组件，性能高；但是生命周期的钩子函数也不再执行；
+        let routes  =[
+            {path:"/home/:id",component:home}
+        ];
+        let router = new VueRouter({
+            routes
+        })
+        let vm = new Vue({
+            el:"#app",
+            data:{
+            },
+            router
+        })
+    
+    </script>
+</body>
+</html>
