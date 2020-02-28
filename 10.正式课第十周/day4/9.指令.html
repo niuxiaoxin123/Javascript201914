@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+    <div id="app">
+        <button @click="fn">显示/隐藏</button>
+        <div v-once>{{msg}}</div>
+        <ul>
+            <li>button1</li>
+            <li>button2</li>
+            <li>button3</li>
+        </ul>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        // v-pre : 跳过这个元素的编译；加快了它的编译过程
+        // v-once : 只渲染一次；以后更改数据也不再更新了；
+        // 当写的结构时静态的时候，可以使用这个指令；
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                show:true,
+                msg:"你很好"
+            },
+            methods:{
+                fn(){
+                    //this.show=!this.show;
+                    this.msg="你很帅"
+                }
+            }
+        })
+    </script>
+</body>
+</html> 

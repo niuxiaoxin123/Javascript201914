@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*fade-enter: 进来之前fade-enter-active:进来时  */
+        .fade-enter-active,.fade-leave-active{
+            transition: 2s;
+        }
+        .fade-enter,.fade-leave-to{
+            opacity:0
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="fn">显示/隐藏</button>
+        <transition name="fade">
+            <div v-if="show">hello</div>
+        </transition>  
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        // v-enter :刚要进来的状态
+        // v-enter-active : 进来过度的样式
+        // v-enter-to: 结束的状态
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                show:true
+            },
+            methods:{
+                fn(){
+                    this.show=!this.show;
+                }
+            }
+        })
+    </script>
+</body>
+</html> 

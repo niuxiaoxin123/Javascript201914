@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>这是父组件</h2>
+        <child>
+            <!-- // slot属性值和子组件中slot插槽中的name属性对应 -->
+            <div slot="first">菜单一</div>
+            <div>菜单二</div>
+            <div>菜单三</div>
+        </child>
+    </div>
+    <template id="child">
+        <div>
+            <h2>这是子组件</h2>
+            <!-- 没有name属性的slot会解析默认的标签 -->
+            <slot></slot>
+            <!-- 子组件的slot组件上的name属性会和父组件中的slot属性进行匹配，并按照子组件的顺序显示对应的模板数据 -->
+            <slot name="first"></slot>
+            <!-- slot：内置的组件：可以将父组件中的子组件里面的模板数据进行显示 -->
+        </div>
+    </template>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        let  child = {
+            data(){
+                return {
+                    msg:"world"
+                }
+            },
+            template:"#child"
+        }
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                msg:"hello"
+            },
+            components:{
+                child
+            }
+        })
+    </script>
+</body>
+</html>

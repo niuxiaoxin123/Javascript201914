@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <router-link to="/home/1" tag="button">第一本</router-link>
+        <router-link to="/home/2" tag="button">第二本</router-link>
+        <router-link to="/home/3" tag="button">第三本</router-link>
+        <router-link to="/list" tag="button">列表</router-link>
+        <router-view></router-view>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/vue-router/dist/vue-router.js"></script>
+    <script>
+    //切换到另一个组件，组件时会销毁的；
+    // 导航守卫：当切换导航时，会默认调用一些钩子函数，那么这些钩子函数就是导航的守卫；可以在进入这个导航或者离开这个导航时，在钩子函数中做一些事情
+    // 生命周期 11个
+    // 守卫： 7个
+    // 全局守卫： beforeEach  afterEach  beforeResolve
+    // 路由独享守卫： beforeEnter 
+    // 组件内部守卫： beforeRouteEnter beforeRouteUpdate beforeRouteLeave
+    let  home={
+        beforeDestroy(){
+            // console.log(99)
+        },
+        beforeRouteEnter(to,from,next){
+            // 这个钩子函数执行时进入组件实例之前，此时组件实例还没有创建；
+            // console.log(this);// this==>window
+            console.log("home beforeRouteEnter")
+            next(vm=>{
+                // 最后执行
+                // 当next执行传入回调函数，回调函数不能立即执行，等到组件实例创建好之后，才会触发这个回调函数；其中vm就是组件实例
+                //console.log(vm);
+            })
+        },
+        beforeRouteUpdate(to,from,next){
+            // 
+            console.log("home beforeRouteUpdate")
+            next()
+        },
+        beforeRouteLeave(to,from,next){
+            // 当离开list这个组件时，会调用这个钩子函数
+            console.log(" home beforeRouteLeave")
+            next();
+        },
+        template:"<div>这是第{{$route.params.id}}本书</div>"
+    };
+    // 当第一次进入到list组件时，只触发了beforeRouteEnter；
+    let list={
+        beforeRouteEnter(to,from,next){
+            // 这个钩子函数执行时进入组件实例之前，此时组件实例还没有创建；
+            // console.log(this);// this==>window
+            console.log("list beforeRouteEnter")
+            next(vm=>{
+                // 当next执行传入回调函数，回调函数不能立即执行，等到组件实例创建好之后，才会触发这个回调函数；其中vm就是组件实例
+                //console.log(vm);
+            })
+        },
+        // beforeRouteUpdate(to,from,next){
+            // 当复用这个组件并且更新了组件时，这个函数才会被调用；
+            // this--> 当前的组件实例
+        //     // 
+        //     console.log("beforeRouteUpdate")
+        //     next()
+        // },
+        beforeRouteLeave(to,from,next){
+            // 当离开list这个组件时，会调用这个钩子函数
+            console.log(" list beforeRouteLeave")
+            next();
+        },
+        template:"<div>列表页内容</div>"
+    }
+    let routes = [{path:"/home/:id",component:home,beforeEnter:(to,from,next)=>{
+            console.log("home beforeEnter");
+            next();
+        }},{
+        path:"/list",component:list,beforeEnter:(to,from,next)=>{
+            console.log("list beforeEnter");
+            next();
+        }
+    }]
+    let router = new VueRouter({
+        routes
+    });
+    // 全局的前置钩子函数；只要切换组件，就会执行
+    router.beforeEach((to,from,next)=>{
+        // console.log(to);// 到哪去
+        // console.log(from);// 从哪来
+        console.log(1);
+        // 在这个钩子函数中获取到用户的信息，进行权限的校验，如果不符合要求，那么next不需要运行；或者直接跳转到首页或 403页面
+        next();// 只有执行了next，才会往下继续跳转路由；
+    });
+    router.beforeResolve((to,from,next)=>{
+        // console.log(to);// 到哪去
+        // console.log(from);// 从哪来
+        console.log(2);
+        next();// 只有执行了next，才会往下继续跳转路由；
+    });
+    // 全局后置的钩子函数
+    router.afterEach((to,from)=>{
+        // console.log(to);
+        console.log(3);
+        // 路由切换成功以后执行的钩子函数
+    });
+    // 用户  /list   管理员 ： /list   /edit  /home
+    // 切换路由时：路由守卫执行顺序beforeEach==>beforeEnter==>beforeRouteUpdate==>beforeResolve==>afterEach
+    //当进入组件时，先触发全局的前置钩子，然后触发进入组件的路由独享守卫，然后触发组件内部的beforeRouteEnter,最后触发全局的beforeResolve和全局后置钩子函数
+
+    let vm = new Vue({
+        el:"#app",
+        router
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <router-link to="/home" tag="button">首页</router-link>
+        <router-link to="/list" tag="button">列表页</router-link>
+        <router-view></router-view>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/vue-router/dist/vue-router.js"></script>
+    <script>
+    // 08-19年 ：08--11年网页制作（网站）  12---15年(网站和移动端APP) 16---20(系统：管理；OA管理系统，CRM管理系统；数据)
+    // SPA单页面应用；系统
+    // vuex-module
+    // 路由{path："",component:child"}
+    let home = {
+        template:"<div>首页内容</div>"
+    };
+    let list = {
+        template:"<div>列表页内容</div>"
+    };
+    let found={
+        template:"<div>页面404</div>"
+    };
+    // redirect: 重定向
+    // 1. routes:[{path:"/a",redirect:"/home"}]
+    // 2. routes:[{path:"/a",redirect:{name:"路由名字"}}]
+    let routes = [{path:"/",component:home},{path:"/home",component:home},{path:"/list",component:list},{path:"/a",component:found},{path:"*",redirect:"/home"}];
+    let router = new VueRouter({
+        routes
+    });
+    let vm = new Vue({
+        el:"#app",
+        router
+    })
+    
+    
+    </script>
+</body>
+</html>

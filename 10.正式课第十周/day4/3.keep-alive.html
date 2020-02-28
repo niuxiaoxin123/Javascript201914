@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="fn">点一点</button>
+        <!-- // component : 内置组件，根据is属性来显示对应的组件;is属性的属性值保持和组件名字一致；然后可以显示对应的组件
+        // 如果是动态属性，那么会去data中取值 -->
+        <!-- <component is="second"></component> -->
+        <keep-alive>
+            <!-- keep-alive:用于缓存组件，如果该组件还会再启用，那么可以使用keep-alive进行组件缓存和优化，提高性能，缓存的组件不需要销毁，也不需要再创建 -->
+            <component v-bind:is="one"></component>
+        </keep-alive>
+        
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        // component 和keep-alive 都是内置组件，在VUE代码已经内置好的组件；
+        // 闭合标签使用组件
+        // component: 每次能动态显示一个组件，当切换下一个组件时，当前组件要销毁
+        // keep-alive : keep: 保持  alive:活力 
+        // VUE项目的优化： keep-alive
+        let child={
+            data(){
+                return {
+                    a:cc
+                }
+            },
+            template:"<div>{{a}}</div>"
+        }
+        let first = {
+            destroyed(){
+                console.log("销毁")
+            },
+            components:{
+                child
+            },
+            // 生命周期的钩子函数
+            activated(){
+                // 当缓存组件有被显示出来时，会触发这个钩子函数
+                console.log(100);
+            },
+            deactivated(){
+                // 当缓存的组件隐藏时，会触发这个钩子函数；
+                console.log(200);
+            },
+            // 当子孙组件出错时，会调用这个钩子函数
+            errorCaptured(a,b,c){
+                console.log(a);
+                console.log(b);
+                console.log(c);
+                console.log("子组件报错")
+            },
+            template:"<div>我是老大<child></child></div>"
+        };
+        let second = {
+            template:"<div>我是老二</div>"
+        }
+        let third = {
+            template:"<div>我是老三</div>"
+        }
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                 one:"first"
+            },
+            methods:{
+                fn(){
+                    let  ary = ["first","second","third"];
+                    let index = ary.indexOf(this.one);
+                    if(index<2){
+                        this.one = ary[index+1];
+                    }else{
+                        this.one = ary[0];
+                    }
+                }
+            },
+            components:{
+                first,
+                second,
+                third
+            }
+            
+        });
+    </script>
+</body>
+</html>

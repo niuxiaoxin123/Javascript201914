@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+        <h2>这是父组件</h2>
+        <child>
+            {{msg}}
+            <div>菜单一</div>
+            <div>菜单二</div>
+            <div>菜单三</div>
+        </child>
+    </div>
+    <template id="child">
+        <div>
+            
+            <slot></slot>
+            <h2>这是子组件</h2>
+            {{msg}}
+            <!-- slot：内置的组件：可以将父组件中的子组件里面的模板数据进行显示 -->
+        </div>
+    </template>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        let  child = {
+            data(){
+                return {
+                    msg:"world"
+                }
+            },
+            template:"#child"
+        }
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                msg:"hello"
+            },
+            components:{
+                child
+            }
+        })
+    </script>
+</body>
+</html>

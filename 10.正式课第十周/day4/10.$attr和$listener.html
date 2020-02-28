@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <child :val="a" name="北京" age="10" @click="()=>{this.a=888}"></child>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        // 父子props  
+        // 祖先元素传递子孙元素的数据
+        // $attrs： 把行间属性放在一个对象上，传给孙子组件的$attrs属性  $listeners :方法
+        let  grandson={
+            template:"<div>{{$attrs}}<button @click='$listeners.click()'></button></div>"
+        }
+        let  child={
+            data(){
+                return {}
+            },
+            components:{
+                grandson
+            },
+            // props:["val"],
+            template:"<div>{{val}}<grandson v-bind='$attrs' v-on='$listeners'></grandson></div>"
+        }
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                a:100
+            },
+            components:{
+                child
+            }
+        })
+        
+        </script>
+</body>
+</html>
