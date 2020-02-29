@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <router-link to="/home">首页</router-link>
+        <router-view></router-view>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        // 路由的守卫
+        // 7个钩子函数
+        // 全局守卫：beforeEach  beforeResolve  afterEach 
+        // 路由独享守卫 ：beforeEnter
+        // 组件内部守卫 ： beforeRouteEnter  beforeRouteUpdate  beforeRouteleave
+        // A 组件切换到B组件 ：A(beforeRouteleave)==> 全局(beforeEach)=>组件B(beforeEnter)==> B(beforeRouteEnter)==> 全局的beforeResolve==>全局的afterEach==> DOM更新==> beforeRouteEnter的next的回调函数；
+        // A组件的复用
+        let home = {
+            template:"<div></div>",
+            beforeRouteEnter(){
+                next(vm=>{
+                    // vm==>Home组件实例
+                });
+            }
+        };
+        let routes = [{path:"/home",component:home,beforeEnter:()=>{}}];
+        let router =new VueRouter({
+            router
+        });
+        let vm = new Vue({
+            router
+        });
+        // 内置组件；
+        // component : is显示对应的组件
+        // keep-alive : 缓存  activated deactivated  errorCaptured
+        // slot    :插槽  具名插槽   作用域插槽：能够在父组件中使用子组件的数据
+        // transition fade-enter  fade-enter-to  fade-enter-active
+        // $attrs  $listeners  
+
+    
+    
+    
+    </script>
+</body>
+</html>

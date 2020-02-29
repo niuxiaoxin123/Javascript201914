@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{$store.state.count}}
+        <child></child>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/vuex/dist/vuex.js"></script>
+    <script>
+        let Vuex=(function(){
+            class Store{
+                constructor(){
+                    // this==> 返回值store实例
+                }
+            }
+            function install(_Vue){
+                // _Vue : 就是Vue这个类函数；
+                // mixin : 将生成store通过mixin方法注入到每一个组件上
+                _Vue.mixin({
+                    beforeCreate(){// 比组件内部的beforeCreate早执行
+                        console.log(this);// 代表每一个组件实例；
+                    }
+                })
+            }
+            return {
+                Store,
+                install
+            }
+        })();
+        // Vue的插件必须使用Vue.use;只是vuex会默认检测到是vue的官方插件，看不到vue.use;vue.use执行时，会默认调用里面的install；
+        Vue.use(Vuex);
+        // Vuex.Store
+        // Vuex.mapState
+        // store 是Store的一个实例；并且这个实例最后放到了vue的实例属性上；
+        let store = new Vuex.Store({
+            state:{
+                count:100
+            },
+            mutations:{
+                addCount(state){
+                    state.count++;
+                }
+            },
+            actoions:{
+                add({commit},payload){
+                    commit("addCount",10)
+                }
+            }
+        });
+        let child={
+            template:"<div>{{this.$store.state.count}}</div>"
+        }
+        // $store 会添加到每一个组件的实例上；
+        let vm = new Vue({
+            el:"#app",
+            store,// 会给当前实例以及当前实例的所有子孙组件都会新增一个$store属性；
+            // 把Store的一个实例给了这个store属性
+            components:{child}
+        });
+            
+            
+    </script>
+</body>
+</html>

@@ -32,6 +32,9 @@
             getters,
             mutations:{
                 increment(state,a){// vuex更改store中状态的唯一方法就是commit;
+                    console.log(this);// store
+                    console.log(store);
+                    
                     // state： 状态    payload: 载荷  
                     //state.count+=a;//在mutation的方法中，都是同步事务，不支持异步；
                     setTimeout(()=>{

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{$store.state.count}}
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/vuex/dist/vuex.js"></script>
+    <script>
+        // Vue.use
+        let store = new Vuex.Store({
+            state:{
+                count:100
+            },
+            mutations:{
+                addCount(state){
+                    state.count++;
+                }
+            },
+            actoions:{
+                // 支持异步；在项目中一般在此发送异步请求，当请求数据成功后更改state中的值；
+                add({commit},payload){
+                    commit("addCount",10)
+                }
+            }
+        });
+        // Vue.use(vuex);
+        // Vue.use :可以接受对象和函数
+        let obj = {
+            install(vm){
+                console.log(vm)
+            }
+        }
+        let fn = function(vm){
+            console.log(vm)
+        }
+        Vue.use(fn);
+        // 1. 如果use传递进来一个对象，那么会默认调用这个对象中的install方法，并且将Vue这个方法传给其第一个参数；
+        // 2. 如果vue直接传入一个函数，那么Vue.use就会把这个函数当成install来执行；
+        let vm = new Vue({
+            el:"#app",
+            store// 会给当前实例以及当前实例的所有子孙组件都会新增一个$store属性；
+        });
+            
+            
+    </script>
+</body>
+</html>

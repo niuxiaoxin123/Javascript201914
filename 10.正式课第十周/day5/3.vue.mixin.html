@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{name}}
+        {{msg}}
+        <button @click="add">新增</button>
+        <my></my>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/vuex/dist/vuex.js"></script>
+    <script>    
+        //  Vue.mixin : 把对象中的data合并到每一个组件的data中，如果和组件中的属性重名，那么以组件data中值为准；
+        // 2.还可以吧对象中的钩子函数混入到每一个组件中，并且是先执行混入对象的钩子函数，再执行组件自己的钩子函数
+        /// 如果不重名就是新增，如果重名，则以组件内部的属性为准
+        Vue.mixin({
+            data(){
+                return {
+                    msg:"hello",
+                    name:"201914"
+                }
+            },
+            beforeCreate(){
+                console.log("mixin beforeCreate")
+            },
+            methods:{
+                add(){
+                    console.log(888)
+                }
+            },
+            mounted(){
+                console.log("mixin mounted")
+            }
+        });
+        Vue.component('my',{
+            // template:"<div></div>"
+            // render(h){
+            //     // h==> 函数
+            //     // h:第一个参数可以标签名  对象：行间属性   标签的文本内容
+            //     //console.log(h("h1",{class:"bar",a:1},"hello",{c:1}));
+            //     // 这个函数就会返回一个虚拟的DOM，那么vue再将这个虚拟的DOM转成真实的DOM放在页面上
+            //     //console.log(h);
+            //     return h("h1",{class:"bar",attrs:{id:100}},"hello");
+            // }
+            template:"<div>{{msg}}</div>"
+        })
+        let vm = new Vue({
+            el:"#app",
+            data(){
+                return {
+                    name:"珠峰"
+                }
+            },
+            methods:{
+                
+            },
+            beforeCreate(){
+                console.log("vm beforeCreate")
+            },
+            mounted(){
+                console.log("vm mounted")
+            }
+        });
+        console.log(vm);
+       
+        
+            
+            
+    </script>
+</body>
+</html>

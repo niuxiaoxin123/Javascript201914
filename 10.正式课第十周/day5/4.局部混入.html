@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+       
+            <my></my>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/vuex/dist/vuex.js"></script>
+    <script>    
+        // let obj = {
+        //     data(){
+        //         return {msg:100}
+        //     },
+        //     created(){
+        //         console.log(this);// this :代表当前使用obj这个混入对象的vue实例
+        //     }
+        // }
+        Vue.mixin({
+            data(){
+                return {msg:100}
+            },
+            created(){
+                console.log(this);// this :代表当前使用obj这个混入对象的vue实例
+                // created:有多少个vue实例，created执行多少次，并且每次执行都会指向不同的组件实例
+            },
+            
+        });
+        Vue.component('my',{
+            data(){
+                return {
+                    a:100
+                }
+            },
+            template:"<div>{{msg}}</div>",
+            //mixins:[obj]
+        });
+        let vm = new Vue({
+            el:"#app",
+            data(){
+                return {
+                    name:"珠峰"
+                }
+            },
+           // mixins:[obj],
+            methods:{
+                
+            },
+            beforeCreate(){
+                console.log("vm beforeCreate")
+            },
+            mounted(){
+                console.log("vm mounted")
+            }
+        });
+       
+       
+        
+            
+            
+    </script>
+</body>
+</html>

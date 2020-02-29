@@ -91,15 +91,18 @@
     router.beforeEach((to,from,next)=>{
         // console.log(to);// 到哪去
         // console.log(from);// 从哪来
-        console.log(1);
+        
         // 在这个钩子函数中获取到用户的信息，进行权限的校验，如果不符合要求，那么next不需要运行；或者直接跳转到首页或 403页面
+        console.log(1);
         next();// 只有执行了next，才会往下继续跳转路由；
+        
     });
     router.beforeResolve((to,from,next)=>{
         // console.log(to);// 到哪去
         // console.log(from);// 从哪来
         console.log(2);
         next();// 只有执行了next，才会往下继续跳转路由；
+    
     });
     // 全局后置的钩子函数
     router.afterEach((to,from)=>{
