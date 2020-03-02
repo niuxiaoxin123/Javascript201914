@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <child></child>
+    </div>
+    <script>
+    // 1. Vue.use => 当使用第三方组件时，需要使用Vue.use方法；当用这个方法会默认调用里面的install
+    // Vue.use({install:function(_vue){}})
+    // 2. Vue.mixin  : 混入
+    // 
+    Vue.mixin({
+        data(){
+            return {
+                a:100
+            }
+        },
+        created(){
+
+        }
+    });
+    let child = {
+        created(){
+
+        }
+    }
+    new Vue({
+        el:"#app",
+        data:{
+            b:9
+        },
+        created(){
+        },
+        components:{
+            child       
+        }
+    })
+
+    // Vuex : 
+    // 0. vuex结构： install  Store  :state  getters  mutations  actions 
+    // 1.  $store： 把生成store注入每一个实例上吧；Vue.mixin 
+    // 2.  state: 数据驱动视图 
+    
+    
+    </script>
+</body>
+</html>

@@ -28,12 +28,14 @@
                         }
                     });
                     //this.state=options.state||{};
+                    // 将Vm的state的空间地址赋值给了this.state
                     this.state = vm.state;
                     // this==> $store
                     this.mutations={};
                     let mutations=options.mutations;//这个就是传递进来的那个mutations
                     // Object.keys : 把对象中的属性名挑出来放到一个数组中
                     // 就是在实例身上准备一个mutations对象，里面包含了options外界传递进来的方法，那么方法中的this已经是指向了store这个实例；
+                    // 
                     Object.keys(options.mutations).forEach(key=>{
                         //this.mutations[key].bind(this,this.state)
                         this.mutations[key]=(payload)=>{
@@ -41,13 +43,14 @@
                         }
                     });
                     // 执行私有属性的方法时，调用原型上的方法；
-                    let commit= this.commit;// 把原型的commit给了变量commit；
+                    let commit = this.commit;// 把原型的commit给了变量commit；
+                    // 给当前实例新增一个commit属性，属性值是一个函数
                     this.commit=(type,option)=>{
                         commit.call(this,type,option)
-                    }  
-                    this.commit=function(type,option){
-                        options.mutations[type].call(this,option)
                     }
+                    // this.commit=function(type,option){
+                    //     options.mutations[type].call(this,option)
+                    // }
                     
                     // actions 
                     this.actions = {};
@@ -67,6 +70,7 @@
                     // getters
                     this.getters={};
                     let getters = options.getters||{};
+                    // Object.keys : 将对象的属性名收集起来放到一个数组中
                     Object.keys(getters).forEach(key=>{
                         // 给getters中每一个属性新增一个get方法；
                         Object.defineProperty(this.getters,key,{
@@ -86,6 +90,8 @@
                     this.actions[type](option)
                 }
             }
+            //...Vuex.mapState(['a',"b"]);
+            // 将store中的state放到当前的computed属性中
             function mapState(ary){
                 let obj ={};
                 ary.forEach(key=>{
@@ -172,7 +178,7 @@
             mutations:{
                 add(state,val){
                     // this==> store
-                    console.log(this);
+                    console.log(state);
                     state.count+=val;
                 }
             },
@@ -194,8 +200,8 @@
             methods:{
                 fn(){
                     // this.$store===store==Store的实例
-                    // this.$store.commit("add",100);
-                    this.$store.dispatch("addNum",1)
+                    this.$store.commit("add",100);
+                   // this.$store.dispatch("addNum",1)
                 }
             },
             computed:{

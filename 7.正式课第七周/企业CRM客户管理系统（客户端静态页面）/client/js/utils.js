@@ -316,7 +316,7 @@ window.alert = (function () {
 			$DIALOG.addEventListener('transitionend', hidden);
 		}
 		init() {
-			this.create();
+			this.create();// 钩子函数；在初始化实例时，会默认调用原型上的一些方法，那么这些方法就是钩子函数；
 			this.$DIALOG.offsetLeft; //=>取消分离读写：让上面的样式先渲染
 			this.show();
 

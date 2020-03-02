@@ -58,7 +58,7 @@
             console.log("list beforeRouteEnter")
             next(vm=>{
                 // 当next执行传入回调函数，回调函数不能立即执行，等到组件实例创建好之后，才会触发这个回调函数；其中vm就是组件实例
-                //console.log(vm);
+                console.log(vm);
             })
         },
         // beforeRouteUpdate(to,from,next){
@@ -87,6 +87,8 @@
     let router = new VueRouter({
         routes
     });
+    console.log(router);
+    
     // 全局的前置钩子函数；只要切换组件，就会执行
     router.beforeEach((to,from,next)=>{
         // console.log(to);// 到哪去
@@ -118,6 +120,8 @@
         el:"#app",
         router
     });
+    
+    
     </script>
 </body>
 </html>
