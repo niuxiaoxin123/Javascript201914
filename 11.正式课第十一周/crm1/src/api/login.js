@@ -5,4 +5,8 @@ export function login(option){
         return data;// 这个data请求回来的数据
     })
 }
+export function loginout(){
+    // 这是向退出的接口发送请求；
+    return http.get("/user/signout")
+}
 

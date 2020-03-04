@@ -16,7 +16,11 @@ Vue.config.productionTip = false;
 new Vue({
   router,
   store,
-  render: h => h(App)
+  // render: h => h(App)
+  render:(h)=>{
+    // h： 传组件
+    return h(App)
+  }
 }).$mount('#app');
 // src的结构：大家的代码全部在src里面；
 // assets : 静态资源文件；一般放图片和一些css;

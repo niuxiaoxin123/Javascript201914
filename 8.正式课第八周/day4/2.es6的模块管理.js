@@ -14,8 +14,19 @@
 // as  : 可以对导出的变量进行重新命名；
 // export 导出的接口中变量和值有一一对应的关系；
 
-var a = {};
-var c = 1;
-var d = 2;
-export {c as e,d as f,a};
+// var a = {};
+// var c = 1;
+// var d = 2;
+// export {c as e,d as f,a};
 export function f(){}
+export function a(){
+
+}
+// export default{
+//     f:f,
+//     a:a
+// }
+import * as type from "./";
+type.f();
+
+

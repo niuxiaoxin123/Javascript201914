@@ -13,6 +13,7 @@
 
 <script>
 // @ ==> 相当于/src
+// api:专门用来存放接口的；请求
 import  {login} from "@/api/login.js";
 // 需要对导入login进行解构赋值
 export default {
@@ -46,6 +47,8 @@ export default {
                     })
                 }
                 if(data.code==0){
+                    // 把后端查询出来的power的值放在本地localStorage上；
+                    localStorage.setItem("power",data.power);
                     this.$alert("恭喜登录成功","提示",{
                         confirmButtonText:"确定",
                         callback:action=>{
