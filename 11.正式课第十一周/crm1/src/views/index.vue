@@ -12,7 +12,7 @@
                     </div>
                 </div>
                 <div class="userBox rt">
-                    <span>您好，珠峰培训</span>
+                    <span>{{name}}</span>
                     <span @click="signout">安全退出</span>
                 </div>
             </el-header>
@@ -37,11 +37,12 @@ export default {
             if(data.code!=0){
                 this.$router.push("/login")
             }
+            this.name=localStorage.getItem("user");
         })
     },
     data() { 
         return {
-
+            name:"未登录"
         }
     },
     methods:{

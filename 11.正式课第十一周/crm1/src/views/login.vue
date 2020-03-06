@@ -49,6 +49,7 @@ export default {
                 if(data.code==0){
                     // 把后端查询出来的power的值放在本地localStorage上；
                     localStorage.setItem("power",data.power);
+                    localStorage.setItem("user",this.username);
                     this.$alert("恭喜登录成功","提示",{
                         confirmButtonText:"确定",
                         callback:action=>{
