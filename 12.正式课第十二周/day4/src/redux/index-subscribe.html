@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="title"></div>
+    <div id="content"></div>
+    <script>
+        // state  getState  dispatch   subscribe
+        // subscribe : 订阅；可以订阅一些方法，当执行完dispatch之后，会把订阅的方法执行
+        const CHANGE_TITLE_TEXT="CHANGE_TITLE_TEXT";
+        const  CHANGE_CONTENT_COLOR="CHANGE_CONTENT_COLOR";
+        function createStore(reducer){
+            let  state;
+            let listeners=[];
+            let getState=()=>JSON.parse(JSON.stringify(state));
+            function dispatch(action){
+                state=reducer(state,action);
+                // 调用dispatch就会发布listener中的方法；
+                listeners.forEach(item=>{
+                    if(typeof item==="function"){
+                        item();
+                    }
+                })
+            }
+            dispatch({});
+            function subscribe(fn){
+                listeners.push(fn);
+                // 返回一个取消订阅的方法，当返回值执行时，取消对应的订阅
+                return ()=>{
+                    listeners = listeners.filter(item=>item!==fn);
+                }
+            }
+            return {
+                getState,
+                dispatch,
+                subscribe
+            }
+        }
+        let initState = {
+            title:{color:"red",text:"下午别睡觉"},
+            content:{color:"yellow",text:"上午也别睡觉"}
+        };
+
+        function reducer(state=initState,action){// 形参
+            switch(action.type){
+                case CHANGE_TITLE_TEXT:
+                    return {...state,title:{...state.title,text:action.text}};
+                case CHANGE_CONTENT_COLOR:
+                    return {...state,content:{...state.content,color:action.color}}
+            }
+            return state;
+        }
+        let store = createStore(reducer);
+        
+        function renderTitle(){
+            let title = document.getElementById("title");
+            title.innerHTML = store.getState().title.text;
+            title.style.color=store.getState().title.color;
+        }
+        function renderContent(){
+            let content = document.getElementById("content");
+            content.innerHTML = store.getState().content.text;
+            content.style.color=store.getState().content.color;
+        }
+        function renderApp(){
+            renderTitle();
+            renderContent();
+        }
+        renderApp();
+        setTimeout(function(){
+            store.dispatch({type:CHANGE_TITLE_TEXT,text:"好好学习"});
+            store.dispatch({type:CHANGE_CONTENT_COLOR,color:"blue"})
+            // renderApp();
+        },2000)
+        // 订阅renderApp这个方法，然后执行dispatch,就会发布这个方法；
+        // let f = store.subscribe(renderApp);
+        // f();// 取消订阅
+
+
+    </script>
+</body>
+</html>

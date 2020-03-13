@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="title"></div>
+    <div id="content"></div>
+    <script>
+        // vuex 必须和vue结合使用；
+        // 解决react框架中组件和组件数据传递问题；
+        // redux ： 也是一个用于管理公共状态的模块；    
+        let state  ={
+            title:{color:"red",text:"下午别睡觉"},
+            content:{color:"yellow",text:"上午也别睡觉"}
+        };
+        function renderTitle(){
+            let title = document.getElementById("title");
+            title.innerHTML = state.title.text;
+            title.style.color=state.title.color;
+        }
+        function renderContent(){
+            let content = document.getElementById("content");
+            content.innerHTML = state.content.text;
+            content.style.color=state.content.color;
+        }
+        function renderApp(){
+            renderTitle();
+            renderContent();
+        }
+        renderApp();
+
+        // 在redux中如果想更改数据，必须调用dispatch这个方法来更改state的数据；在更改数据时，需要传给dispatch一个action，action中有个type属性来表示更改的类型；
+        //  action : 里面要有一个type属性和要更改的数据
+        // dispatch根据定义的type类型值，进行数据不同的处理和更改
+        // vuex : 必须提交commit的mutation来更改数据；
+        // redux中规定，redux中的state必须经过dipatch去更改；
+        const CHANGE_TITLE_TEXT="CHANGE_TITLE_TEXT";
+        const  CHANGE_CONTENT_COLOR="CHANGE_CONTENT_COLOR";
+        function dispatch(action){
+            switch(action.type){
+                case CHANGE_TITLE_TEXT:
+                    // 对原有的state进行解构，并且让新的值放在这个对象中
+                    state={...state,title:{...state.title,text:action.text}};
+                    break;
+                case CHANGE_CONTENT_COLOR:CHANGE_CONTENT_COLOR:
+                    state={...state,content:{...state.content,color:action.color}}
+            }
+        }
+        // 更改content的字体颜色，改成blue;
+        setTimeout(function(){
+            // 更改state中的值；但是没有更新视图；
+            // state.title.text="好好学习";// 在react中不允许直接更改state的值；redux 需要调用dispatch才能更改redux中的数据；
+            dispatch({type:CHANGE_TITLE_TEXT,text:"好好学习"});
+            dispatch({type:CHANGE_CONTENT_COLOR,color:"blue"})
+            renderApp();
+        },2000)
+
+    </script>
+</body>
+</html>

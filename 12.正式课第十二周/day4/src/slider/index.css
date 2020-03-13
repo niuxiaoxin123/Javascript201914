@@ -1,0 +1,66 @@
+*{
+    margin:0;
+    padding:0;
+}
+.container{
+    width:400px;
+    height:300px;
+    margin: 200px auto;
+    position: relative;
+    border:1px solid  red;
+    overflow: hidden;
+}
+.container ul{
+    list-style: none;
+}
+.container .wrapper{
+    width:1600px;
+    height:300px;
+    position: absolute;
+    left:0;
+}
+.wrapper li{
+    width:400px;
+    height:300px;
+    float: left;
+}
+
+.wrapper li img{
+    width:100%;
+    height:100%;
+}
+/* 箭头的样式 */
+.arrow {
+    position: absolute;
+    top:50%;
+    height:50px;
+    margin-top:-25px;
+}
+.arrow span{
+    color:white;
+    display: inline-block;
+    cursor: pointer;
+}
+.arrow span:nth-child(2){
+    position: absolute;
+    left:380px;
+}
+/* 焦点样式 */
+.focus{
+    position: absolute;
+    bottom: 10px;
+    width:100%;
+    left:50%;
+    margin-left:-20px;
+}
+.focus li{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    margin-right:5px;
+    background: #666666;
+    float:left;
+}
+.focus li.active{
+    background-color: red;
+}

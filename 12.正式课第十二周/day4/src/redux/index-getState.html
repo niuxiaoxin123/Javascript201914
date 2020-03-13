@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="title"></div>
+    <div id="content"></div>
+    <script>
+        // vuex 必须和vue结合使用；
+        // 解决react框架中组件和组件数据传递问题；
+        // redux ： 也是一个用于管理公共状态的模块； 
+        // store :  state  getState  dispatch  subscribe
+        // redux : 外界不能直接更改state中的值；
+        // let a =  {};
+        // let b = a;// 空间地址一样
+        // a.name="88";// 新增了吧
+
+        // let c = {m:{bar:100},f:{foo:200}};
+        // let d  ={};
+        // for(let key in c){
+        //     d[key]=c[key];
+        // }
+        // c.m.bar=666;
+        // d.m.bar// ?
+        // redux : 实现组件之间数据传递；redux准备一个全局的store；在这个容器中准备一个state，专门来存储公共数据；如果外界想访问这个数据，必须经过store给提供的getState这个方法来获取store中的数据；在getState 中为了防止外界直接修改，所以只能深克隆一个state返回；在redux中规定，更改store中的state的唯一方法是 派发dispatch；所以在store中还提供一个dispatch方法
+        const CHANGE_TITLE_TEXT="CHANGE_TITLE_TEXT";
+        const  CHANGE_CONTENT_COLOR="CHANGE_CONTENT_COLOR";
+        function createStore(reducer){
+            let  state;// 私有的变量
+             // 专门用来获取store中的数据
+             // 深克隆： 把当前作用域下的state克隆一份，并且返回，那么外界拿到的是新克隆的一份，所以不能对当前作用域下的state进行更改；
+            let getState=()=>JSON.parse(JSON.stringify(state));
+            function dispatch(action){
+                // reducer 的返回值覆盖了当前作用域的state；
+                state=reducer(state,action)// 实参
+            }
+            dispatch({});// 为了把初始状态的initState赋值给store中的state；
+            return {
+                getState,
+                dispatch
+            }
+        }
+        let initState = {
+            title:{color:"red",text:"下午别睡觉"},
+            content:{color:"yellow",text:"上午也别睡觉"}
+        };
+        // 自己的写的；reducer存放了根据type类型改state的逻辑
+        function reducer(state=initState,action){// 形参
+            switch(action.type){
+                case CHANGE_TITLE_TEXT:
+                    return {...state,title:{...state.title,text:action.text}};
+                case CHANGE_CONTENT_COLOR:CHANGE_CONTENT_COLOR:
+                    return {...state,content:{...state.content,color:action.color}}
+            }
+            return state;
+        }
+        let store = createStore(reducer);
+        
+        function renderTitle(){
+            let title = document.getElementById("title");
+            title.innerHTML = store.getState().title.text;
+            title.style.color=store.getState().title.color;
+        }
+        function renderContent(){
+            let content = document.getElementById("content");
+            content.innerHTML = store.getState().content.text;
+            content.style.color=store.getState().content.color;
+        }
+        function renderApp(){
+            renderTitle();
+            renderContent();
+        }
+        renderApp();
+        
+
+        // 在redux中如果想更改数据，必须调用dispatch这个方法来更改state的数据；在更改数据时，需要传给dispatch一个action，action中有个type属性来表示更改的类型；
+        //  action : 里面要有一个type属性和要更改的数据
+        // dispatch根据定义的type类型值，进行数据不同的处理和更改
+        // vuex : 必须提交commit的mutation来更改数据；
+        // redux中规定，redux中的state必须经过dipatch去更改；
+ 
+      
+        // 更改content的字体颜色，改成blue;
+        setTimeout(function(){
+            // 更改state中的值；但是没有更新视图；
+            // state.title.text="好好学习";// 在react中不允许直接更改state的值；redux 需要调用dispatch才能更改redux中的数据；
+            store.dispatch({type:CHANGE_TITLE_TEXT,text:"好好学习"});
+            store.dispatch({type:CHANGE_CONTENT_COLOR,color:"blue"})
+            renderApp();
+        },2000)
+
+    </script>
+</body>
+</html>
