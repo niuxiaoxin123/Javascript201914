@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="add">+</button>
+    <span id="text" >  </span>
+    <button id="min">-</button>
+    <script src="./redux.js"></script>
+    <script>
+        let add =document.getElementById("add");
+        let text =document.getElementById("text");
+        let min =document.getElementById("min");
+        let initState = {
+            num:666,
+            a:10
+        };
+        const ADD_COUNT="ADD_COUNT";
+        const MIN_COUNT="MIN_COUNT";
+        // reducer :返回一个state
+        // 第一次执行reducer ==> 在createStore中有一行默认调用dispatch
+        function reducer(state=initState,action){
+            // 形参赋默认值，当传递进来的实参是undefined或不传参，那么形参就代表默认值
+            switch(action.type){
+                case ADD_COUNT:
+                    return {...state,num:state.num+1}// 这个对象会对store中的state重新赋值；
+                case MIN_COUNT:
+                    return {...state,num:state.num-1};
+            }
+            return state;
+        }
+        let store = createStore(reducer);
+        //渲染视图；刷新视图；每当dispatch一次就执行一次该渲染函数
+        function renderSpan(){
+            text.innerHTML = store.getState().num;
+        }
+        renderSpan();
+        // 每当执行一次dispatch,都会执行一次renderSpan
+        store.subscribe(renderSpan);
+        // 绑定点击事件
+        // 点击按钮更改store中的state中的num值;并且更新视图；
+        // 更改store数据流程
+        // 1. const定义type类型
+        // 2. dispatch派发action
+        
+        add.onclick = function(){
+            store.dispatch({type:ADD_COUNT})
+        }
+        min.onclick = function(){
+            store.dispatch({type:MIN_COUNT})
+        }
+
+    </script>
+
+</body>
+</html>
