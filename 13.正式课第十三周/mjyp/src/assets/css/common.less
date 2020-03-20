@@ -1,0 +1,54 @@
+html {
+	font-size: 100px;
+}
+
+html,
+body {
+	 height: 100%;
+	overflow-x: hidden;
+}
+
+body {
+	background: #F3F3F3;
+	font-family: "Helvetica Neue", STHeiTi, sans-serif;
+}
+
+.mhome {
+	margin: 0 auto;
+	min-width: 320px;
+	max-width: 640px;
+	height: 100%;
+}
+
+.clearfix {
+	zoom: 1;
+}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	font-size: 0;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+	overflow: hidden;
+}
+
+.ce {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.loading {
+	position: relative;
+
+	&:after {
+		content: '正在玩命加载中...';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: .28rem;
+		color: #999;
+	}
+}

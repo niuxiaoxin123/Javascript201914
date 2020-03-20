@@ -1,0 +1,64 @@
+.tab {
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  background-color: #FFF;
+  width: 100%;
+  height: 1rem;
+  padding: 0.1rem 0;
+  align-items: center;
+  box-sizing: border-box;
+  font-size: 0;
+}
+.tab .link {
+  display: inline-block;
+  width: 20%;
+  text-align: center;
+  text-decoration: none;
+}
+.tab .link .icon {
+  display: inline-block;
+  width: 0.48rem;
+  height: 0.48rem;
+  background: url("../assets/images/img.png") no-repeat;
+  background-size: 0.48rem;
+}
+.tab .link span {
+  font-size: 0.28rem;
+  display: block;
+}
+.tab .link:nth-child(1) .icon {
+  background-position: 0 0;
+  margin-left: 0.04rem;
+}
+.tab .link:nth-child(1).active .icon {
+  background-position: 0 11%;
+}
+.tab .link:nth-child(2) .icon {
+  background-position: 0 22%;
+  margin-left: 0.04rem;
+}
+.tab .link:nth-child(2).active .icon {
+  background-position: 0 33%;
+}
+.tab .link:nth-child(3) .icon {
+  background-position: 0 44%;
+  margin-left: 0.04rem;
+}
+.tab .link:nth-child(3).active .icon {
+  background-position: 0 55%;
+}
+.tab .link:nth-child(4) .icon {
+  background-position: 0 66.5%;
+  margin-left: 0.04rem;
+}
+.tab .link:nth-child(4).active .icon {
+  background-position: 0 77.5%;
+}
+.tab .link:nth-child(5) .icon {
+  background-position: 0 88.5%;
+  margin-left: 0.04rem;
+}
+.tab .link:nth-child(5).active .icon {
+  background-position: 0 99.5%;
+}
