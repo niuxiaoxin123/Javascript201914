@@ -26,4 +26,4 @@ class App extends React.Component{
         </div>
     }
 }
-export default connect(state=>({...state}))(App);
+export default App;
