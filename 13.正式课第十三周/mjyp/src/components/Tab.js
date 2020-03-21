@@ -1,7 +1,14 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
+import {NavLink,withRouter} from "react-router-dom";
 import "./Tab.less";
-function Tab(){
+
+function Tab(props){
+    // history  location match
+    let pathname = props.location.pathname;
+    let flag=/search/.test(pathname);// 校验路径是否是search;
+    if(flag){
+        return null;
+    }
     return <div className="tab">
         <NavLink className="link" to="/">
             <i className="icon"></i>
@@ -25,4 +32,4 @@ function Tab(){
         </NavLink>
     </div>
 }
-export default Tab;
+export default withRouter(Tab);

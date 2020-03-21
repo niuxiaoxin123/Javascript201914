@@ -6,6 +6,7 @@ import Taste from "./Taste/Taste";
 import Personal from "./Personal/Personal";
 import Cart from "./Cart/Cart";
 import Tab from "../components/Tab.js";
+import Search from "./Search/Search.js"
 import "../assets/css/reset.min.css";
 import "../assets/css/common.less";
 class App extends React.Component{
@@ -17,6 +18,7 @@ class App extends React.Component{
                 <Route path="/cart" component={Cart}></Route>
                 <Route path="/taste" component={Taste}></Route>
                 <Route path="/personal" component={Personal}></Route>
+                <Route path="/search" component={Search}></Route>
                 {/* 当上面路由都没有匹配成功，通过Redirect这个组件，把路由重定向到/上 */}
                 <Redirect to="/"></Redirect>
             </Switch>

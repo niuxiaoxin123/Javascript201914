@@ -1,0 +1,11 @@
+.swiper-container {
+  height: 3.44rem;
+}
+.swiper-container .swiper-slide {
+  height: 100%;
+}
+.swiper-container .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
