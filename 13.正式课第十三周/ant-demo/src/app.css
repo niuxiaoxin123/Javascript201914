@@ -1,0 +1,6 @@
+/* @import '~antd/dist/antd.css'; */
+/* 这样会引入所有组件的css样式，对于最后打包的项目体积是非常大的；不利于性能优化;*/
+/* // 按需加载 */
+.App {
+  text-align: center;
+}
