@@ -1,0 +1,22 @@
+.info_box image{
+    width:90%;
+    margin:auto;
+    position: relative;
+    display: block;
+}
+.bot_box{
+    position: fixed;
+    display: flex;
+    bottom:0;
+    left:0;
+    width:100%;
+}
+.bot_box view,.bot_box button{
+    flex:1;
+}
+.cart_box{
+    text-align: center;
+    font-size:60rpx;
+}
+
+

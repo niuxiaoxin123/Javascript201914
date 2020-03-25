@@ -1,0 +1,6 @@
+<view class="dialog_box">
+    <view class="mask" catchtap="hide"></view>
+    <view class="content_box">
+        <slot/>
+    </view>
+</view>

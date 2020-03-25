@@ -1,6 +1,7 @@
 import * as Types from "../action-types";
 let initState={
-    sliders:null
+    sliders:null,
+    hotData:null
 }
 function homeReducer(state=initState,action){
     state=JSON.parse(JSON.stringify(state));

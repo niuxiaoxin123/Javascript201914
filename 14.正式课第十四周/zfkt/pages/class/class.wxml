@@ -1,0 +1,44 @@
+<!--pages/class/class.wxml-->
+<view  class="class_box">
+    <view class="h1">课程列表</view>
+    <view class="list_one">
+        <view class="h3">零基础课程</view>
+        <!-- navtigator:实现页面的跳转 url 配置的是跳转的路径 -->
+        <navigator  wx:for="{{level1}}" url="{{'/pages/classInfo/classInfo?til='+item.title+'&img='+item.img+'&id='+item.id+'&price='+item.price}}" wx:key="{{item.id}}">
+            <view class="item">
+                <view class="img_box">
+                    <image src="{{item.img}}"></image>
+                </view>
+                <view class="content_box">
+                    <view class="til">{{item.title}}</view>
+                    <view class="desc">这是个描述{{item.title}}</view>
+                    <view class="bot_box">
+                        <view>初级</view>
+                        <view>{{item.count}}份</view>
+                        <view>￥{{item.price}}</view>
+                    </view>
+                </view>
+            </view>
+        </navigator>
+    </view>
+    <view class="list_one">
+        <view class="h3">工程化课程</view>
+        <view wx:for="{{level2}}" wx:key="id">
+            <view class="item">
+                <view class="img_box">
+                    <image src="{{item.img}}"></image>
+                </view>
+                <view class="content_box">
+                    <view class="til">{{item.title}}</view>
+                    <view class="desc">这是个描述{{item.title}}</view>
+                    <view class="bot_box">
+                        <view>初级</view>
+                        <view>{{item.count}}份</view>
+                        <view>￥{{item.price}}</view>
+                    </view>
+                </view>
+            </view>
+            
+        </view>
+    </view>
+</view>

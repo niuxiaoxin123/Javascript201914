@@ -1,0 +1,10 @@
+{
+  "usingComponents":{
+    "van-sidebar": "../../path/vant-weapp/sidebar/index",
+    "van-sidebar-item": "../../path/vant-weapp/sidebar-item/index",
+    "van-card":"../../path/vant-weapp/card",
+    "van-button":"../../path/vant-weapp/button",
+    "van-icon":"../../path/vant-weapp/icon"
+  },
+  "navigationBarTitleText":"分类"
+}

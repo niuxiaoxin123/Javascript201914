@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+    "van-button": "../../path/vant-weapp/button",
+    "van-icon": "../../path/vant-weapp/icon",
+    "van-row": "../../path/vant-weapp/row",
+    "van-col": "../../path/vant-weapp/col",
+    "van-grid": "../../path/vant-weapp/grid",
+    "van-grid-item": "../../path/vant-weapp/grid-item/index",
+    "van-tab": "../../path/vant-weapp/tab/index",
+    "van-tabs": "../../path/vant-weapp/tabs/index"
+  },
+  "navigationBarTitleText": "首页"
+}

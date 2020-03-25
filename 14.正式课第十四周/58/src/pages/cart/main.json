@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "van-sidebar": "../../path/vant-weapp/sidebar/index",
+    "van-sidebar-item": "../../path/vant-weapp/sidebar-item/index",
+    "van-card": "../../path/vant-weapp/card",
+    "van-button": "../../path/vant-weapp/button",
+    "van-icon": "../../path/vant-weapp/icon",
+    "van-checkbox": "../../path/vant-weapp/checkbox/index",
+    "van-submit-bar": "../../path/vant-weapp/submit-bar/index",
+    "van-stepper": "../../path/vant-weapp/stepper/index",
+    "van-submit-bar": "../../path/vant-weapp/submit-bar/index"
+  },
+  "navigationBarTitleText": "购物车"
+}

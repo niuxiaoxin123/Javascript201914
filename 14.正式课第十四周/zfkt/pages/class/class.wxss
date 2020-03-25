@@ -1,0 +1,50 @@
+/* pages/class/class.wxss */
+.list_one{
+    padding:20rpx;
+}
+.list_one .h3{
+    padding:20rpx 0;
+}
+.item{
+    display: flex;
+    height:180rpx;
+    margin-bottom: 20rpx;
+}
+.item .img_box{
+    width:230rpx;
+}
+.item .img_box image{
+    width:100%;
+    height:100%;
+}
+.item .content_box{
+    flex:1;
+    overflow: hidden;
+    position: relative;
+    padding-left:20rpx;
+    box-sizing: border-box;
+}
+.item .content_box .til{
+    font-size: 35rpx;
+    height:80rpx;
+    line-height:80rpx;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+.item .content_box .desc{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+.item .content_box .bot_box{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    width:100%;
+}
+.item .content_box .bot_box view{
+    flex:1;
+}
+
+

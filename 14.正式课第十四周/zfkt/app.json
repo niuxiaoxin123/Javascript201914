@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/user",
+    "pages/classInfo/classInfo",
+    "pages/class/class",
+    "pages/logs/logs",
+    "component/dialog/dialog"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTitleText": "珠峰",
+    "navigationBarTextStyle": "white"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#5998ec",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "imgs/home_1.png",
+        "selectedIconPath": "imgs/home_2.png"
+      },
+      {
+        "pagePath": "pages/class/class",
+        "text": "课程中心",
+        "iconPath": "imgs/class_1.png",
+        "selectedIconPath": "imgs/class_2.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "用户",
+        "iconPath": "imgs/user_1.png",
+        "selectedIconPath": "imgs/user_2.png"
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+<view class="cart_box">
+    <view class="h1">购物车列表</view>
+    <view class="item_box" wx:for="{{cartList}}" wx:key="{{item.id}}">
+        <view class="img_box">
+            <image src="{{item.img}}"/>
+        </view>
+        <view class="content_box">
+            <view class="til">{{item.title}}</view>
+            <view class="price">单价：{{item.price}}</view>
+            <view class="count">
+                <!-- e.target.dataset.item-->
+                <input value="{{item.count}}" data-item="{{item}}" bindinput="change"></input>
+            </view>
+        </view>
+    </view>
+    <view>
+        总价是{{total}}
+    </view>
+</view>
